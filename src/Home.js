@@ -1,13 +1,11 @@
 import React from 'react';
 
-/**
- * 함수형 컴포넌트 스니펫입니다.
- */
+
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
-      <p>다들 화이팅</p>
+      <h1>천재 은소님</h1>
+      <p>감사합니다</p>
     </div>
   );
 };

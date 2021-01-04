@@ -22,7 +22,7 @@ const AnnounceCon = styled.div`
   font-size: 20px;
   font-weight: bold;
   margin: 40px auto;
-  /* padding: 15px; */
+  padding: 15px;
   width: 95%;
   height: 250px;
   background-color: #e3fdfd;
@@ -74,7 +74,7 @@ const FreeSmallCon = styled.div`
 const TextSmallBox = styled.div`
   width: 100%;
   height: 20%;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 `;
 const ImgCon = styled.div`
   width: 100%;
@@ -103,9 +103,7 @@ const Proto = () => {
           <FreeSmallCon>21학번</FreeSmallCon>
           <FreeSmallCon>자유게시판</FreeSmallCon>
         </FreeCon>
-        <ImgCon>
-
-        </ImgCon>
+        <ImgCon></ImgCon>
       </Wrap>
     </Con>
   );

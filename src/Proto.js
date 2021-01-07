@@ -92,7 +92,7 @@ const Proto = () => {
       <NavTemp />
       <Wrap>
         <AnnounceCon>
-          <TextSmallBox>공지사항</TextSmallBox>
+          <TextSmallBox>안내사항</TextSmallBox>
         </AnnounceCon>
         <MoveCon>
           <MoveSmallCon>전과 정보 게시판</MoveSmallCon>

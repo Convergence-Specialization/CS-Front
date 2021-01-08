@@ -4,7 +4,8 @@ import Home from "./Home";
 import { Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Proto from "./Proto";
-import YoungHyun from "./Test_Branches/YoungHyun";
+import JunHa from "./Test_Branches/JunHa";
+
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <Route path="/about" component={About} />
       <Route path="/proto" component={Proto} />
       <Route path="/test">
-        <YoungHyun />
+        <JunHa />
       </Route>
+      
     </div>
   );
 }

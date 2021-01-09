@@ -12,10 +12,10 @@ const RouterComponent = () => {
     <Router>
       <Switch>
         <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/Login" exact>
           <Login />
+        </Route>
+        <Route path="/login" exact>
+          <MainPage />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

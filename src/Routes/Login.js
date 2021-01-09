@@ -4,8 +4,8 @@ import Login from "../Component/Login";
 import Navbar from "../Component/Navbar";
 export default () => (
   <>
-    <Navbar />
+    {/* <Navbar /> */}
     <Login />
-    <Footer />
+    {/* <Footer /> */}
   </>
 );

@@ -6,7 +6,7 @@ const Container = styled.div`
   width: 100%;
   text-align: center;
   padding: 50px 0;
-  background-color: #484848;
+  background-color: white;
   color: white;
   line-height: 1.66;
   @media (max-width: 768px) {

@@ -1,6 +1,6 @@
 export const Images = {
   Background:
-    "https://user-images.githubusercontent.com/62606632/104090826-84c89800-52bc-11eb-8b94-2ecb0320c8fd.jpg",
+    "https://user-images.githubusercontent.com/62606632/104093808-46d56f00-52d0-11eb-8bbd-08293cdaf869.jpg",
 };
 export const Icons = {
   LOGO:

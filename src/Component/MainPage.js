@@ -2,16 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Con = styled.div`
+  font-family: "Nanum Gothic", sans-serif;
   width: 100%;
   background-color: #fafafa;
-  font-family: "Nanum Gothic", sans-serif;
-`;
-const NavTemp = styled.div`
-  height: 60px;
-  width: 100%;
-  background-color: #004a7c;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 `;
 const Wrap = styled.div`
   width: 90%;
@@ -74,7 +67,6 @@ const FreeSmallCon = styled.div`
 const TextSmallBox = styled.div`
   width: 100%;
   height: 20%;
-  /* border-bottom: 1px solid black; */
 `;
 const ImgCon = styled.div`
   width: 100%;
@@ -86,10 +78,9 @@ const ImgBox = styled.img`
   width: 95%;
 `;
 
-const Proto = () => {
+const MainPage = () => {
   return (
     <Con>
-      <NavTemp />
       <Wrap>
         <AnnounceCon>
           <TextSmallBox>안내사항</TextSmallBox>
@@ -108,4 +99,4 @@ const Proto = () => {
     </Con>
   );
 };
-export default Proto;
+export default MainPage;

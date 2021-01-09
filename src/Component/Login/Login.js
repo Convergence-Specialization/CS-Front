@@ -7,6 +7,7 @@ import { Images, Icons } from "../../assets/Resources";
 const Container = styled.div`
   font-family: "Nanum-round", sans-serif;
   width: 100%;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
 `;

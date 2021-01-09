@@ -6,7 +6,7 @@ const Container = styled.div`
   width: 100%;
   text-align: center;
   padding: 50px 0;
-  background-color: white;
+  background-color: black;
   color: white;
   line-height: 1.66;
   @media (max-width: 768px) {
@@ -29,12 +29,6 @@ const Text = styled.div`
 
 const Footer = () => {
   const [count, setCount] = useState(0);
-  const clicked = () => {
-    if (count === 3) {
-      document.location = "/secretlogin";
-    }
-    setCount(count + 1);
-  };
   return (
     <Container>
       <Text>융합특성화자유전공학부 커뮤니티</Text>

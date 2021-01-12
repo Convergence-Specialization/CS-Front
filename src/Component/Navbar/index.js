@@ -31,6 +31,7 @@ const Navbar = () => {
         </NavOpen>
         <NavMenu>
           <NavLink to="/about">게시판</NavLink>
+          <div>|</div>
           <NavLink to="/Login">로그인</NavLink>
         </NavMenu>
       </Nav>

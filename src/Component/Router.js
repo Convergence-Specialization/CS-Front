@@ -7,15 +7,19 @@ import {
 } from "react-router-dom";
 import Login from "../Routes/Login";
 import MainPage from "../Routes/MainPage";
+import Made from "../Routes/Made";
 const RouterComponent = () => {
   return (
     <Router>
       <Switch>
         <Route path="/" exact>
-          <Login />
+        <Login />
         </Route>
-        <Route path="/login" exact>
+        <Route path="/mainpage" exact>
           <MainPage />
+        </Route>
+        <Route path="/made" exact>
+          <Made />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

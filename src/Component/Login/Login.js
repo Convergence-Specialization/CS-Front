@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Images, Icons } from "../../assets/Resources";
+import { firebaseInstance, ui } from "../../firebase";
 // import * as firebaseui from "firebaseui";
 // import firebase from "firebase";
 
@@ -66,7 +67,6 @@ const LoginBoxSubTitle = styled.div`
 const LoginBoxTitle = styled.div`
   font-weight: bold;
   font-size: 57px;
-  /* text-align: center; */
   align-self: flex-start;
   margin-bottom: 15px;
 `;
@@ -84,7 +84,6 @@ const ButtonWrapper = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: space-between;
   font-size: 20px;
   font-weight: bold;
@@ -109,37 +108,39 @@ const SubmitButton = styled.div`
   }
 `;
 const SignUpWrapper = styled.div``;
+
 export default () => {
   const [signUpClicked, setSignUpClicked] = useState(false);
   useEffect(() => {
-    // var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    var uiConfig = {
+    const uiConfig = {
       callbacks: {
+        // Called when the user has been successfully signed in.
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-          return true;
-        },
-        uiShown: function () {
-          // The widget is rendered.
-          // Hide the loader.
-          // document.getElementById('loader').style.display = 'none';
+          if (authResult.user) {
+            console.log(authResult.user);
+            // handleSignedInUser(authResult.user);
+          }
+          if (authResult.additionalUserInfo) {
+            console.log("새로운 유저인가?", authResult.additionalUserInfo);
+          }
+          return false;
         },
       },
-      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      // Opens IDP Providers sign-in flow in a popup.
       signInFlow: "popup",
-      signInSuccessUrl: "/",
       signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        {
+          provider: firebaseInstance.auth.GoogleAuthProvider.PROVIDER_ID,
+          // Required to enable ID token credentials for this provider.
+          // clientId: CLIENT_ID,
+        },
+
+        firebaseInstance.auth.GithubAuthProvider.PROVIDER_ID,
       ],
-      // Terms of service url.
-      tosUrl: "<your-tos-url>",
-      // Privacy policy url.
-      privacyPolicyUrl: "<your-privacy-policy-url>",
+      tosUrl: "https://www.google.com",
+      privacyPolicyUrl: "https://www.google.com",
     };
-    // ui.start("#firebaseui-auth", uiConfig);
+    ui.start("#firebaseAuth", uiConfig);
   }, []);
   return (
     <Container>
@@ -161,6 +162,7 @@ export default () => {
               융합특성화자유전공학부에 오신 것을
             </LoginBoxSubTitle>
             <LoginBoxTitle>환영합니다</LoginBoxTitle>
+            <div className={"firebaseAuth"} id={"firebaseAuth"} />
             {/* <InputBox placeholder={"아이디"} />
             <InputBox placeholder={"비밀번호"} />
             <ButtonWrapper>

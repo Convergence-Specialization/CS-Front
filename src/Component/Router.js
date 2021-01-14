@@ -7,10 +7,8 @@ import {
 } from "react-router-dom";
 import Login from "../Routes/Login";
 import MainPage from "../Routes/MainPage";
-<<<<<<< HEAD
-=======
+import AppPage from "../Routes/AppPage";
 import Board from "./MainPage/Board";
->>>>>>> 828695bb95b6663bef456d3e097d50885522c738
 const RouterComponent = () => {
   return (
     <Router>
@@ -18,18 +16,15 @@ const RouterComponent = () => {
         <Route path="/" exact>
           <MainPage />
         </Route>
-<<<<<<< HEAD
-=======
         <Route path="/board" exact>
           <Board />
         </Route>
         <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path="/made" exact>
-          {/* <Made /> */}
+        <Route path="/app" exact>
+          <AppPage />
         </Route>
->>>>>>> 828695bb95b6663bef456d3e097d50885522c738
         <Redirect path="*" to="/" />
       </Switch>
     </Router>

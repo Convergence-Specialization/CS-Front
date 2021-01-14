@@ -1,11 +1,13 @@
 import Footer from "../Component/Footer";
 import AppPage from "../Component/AppPage";
-import Navbar from "../Component/Navbar";
+import BottomNav from "../Component/BottomNav";
+
 
 export default () => {
   return (
     <>
       <AppPage />
+      <BottomNav />
       <Footer />
     </>
   );

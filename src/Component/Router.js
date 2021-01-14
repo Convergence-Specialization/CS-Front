@@ -9,6 +9,7 @@ import Login from "../Routes/Login";
 import MainPage from "../Routes/MainPage";
 import AppPage from "../Routes/AppPage";
 import Board from "./MainPage/Board";
+import MyPage from "../Routes//MyPage";
 const RouterComponent = () => {
   return (
     <Router>
@@ -24,6 +25,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/app" exact>
           <AppPage />
+        </Route>
+        <Route path="/mypage" exact>
+          <MyPage />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

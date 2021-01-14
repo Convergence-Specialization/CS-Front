@@ -27,6 +27,7 @@ const BoxText = styled.div`
   font-size: 11px;
   margin:5px 0px;
   text-align:center;
+
 `;
 
 const Jon = styled.div`
@@ -74,6 +75,7 @@ const TextBox4 = styled.div`
   border: solid;
   border-width: 1px 1px 1px 1px;
   border-radius: 0px 0px 0px 20px;
+
 `;
 const Img = () => {
   return (

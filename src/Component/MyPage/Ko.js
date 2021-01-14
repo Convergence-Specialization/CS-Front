@@ -93,7 +93,7 @@ const TextBox4 = styled.div`
   border-width: 1px 1px 1px 1px;
   border-radius: 0px 0px 0px 20px;
 `;
-const Ko = () => {
+const Board = () => {
   return (
     <>
       <Oon>
@@ -118,4 +118,4 @@ const Ko = () => {
     </>
   );
 };
-export default Ko;
+export default Board;

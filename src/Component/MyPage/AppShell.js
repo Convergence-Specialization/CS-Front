@@ -7,8 +7,8 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { withRouter, useHistory } from "react-router-dom";
-import PersonIcon from "@material-ui/icons/Person";
 import styled from "styled-components";
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
   color: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     margin:'10px 0px'
   },
-  PersonButton: {
+  HomeButton: {
     marginRight: theme.spacing(2),
     margin:'10px 0px'
   },
@@ -80,9 +80,9 @@ const AppShell = (props) => {
             edge="start"
             className={classes.PersonButton}
             color="inherit"
-            aria-label="Person"
+            aria-label="Home"
           >
-            <PersonIcon fontSize="large" />
+            <HomeIcon fontSize="large" />
           </IconButton>
         </Toolbar>
       </AppBar>

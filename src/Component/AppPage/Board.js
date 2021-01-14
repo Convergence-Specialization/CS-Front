@@ -58,41 +58,6 @@ const Qon = styled.div`
   justify-content: center;
   margin: 0px;
 `;
-const TextBox = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 20px 0px 0px 0px;
-`;
-const TextBox1 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-`;
-const TextBox2 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 0px 20px 0px 0px;
-`;
-const TextBox3 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 0px 0px 20px 0px;
-`;
-const TextBox4 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 0px 0px 0px 20px;
-`;
 const Board = () => {
   return (
     <>

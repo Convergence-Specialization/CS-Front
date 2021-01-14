@@ -1,8 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppShell from "./AppShell";
+import Bottomnav from "./Bottomnav";
 import Board from "./Board";
-import Img from "./Img";
+
+import Ko from "./Ko";
 const useStyles = makeStyles({});
 
 export default function MainPage() {
@@ -10,8 +12,9 @@ export default function MainPage() {
   return (
     <div>
       <AppShell />
-      <Img />
+      <Ko />
       <Board />
+      <Bottomnav />
     </div>
   );
 }

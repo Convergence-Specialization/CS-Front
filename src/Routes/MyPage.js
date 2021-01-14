@@ -1,14 +1,11 @@
 import Footer from "../Component/Footer";
-import MainPage from "../Component/MainPage";
+import MyPage from "../Component/MyPage";
 import Navbar from "../Component/Navbar";
-import BottomNav from "../Component/BottomNav";
 
 export default () => {
   return (
     <>
-      <Navbar />
-      <MainPage />
-      <BottomNav />
+      <MyPage />
       <Footer />
     </>
   );

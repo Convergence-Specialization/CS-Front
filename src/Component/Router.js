@@ -7,7 +7,9 @@ import {
 } from "react-router-dom";
 import Login from "../Routes/Login";
 import MainPage from "../Routes/MainPage";
+import AppPage from "../Routes/AppPage";
 import Board from "./MainPage/Board";
+import MyPage from "../Routes//MyPage";
 const RouterComponent = () => {
   return (
     <Router>
@@ -21,8 +23,11 @@ const RouterComponent = () => {
         <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path="/made" exact>
-          {/* <Made /> */}
+        <Route path="/app" exact>
+          <AppPage />
+        </Route>
+        <Route path="/mypage" exact>
+          <MyPage />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

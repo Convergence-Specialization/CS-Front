@@ -8,6 +8,10 @@ const Con = styled.div`
   width: 78%;
   background-color: #ddd;
   border-radius: 20px;
+  @media(max-width: 430px){
+    width: 105%;
+    margin: 0px 0px 0px 24px;
+  }
 `;
 
 const Oon = styled.div`
@@ -16,18 +20,25 @@ const Oon = styled.div`
   width: 50%;
   display: flex;
   justify-content: start;
+  @media(max-width: 430px){
+    margin: 0px 0px 0px 30px;
+  }
 `;
 const Text = styled.div`
-  font-size: 35px;
+  font-size: 30px;
   margin: 0px 0px;
-  padding: 10px;
-  background-color: white;
+  padding: 0px;
+  font-family: NanumSquareRoundB;
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #242323;
 `;
-const BoxText = styled.div`
-  font-size: 11px;
-  margin: 5px 0px;
-  text-align: center;
-`;
+
 
 const Wrap = styled.div`
   width: 90%;
@@ -37,6 +48,20 @@ const Wrap = styled.div`
   border-radius: 20px;
   margin: 0px 0px 10px 0px;
   padding: 10px 30px;
+  font-family: NanumSquareRoundR;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.12;
+  letter-spacing: normal;
+  text-align: left;
+  color: #444444;
+  @media(max-width: 430px){
+    width: 95%;
+    margin: 0px 0px 10px 0px;
+    padding: 10px 6px 10px 20px;
+  }
 `;
 const Jrap = styled.div`
   width: 90%;
@@ -44,55 +69,22 @@ const Jrap = styled.div`
   justify-content: space-between;
   background-color: white;
   border-radius: 20px;
-
+  font-family: NanumSquareRoundR;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.12;
+  letter-spacing: normal;
+  text-align: left;
+  color: #444444;
   padding: 10px 30px;
+  @media(max-width: 430px){
+    width: 95%;
+    padding: 10px 6px 10px 20px;
+  }
 `;
-const Jon = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px 0px;
-  padding: 0px 10px;
-`;
-const Qon = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px;
-`;
-const TextBox = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 20px 0px 0px 0px;
-`;
-const TextBox1 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-`;
-const TextBox2 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 0px 20px 0px 0px;
-`;
-const TextBox3 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
 
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 0px 0px 20px 0px;
-`;
-const TextBox4 = styled.div`
-  padding: 15px 50px;
-  background-color: white;
-  border: solid;
-  border-width: 1px 1px 1px 1px;
-  border-radius: 0px 0px 0px 20px;
-`;
 const Ko = () => {
   return (
     <>
@@ -100,12 +92,11 @@ const Ko = () => {
         <img
           src={Icons.공지}
           alt="비행기"
-          style={{ height: "55px" }}
+          style={{ height: "39px" }}
         ></img>
         <Text>학생회 공지</Text>
       </Oon>
       <Con>
-        
           <Wrap>
             <div>추석맞이 융병호 게임</div>
             <div>21.01.14~21.01.20</div>

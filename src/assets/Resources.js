@@ -28,8 +28,10 @@ export const Icons = {
   Home:
   "https://user-images.githubusercontent.com/74090222/104623258-8ab3e400-56d5-11eb-814e-69213adceae4.png",
   menu:
-  "https://user-images.githubusercontent.com/74090222/104625327-fe56f080-56d7-11eb-9a52-90d0283a7630.png",
+  "https://user-images.githubusercontent.com/74090222/104816027-ca0c3d00-585b-11eb-98ec-91c12d3db1b3.png",
   프로필:
   "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
+  person:
+  "https://user-images.githubusercontent.com/74090222/104816559-63891e00-585f-11eb-95a4-70d5e59045b5.png",
 };
 

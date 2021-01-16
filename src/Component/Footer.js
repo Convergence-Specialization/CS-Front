@@ -12,10 +12,6 @@ const Container = styled.div`
   background-color: white;
   color: white;
   line-height: 1.16;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 `;
 const Title = styled.div`
   font-size: 25px;

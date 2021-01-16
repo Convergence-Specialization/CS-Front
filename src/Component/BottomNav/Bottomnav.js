@@ -7,10 +7,6 @@ const Con = styled.div`
   justify-content: space-between;
   margin: 0px 0px;
   background-color: #D3DAE3;
-  position: fixed;
-  bottom: 110px;
-  left: 0;
-  right: 0;
 `;
 const Qon = styled.div`
   margin: 20px auto;

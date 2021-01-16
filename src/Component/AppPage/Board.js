@@ -8,6 +8,7 @@ const Con = styled.div`
   width: 78%;
   background-color: #ddd;
   border-radius: 20px;
+  
 `;
 
 const Oon = styled.div`
@@ -23,11 +24,7 @@ const Text = styled.div`
   padding: 10px;
   background-color: white;
 `;
-const BoxText = styled.div`
-  font-size: 11px;
-  margin: 5px 0px;
-  text-align: center;
-`;
+
 
 const Wrap = styled.div`
   width: 90%;
@@ -47,17 +44,7 @@ const Jrap = styled.div`
 
   padding: 10px 30px;
 `;
-const Jon = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px 0px;
-  padding: 0px 10px;
-`;
-const Qon = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px;
-`;
+
 const Board = () => {
   return (
     <>

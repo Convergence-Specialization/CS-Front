@@ -18,10 +18,16 @@ const Oon = styled.div`
 
 `;
 const Text = styled.div`
-  font-size: 35px;
-  margin: 0px 0px;
-  padding: 10px;
-  background-color: white;
+  font-size: 30px;
+  font-family: NanumSquareRoundB;
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #242323;
 `;
 const BoxText = styled.div`
   font-size: 11px;
@@ -40,6 +46,10 @@ const Qon = styled.div`
   display: flex;
   justify-content: center;
   margin: 0px;
+  @media(max-width: 430px){
+    width: 95%;
+    margin: 0px 0px 0px 30px;
+  }
 `;
 const TextBox = styled.div`
   padding: 15px 50px;
@@ -81,7 +91,7 @@ const Img = () => {
   return (
     <>
       <Oon>
-        <img src={Icons.Paperplane} alt="비행기" style={{ height: "60px" }} ></img>
+        <img src={Icons.Paperplane} alt="비행기" style={{ height: "50px" }} ></img>
       <Text>융합전공 소개</Text>
       </Oon>
       <Con>

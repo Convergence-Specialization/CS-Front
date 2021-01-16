@@ -1,12 +1,12 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
   IconButton,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter} from "react-router-dom";
 import styled from "styled-components";
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -41,26 +41,8 @@ const Con = styled.div`
 `;
 
 const AppShell = (props) => {
-  const routerHistory = useHistory();
-  const { history } = props;
+ 
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const theme = useTheme();
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClick = (pageURL) => {
-    history.push(pageURL);
-  };
-
-  function handleButtonClick(pageURL) {
-    history.push(pageURL);
-  }
-
-
   return (
     <div className={classes.color}>
       <AppBar position="static">
@@ -74,13 +56,13 @@ const AppShell = (props) => {
             <MenuIcon fontSize="large" />
           </IconButton>
           <div className={classes.headerOptions}>
-            <Con >숭실대학교 슝</Con>
+            <Con >마이페이지</Con>
           </div>
           <IconButton
             edge="start"
-            className={classes.PersonButton}
+            className={classes.HomeButton}
             color="inherit"
-            aria-label="Home"
+            aria-label="Person"
           >
             <HomeIcon fontSize="large" />
           </IconButton>

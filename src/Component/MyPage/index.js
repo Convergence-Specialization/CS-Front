@@ -1,11 +1,10 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppShell from "./AppShell";
-import Bottomnav from "./Bottomnav";
-import Board from "./Board";
 
+import AppShell from "./AppShell";
+
+import Board from "./Board";
 import Ko from "./Ko";
-const useStyles = makeStyles({});
+
 
 export default function MainPage() {
   // const classes = useStyles();
@@ -14,7 +13,6 @@ export default function MainPage() {
       <AppShell />
       <Ko />
       <Board />
-      <Bottomnav />
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
   IconButton,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter} from "react-router-dom";
 import PersonIcon from "@material-ui/icons/Person";
 import styled from "styled-components";
 
@@ -41,26 +41,8 @@ const Con = styled.div`
 `;
 
 const AppShell = (props) => {
-  const routerHistory = useHistory();
-  const { history } = props;
+ 
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const theme = useTheme();
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClick = (pageURL) => {
-    history.push(pageURL);
-  };
-
-  function handleButtonClick(pageURL) {
-    history.push(pageURL);
-  }
-
-
   return (
     <div className={classes.color}>
       <AppBar position="static">
@@ -91,3 +73,5 @@ const AppShell = (props) => {
 };
 
 export default withRouter(AppShell);
+
+

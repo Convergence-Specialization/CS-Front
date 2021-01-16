@@ -25,5 +25,11 @@ export const Icons = {
   "https://user-images.githubusercontent.com/74090222/104585329-31cd5700-56a7-11eb-913d-0daddf15de16.png",
   숭실:
   "https://user-images.githubusercontent.com/74090222/104586083-5413a480-56a8-11eb-865d-e154a8f65127.png",
+  Home:
+  "https://user-images.githubusercontent.com/74090222/104623258-8ab3e400-56d5-11eb-814e-69213adceae4.png",
+  menu:
+  "https://user-images.githubusercontent.com/74090222/104625327-fe56f080-56d7-11eb-9a52-90d0283a7630.png",
+  프로필:
+  "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
 };
 

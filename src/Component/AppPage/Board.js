@@ -97,6 +97,7 @@ const Board = () => {
           src={Icons.Paperplane}
           alt="비행기"
           style={{ height: "60px" }}
+          
         ></img>
         <Text>전과 게시판</Text>
       </Oon>

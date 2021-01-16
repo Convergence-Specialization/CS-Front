@@ -33,6 +33,7 @@ const BB = () => {
               <Oon>로그인</Oon>
               <Oon>회원가입</Oon>
               <Oon>PC버전</Oon>
+              <Oon>이용약관</Oon>
             </Qon>
           </Con>
       </div>

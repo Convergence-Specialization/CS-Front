@@ -7,8 +7,6 @@ import BBtop from "./BBtop";
 export default function BottomNav() {
   return (
     <div>
-      <BBtop/>
-      <BB />
       <Bottomnav />
     </div>
   );

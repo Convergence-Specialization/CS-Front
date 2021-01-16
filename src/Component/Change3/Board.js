@@ -75,7 +75,7 @@ const Board = () => {
       </Jon>
       <Con>
         <Wrap>
-          <Text1>새 계정 비밀번호</Text1>
+          <Text1>새 계정 비밀번호 확인</Text1>
         </Wrap>
       </Con>
       <Kon>비밀번호 변경</Kon>

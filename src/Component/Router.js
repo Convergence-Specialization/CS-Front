@@ -11,7 +11,7 @@ import AppPage from "../Routes/AppPage";
 import Board from "./MainPage/Board";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
-import Change2 from "../Routes/Change2";
+
 import Change3 from "../Routes/Change3";
 const RouterComponent = () => {
   return (
@@ -35,9 +35,7 @@ const RouterComponent = () => {
         <Route path="/change" exact>
           <Change />
         </Route>
-        <Route path="/change2" exact>
-          <Change2 />
-        </Route>
+       
         <Route path="/change3" exact>
           <Change3 />
         </Route>

@@ -16,6 +16,8 @@ const Oon = styled.div`
   width: 50%;
   display: flex;
   justify-content: start;
+  background-color:'red';
+  
 `;
 const Text = styled.div`
   font-size: 35px;

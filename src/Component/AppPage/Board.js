@@ -9,7 +9,6 @@ const Con = styled.div`
   background-color: #ddd;
   border-radius: 20px;
 `;
-
 const Oon = styled.div`
   margin: 10px auto 0px 70px;
   padding: 20px;
@@ -23,12 +22,6 @@ const Text = styled.div`
   padding: 10px;
   background-color: white;
 `;
-const BoxText = styled.div`
-  font-size: 11px;
-  margin: 5px 0px;
-  text-align: center;
-`;
-
 const Wrap = styled.div`
   width: 90%;
   display: flex;
@@ -44,19 +37,7 @@ const Jrap = styled.div`
   justify-content: space-between;
   background-color: white;
   border-radius: 20px;
-
   padding: 10px 30px;
-`;
-const Jon = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px 0px;
-  padding: 0px 10px;
-`;
-const Qon = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px;
 `;
 const Board = () => {
   return (
@@ -97,7 +78,6 @@ const Board = () => {
           src={Icons.Paperplane}
           alt="비행기"
           style={{ height: "60px" }}
-          
         ></img>
         <Text>전과 게시판</Text>
       </Oon>

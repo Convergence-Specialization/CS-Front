@@ -3,38 +3,34 @@ import {
   Nav,
   NavLink,
   Bars,
-  NavMenu,
   NavOpen,
   NavLinkOpen,
+  IconImg,
+  NavLeftMargin,
 } from "./NavbarElements";
 
-import { Icons } from "../../assets/Resources";
+import { mainPageIcons } from "../../assets/Resources";
 
 const Navbar = () => {
   const [navClicked, setNavClicked] = useState(false);
   return (
     <>
       <Nav>
-        <NavLink to="/">
-          <img src={Icons.LOGO} alt="융특 로고" style={{ height: "50px" }} />
-        </NavLink>
         <Bars onClick={() => setNavClicked(!navClicked)} />
-        <NavOpen
-          style={
-            navClicked
-              ? { left: "0", opacity: "1" }
-              : { left: "-100%", opacity: "0" }
-          }>
-          <NavLinkOpen to="/about">20학번</NavLinkOpen>
-          <NavLinkOpen to="/ServiceOverview">21학번</NavLinkOpen>
-          <NavLink to="/Login">로그인</NavLink>
-        </NavOpen>
-        <NavMenu>
-          <NavLink to="/about">게시판</NavLink>
-          <div>|</div>
-          <NavLink to="/Login">로그인</NavLink>
-        </NavMenu>
+        <NavLink to="/">융특 커뮤니티 슝</NavLink>
+        <NavLeftMargin />
+        <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
+        <IconImg src={mainPageIcons.profile} alt={"프로필 아이콘"} />
       </Nav>
+      <NavOpen
+        style={
+          navClicked
+            ? { left: "0", opacity: "1" }
+            : { left: "-100%", opacity: "0" }
+        }>
+        <NavLinkOpen to="/about">20학번</NavLinkOpen>
+        <NavLinkOpen to="/ServiceOverview">21학번</NavLinkOpen>
+      </NavOpen>
     </>
   );
 };

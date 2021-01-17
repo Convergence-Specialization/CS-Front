@@ -8,7 +8,7 @@ const Con = styled.div`
   width: 90%;
   border-radius: 16px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: red;
+  background-color: #f1f1f1;
   @media (max-width: 430px){
     width:120%;
     margin: 0px 0px 10px 26px;

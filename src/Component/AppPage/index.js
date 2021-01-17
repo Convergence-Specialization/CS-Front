@@ -7,7 +7,6 @@ import Ko from "./Ko";
 export default function AppPage() {
   return (
     <div>
-
       <Ko />
       <Img />
       <Board />

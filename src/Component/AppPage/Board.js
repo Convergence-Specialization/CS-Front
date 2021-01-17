@@ -10,7 +10,7 @@ const Con = styled.div`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #f1f1f1;
   @media(max-width: 430px){
-    width: 120%;
+    /* width: 120%; */
     margin: 0px 10px 0px 30px;
     padding: 12px 15px 12px 15px;
   }

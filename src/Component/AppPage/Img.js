@@ -3,16 +3,14 @@ import { Icons } from "../../assets/Resources";
 import styled from "styled-components";
 
 const Con = styled.div`
- margin: 0px 0px 10px 26px;
- padding: 13px 15px 13px 15px;
+  margin: 0px 0px 10px 26px;
+  padding: 13px 15px 13px 15px;
   width: 90%;
   border-radius: 16px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #f1f1f1;
-  @media (max-width: 430px){
-    width:120%;
+  @media (max-width: 430px) {
     margin: 0px 0px 10px 26px;
-    padding: 13px 25px 13px 5px;
   }
 `;
 const Oon = styled.div`
@@ -21,7 +19,7 @@ const Oon = styled.div`
   width: 50%;
   display: flex;
   justify-content: start;
-  @media(max-width: 430px){
+  @media (max-width: 430px) {
     margin: 0px 0px 0px 50px;
   }
 `;
@@ -38,7 +36,7 @@ const Text = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #242323;
-  @media (max-width:430px){
+  @media (max-width: 430px) {
     font-size: 23px;
     margin: 0px 0px;
     padding: 0px 0px 0px 10px;
@@ -55,7 +53,7 @@ const BoxText = styled.div`
   letter-spacing: normal;
   text-align: center;
   color: #3b3b3b;
-  @media(max-width: 430px){
+  @media (max-width: 430px) {
     font-size: 8px;
   }
 `;
@@ -63,7 +61,7 @@ const Qon = styled.div`
   display: flex;
   justify-content: center;
   margin: 0px;
-  @media(max-width: 430px){
+  @media (max-width: 430px) {
     width: 98%;
     padding: 0px 8px 0px 15px;
   }
@@ -74,14 +72,14 @@ const TextBox = styled.div`
   border: solid;
   border-width: 1px 1px 1px 1px;
   border-radius: 20px 0px 0px 0px;
-  width:20%;
+  width: 20%;
 `;
 const TextBox1 = styled.div`
   padding: 15px 50px;
   background-color: white;
   border: solid;
   border-width: 1px 1px 1px 1px;
-  width:20%;
+  width: 20%;
 `;
 const TextBox2 = styled.div`
   padding: 15px 50px;
@@ -89,7 +87,7 @@ const TextBox2 = styled.div`
   border: solid;
   border-width: 1px 1px 1px 1px;
   border-radius: 0px 20px 0px 0px;
-  width:20%;
+  width: 20%;
 `;
 const TextBox3 = styled.div`
   padding: 15px 50px;
@@ -97,7 +95,7 @@ const TextBox3 = styled.div`
   border: solid;
   border-width: 1px 1px 1px 1px;
   border-radius: 0px 0px 20px 0px;
-  width:20%;
+  width: 20%;
 `;
 const TextBox4 = styled.div`
   padding: 15px 50px;
@@ -105,19 +103,19 @@ const TextBox4 = styled.div`
   border: solid;
   border-width: 1px 1px 1px 1px;
   border-radius: 0px 0px 0px 20px;
-  width:20%;
+  width: 20%;
 `;
 const Img = () => {
   return (
     <>
       <Oon>
-        <img src={Icons.Paperplane} alt="비행기" style={{ width: "19%" }} ></img>
-      <Text>융합전공 소개</Text>
+        <img src={Icons.Paperplane} alt="비행기" style={{ width: "19%" }}></img>
+        <Text>융합전공 소개</Text>
       </Oon>
       <Con>
         <Qon>
           <TextBox>
-            <img src={Icons.Car} alt="차" style={{  width: "100%" }} />
+            <img src={Icons.Car} alt="차" style={{ width: "100%" }} />
             <BoxText>스마트 자동차</BoxText>
           </TextBox>
           <TextBox1>
@@ -139,12 +137,8 @@ const Img = () => {
             <BoxText>ICT 유통물류</BoxText>
           </TextBox1>
           <TextBox3>
-            <img
-              src={Icons.Unification}
-              alt="통일"
-              style={{ width: "100%" }}
-            />
-          <BoxText>통일외교 및 개발 협력</BoxText>
+            <img src={Icons.Unification} alt="통일" style={{ width: "100%" }} />
+            <BoxText>통일외교 및 개발 협력</BoxText>
           </TextBox3>
         </Qon>
       </Con>

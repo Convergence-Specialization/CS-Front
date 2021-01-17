@@ -4,20 +4,27 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   font-family: "Noto Sans KR", sans-serif;
-  background: white;
+  background: #a2c8f3;
   height: 60px;
   display: flex;
+  position: relative;
+  align-items: center;
   justify-content: space-between;
-  padding: 0 calc((100vw - 1000px) / 2);
   z-index: 10;
+`;
+export const NavLeftMargin = styled.div`
+  flex: 1;
 `;
 
 export const NavLink = styled(Link)`
-  color: black;
-  display: flex;
-  align-items: center;
+  position: absolute;
+  color: white;
+  text-align: center;
   text-decoration: none;
   font-size: 20px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
   font-weight: bold;
   padding: 0 1rem;
   cursor: pointer;
@@ -49,56 +56,16 @@ export const NavLinkOpen = styled(Link)`
 
 export const Bars = styled(FaBars)`
   display: none;
-  @media screen and (max-width: 1023px) {
-    color: black;
+  @media (max-width: 1023px) {
+    color: white;
     display: block;
-    margin: auto 13.1px auto 0;
+    margin: auto 0 auto 13.1px;
     font-size: 1.8rem;
     cursor: pointer;
   }
 `;
-
-export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: -24px;
-
-  @media screen and (max-width: 1023px) {
-    display: none;
-  }
-`;
-
-export const NavBtn = styled.nav`
-  display: flex;
-  align-items: center;
-  margin-right: 24px;
-
-  /* Third Nav */
-  /* justify-content: flex-end;
-  width: 100vw; */
-
-  @media screen and (max-width: 1023px) {
-    display: none;
-  }
-`;
-
-export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
-  background: #256ce1;
-  padding: 10px 22px;
-  color: #fff;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-
-  /* Second Nav */
-  margin-left: 24px;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #f08a5d;
-  }
+export const IconImg = styled.img`
+  width: 27px;
+  margin-right: 13px;
+  justify-self: self-end;
 `;

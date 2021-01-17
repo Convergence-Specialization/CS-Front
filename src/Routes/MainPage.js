@@ -3,7 +3,7 @@ import MainPage from "../Component/MainPage";
 import Navbar from "../Component/Navbar";
 import BottomNav from "../Component/BottomNav";
 
-export default () => {
+const MainPagePresenter = () => {
   return (
     <>
       <Navbar />
@@ -13,3 +13,4 @@ export default () => {
     </>
   );
 };
+export default MainPagePresenter;

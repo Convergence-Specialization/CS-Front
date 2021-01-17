@@ -8,11 +8,11 @@ export const Icons = {
   Car:
   "https://user-images.githubusercontent.com/74090222/104556053-39c6d000-5682-11eb-8f21-fefdc72bf7d6.png",
   BigData:
-  "https://user-images.githubusercontent.com/74090222/104555277-f15ae280-5680-11eb-8248-3af13f5be2a0.png",
+  "https://user-images.githubusercontent.com/74090222/104832836-94a53500-58d7-11eb-8d05-cea8d4ce9bee.png",
   Security:
   "https://user-images.githubusercontent.com/74090222/104556266-9cb86700-5682-11eb-919e-c1da6aa7e7bf.png",
   Unification:
-  "https://user-images.githubusercontent.com/74090222/104558247-de96dc80-5685-11eb-9c7f-2a59bdc7a3d7.png",
+  "https://user-images.githubusercontent.com/74090222/104833872-4bf17a00-58df-11eb-93fd-8d05deaa9d54.png",
   Ict:
   "https://user-images.githubusercontent.com/74090222/104556134-5fec7000-5682-11eb-8da7-d93f43fb4d2b.png",
   Energy:
@@ -28,8 +28,10 @@ export const Icons = {
   Home:
   "https://user-images.githubusercontent.com/74090222/104623258-8ab3e400-56d5-11eb-814e-69213adceae4.png",
   menu:
-  "https://user-images.githubusercontent.com/74090222/104625327-fe56f080-56d7-11eb-9a52-90d0283a7630.png",
+  "https://user-images.githubusercontent.com/74090222/104832900-26ad3d80-58d8-11eb-9b6b-f60818b59f7b.png",
   프로필:
   "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
+  person:
+  "https://user-images.githubusercontent.com/74090222/104832964-c8cd2580-58d8-11eb-9e2c-de51aa294b56.png",
 };
 

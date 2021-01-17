@@ -64,7 +64,7 @@ const Nav = () => {
           <Jon>융특 커뮤니티 슝</Jon>
         </Oon>
         <Qon>
-          <img src={Icons.person} alt="프로필" style={{ height: "40px" }}></img>
+          <img src={Icons.person} alt="사람" style={{ width: "40px" }}></img>
         </Qon>
       </Con>
     </div>

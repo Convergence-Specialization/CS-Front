@@ -17,7 +17,7 @@ const Con = styled.div`
 `;
 
 const Oon = styled.div`
-  margin: 10px auto 0px 70px;
+  margin: 10px auto 0px 50px;
   padding: 20px 0px 10px 0px;
   width: 50%;
   display: flex;
@@ -29,7 +29,7 @@ const Oon = styled.div`
 const Text = styled.div`
   font-size: 30px;
   margin: 0px 0px;
-  padding: 5px 0px 0px 0px;
+  padding: 10px 0px 0px 10px;
   font-family: NanumSquareRoundB;
   font-size: 30px;
   font-weight: normal;
@@ -42,7 +42,7 @@ const Text = styled.div`
   @media (max-width:430px){
     font-size: 23px;
     margin: 0px 0px;
-    padding: 4px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
   }
 `;
 

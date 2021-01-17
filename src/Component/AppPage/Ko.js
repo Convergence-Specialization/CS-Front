@@ -9,7 +9,7 @@ const Con = styled.div`
   background-color: #ddd;
   border-radius: 20px;
   @media(max-width: 430px){
-    width: 105%;
+    width: 115%;
     margin: 0px 0px 0px 24px;
   }
 `;
@@ -44,32 +44,42 @@ const Wrap = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
-  background-color: white;
-  border-radius: 20px;
+  border-radius: 21px;
+  background-color: #ffffff;
   margin: 0px 0px 10px 0px;
   padding: 10px 30px;
-  font-family: NanumSquareRoundR;
-  font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.12;
-  letter-spacing: normal;
-  text-align: left;
-  color: #444444;
+  
   @media(max-width: 430px){
     width: 95%;
     margin: 0px 0px 10px 0px;
     padding: 10px 6px 10px 20px;
   }
 `;
+
 const Jrap = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
-  background-color: white;
-  border-radius: 20px;
-  font-family: NanumSquareRoundR;
+  border-radius: 21px;
+  background-color: #ffffff;
+  padding: 10px 30px;
+  @media(max-width: 430px){
+    width: 95%;
+    padding: 10px 6px 10px 20px;
+  }
+`;
+const Qext = styled.div`
+font-family: Calibri;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: italic;
+  line-height: 1.37;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3d3d3d;
+`;
+const Wext = styled.div`
+font-family: NanumSquareRoundR;
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
@@ -78,13 +88,7 @@ const Jrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #444444;
-  padding: 10px 30px;
-  @media(max-width: 430px){
-    width: 95%;
-    padding: 10px 6px 10px 20px;
-  }
 `;
-
 const Ko = () => {
   return (
     <>
@@ -98,12 +102,12 @@ const Ko = () => {
       </Oon>
       <Con>
           <Wrap>
-            <div>추석맞이 융병호 게임</div>
-            <div>21.01.14~21.01.20</div>
+            <Wext>추석맞이 융병호 게임</Wext>
+            <Qext>21.01.14~21.01.20</Qext>
           </Wrap>
           <Jrap>
-            <div>학부장에게 물어봐!</div>
-            <div>21.01.14~21.01.20</div>
+            <Wext>학부장에게 물어봐!</Wext>
+            <Qext>21.01.14~21.01.20</Qext>
           </Jrap>
       </Con>
     </>

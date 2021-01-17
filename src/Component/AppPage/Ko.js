@@ -3,31 +3,33 @@ import { Icons } from "../../assets/Resources";
 import styled from "styled-components";
 
 const Con = styled.div`
-  margin: 0px auto 10px auto;
-  padding: 15px;
-  width: 78%;
-  background-color: #ddd;
-  border-radius: 20px;
+  margin: 0px 0px 10px 26px;
+  padding: 13px 5px 13px 15px;
+  width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #f1f1f1;
   @media(max-width: 430px){
-    width: 115%;
-    margin: 0px 0px 0px 24px;
+    width: 120%;
+    margin: 0px 10px 0px 30px;
+    padding: 12px 15px 12px 15px;
   }
 `;
 
 const Oon = styled.div`
-  margin: 10px auto 0px 70px;
-  padding: 20px;
+  margin: 10px auto 0px 50px;
+  padding: 20px 0px 10px 0px;
   width: 50%;
   display: flex;
   justify-content: start;
   @media(max-width: 430px){
-    margin: 0px 0px 0px 30px;
+    margin: 0px 0px 0px 50px;
   }
 `;
 const Text = styled.div`
   font-size: 30px;
   margin: 0px 0px;
-  padding: 0px;
+  padding: 0px 0px 0px 10px;
   font-family: NanumSquareRoundB;
   font-size: 30px;
   font-weight: normal;
@@ -37,6 +39,11 @@ const Text = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #242323;
+  @media (max-width:430px){
+    font-size: 23px;
+    margin: 0px 0px;
+    padding: 0px 0px 0px 10px;
+  }
 `;
 
 
@@ -70,6 +77,7 @@ const Jrap = styled.div`
 `;
 const Qext = styled.div`
 font-family: Calibri;
+font-size: 19px;
   font-weight: 300;
   font-stretch: normal;
   font-style: italic;
@@ -77,10 +85,13 @@ font-family: Calibri;
   letter-spacing: normal;
   text-align: left;
   color: #3d3d3d;
+  @media (max-width:430px){
+    font-size: 15px;
+  }
 `;
 const Wext = styled.div`
 font-family: NanumSquareRoundR;
-  font-size: 15px;
+  font-size: 25px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -88,6 +99,9 @@ font-family: NanumSquareRoundR;
   letter-spacing: normal;
   text-align: left;
   color: #444444;
+  @media (max-width:430px){
+    font-size: 18px;
+  }
 `;
 const Ko = () => {
   return (
@@ -96,7 +110,7 @@ const Ko = () => {
         <img
           src={Icons.공지}
           alt="비행기"
-          style={{ height: "39px" }}
+          style={{ width: '15%' }}
         ></img>
         <Text>학생회 공지</Text>
       </Oon>

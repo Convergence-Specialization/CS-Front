@@ -6,12 +6,12 @@ const Con = styled.div`
   display: flex;
   align-items:center;
   justify-content:space-between;
-  width:100%;
+  width: 100%;
   padding: 20px 24px 17px 8px;
   background-color: #a2c8f3;
   @media(max-width: 430px){
       width:120%;
-      padding: 20px 20px 17px 60px;
+      padding: 20px 20px 17px 80px;
     margin:0px 0px 0px 0px;
     
   },

@@ -4,37 +4,83 @@ import styled from "styled-components";
 
 const Con = styled.div`
   display: flex;
+
   justify-content: space-between;
-  margin: 0px 0px;
-  background-color: #D3DAE3;
+  margin: 40px 0px 0px 0px;
+  padding: 0px 26px 0px 20px;
+  align-items:center;
+  background-color: #d3dae3;
+  @media(max-width: 430px){
+    width: 130%;
+    margin: 30px 0px 0px 0px;
+  padding: 0px 30px 0px 20px;
+  }
 `;
 const Qon = styled.div`
-  margin: 20px auto;
+  margin: 0px 5px 0px 0px;
+  padding: 3px 10px 0px 20px;
+  font-family: NanumSquareRoundR;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3d3d3d;
+  @media(max-width: 430px){
+    font-size: 7px;
+    margin: 0px 15px 0px 0px;
+    padding: 12px 10px 10px 10px;
+  }
+`;
+const Won = styled.div`
+  margin: 0px 10px 0px 0px;
+  padding: 3px 0px 0px 20px;
+  font-family: NanumGothic;
+  font-size: 17px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.24;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3d3d3d;
+  @media(max-width: 430px){
+    font-size:10px;
+    margin: 0px 15px 0px 10px;
+    padding: 12px 0px 10px 0px;
+  }
 `;
 
 const Jon = styled.div`
-  margin: 20px;
+  margin: 20px 10px;
+  font-size: 15px;
+  @media(max-width: 430px){
+    font-size:11px;
+    margin: 10px 10px;
+  }
 `;
 
 const Bottomnav = () => {
   return (
       <div>
           <Con>
-            <Qon>
-              <div>관련사이트</div>
-            </Qon>
+            <Won>
+              관련사이트
+            </Won>
             <Jon>|</Jon>
             <Qon>
-              <div>숭실대학교 홈페이지</div>
+              숭실대학교 홈페이지
             </Qon>
             <Qon>
-              <div>유세인트</div>
+              유세인트
             </Qon>
             <Qon>
-              <div>스마트캠퍼스</div>
+             스마트캠퍼스
             </Qon>
             <Qon>
-              <div>융특 홈페이지</div>
+              융특 홈페이지
             </Qon>
           </Con>
       </div>

@@ -12,7 +12,7 @@ export const Icons = {
   Security:
   "https://user-images.githubusercontent.com/74090222/104556266-9cb86700-5682-11eb-919e-c1da6aa7e7bf.png",
   Unification:
-  "https://user-images.githubusercontent.com/74090222/104832861-c6b69700-58d7-11eb-8512-e1821b676c2c.png",
+  "https://user-images.githubusercontent.com/74090222/104833872-4bf17a00-58df-11eb-93fd-8d05deaa9d54.png",
   Ict:
   "https://user-images.githubusercontent.com/74090222/104556134-5fec7000-5682-11eb-8da7-d93f43fb4d2b.png",
   Energy:

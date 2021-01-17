@@ -118,7 +118,7 @@ const Board = () => {
       <Con>
         
           <Wrap>
-            <Qext>심심해</Qext>
+            <Qext>나 죽을거같아...</Qext>
             <Wext>더보기</Wext>
           </Wrap>
           <Wrap>
@@ -130,7 +130,7 @@ const Board = () => {
             <Wext>더보기</Wext>
           </Wrap>
           <Wrap>
-            <Qext>으아아아</Qext>
+            <Qext>살려줘어어어</Qext>
             <Wext>더보기</Wext>
           </Wrap>
           <Jrap>

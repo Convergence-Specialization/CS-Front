@@ -1,11 +1,13 @@
 export const Images = {
   Background:
     "https://user-images.githubusercontent.com/62606632/104093808-46d56f00-52d0-11eb-8bbd-08293cdaf869.jpg",
+  Background3:
+    "https://user-images.githubusercontent.com/74090222/104919656-f1891400-59d9-11eb-8ef4-34a1fa7c19dd.jpg",
 };
 export const Icons = {
   LOGO:
     "https://user-images.githubusercontent.com/62606632/104090284-1f26dc80-52b9-11eb-99fe-49ffbf539e68.png",
-  
+
   Paperplane:
     "https://user-images.githubusercontent.com/74090222/104562898-4c460700-568c-11eb-93c7-ae49f7ff4a39.png",
   공지:
@@ -36,7 +38,7 @@ export const mainPageIcons = {
     "https://user-images.githubusercontent.com/62606632/104843874-35afe200-5910-11eb-99da-1876bb594c6f.png",
   comment:
     "https://user-images.githubusercontent.com/62606632/104843765-a9052400-590f-11eb-9db3-098d1adae658.png",
-    Car:
+  Car:
     "https://user-images.githubusercontent.com/74090222/104556053-39c6d000-5682-11eb-8f21-fefdc72bf7d6.png",
   BigData:
     "https://user-images.githubusercontent.com/74090222/104832836-94a53500-58d7-11eb-8d05-cea8d4ce9bee.png",

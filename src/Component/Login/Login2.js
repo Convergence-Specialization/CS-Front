@@ -32,18 +32,6 @@ const BackgroundFilter = styled.div`
   background-color: rgba(0, 0, 0, 50%);
   z-index: -1;
 `;
-const InputBox = styled.input`
-  border: none;
-  background-color: transparent;
-  border-bottom: 2px solid white;
-  height: 4%;
-  width: 50%;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  color: white;
-  z-index: 99;
-  margin: 14px 0px 14px 0px;
-  font-size: 15px;
-`;
 const Button = styled.div`
   border: 2px solid white;
   padding: 10px 20px;
@@ -80,31 +68,34 @@ const Img = styled.img`
   width: 15%;
   margin-bottom: 50px;
 `;
-const AImg = styled.img`
-  position: absolute;
-  align-self: flex-start;
-  justify-self: start;
-  margin: 10px;
-  width: 60px;
-  top: 0px;
+const ImgNav = styled.img`
+  width: 7%;
+  margin-bottom: 50px;
 `;
 const NavWrapper = styled.div`
   position: absolute;
   top: 0;
-  color: white;
-  padding: 15px;
-  font-size: 20px;
+  padding: 20px;
+  width: 90%;
   display: flex;
   justify-content: space-between;
 `;
 const TextBox = styled.div`
-  width:30%;
-  display:flex;
-  justify-content:space-between;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
 `;
-const Nav = styled.div`
-  width:100%;
-  
+const NavText = styled.div`
+  font-family: NanumGothic;
+  padding:10px;
+  font-size: 32px;
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
 `;
 const Text = styled.div`
   font-family: NanumGothic;
@@ -124,16 +115,18 @@ const Login2 = () => {
       <BackgroundImg />
       <BackgroundFilter />
       <NavWrapper>
+        <ImgNav src={Icons.menu} />
+        <NavText>융특 커뮤니티 슝</NavText>
+        <ImgNav src={Icons.화살표} />
       </NavWrapper>
       <Img src={mainPageIcons.profile} />
-      {/* <Text>환영합니다</Text> */}
       <Wrap>아이디</Wrap>
       <Wrap>비밀번호</Wrap>
       <Button>로그인</Button>
       <Button>Google in with ⚽</Button>
       <TextBox>
         <Text>회원가입</Text>
-        <Text>회원가입</Text>
+        <Text>ID/PW찾기</Text>
       </TextBox>
     </Container>
   );

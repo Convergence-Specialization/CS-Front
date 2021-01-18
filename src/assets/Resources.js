@@ -20,6 +20,8 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/104623258-8ab3e400-56d5-11eb-814e-69213adceae4.png",
   menu:
     "https://user-images.githubusercontent.com/74090222/104832900-26ad3d80-58d8-11eb-9b6b-f60818b59f7b.png",
+    화살표:
+    "https://user-images.githubusercontent.com/74090222/104942683-1c826080-59f8-11eb-8a09-4b1c9ac155a1.png",
   프로필:
     "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
   person:

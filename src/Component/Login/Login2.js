@@ -46,6 +46,10 @@ const Button = styled.div`
   line-height: 1.15;
   letter-spacing: normal;
   color: #ffffff;
+  @media(max-width:430px){
+    font-size:14px;
+    padding: 10px 30px;
+  }
 `;
 const Wrap = styled.div`
   width: 43%;
@@ -63,10 +67,21 @@ const Wrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
+  @media(max-width:430px){
+    font-size:12px;
+    width: 45%;
+  padding: 10px 25px;
+  }
 `;
 const Img = styled.img`
   width: 15%;
   margin-bottom: 50px;
+  @media(max-width:430px){
+    font-size:12px;
+    padding-top:30px;
+    margin: 30px 0px;
+  }
+
 `;
 const ImgNav = styled.img`
   width: 7%;
@@ -96,6 +111,10 @@ const NavText = styled.div`
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
+  @media(max-width:430px){
+    font-size:20px;
+    padding: 3px;
+  }
 `;
 const Text = styled.div`
   font-family: NanumGothic;
@@ -107,6 +126,9 @@ const Text = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
+  @media(max-width:430px){
+    font-size:10px;
+  }
 `;
 
 const Login2 = () => {

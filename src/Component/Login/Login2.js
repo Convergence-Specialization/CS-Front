@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Icons, Images } from "../../assets/Resources";
-
+import { mainPageIcons } from "../../assets/Resources";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -12,6 +12,7 @@ const Container = styled.div`
   justify-content: center;
   z-index: -3;
 `;
+
 const BackgroundImg = styled.div`
   width: 100%;
   height: 100%;
@@ -34,26 +35,50 @@ const BackgroundFilter = styled.div`
 const InputBox = styled.input`
   border: none;
   background-color: transparent;
-  border-bottom: 1px solid white;
-  height: 30px;
+  border-bottom: 2px solid white;
+  height: 4%;
   width: 50%;
-  color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  color: white;
   z-index: 99;
-  margin: 14px 0;
+  margin: 14px 0px 14px 0px;
   font-size: 15px;
 `;
 const Button = styled.div`
   border: 2px solid white;
   padding: 10px 20px;
-  width: 150px;
+  width: 42%;
   margin: 10px 0;
-  color: white;
   text-align: center;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  color: #ffffff;
 `;
-
+const Wrap = styled.div`
+  width: 43%;
+  padding: 15px 20px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  margin: 10px 0px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+`;
 const Img = styled.img`
-  width: 140px;
-  margin-bottom: 100px;
+  width: 15%;
+  margin-bottom: 50px;
 `;
 const AImg = styled.img`
   position: absolute;
@@ -72,13 +97,25 @@ const NavWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const NavText = styled.div``;
-const Wrapper = styled.div``;
+const TextBox = styled.div`
+  width:30%;
+  display:flex;
+  justify-content:space-between;
+`;
+const Nav = styled.div`
+  width:100%;
+  
+`;
 const Text = styled.div`
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 50px;
-  color: white;
-  margin-bottom: 100px;
+  font-family: NanumGothic;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
 `;
 
 const Login2 = () => {
@@ -87,16 +124,17 @@ const Login2 = () => {
       <BackgroundImg />
       <BackgroundFilter />
       <NavWrapper>
-        <NavText></NavText>
-        {/* <NavText>숭실대 숭</NavText> */}
-        <NavText></NavText>
       </NavWrapper>
-      <Img src={Icons.LOGO} />
+      <Img src={mainPageIcons.profile} />
       {/* <Text>환영합니다</Text> */}
-      <InputBox placeholder={"아이디"} defaultValue="아이디" />
-      <InputBox placeholder={"비밀번호"} defaultValue="비밀번호" />
+      <Wrap>아이디</Wrap>
+      <Wrap>비밀번호</Wrap>
       <Button>로그인</Button>
-      <Button>회원가입</Button>
+      <Button>Google in with ⚽</Button>
+      <TextBox>
+        <Text>회원가입</Text>
+        <Text>회원가입</Text>
+      </TextBox>
     </Container>
   );
 };

@@ -23,7 +23,7 @@ export const Icons = {
   프로필:
     "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
   person:
-    "https://user-images.githubusercontent.com/74090222/104832964-c8cd2580-58d8-11eb-9e2c-de51aa294b56.png",
+    "https://user-images.githubusercontent.com/74090222/104939221-7df40080-59f3-11eb-824d-75e160c46a94.png",
 };
 export const mainPageIcons = {
   profile:

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -44,4 +44,19 @@ const RouterComponent = () => {
     </Router>
   );
 };
-export default RouterComponent;
+export default () =>{
+  const [isLoggedin, setisLoggedin] = useState(false);
+  return(
+    <Router>
+      <Switch>
+        {isLoggedin ?
+        <>
+        <Route>
+          <AppPage/>
+        </Route>
+        </> : <Route><Login/></Route>}
+      </Switch>
+    </Router>
+  )
+};
+

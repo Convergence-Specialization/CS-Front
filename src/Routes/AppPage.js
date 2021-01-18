@@ -13,3 +13,7 @@ export default () => {
     </>
   );
 };
+const AppPage = () => <span> Login</span>;
+export default AppPage;
+
+//로그인 한 후 메인 페이지

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Images, Icons } from "../../assets/Resources";
-import { firebaseInstance, ui } from "../../firebase";
+import {ui, firebaseInstance} from "../../firebase";
 // import * as firebaseui from "firebaseui";
 // import firebase from "firebase";
 

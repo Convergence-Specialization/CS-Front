@@ -4,33 +4,35 @@ import styled from "styled-components";
 
 const Wrap = styled.div`
   width: 82%;
-
   margin: 30px auto;
-  padding: 40px 10px 10px 30px;
+  padding: 50px 20px 20px 50px;
   border-radius: 45px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
+  @media(max-width:430px){
+    width:75%;
+    padding: 40px 15px 15px 40px;
+  }
 `;
 const Title = styled.div`
- 
+ padding-left:10px;
   width: 80%;
   flex-direction: column;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
 `;
 const Qitle = styled.div`
 
   width: 100%;
-  
+  margin-top:10px;
   display: flex;
   justify-content: flex-end;
 `;
 const Text = styled.div`
   display: flex;
-  margin: 0px 3px 10px 10px;
-  font-weight: 900;
+  margin: 0px 3px 0px 10px;
   font-family: NanumSquareRoundR;
-  font-size: 20px;
+  font-size: 27px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -38,9 +40,12 @@ const Text = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  @media(max-width:430px){
+    font-size:15px;
+  }
 `;
 const Wext = styled.div`
-  margin: 0px 0px 0px 5px;
+  margin: 2px 0px 0px 5px;
   font-weight: 900;
   font-family: NanumSquareRoundR;
   font-size: 20px;
@@ -51,10 +56,12 @@ const Wext = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  @media(max-width:430px){
+    font-size:15px;
+  }
 `;
 const Qext = styled.div`
   display: flex;
-  margin: 0px 0px 0px 0px;
 `;
 const Dext = styled.div`
   display: flex;
@@ -64,6 +71,7 @@ const Dext = styled.div`
 const Xext = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top:0px;
 `;
 const Oon = styled.div`
   text-align: center;
@@ -79,13 +87,17 @@ const Oon = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  @media(max-width:430px){
+    font-size:8px;
+    padding: 8px 18px;
+  }
 `;
 
 const Ko = () => {
   return (
     <Wrap>
       <Xext>
-        <img src={Icons.프로필} alt="프로필" style={{ width: "18%" }}></img>
+        <img src={Icons.프로필} alt="프로필" style={{ width: "20%" }}></img>
         <Title>
           <Qext>
             <Text>지여누</Text>

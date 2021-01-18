@@ -7,7 +7,11 @@ const Con = styled.div`
   border-radius: 54px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
-    margin: 30px auto;
+  margin: 30px auto;
+  @media (max-width: 430px) {
+    width: 75%;
+    padding: 15px;
+  }
 `;
 
 const Qrap = styled.div`
@@ -25,6 +29,10 @@ const Qrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  @media(max-width:430px){
+    font-size:12px;
+    padding: 10px 20px;
+  }
 `;
 const Wrap = styled.div`
   width: 90%;
@@ -34,7 +42,7 @@ const Wrap = styled.div`
   padding: 15px 30px;
   border: solid;
   border-width: 0px 0px 1px 0px;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 10px 0px;
   font-family: NanumSquareRoundR;
   font-size: 20px;
   font-weight: normal;
@@ -44,6 +52,11 @@ const Wrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  @media(max-width:430px){
+    font-size:12px;
+    width:85%;
+    padding: 10px 20px;
+  }
 `;
 const Jrap = styled.div`
   width: 90%;
@@ -60,8 +73,12 @@ const Jrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  @media(max-width:430px){
+    font-size:12px;
+    width:85%;
+    padding: 10px 20px;
+  }
 `;
-
 
 const Board = () => {
   return (

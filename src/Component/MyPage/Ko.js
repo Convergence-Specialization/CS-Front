@@ -3,14 +3,13 @@ import { Icons } from "../../assets/Resources";
 import styled from "styled-components";
 
 const Wrap = styled.div`
-  width: 80%;
- 
-  background-color: white;
-  border-radius: 20px;
+  width: 82%;
+
   margin: 30px auto;
   padding: 40px 10px 10px 30px;
-  box-shadow: 1px 2px 20px 5px rgba(0, 0, 0, 0.1),
-    0 2px 4px 1px rgba(0, 0, 0, 0.06);
+  border-radius: 45px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
 `;
 const Title = styled.div`
  
@@ -82,7 +81,7 @@ const Oon = styled.div`
   color: #000000;
 `;
 
-const Board = () => {
+const Ko = () => {
   return (
     <Wrap>
       <Xext>
@@ -111,4 +110,4 @@ const Board = () => {
     </Wrap>
   );
 };
-export default Board;
+export default Ko;

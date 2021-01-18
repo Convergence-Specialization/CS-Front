@@ -3,17 +3,8 @@ import Nav from "../Component/Nav";
 import AppPage from "../Component/AppPage";
 import BottomNav from "../Component/BottomNav";
 
-export default () => {
-  return (
-    <>
-      <Nav />
-      <AppPage />
-      <BottomNav />
-      <Footer />
-    </>
-  );
-};
-const AppPage = () => <span> Login</span>;
-export default AppPage;
+
+const Apppage = () => <span> after Login</span>;
+export default Apppage;
 
 //로그인 한 후 메인 페이지

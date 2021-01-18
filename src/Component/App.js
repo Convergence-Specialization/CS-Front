@@ -1,14 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import GlobalStyles from "./GlobalStyles";
-import Router from "./Router";
+import AppRouter from "./Router";
 
 function App() {
-  return (
-    <>
-      <GlobalStyles />
-      <Router />
-    </>
-  );
+  const [isLoggedin, setisLoggedin] = useState(false);
+
+  return <AppRouter isLoggedin = {isLoggedin} />;
 }
 
 export default App;

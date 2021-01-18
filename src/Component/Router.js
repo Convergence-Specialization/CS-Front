@@ -5,14 +5,14 @@ import {
   Redirect,
   Route,
 } from "react-router-dom";
-import Login from "../Routes/Login";
 import MainPage from "../Routes/MainPage";
-import AppPage from "../Routes/AppPage";
 import Board from "./MainPage/Board";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
 
 import Change3 from "../Routes/Change3";
+import Apppage from "../Routes/Apppage";
+import Loginpage from "../Routes/Loginpage";
 const RouterComponent = () => {
   return (
     <Router>
@@ -24,10 +24,10 @@ const RouterComponent = () => {
           <Board />
         </Route>
         <Route path="/login" exact>
-          <Login />
+          <Loginpage />
         </Route>
         <Route path="/app" exact>
-          <AppPage />
+          <Apppage />
         </Route>
         <Route path="/mypage" exact>
           <MyPage />
@@ -44,19 +44,20 @@ const RouterComponent = () => {
     </Router>
   );
 };
-export default () =>{
-  const [isLoggedin, setisLoggedin] = useState(false);
+const AppRouter= ({isLoggedin}) =>{
   return(
     <Router>
       <Switch>
         {isLoggedin ?
         <>
         <Route>
-          <AppPage/>
+          <Apppage/>
         </Route>
-        </> : <Route><Login/></Route>}
+        </> : <Route><Loginpage/></Route>}
       </Switch>
     </Router>
   )
 };
+
+export default AppRouter;
 

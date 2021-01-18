@@ -5,18 +5,7 @@ export const Images = {
 export const Icons = {
   LOGO:
     "https://user-images.githubusercontent.com/62606632/104090284-1f26dc80-52b9-11eb-99fe-49ffbf539e68.png",
-  Car:
-    "https://user-images.githubusercontent.com/74090222/104556053-39c6d000-5682-11eb-8f21-fefdc72bf7d6.png",
-  BigData:
-    "https://user-images.githubusercontent.com/74090222/104832836-94a53500-58d7-11eb-8d05-cea8d4ce9bee.png",
-  Security:
-    "https://user-images.githubusercontent.com/74090222/104556266-9cb86700-5682-11eb-919e-c1da6aa7e7bf.png",
-  Unification:
-    "https://user-images.githubusercontent.com/74090222/104833872-4bf17a00-58df-11eb-93fd-8d05deaa9d54.png",
-  Ict:
-    "https://user-images.githubusercontent.com/74090222/104556134-5fec7000-5682-11eb-8da7-d93f43fb4d2b.png",
-  Energy:
-    "https://user-images.githubusercontent.com/74090222/104556073-45b29200-5682-11eb-8abf-f71982f054e9.png",
+  
   Paperplane:
     "https://user-images.githubusercontent.com/74090222/104562898-4c460700-568c-11eb-93c7-ae49f7ff4a39.png",
   공지:
@@ -47,4 +36,16 @@ export const mainPageIcons = {
     "https://user-images.githubusercontent.com/62606632/104843874-35afe200-5910-11eb-99da-1876bb594c6f.png",
   comment:
     "https://user-images.githubusercontent.com/62606632/104843765-a9052400-590f-11eb-9db3-098d1adae658.png",
+    Car:
+    "https://user-images.githubusercontent.com/74090222/104556053-39c6d000-5682-11eb-8f21-fefdc72bf7d6.png",
+  BigData:
+    "https://user-images.githubusercontent.com/74090222/104832836-94a53500-58d7-11eb-8d05-cea8d4ce9bee.png",
+  Security:
+    "https://user-images.githubusercontent.com/74090222/104556266-9cb86700-5682-11eb-919e-c1da6aa7e7bf.png",
+  Unification:
+    "https://user-images.githubusercontent.com/74090222/104833872-4bf17a00-58df-11eb-93fd-8d05deaa9d54.png",
+  Ict:
+    "https://user-images.githubusercontent.com/74090222/104556134-5fec7000-5682-11eb-8da7-d93f43fb4d2b.png",
+  Energy:
+    "https://user-images.githubusercontent.com/74090222/104556073-45b29200-5682-11eb-8abf-f71982f054e9.png",
 };

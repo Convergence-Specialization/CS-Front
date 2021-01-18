@@ -60,10 +60,7 @@ const Loginpage = () => {
               value={password}
               onChange={onChange}
             />
-            <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
-            <input
-              type="submit"
-              value={newAccount ? "Create Account" : "Sign In"}
+            <input type="submit" value={newAccount ? "Create Account" : "Sign In"}
             />
             {error}
           </form>
@@ -72,7 +69,6 @@ const Loginpage = () => {
           </span>
           <div>
             <button>Continue with Google</button>
-            <button>Continue with Github</button>
           </div>
         </div>
       );

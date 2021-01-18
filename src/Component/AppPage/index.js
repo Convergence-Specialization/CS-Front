@@ -41,7 +41,7 @@ const TitleElement = ({ src, name }) => (
 const BoardContainer = styled.div`
   width: 90%;
   border-radius: 20px;
-  background-color: red;
+  background-color: #f1f1f1;
   padding: 0 auto;
   padding-bottom: 13px;
   margin: 0 auto;

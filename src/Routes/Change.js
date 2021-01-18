@@ -1,12 +1,12 @@
 import Footer from "../Component/Footer";
 import Change from "../Component/Change";
-import Nav from "../Component/Nav";
+import MyPageNavbar from "../Component/MyPageNavbar";
 import BottomNav from "../Component/BottomNav";
 
 export default () => {
   return (
     <>
-    <Nav/>
+      <MyPageNavbar/>
       <Change />
       <BottomNav />
       <Footer />

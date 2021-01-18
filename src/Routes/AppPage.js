@@ -6,7 +6,7 @@ import BottomNav from "../Component/BottomNav";
 export default () => {
   return (
     <>
-      <Navbar />
+      <Navbar Navname='융특커뮤니티 슝'/>
       <AppPage />
       <BottomNav />
       <Footer />

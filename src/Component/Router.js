@@ -6,9 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import Login from "../Routes/Login";
-import MainPage from "../Routes/MainPage";
 import AppPage from "../Routes/AppPage";
-import Board from "./MainPage/Board";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
 
@@ -17,12 +15,6 @@ const RouterComponent = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/board" exact>
-          <Board />
-        </Route>
         <Route path="/login" exact>
           <Login />
         </Route>
@@ -35,7 +27,7 @@ const RouterComponent = () => {
         <Route path="/change" exact>
           <Change />
         </Route>
-       
+
         <Route path="/change3" exact>
           <Change3 />
         </Route>

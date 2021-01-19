@@ -1,125 +1,274 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Icons, mainPageIcons } from "../../../assets/Resources";
 const Con = styled.div`
-  margin: 0px auto 0px auto;
-  padding: 20px;
   width: 82%;
-  background-color: white;
+  display: flex;
+  padding: 20px 0px;
+  margin: 30px auto;
+  flex-direction: column;
+  align-items: center;
   border-radius: 30px;
-  box-shadow: 1px 2px 20px 10px rgba(0, 0, 0, 0.1),
-    0 2px 4px 1px rgba(0, 0, 0, 0.06);
-  margin: 0px auto 30px auto;
-  @media(max-width:430px){
-    width:75%;
-    padding: 15px;
-  }
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
 `;
-
 const Wrap = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
   background-color: white;
-  padding: 0px 20px;
+  padding: 8px 0px;
+  border: solid #aca9a9;
+  border-width: 0px 0px 2px 0px;
+  margin: 0px 0px 10px 0px;
   font-family: NanumSquareRoundR;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.13;
+  line-height: 1.15;
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  @media(max-width:430px){
-    font-size:15px;
-    padding: 0px 20px ;
+  @media (max-width: 430px) {
+    font-size: 12px;
+    width: 85%;
+    padding: 10px 20px;
   }
 `;
-const Oon = styled.div`
-  margin-left: 70px;
-  padding: 50px 0px 9px 20px;
-  width: 50%;
+const Jrap = styled.div`
+  width: 90%;
   display: flex;
-  justify-content: start;
-  @media(max-width:430px){
-    margin-left: 50px;
-  }
-`;
-const Jon = styled.div`
-  margin-left: 70px;
-  padding: 0px 0px 9px 20px;
-  width: 50%;
-  display: flex;
-  justify-content: start;
-  @media(max-width:430px){
-    margin-left: 50px;
-  }
-`;
-const Text = styled.div`
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px 30px;
   font-family: NanumSquareRoundR;
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.13;
+  line-height: 0.83;
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  @media(max-width:430px){
-    font-size:15px;
-    
+  @media (max-width: 430px) {
+    font-size: 12px;
+    width: 85%;
+    padding: 10px 20px;
   }
 `;
-const Kon = styled.div`
-  text-align:center;
-  padding: 20px 10px 20px 10px;
-  margin: 40px auto;
-  border-radius: 25px;
-  width:84%;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #ccd3dc;
+const Title = styled.div`
+  width: 90%;
   font-family: NanumSquareRoundR;
+  font-size: 23px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.52;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+`;
+const Title2 = styled.div`
+  font-family: NanumSquareRoundB;
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.14;
+  line-height: 1.75;
   letter-spacing: normal;
+  text-align: left;
   color: #000000;
-  @media(max-width:430px){
-    font-size:15px;
-    padding: 15px 0px ;
+`;
+const Title3 = styled.div`
+  font-family: NanumSquareRoundB;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: normal;
+  text-align: left;
+  color: #0b03ff;
+`;
+const TextBox = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: start;
+  padding: 8px 0px;
+  margin: 0px 0px 10px 0px;
+  border: solid #a2a2a2;
+  border-width: 0px 0px 2px 0px;
+`;
+const CommentBox = styled.div`
+  width: 90%;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  padding: 10px 20px 60px 20px;
+  border-radius: 10px;
+  opacity: 0.19;
+  border: solid 1px #c2c2c2;
+  background-color: #d4e6fb;
+`;
+const CommentText = styled.div`
+  width: 90%;
+  font-family: NanumSquareRoundR;
+  font-size: 19px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  text-align: left;
+  color: #646464;
+`;
+const CommentBox1 = styled.div`
+  border: solid #dcdcdc;
+  border-width: 0px 0px 1px 0px;
+  background-color: white;
+  width: 90%;
+  margin-bottom:10px;
+`;
+const CommentBox2 = styled.div`
+  background-color: #f9f9f9;;
+  margin-bottom: 10px;
+  width: 85%;
+`;
+const CommentText1 = styled.div`
+  width:90%;
+  display: flex;
+  padding: 8px 0px;
+  margin: 0px 0px 10px 0px;
+  font-family: NanumSquareRoundR;
+  font-size: 23px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  @media (max-width: 430px) {
+    font-size: 12px;
+    width: 85%;
+    padding: 10px 20px;
   }
+`;
+const Button = styled.div`
+  width: 20%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: #d4e6fb;
+  font-family: NanumSquareRoundEB;
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.12;
+  letter-spacing: normal;
+  text-align: center;
+  color: #545454;
+  @media (max-width: 430px) {
+    font-size: 8px;
+    padding: 8px 18px;
+  }
+`;
+const CommentTitle = styled.div`
+  width: 90%;
+  font-family: NanumSquareRoundEB;
+  font-size: 19px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+`;
+const CommentTitle1 = styled.div`
+  width: 90%;
+  font-family: NanumSquareRoundEB;
+  font-size: 19px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  text-align: left;
+  color: #212121;
+`;
+const CommentTitle2 = styled.div`
+  font-family: NanumSquareRoundEB;
+  font-size: 19px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  text-align: left;
+  color: #5ac6b9;
+`;
+const Box = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const IconImg = styled.img`
+  width: 4%;
+  padding: 30px 0px 20px 40px;
 `;
 const InConvergence = () => {
   return (
     <>
-      <Oon>
-        <Text>이름</Text>
-      </Oon>
       <Con>
-        <Wrap>
-          <div>지여누</div>
-        </Wrap>
+        <Title>컴학 신청한 사람 많음?</Title>
+        <Wrap>배고픈 슝슝이 | 21.01.14</Wrap>
+        <Jrap>지금은 2021 1월 20일입니다.</Jrap>
+        <Jrap>새벽 1시 25분이 지나고 있습니다.</Jrap>
+        <Jrap>힘이 들어요오오</Jrap>
+        <Jrap>회의는 9시 30분입니다</Jrap>
+        <Jrap>맞죠?</Jrap>
+        <Jrap>배고파요오</Jrap>
+        <Jrap>저의 역할은 끝나갑니다.</Jrap>
+        <Jrap>오늘은 언제 잘까요?</Jrap>
+        <Jrap>언제 일어날까요?</Jrap>
+        <Jrap>치킨 먹고 싶어요오</Jrap>
+        <Jrap>머지 부탁합니다.</Jrap>
       </Con>
-      <Jon>
-        <Text>아이디</Text>
-      </Jon>
       <Con>
-        <Wrap>
-          <div>ywoo121</div>
-        </Wrap>
+        <TextBox>
+          <Title2>댓글</Title2>
+          <Title3>(3)</Title3>
+        </TextBox>
+        <CommentBox>
+          <CommentText>댓글 작성</CommentText>
+          <Button>작성하기</Button>
+        </CommentBox>
+        <CommentBox1>
+          <CommentTitle>익명의 슝슝이 1</CommentTitle>
+          <CommentText1>안은소가 제일 천재야</CommentText1>
+        </CommentBox1>
+        <CommentBox1>
+          <CommentTitle>익명의 슝슝이 2</CommentTitle>
+          <CommentText1>안은소가 제일 천재야</CommentText1>
+          <Box>
+            <IconImg src={Icons.댓글화살표} />
+            <CommentBox2>
+              <CommentTitle1>익명의 슝슝이 4</CommentTitle1>
+              <CommentText1>안은소가 제일 천재야 ㅇㅈ</CommentText1>
+            </CommentBox2>
+          </Box>
+          <Box>
+            <IconImg src={Icons.댓글화살표} />
+            <CommentBox2>
+              <CommentTitle2>배고픈 슝슝이</CommentTitle2>
+              <CommentText1>안은소가 제일 천재야</CommentText1>
+            </CommentBox2>
+          </Box>
+        </CommentBox1>
+        <CommentTitle>익명의 슝슝이 3</CommentTitle>
+        <CommentText1>안은소가 제일 천재야</CommentText1>
       </Con>
-      <Jon>
-        <Text>학번</Text>
-      </Jon>
-      <Con>
-        <Wrap>
-          <div>20201884</div>
-        </Wrap>
-      </Con>
-      <Kon>정보 수정 완료</Kon>
     </>
   );
 };

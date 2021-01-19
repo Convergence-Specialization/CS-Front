@@ -20,12 +20,14 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/104623258-8ab3e400-56d5-11eb-814e-69213adceae4.png",
   menu:
     "https://user-images.githubusercontent.com/74090222/104832900-26ad3d80-58d8-11eb-9b6b-f60818b59f7b.png",
-    화살표:
+  화살표:
     "https://user-images.githubusercontent.com/74090222/104942683-1c826080-59f8-11eb-8a09-4b1c9ac155a1.png",
   프로필:
     "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
   person:
     "https://user-images.githubusercontent.com/74090222/104939221-7df40080-59f3-11eb-824d-75e160c46a94.png",
+  댓글화살표:
+    "https://user-images.githubusercontent.com/74090222/105071114-83227f80-5ac7-11eb-9fc0-bd35d7631399.png",
 };
 export const mainPageIcons = {
   profile:

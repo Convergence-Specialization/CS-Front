@@ -1,184 +1,156 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Images, Icons } from "../../assets/Resources";
-import { firebaseInstance, ui } from "../../firebase";
-// import * as firebaseui from "firebaseui";
-// import firebase from "firebase";
-
+import { Icons, Images } from "../../assets/Resources";
+import { mainPageIcons } from "../../assets/Resources";
 const Container = styled.div`
-  font-family: "Nanum-round", sans-serif;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
-  overflow: hidden;
-`;
-const ImageFilter = styled.div`
-  width: 100%;
-  height: 100%;
-  background-image: url(${Images.Background});
-  background-size: cover;
-  background-position: center center;
-  transform: scale(1.02);
-  filter: blur(7px);
-  position: absolute;
-  /* background-color: rgba(0, 0, 0, 0.5); */
-`;
-const LoginContainer = styled.div`
-  width: 800px;
-  min-height: 600px;
-  background-color: white;
-  margin: 150px auto;
-  position: relative;
-  z-index: 1000;
   display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-  box-shadow: 0 5px 6px -1px rgba(0, 0, 0, 0.5);
-`;
-const LoginImageContainer = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background-color: #3b6978;
-  box-shadow: 0 5px 6px 3px rgba(0, 0, 0, 0.5);
-`;
-const LoginImage = styled.img`
-  width: 60%;
-`;
-const LoginBox = styled.div`
-  width: 50%;
-  height: 100%;
-  /* background-color: #00fff5; */
-`;
-const LoginBoxWrapper = styled.div`
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  transition: all 0.1s ease;
+  z-index: -3;
 `;
-const LoginBoxSubTitle = styled.div`
-  font-weight: bold;
-  font-size: 17px;
-  margin-bottom: 12px;
+
+const BackgroundImg = styled.div`
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(${Images.Background3});
+  background-size: cover;
+  position: absolute;
+  /* transform: scale(1.03); */
+  /* filter: blur(5px); */
+  z-index: -2;
 `;
-const LoginBoxTitle = styled.div`
-  font-weight: bold;
-  font-size: 57px;
-  align-self: flex-start;
-  margin-bottom: 15px;
+const BackgroundFilter = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 50%);
+  z-index: -1;
 `;
-const InputBox = styled.input`
-  width: 90%;
-  height: 40px;
-  padding-left: 15px;
-  margin: 15px 0;
-  border: none;
-  box-shadow: 0 5px 6px -1px rgba(0, 0, 0, 0.5);
-`;
-const ButtonWrapper = styled.div`
-  margin-top: 30px;
-  width: 80%;
+const Button = styled.div`
+  border: 2px solid white;
+  padding: 10px 20px;
+  width: 42%;
+  margin: 10px 0;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 20px;
+  font-family: Arial;
+  font-size: 18px;
   font-weight: bold;
-`;
-const SignUpButton = styled.div`
-  padding: 10px 20px;
-  color: black;
-  background-color: white;
-  box-shadow: 0 5px 6px -1px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px;
-  &:hover {
-    cursor: pointer;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  color: #ffffff;
+  @media(max-width:430px){
+    font-size:14px;
+    padding: 10px 30px;
   }
 `;
-const SubmitButton = styled.div`
-  padding: 10px 20px;
-  color: black;
-  background-color: white;
-  box-shadow: 0 5px 6px -1px rgba(0, 0, 0, 0.5);
-  &:hover {
-    cursor: pointer;
+const Wrap = styled.div`
+  width: 43%;
+  padding: 15px 20px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid white;
+  margin: 10px 0px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  @media(max-width:430px){
+    font-size:12px;
+    width: 45%;
+  padding: 10px 25px;
   }
 `;
-const SignUpWrapper = styled.div``;
+const Img = styled.img`
+  width: 15%;
+  margin-bottom: 50px;
+  @media(max-width:430px){
+    font-size:12px;
+    padding-top:30px;
+    margin: 30px 0px;
+  }
 
-export default () => {
-  const [signUpClicked, setSignUpClicked] = useState(false);
-  useEffect(() => {
-    const uiConfig = {
-      callbacks: {
-        // Called when the user has been successfully signed in.
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          if (authResult.user) {
-            console.log(authResult.user);
-            // handleSignedInUser(authResult.user);
-          }
-          if (authResult.additionalUserInfo) {
-            console.log("새로운 유저인가?", authResult.additionalUserInfo);
-          }
-          return false;
-        },
-      },
-      // Opens IDP Providers sign-in flow in a popup.
-      signInFlow: "popup",
-      signInOptions: [
-        {
-          provider: firebaseInstance.auth.GoogleAuthProvider.PROVIDER_ID,
-          // Required to enable ID token credentials for this provider.
-          // clientId: CLIENT_ID,
-        },
+`;
+const ImgNav = styled.img`
+  width: 7%;
+  margin-bottom: 50px;
+`;
+const NavWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  padding: 20px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+`;
+const TextBox = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+`;
+const NavText = styled.div`
+  font-family: NanumGothic;
+  padding:10px;
+  font-size: 32px;
+  font-weight: 800;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  @media(max-width:430px){
+    font-size:20px;
+    padding: 3px;
+  }
+`;
+const Text = styled.div`
+  font-family: NanumGothic;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  @media(max-width:430px){
+    font-size:10px;
+  }
+`;
 
-        firebaseInstance.auth.GithubAuthProvider.PROVIDER_ID,
-      ],
-      tosUrl: "https://www.google.com",
-      privacyPolicyUrl: "https://www.google.com",
-    };
-    ui.start("#firebaseAuth", uiConfig);
-  }, []);
+const Login2 = () => {
   return (
     <Container>
-      <ImageFilter />
-      <LoginContainer>
-        <LoginImageContainer>
-          <LoginImage src={Icons.LOGO} />
-        </LoginImageContainer>
-        <LoginBox>
-          <LoginBoxWrapper
-            style={
-              signUpClicked
-                ? {
-                    opacity: "0",
-                  }
-                : {}
-            }>
-            <LoginBoxSubTitle>
-              융합특성화자유전공학부에 오신 것을
-            </LoginBoxSubTitle>
-            <LoginBoxTitle>환영합니다</LoginBoxTitle>
-            <div className={"firebaseAuth"} id={"firebaseAuth"} />
-            {/* <InputBox placeholder={"아이디"} />
-            <InputBox placeholder={"비밀번호"} />
-            <ButtonWrapper>
-              <SignUpButton
-                onClick={() => {
-                  setSignUpClicked(true);
-                }}>
-                회원가입
-              </SignUpButton>
-              <SubmitButton>로그인</SubmitButton>
-              <div id="firebaseui-auth" />
-            </ButtonWrapper> */}
-          </LoginBoxWrapper>
-          <SignUpWrapper></SignUpWrapper>
-        </LoginBox>
-      </LoginContainer>
+      <BackgroundImg />
+      <BackgroundFilter />
+      <NavWrapper>
+        <ImgNav src={Icons.menu} />
+        <NavText>융특 커뮤니티 슝</NavText>
+        <ImgNav src={Icons.화살표} />
+      </NavWrapper>
+      <Img src={mainPageIcons.profile} />
+      <Wrap>아이디</Wrap>
+      <Wrap>비밀번호</Wrap>
+      <Button>로그인</Button>
+      <Button>Google in with ⚽</Button>
+      <TextBox>
+        <Text>회원가입</Text>
+        <Text>ID/PW찾기</Text>
+      </TextBox>
     </Container>
   );
 };
+export default Login2;

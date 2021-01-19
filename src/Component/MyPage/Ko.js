@@ -26,7 +26,6 @@ const Qitle = styled.div`
   width: 100%;
   margin-top:10px;
   display: flex;
-  justify-content: flex-end;
 `;
 const Text = styled.div`
   display: flex;
@@ -74,7 +73,6 @@ const Xext = styled.div`
   margin-top:0px;
 `;
 const Oon = styled.div`
-  text-align: center;
   padding: 10px 20px;
   border-radius: 18px;
   background-color: #d3dae3;
@@ -85,7 +83,7 @@ const Oon = styled.div`
   font-style: normal;
   line-height: 1.15;
   letter-spacing: normal;
-  text-align: left;
+  text-align: center;
   color: #000000;
   @media(max-width:430px){
     font-size:8px;

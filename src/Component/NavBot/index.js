@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { mainPageIcons } from "../../assets/Resources";
+import { Icons, mainPageIcons } from "../../assets/Resources";
 const Container = styled.div`
   padding: 20px;
-  height:10px;
+  height: 10px;
   display: flex;
   position: relative;
   align-items: center;
@@ -27,11 +27,11 @@ export const Text = styled.div`
   color: #000000;
 `;
 
-const NavBot = ({ Name }) => {
+const NavBot = ({ Name, Icon }) => {
   return (
     <>
       <Container>
-        <IconImg src={mainPageIcons.airplane} name={"융합전공 소개"} />
+        <IconImg src={Icon}/>
         <Text>{Name}</Text>
       </Container>
     </>

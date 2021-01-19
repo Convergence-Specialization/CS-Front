@@ -1,2 +1,3 @@
 import SignUp from "./SignUp";
-export default SignUp;
+import InConvergence from "./InConvergence";
+export default InConvergence;

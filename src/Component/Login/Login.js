@@ -30,9 +30,6 @@ const BackgroundFilter = styled.div`
   background-color: rgba(0, 0, 0, 50%);
   z-index: -1;
 `;
-const FrontWrapper = styled.div`
-  z-index: 999;
-`;
 const Button = styled.div`
   border: 2px solid white;
   padding: 10px 20px;
@@ -115,7 +112,7 @@ const Text = styled.div`
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.14;
+  line-height: 1.7;
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;

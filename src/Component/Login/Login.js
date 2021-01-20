@@ -127,7 +127,6 @@ const Text = styled.div`
 const Login = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
-
   return (
     <Container>
       <BackgroundImg />

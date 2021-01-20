@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Icons, Images } from "../../assets/Resources";
-import { mainPageIcons } from "../../assets/Resources";
+import { Link } from "react-router-dom";
+import { Icons, Images, mainPageIcons } from "../../assets/Resources";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: -3;
+  z-index: 1;
 `;
 
 const BackgroundImg = styled.div`
@@ -21,8 +21,6 @@ const BackgroundImg = styled.div`
   background-image: url(${Images.Background3});
   background-size: cover;
   position: absolute;
-  /* transform: scale(1.03); */
-  /* filter: blur(5px); */
   z-index: -2;
 `;
 const BackgroundFilter = styled.div`
@@ -46,42 +44,34 @@ const Button = styled.div`
   line-height: 1.15;
   letter-spacing: normal;
   color: #ffffff;
-  @media(max-width:430px){
-    font-size:14px;
+  cursor: pointer;
+  @media (max-width: 430px) {
+    font-size: 14px;
     padding: 10px 30px;
   }
 `;
-const Wrap = styled.div`
-  width: 43%;
-  padding: 15px 20px;
+const InputBox = styled.input`
+  width: 250px;
+  margin: 15px;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
-  background-color: transparent;
   border-bottom: 2px solid white;
-  margin: 10px 0px;
-  font-family: Arial;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.14;
-  letter-spacing: normal;
-  text-align: left;
-  color: #ffffff;
-  @media(max-width:430px){
-    font-size:12px;
-    width: 45%;
-  padding: 10px 25px;
+  padding: 10px;
+  color: white;
+  outline: none;
+  font-size: 15px;
+  ::placeholder {
+    color: white;
   }
 `;
 const Img = styled.img`
   width: 15%;
   margin-bottom: 50px;
-  @media(max-width:430px){
-    font-size:12px;
-    padding-top:30px;
+  @media (max-width: 430px) {
+    font-size: 12px;
+    padding-top: 30px;
     margin: 30px 0px;
   }
-
 `;
 const ImgNav = styled.img`
   width: 7%;
@@ -102,7 +92,7 @@ const TextBox = styled.div`
 `;
 const NavText = styled.div`
   font-family: NanumGothic;
-  padding:10px;
+  padding: 10px;
   font-size: 32px;
   font-weight: 800;
   font-stretch: normal;
@@ -111,8 +101,8 @@ const NavText = styled.div`
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
-  @media(max-width:430px){
-    font-size:20px;
+  @media (max-width: 430px) {
+    font-size: 20px;
     padding: 3px;
   }
 `;
@@ -122,16 +112,19 @@ const Text = styled.div`
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.14;
+  line-height: 1.7;
   letter-spacing: normal;
   text-align: left;
   color: #ffffff;
-  @media(max-width:430px){
-    font-size:10px;
+  @media (max-width: 430px) {
+    font-size: 10px;
   }
 `;
 
-const Login2 = () => {
+const Login = () => {
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+
   return (
     <Container>
       <BackgroundImg />
@@ -142,15 +135,28 @@ const Login2 = () => {
         <ImgNav src={Icons.화살표} />
       </NavWrapper>
       <Img src={mainPageIcons.profile} />
-      <Wrap>아이디</Wrap>
-      <Wrap>비밀번호</Wrap>
+      <InputBox
+        type="id"
+        placeholder="아이디"
+        value={id}
+        disabled={false}
+        onChange={({ target: { value } }) => setId(value)}
+      />
+      <InputBox
+        type="password"
+        placeholder="비밀번호"
+        value={pw}
+        onChange={({ target: { value } }) => setPw(value)}
+      />
       <Button>로그인</Button>
       <Button>Google in with ⚽</Button>
       <TextBox>
-        <Text>회원가입</Text>
+        <Link to="/signup">
+          <Text>회원가입</Text>
+        </Link>
         <Text>ID/PW찾기</Text>
       </TextBox>
     </Container>
   );
 };
-export default Login2;
+export default Login;

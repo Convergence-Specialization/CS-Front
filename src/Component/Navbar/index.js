@@ -8,10 +8,11 @@ import {
   IconImg,
   NavLeftMargin,
 } from "./NavbarElements";
+import { Link } from "react-router-dom";
 
 import { mainPageIcons } from "../../assets/Resources";
 
-const Navbar = ({Navname}) => {
+const Navbar = ({ Navname }) => {
   const [navClicked, setNavClicked] = useState(false);
   return (
     <>
@@ -19,8 +20,12 @@ const Navbar = ({Navname}) => {
         <Bars onClick={() => setNavClicked(!navClicked)} />
         <NavLink to="/">{Navname}</NavLink>
         <NavLeftMargin />
-        <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
-        <IconImg src={mainPageIcons.profile} alt={"프로필 아이콘"} />
+        <Link to="">
+          <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
+        </Link>
+        <Link to="/login">
+          <IconImg src={mainPageIcons.profile} alt={"프로필 아이콘"} />
+        </Link>
       </Nav>
       <NavOpen
         style={

@@ -135,10 +135,8 @@ const CommentBox = styled.div`
   display: flex;
   padding: 10px 20px 90px 20px;
   border-radius: 10px;
- 
   border: solid 1px #c2c2c2;
   background-color: #d4e6fb;
-  background-color: rgba( 0, 0, 255, 0.08);
   @media (max-width: 430px) {
     padding: 10px 20px 60px 20px;
   }
@@ -169,11 +167,12 @@ const CommentBox1 = styled.div`
 const CommentBox2 = styled.div`
   background-color: #f9f9f9;
   margin-bottom: 10px;
-  padding: 15px;
-  width: 80%;
+  width: 85%;
+  padding:10px 10px 0px 10px;
+  justify-content:center;
   @media (max-width: 430px) {
     padding: 0px 5px 0px 5px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
   }
 `;
 const CommentText1 = styled.div`
@@ -182,7 +181,7 @@ const CommentText1 = styled.div`
   padding: 8px 0px;
   margin: 0px 0px 10px 0px;
   font-family: NanumSquareRoundR;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -200,7 +199,7 @@ const Button = styled.div`
   width:20%;
   padding: 10px 10px;
   border-radius: 10px;
-  background-color: rgba( 0, 0, 255, 0.1);
+  background-color:#B0D0F2;
   font-family: NanumSquareRoundEB;
   font-size: 17px;
   font-weight: normal;
@@ -254,7 +253,7 @@ const CommentTitle = styled.div`
   text-align: left;
   color: #000000;
   @media (max-width: 430px) {
-    font-size: 13px;
+    font-size: 12px;
     padding: 6px 4px;
   }
 `;
@@ -271,7 +270,7 @@ const CommentTitle1 = styled.div`
   color: #212121;
   @media (max-width: 430px) {
     width: 88%;
-    font-size: 13px;
+    font-size: 12px;
     padding: 6px 4px;
   }
 `;
@@ -286,7 +285,7 @@ const CommentTitle2 = styled.div`
   text-align: left;
   color: #5ac6b9;
   @media (max-width: 430px) {
-    font-size: 13px;
+    font-size: 12px;
     padding: 8px 0px;
   }
 `;
@@ -311,7 +310,8 @@ const Box1 = styled.div`
 `;
 export const IconImg = styled.img`
   width: 8%;
-  padding: 20px 0px 50px 40px;
+  padding:10px 0px 30px 0px;
+  margin-left:25px;
 `;
 export const CommentImg = styled.img`
   width: 20%;

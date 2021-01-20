@@ -2,104 +2,62 @@ import React from "react";
 import styled from "styled-components";
 import { Icons, mainPageIcons } from "../../../assets/Resources";
 const Con = styled.div`
-  width: 82%;
+  width: 85%;
+  padding: 20px;
   display: flex;
-  padding: 20px 0px;
-  margin: 30px auto;
+  margin: 10px auto;
   flex-direction: column;
-  align-items: center;
   border-radius: 30px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #ffffff;
-`;
-const Wrap = styled.div`
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-  padding: 8px 0px;
-  border: solid #aca9a9;
-  border-width: 0px 0px 2px 0px;
-  margin: 0px 0px 10px 0px;
   font-family: NanumSquareRoundR;
-  font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
+`;
+const Wrap = styled.div`
+  padding: 8px 0px;
+  border-bottom: 2px solid #aca9a9;
+  margin-bottom: 10px;
+  font-size: 15px;
   line-height: 1.15;
   letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media (max-width: 430px) {
     font-size: 12px;
-    width: 85%;
-    padding: 10px 20px;
   }
 `;
 const Jrap = styled.div`
-  width: 90%;
   display: flex;
   justify-content: space-between;
   background-color: white;
-  padding: 10px 30px;
   font-family: NanumSquareRoundR;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.83;
+  line-height: 1.7;
   letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media (max-width: 430px) {
     font-size: 12px;
     width: 85%;
-    padding: 10px 20px;
   }
 `;
 const Title = styled.div`
-  width: 90%;
-  font-family: NanumSquareRoundR;
+  align-self: flex-start;
   font-size: 23px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.52;
   letter-spacing: normal;
-  text-align: left;
-  color: #000000;
-`;
-const Title2 = styled.div`
-  font-family: NanumSquareRoundB;
-  font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.75;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
-`;
-const Title3 = styled.div`
-  font-family: NanumSquareRoundB;
-  font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.75;
-  letter-spacing: normal;
-  text-align: left;
-  color: #0b03ff;
 `;
 const TextBox = styled.div`
-  width: 90%;
+  font-family: NanumSquareRoundB;
+  line-height: 1.75;
+  width: 100%;
   display: flex;
-  justify-content: start;
   padding: 8px 0px;
-  margin: 0px 0px 10px 0px;
-  border: solid #a2a2a2;
-  border-width: 0px 0px 2px 0px;
+  margin-bottom: 8px;
+  border-bottom: 2px solid #a2a2a2;
+  font-size: 20px;
 `;
+const TitleWithProps = styled.div`
+  color: ${(props) => (props.isBlack ? "black" : "#0b03ff")};
+`;
+
 const CommentBox = styled.div`
   width: 90%;
   border-radius: 10px;
@@ -128,23 +86,19 @@ const CommentBox1 = styled.div`
   border-width: 0px 0px 1px 0px;
   background-color: white;
   width: 90%;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 `;
 const CommentBox2 = styled.div`
-  background-color: #f9f9f9;;
+  background-color: #f9f9f9;
   margin-bottom: 10px;
   width: 85%;
 `;
 const CommentText1 = styled.div`
-  width:90%;
+  width: 90%;
   display: flex;
   padding: 8px 0px;
   margin: 0px 0px 10px 0px;
-  font-family: NanumSquareRoundR;
   font-size: 23px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.17;
   letter-spacing: normal;
   text-align: left;
@@ -157,14 +111,11 @@ const CommentText1 = styled.div`
 `;
 const Button = styled.div`
   width: 20%;
-  padding: 10px 10px;
+  padding: 10px;
   border-radius: 10px;
   background-color: #d4e6fb;
   font-family: NanumSquareRoundEB;
   font-size: 17px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
   letter-spacing: normal;
   text-align: center;
@@ -178,9 +129,6 @@ const CommentTitle = styled.div`
   width: 90%;
   font-family: NanumSquareRoundEB;
   font-size: 19px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.16;
   letter-spacing: normal;
   text-align: left;
@@ -237,8 +185,8 @@ const InConvergence = () => {
       </Con>
       <Con>
         <TextBox>
-          <Title2>댓글</Title2>
-          <Title3>(3)</Title3>
+          <TitleWithProps isBlack>댓글</TitleWithProps>
+          <TitleWithProps>(3)</TitleWithProps>
         </TextBox>
         <CommentBox>
           <CommentText>댓글 작성</CommentText>

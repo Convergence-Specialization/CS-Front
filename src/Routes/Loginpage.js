@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Footer from "../Component/Footer";
 import Login from "../Component/Login";
 import Navbar from "../Component/Navbar";
-import { authService } from "../fbase";
+import { authService, firebaseInstance } from "../fbase";
 
 
 
@@ -39,7 +39,14 @@ const Loginpage = () => {
     }
     };
     const toggleAccount = () => setNewAccount((prev) => !prev);
-
+    const onSocialClick =async(event) => {
+      const {target:{name},} = event;
+      let provider;
+      if (name ==="google"){
+        provider =new firebaseInstance.auth.GoogleAuthProvider();
+      }
+      const data = await authService.signInWithPopup(provider);
+    };
 
     return (
         <div>
@@ -68,7 +75,7 @@ const Loginpage = () => {
             {newAccount ? "Sign In" : "Create Account"}
           </span>
           <div>
-            <button>Continue with Google</button>
+            <button onClick = {onSocialClick} name = "google">Continue with Google</button>
           </div>
         </div>
       );

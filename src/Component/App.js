@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import GlobalStyles from "./GlobalStyles";
 import AppRouter from "./Router";
 import {authService} from "../fbase";
+import { FaSlidersH } from "react-icons/fa";
 
 
 function App() {

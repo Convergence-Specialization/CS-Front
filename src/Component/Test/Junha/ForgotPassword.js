@@ -51,7 +51,7 @@ const Button = styled.div`
   }
 `;
 const InputBox = styled.input`
-  width: 45%;
+  width: 250px;
   margin: 15px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
@@ -62,9 +62,6 @@ const InputBox = styled.input`
   font-size: 15px;
   ::placeholder {
     color: white;
-  }
-  @media (max-width: 430px) {
-    width: 52%;
   }
 `;
 const Img = styled.img`
@@ -124,7 +121,7 @@ const Text = styled.div`
   }
 `;
 
-const Login = () => {
+const ForgotPassword = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
 
@@ -162,4 +159,4 @@ const Login = () => {
     </Container>
   );
 };
-export default Login;
+export default ForgotPassword;

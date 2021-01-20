@@ -17,6 +17,8 @@ const GlobalStyles = createGlobalStyle`
         src: url(${round_ttf})
     }
     body{
+        max-width: 768px;
+        margin: 0 auto;
         font-family: "Noto Sans KR", sans-serif;
     }
 `;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { Icons, Images, mainPageIcons } from "../../assets/Resources";
+import { Icons, Images, mainPageIcons } from "../../../assets/Resources";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -67,15 +66,7 @@ const InputBox = styled.input`
     width: 52%;
   }
 `;
-const Img = styled.img`
-  width: 15%;
-  margin-bottom: 50px;
-  @media (max-width: 430px) {
-    font-size: 12px;
-    padding-top: 30px;
-    margin: 30px 0px;
-  }
-`;
+
 const ImgNav = styled.img`
   width: 7%;
   margin-bottom: 50px;
@@ -89,9 +80,10 @@ const NavWrapper = styled.div`
   justify-content: space-between;
 `;
 const TextBox = styled.div`
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
+  width: 70%;
+  display:flex;
+  flex-direction:column;
+  margin:70px 0px 10px;
 `;
 const NavText = styled.div`
   font-family: NanumGothic;
@@ -110,23 +102,40 @@ const NavText = styled.div`
   }
 `;
 const Text = styled.div`
-  font-family: NanumGothic;
-  font-size: 14px;
+  width:100%;
+   font-family: NanumSquareRoundR;
+  font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.7;
+  line-height: 1.74;
   letter-spacing: normal;
-  text-align: left;
+  text-align: center;
   color: #ffffff;
   @media (max-width: 430px) {
-    font-size: 10px;
+    width:100%;
+    font-size: 15px;
+  }
+`;
+const Title = styled.div`
+  width:100%;
+  font-family: NanumSquareRoundEB;
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  @media (max-width: 430px) {
+    font-size: 20px;
   }
 `;
 
-const Login = () => {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+const ForgotPassword = () => {
+  const [email, setEmail] = useState("");
+
   return (
     <Container>
       <BackgroundImg />
@@ -136,29 +145,22 @@ const Login = () => {
         <NavText>융특 커뮤니티 슝</NavText>
         <ImgNav src={Icons.화살표} />
       </NavWrapper>
-      <Img src={mainPageIcons.profile} />
-      <InputBox
-        type="id"
-        placeholder="아이디"
-        value={id}
-        disabled={false}
-        onChange={({ target: { value } }) => setId(value)}
-      />
-      <InputBox
-        type="password"
-        placeholder="비밀번호"
-        value={pw}
-        onChange={({ target: { value } }) => setPw(value)}
-      />
-      <Button>로그인</Button>
-      <Button>Google in with ⚽</Button>
+      <Title>이메일 주소로 비밀번호 찾기</Title>
       <TextBox>
-        <Link to="/signup">
-          <Text>회원가입</Text>
-        </Link>
-        <Text>ID/PW찾기</Text>
+        <Text>비밀번호는 가입 시 등록한 메일 주소로</Text>
+        <Text>알려드립니다. 가입할 때 등록한 메일주소를</Text>
+        <Text>입력하고 버튼을 클릭해주세요</Text>
       </TextBox>
+
+      <InputBox
+        type="email"
+        placeholder="이메일"
+        value={email}
+        disabled={false}
+        onChange={({ target: { value } }) => setEmail(value)}
+      />
+      <Button>메일 발송</Button>
     </Container>
   );
 };
-export default Login;
+export default ForgotPassword;

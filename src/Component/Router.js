@@ -6,25 +6,20 @@ import {
   Route,
 } from "react-router-dom";
 import Login from "../Routes/Login";
-import MainPage from "../Routes/MainPage";
 import AppPage from "../Routes/AppPage";
-import Board from "./MainPage/Board";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
-
+import Junha from "../Routes/Junha";
 import Change3 from "../Routes/Change3";
 const RouterComponent = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/board" exact>
-          <Board />
-        </Route>
         <Route path="/login" exact>
           <Login />
+        </Route>
+        <Route path="/junha" exact>
+          <Junha />
         </Route>
         <Route path="/app" exact>
           <AppPage />
@@ -35,7 +30,7 @@ const RouterComponent = () => {
         <Route path="/change" exact>
           <Change />
         </Route>
-       
+
         <Route path="/change3" exact>
           <Change3 />
         </Route>

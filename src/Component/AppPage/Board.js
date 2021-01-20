@@ -30,7 +30,6 @@ const Text = styled.div`
   margin: 0px 0px;
   padding: 10px;
   background-color: white;
-`;
   padding: 10px 0px 0px 10px;
   font-family: NanumSquareRoundB;
   font-size: 30px;

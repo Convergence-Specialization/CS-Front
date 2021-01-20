@@ -11,13 +11,13 @@ import {
 
 import { mainPageIcons } from "../../assets/Resources";
 
-const Navbar = () => {
+const Navbar = ({Navname}) => {
   const [navClicked, setNavClicked] = useState(false);
   return (
     <>
       <Nav>
         <Bars onClick={() => setNavClicked(!navClicked)} />
-        <NavLink to="/">융특 커뮤니티 슝</NavLink>
+        <NavLink to="/">{Navname}</NavLink>
         <NavLeftMargin />
         <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
         <IconImg src={mainPageIcons.profile} alt={"프로필 아이콘"} />

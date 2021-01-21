@@ -15,15 +15,14 @@ const Con = styled.div`
   font-style: normal;
 `;
 const Wrap = styled.div`
-   font-family: NanumSquareRoundR;
-   color: #545454;
-  font-size: 20px;
-  line-height: 1.85;
-  margin-left:10px;
+  padding: 8px 0px;
+  border-bottom: 2px solid #aca9a9;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.15;
   letter-spacing: normal;
   @media (max-width: 430px) {
-    font-size: 15px;
-  
+    font-size: 10px;
   }
 `;
 const Qrap = styled.div`
@@ -52,17 +51,17 @@ const Jrap = styled.div`
   }
 `;
 const Title = styled.div`
-  
   font-size: 23px;
   line-height: 1.52;
   letter-spacing: normal;
   @media (max-width: 430px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
 const TextBox = styled.div`
   font-family: NanumSquareRoundB;
   line-height: 1.75;
+  width: 100%;
   display: flex;
   padding: 8px 0px;
   margin-bottom: 8px;
@@ -105,7 +104,7 @@ const CommentBox1 = styled.div`
   border: solid #dcdcdc;
   border-width: 0px 0px 1px 0px;
   background-color: white;
-
+ 
   margin-bottom: 10px;
 `;
 const CommentBox2 = styled.div`
@@ -114,6 +113,7 @@ const CommentBox2 = styled.div`
   width: 85%;
   padding: 10px 0px 0px 10px;
   @media (max-width: 430px) {
+   
     margin-bottom: 5px;
   }
 `;
@@ -164,6 +164,9 @@ const CommentButton = styled.div`
 const CommentButtonText = styled.div`
   font-family: NanumSquareRoundR;
   font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
   line-height: 1.15;
   letter-spacing: normal;
   text-align: center;
@@ -213,9 +216,6 @@ const Box = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const HorseBox = styled.div`
-  display: flex;
-`;
 const Box2 = styled.div`
   width: 100%;
   display: flex;
@@ -224,8 +224,11 @@ const Box2 = styled.div`
 const Box1 = styled.div`
   display: flex;
   justify-content: space-between;
-
-  margin: 100px 0px 0px 0px;
+  background-color: white;
+  margin: 20px 0px 0px 0px;
+  @media (max-width: 430px) {
+    margin: 20px 0px 0px 0px;
+  }
 `;
 export const IconImg = styled.img`
   width: 8%;
@@ -245,15 +248,6 @@ export const MenuImg = styled.img`
   @media (max-width: 430px) {
     width: 3%;
     height: 12px;
-  }
-`;
-export const HorseImg = styled.img`
-  width: 10%;
-  border-radius: 40px;
-
-  @media (max-width: 430px) {
-    width: 10%;
-  border-radius: 40px;
   }
 `;
 export const Time = styled.div`
@@ -285,21 +279,27 @@ export const Time1 = styled.div`
   }
 `;
 
+
 const InConvergence = () => {
   return (
     <>
       <Con>
         <Box>
-          <HorseBox>
-            <HorseImg src={Icons.horse} />
-            <Title>배고픈 슝슝이</Title>
-            <Wrap> 2021.01.14 1:31</Wrap>
-          </HorseBox>
+          <Title>컴학 신청한 사람 많음?</Title>
           <MenuImg src={Icons.verticalmenu} />
         </Box>
-
+        <Wrap>배고픈 슝슝이 | 21.01.14</Wrap>
         <Jrap>지금은 2021 1월 20일입니다.</Jrap>
         <Jrap>새벽 1시 25분이 지나고 있습니다.</Jrap>
+        <Jrap>힘이 들어요오오</Jrap>
+        <Jrap>회의는 9시 30분입니다</Jrap>
+        <Jrap>맞죠?</Jrap>
+        <Jrap>배고파요오</Jrap>
+        <Jrap>저의 역할은 끝나갑니다.</Jrap>
+        <Jrap>오늘은 언제 잘까요?</Jrap>
+        <Jrap>언제 일어날까요?</Jrap>
+        <Jrap>치킨 먹고 싶어요오</Jrap>
+        <Jrap>머지 부탁합니다.</Jrap>
         <Box1>
           <Qrap>공감7 | 댓글5</Qrap>
           <CommentButton>

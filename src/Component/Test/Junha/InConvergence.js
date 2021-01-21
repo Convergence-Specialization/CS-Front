@@ -108,7 +108,7 @@ const CommentBox1 = styled.div`
   border: solid #dcdcdc;
   border-width: 0px 0px 1px 0px;
   background-color: white;
-  width: 90%;
+ 
   margin-bottom: 10px;
 `;
 const CommentBox2 = styled.div`
@@ -117,7 +117,7 @@ const CommentBox2 = styled.div`
   width: 85%;
   padding: 10px 0px 0px 10px;
   @media (max-width: 430px) {
-    padding: 0px 5px 0px 5px;
+   
     margin-bottom: 5px;
   }
 `;
@@ -249,6 +249,10 @@ export const CommentImg = styled.img`
 export const MenuImg = styled.img`
   width: 3%;
   height: 17px;
+  @media (max-width: 430px) {
+    width: 3%;
+    height: 12px;
+  }
 `;
 export const Time = styled.div`
   padding: 20px 0px 0px 0px;

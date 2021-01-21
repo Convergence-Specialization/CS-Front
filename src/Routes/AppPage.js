@@ -4,7 +4,7 @@ import AppPage from "../Component/AppPage";
 import BottomNav from "../Component/BottomNav";
 
 
-const Apppage = () => <span> after Login</span>;
+const Apppage = () => <span> 앱페이지</span>;
 export default Apppage;
 
 //로그인 한 후 메인 페이지

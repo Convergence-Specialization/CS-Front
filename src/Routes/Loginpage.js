@@ -54,7 +54,7 @@ const Loginpage = () => {
             <input
               name="email"
               type="email"
-              placeholder="Email"
+              placeholder="이메일"
               required
               value={email}
               onChange={onChange}
@@ -62,20 +62,20 @@ const Loginpage = () => {
             <input
               name="password"
               type="password"
-              placeholder="Password"
+              placeholder="비밀번호"
               required
               value={password}
               onChange={onChange}
             />
-            <input type="submit" value={newAccount ? "Create Account" : "Sign In"}
+            <input type="submit" value={newAccount ? "회원가입" : "로그인"}
             />
             {error}
           </form>
           <span onClick={toggleAccount}>
-            {newAccount ? "Sign In" : "Create Account"}
+            {newAccount ? "로그인" : "회원가입"}
           </span>
           <div>
-            <button onClick = {onSocialClick} name = "google">Continue with Google</button>
+            <button onClick = {onSocialClick} name = "google">구글 로그인</button>
           </div>
         </div>
       );

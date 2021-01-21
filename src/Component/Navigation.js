@@ -5,10 +5,10 @@ const Navigation = () => (
   <nav>
     <ul>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">메인페이지</Link>
       </li>
       <li>
-        <Link to="/profile">My Profile</Link>
+        <Link to="/profile">내 정보</Link>
       </li>
     </ul>
   </nav>

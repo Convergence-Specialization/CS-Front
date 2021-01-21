@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
+  Route,
   Switch,
   Redirect,
-  Route,
 } from "react-router-dom";
+import Profile from "../Routes/Profile";
+import Navigation from "./Navigation";
+
 import MainPage from "../Routes/MainPage";
 import Board from "./MainPage/Board";
 import MyPage from "../Routes/MyPage";
@@ -44,16 +47,27 @@ const RouterComponent = () => {
     </Router>
   );
 };
-const AppRouter= ({isLoggedin}) =>{
-  return(
+const AppRouter= ({isLoggedIn}) =>{
+  return (
     <Router>
+      {isLoggedIn && <Navigation />}
       <Switch>
-        {isLoggedin ?
-        <>
-        <Route>
-          <Apppage/>
-        </Route>
-        </> : <Route><Loginpage/></Route>}
+        {isLoggedIn ? (
+          <>
+            <Route exact path="/">
+              <Apppage />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
+          </>
+        ) :( 
+          <>
+            <Route exact path="/">
+              <Loginpage />
+            </Route>
+          </>
+        )}
       </Switch>
     </Router>
   )

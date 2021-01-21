@@ -28,7 +28,9 @@ const Wrap = styled.div`
   }
 `;
 const Qrap = styled.div`
+  text-align:end;
   font-family: NanumSquareRoundR;
+  margin-top:20px;
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -74,7 +76,6 @@ const TitleWithProps = styled.div`
 `;
 
 const CommentBox = styled.div`
-  width: 80%;
   border-radius: 10px;
   margin-bottom: 15px;
   background-color: white;
@@ -115,31 +116,29 @@ const CommentBox2 = styled.div`
   margin-bottom: 10px;
   width: 85%;
   padding:10px 10px 0px 10px;
-  justify-content:center;
   @media (max-width: 430px) {
     padding: 0px 5px 0px 5px;
     margin-bottom: 5px;
   }
 `;
 const CommentText1 = styled.div`
-  width: 90%;
   display: flex;
   padding: 8px 0px;
   margin: 0px 0px 10px 0px;
   font-size: 23px;
   line-height: 1.17;
   letter-spacing: normal;
-  text-align: left;
+ 
   color: #000000;
   @media (max-width: 430px) {
     font-size: 10px;
-    width: 75%;
+
     padding: 5px 5px;
   }
 `;
 const Button = styled.div`
   width: 20%;
-  padding: 10px;
+  padding: 15px 10px;
   border-radius: 10px;
   background-color:#B0D0F2;
   font-family: NanumSquareRoundEB;
@@ -235,7 +234,6 @@ const Box2 = styled.div`
   justify-content: space-between;
 `;
 const Box1 = styled.div`
-  width: 90%;
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -273,15 +271,11 @@ export const Time = styled.div`
   }
 `;
 export const Time1 = styled.div`
-  padding: 20px 14px 0px 0px;
+  padding: 20px 10px 0px 0px;
   font-family: NanumSquareRoundR;
   font-size: 13px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.13;
   letter-spacing: normal;
-  text-align: left;
   color: #646464;
   @media (max-width: 430px) {
     font-size: 8px;

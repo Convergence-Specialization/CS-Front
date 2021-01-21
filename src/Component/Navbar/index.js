@@ -7,6 +7,14 @@ import {
   NavLinkOpen,
   IconImg,
   NavLeftMargin,
+  NavContainer,
+  NavUpperMargin,
+  NavOpenUpperContainer,
+  NavOpenUpperButtonWrapper,
+  NavOpenUpperButton,
+  NavOpenUpperDescWrapper,
+  NavOpenSingleItemBox,
+  NavOpenItemText,
 } from "./NavbarElements";
 import { Link } from "react-router-dom";
 
@@ -16,26 +24,45 @@ const Navbar = ({ Navname }) => {
   const [navClicked, setNavClicked] = useState(false);
   return (
     <>
-      <Nav>
-        <Bars onClick={() => setNavClicked(!navClicked)} />
-        <NavLink to="/">{Navname}</NavLink>
-        <NavLeftMargin />
-        <Link to="">
+      <NavContainer>
+        <Nav>
+          <Bars onClick={() => setNavClicked(!navClicked)} />
+          <NavLink to="/">{Navname}</NavLink>
+          <NavLeftMargin />
           <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
-        </Link>
-        <Link to="/login">
           <IconImg src={mainPageIcons.profile} alt={"프로필 아이콘"} />
-        </Link>
-      </Nav>
-      <NavOpen
-        style={
-          navClicked
-            ? { left: "0", opacity: "1" }
-            : { left: "-100%", opacity: "0" }
-        }>
-        <NavLinkOpen to="/about">20학번</NavLinkOpen>
-        <NavLinkOpen to="/ServiceOverview">21학번</NavLinkOpen>
-      </NavOpen>
+        </Nav>
+        <NavOpen
+          style={
+            navClicked
+              ? { left: "0", opacity: "1" }
+              : { left: "-100%", opacity: "0" }
+          }>
+          <NavOpenUpperContainer>
+            <NavOpenUpperButtonWrapper>
+              <NavOpenUpperButton>로그인</NavOpenUpperButton>
+              <NavOpenUpperButton>회원가입</NavOpenUpperButton>
+            </NavOpenUpperButtonWrapper>
+            <NavOpenUpperDescWrapper>asdfasdf</NavOpenUpperDescWrapper>
+          </NavOpenUpperContainer>
+          <NavOpenSingleItemBox>
+            <NavOpenItemText>Home</NavOpenItemText>
+          </NavOpenSingleItemBox>
+          <NavOpenSingleItemBox>
+            <NavOpenItemText>마이페이지</NavOpenItemText>
+          </NavOpenSingleItemBox>
+          <NavOpenSingleItemBox>
+            <NavOpenItemText>알림함</NavOpenItemText>
+          </NavOpenSingleItemBox>
+          <NavOpenSingleItemBox>
+            <NavOpenItemText>학생회 공지사항</NavOpenItemText>
+          </NavOpenSingleItemBox>
+          <NavOpenSingleItemBox>
+            <NavOpenItemText>Home</NavOpenItemText>
+          </NavOpenSingleItemBox>
+        </NavOpen>
+      </NavContainer>
+      <NavUpperMargin />
     </>
   );
 };

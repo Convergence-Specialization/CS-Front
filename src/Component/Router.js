@@ -11,6 +11,7 @@ import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
 import Junha from "../Routes/Junha";
 import Change3 from "../Routes/Change3";
+import Eunsotest from "../Routes/Eunsotest";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 const RouterComponent = () => {
@@ -38,7 +39,9 @@ const RouterComponent = () => {
         <Route path="/change" exact>
           <Change />
         </Route>
-
+        <Route path="/Eunsotest" exact>
+          <Eunsotest />
+        </Route>
         <Route path="/change3" exact>
           <Change3 />
         </Route>

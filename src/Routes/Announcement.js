@@ -1,5 +1,5 @@
 import Footer from "../Component/Footer";
-import Announcement from "../Component/Test/Yeonwoo/Announcement";
+import Announcement from "../Component/Announcement/Read";
 import Navbar from "../Component/Navbar";
 import NavBot from "../Component/NavBot";
 import BottomNav from "../Component/BottomNav";

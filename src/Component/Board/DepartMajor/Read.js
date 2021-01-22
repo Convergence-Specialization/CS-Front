@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Icons, mainPageIcons } from "../../assets/Resources";
+import { Icons, mainPageIcons } from "../../../assets/Resources";
+
 const Con = styled.div`
   width: 85%;
   padding: 20px;

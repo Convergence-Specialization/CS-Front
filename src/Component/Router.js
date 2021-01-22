@@ -9,9 +9,11 @@ import Login from "../Routes/Login";
 import AppPage from "../Routes/AppPage";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
-import Junha from "../Routes/Junha";
 import Change3 from "../Routes/Change3";
 import UiJeong from "../Routes/UiJeong";
+import Event from "../Routes/Event";
+import SignUp from "../Routes/SignUp";
+import DepartMajor from "../Routes/Board/DepartMajor";
 const RouterComponent = () => {
   return (
     <Router>
@@ -19,8 +21,11 @@ const RouterComponent = () => {
         <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path="/junha" exact>
-          <Junha />
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/board/departmajor">
+          <DepartMajor />
         </Route>
         <Route path="/app" exact>
           <AppPage />
@@ -34,6 +39,9 @@ const RouterComponent = () => {
         <Route path="/uijeong" exact>
           <UiJeong />
         </Route>  
+        <Route path="/event" exact>
+          <Event />
+        </Route>
         <Route path="/change3" exact>
           <Change3 />
         </Route>

@@ -6,7 +6,6 @@ const Con = styled.div`
   display: flex;
 
   justify-content: space-between;
-  margin: 40px 0px 0px 0px;
   padding: 0px 26px 0px 20px;
   align-items:center;
   background-color: #d3dae3;

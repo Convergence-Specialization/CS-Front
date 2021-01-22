@@ -10,7 +10,6 @@ import AppPage from "../Routes/AppPage";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
 import Change3 from "../Routes/Change3";
-import UiJeong from "../Routes/UiJeong";
 import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
@@ -33,12 +32,12 @@ const RouterComponent = () => {
         <Route path="/mypage" exact>
           <MyPage />
         </Route>
+        <Route path="/mypage/myposts">
+          <MyPage />
+        </Route>
         <Route path="/change" exact>
           <Change />
-        </Route>
-        <Route path="/uijeong" exact>
-          <UiJeong />
-        </Route>  
+        </Route> 
         <Route path="/event" exact>
           <Event />
         </Route>

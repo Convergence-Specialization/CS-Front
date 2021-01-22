@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { mainPageIcons } from "../../../assets/Resources";
+import { mainPageIcons } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;

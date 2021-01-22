@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Icons } from "../../assets/Resources";
+import { Icons } from "../../../assets/Resources";
 
 const TopBar = styled.div`
     background-color: white; 

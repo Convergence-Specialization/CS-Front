@@ -1,5 +1,5 @@
 import Footer from "../Component/Footer";
-import Event from "../Component/Test/Yeonwoo/Event";
+import Event from "../Component/Event/ListView";
 import Navbar from "../Component/Navbar";
 import BottomNav from "../Component/BottomNav";
 

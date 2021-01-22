@@ -88,7 +88,6 @@ const CommentBox = styled.div`
   }
 `;
 const CommentText = styled.div`
-
   width: 90%;
   font-family: NanumSquareRoundR;
   font-size: 19px;
@@ -114,8 +113,8 @@ const CommentBox2 = styled.div`
   background-color: #f9f9f9;
   margin-bottom: 10px;
   width: 85%;
-  padding:10px 10px 0px 10px;
-  justify-content:center;
+  padding: 10px 10px 0px 10px;
+  justify-content: center;
   @media (max-width: 430px) {
     padding: 0px 5px 0px 5px;
     margin-bottom: 5px;
@@ -141,7 +140,7 @@ const Button = styled.div`
   width: 20%;
   padding: 10px;
   border-radius: 10px;
-  background-color:#B0D0F2;
+  background-color: #b0d0f2;
   font-family: NanumSquareRoundEB;
   font-size: 17px;
   line-height: 1.12;
@@ -230,7 +229,7 @@ const Box = styled.div`
   justify-content: space-between;
 `;
 const Box2 = styled.div`
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 `;
@@ -246,8 +245,8 @@ const Box1 = styled.div`
 `;
 export const IconImg = styled.img`
   width: 8%;
-  padding:10px 0px 30px 0px;
-  margin-left:25px;
+  padding: 10px 0px 30px 0px;
+  margin-left: 25px;
 `;
 export const CommentImg = styled.img`
   width: 20%;

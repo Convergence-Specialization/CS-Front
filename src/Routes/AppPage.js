@@ -3,12 +3,18 @@ import Nav from "../Component/Nav";
 import AppPage from "../Component/AppPage";
 import BottomNav from "../Component/BottomNav";
 import React, { useState } from "react";
+import {dbService} from "../fbase";
 
 
 const Apppage = () => {
     const [nweet, setNweet] = useState("");
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
       event.preventDefault();
+      await dbService.collection("nweets").add({
+        nweet,
+        createdAt: Date.now(),
+      });
+      setNweet("");
     };
     const onChange = (event) => {
       const {

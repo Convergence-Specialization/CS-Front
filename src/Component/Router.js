@@ -35,13 +35,13 @@ const RouterComponent = () => {
         <Route path="/mypage/myposts">
           <MyPage />
         </Route>
-        <Route path="/changeinformation" exact>
+        <Route path="/mypage/changeinformation" exact>
           <ChangeInformation />
         </Route> 
         <Route path="/event" exact>
           <Event />
         </Route>
-        <Route path="/changepw" exact>
+        <Route path="/mypage/changepw" exact>
           <ChangePW />
         </Route>
         <Redirect path="*" to="/" />

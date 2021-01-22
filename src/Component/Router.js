@@ -32,9 +32,12 @@ const RouterComponent = () => {
         <Route path="/mypage" exact>
           <MyPage />
         </Route>
+        <Route path="/mypage/myposts">
+          <MyPage />
+        </Route>
         <Route path="/change" exact>
           <Change />
-        </Route>
+        </Route> 
         <Route path="/event" exact>
           <Event />
         </Route>

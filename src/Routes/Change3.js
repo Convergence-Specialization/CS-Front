@@ -1,12 +1,12 @@
 import Footer from "../Component/Footer";
 import Change3 from "../Component/Change3";
-import Nav from "../Component/Nav";
+import Navbar from "../Component/Navbar";
 import BottomNav from "../Component/BottomNav";
 
 export default () => {
   return (
     <>
-    <Nav/>
+      <Navbar Navname="마이페이지" />
       <Change3 />
       <BottomNav />
       <Footer />

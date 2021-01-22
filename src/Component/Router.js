@@ -9,29 +9,24 @@ import {
 import Profile from "../Routes/Profile";
 import Navigation from "./Navigation";
 
-import MainPage from "../Routes/MainPage";
-import Board from "./MainPage/Board";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
-
+import Junha from "../Routes/Junha";
 import Change3 from "../Routes/Change3";
-import Apppage from "../Routes/Apppage";
+import MyAppPage from "../Routes/MyAppPage";
 import Loginpage from "../Routes/Loginpage";
 const RouterComponent = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
-        <Route path="/board" exact>
-          <Board />
-        </Route>
         <Route path="/login" exact>
           <Loginpage />
         </Route>
+        <Route path="/junha" exact>
+          <Junha />
+        </Route>
         <Route path="/app" exact>
-          <Apppage />
+          <MyAppPage />
         </Route>
         <Route path="/mypage" exact>
           <MyPage />
@@ -39,7 +34,7 @@ const RouterComponent = () => {
         <Route path="/change" exact>
           <Change />
         </Route>
-       
+
         <Route path="/change3" exact>
           <Change3 />
         </Route>
@@ -56,7 +51,7 @@ const AppRouter= ({isLoggedIn}) =>{
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              <Apppage />
+              <MyAppPage />
             </Route>
             <Route exact path="/profile">
               <Profile />

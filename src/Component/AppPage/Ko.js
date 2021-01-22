@@ -22,6 +22,8 @@ const Oon = styled.div`
   width: 50%;
   display: flex;
   justify-content: start;
+  background-color: red;
+
   @media (max-width: 430px) {
     margin: 0px 0px 0px 50px;
   }

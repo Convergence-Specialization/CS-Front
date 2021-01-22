@@ -36,6 +36,7 @@ const Text = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #616161;
+  
   @media (max-width: 430px) {
     font-size: 13px;
     padding: 0px 0px 1px 0px;

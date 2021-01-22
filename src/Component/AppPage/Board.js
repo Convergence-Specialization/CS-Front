@@ -15,7 +15,6 @@ const Con = styled.div`
     padding: 12px 15px 12px 15px;
   }
 `;
-
 const Oon = styled.div`
   margin: 10px auto 0px 50px;
   padding: 20px 0px 10px 0px;
@@ -29,6 +28,8 @@ const Oon = styled.div`
 const Text = styled.div`
   font-size: 30px;
   margin: 0px 0px;
+  padding: 10px;
+  background-color: white;
   padding: 10px 0px 0px 10px;
   font-family: NanumSquareRoundB;
   font-size: 30px;
@@ -67,6 +68,8 @@ const Jrap = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  border-radius: 20px;
   border-radius: 21px;
   background-color: #ffffff;
   padding: 10px 30px;
@@ -142,6 +145,7 @@ const Board = () => {
         <img
           src={Icons.Paperplane}
           alt="비행기"
+          style={{ height: "60px" }}
           style={{ width:'19%' }}
         ></img>
         <Text>전과 게시판</Text>

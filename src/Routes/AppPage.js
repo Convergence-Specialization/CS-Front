@@ -1,41 +1,19 @@
 import Footer from "../Component/Footer";
-import Nav from "../Component/Nav";
+import Navbar from "../Component/Navbar";
 import AppPage from "../Component/AppPage";
 import BottomNav from "../Component/BottomNav";
 import React, { useState } from "react";
 import {dbService} from "../fbase";
 
 
-const Apppage = () => {
-    const [nweet, setNweet] = useState("");
-    const onSubmit = async (event) => {
-      event.preventDefault();
-      await dbService.collection("nweets").add({
-        nweet,
-        createdAt: Date.now(),
-      });
-      setNweet("");
-    };
-    const onChange = (event) => {
-      const {
-        target: { value },
-      } = event;
-      setNweet(value);
-    };
-    return (
-      <div>
-        <form onSubmit={onSubmit}>
-          <input
-            value={nweet}
-            onChange={onChange}
-            type="text"
-            placeholder="글쓰기"
-            maxLength={120}
-          />
-          <input type="submit" value="저장" />
-        </form>
-      </div>
-    );
-  };export default Apppage;
 
-//로그인 한 후 메인 페이지
+export default () => {
+  return (
+    <>
+      <Navbar Navname='융특커뮤니티 슝'/>
+      <AppPage />
+      <BottomNav />
+      <Footer />
+    </>
+  );
+};

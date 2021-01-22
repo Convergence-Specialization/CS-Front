@@ -11,6 +11,7 @@ import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
 import Junha from "../Routes/Junha";
 import Change3 from "../Routes/Change3";
+import UiJeong from "../Routes/UiJeong";
 const RouterComponent = () => {
   return (
     <Router>
@@ -30,7 +31,9 @@ const RouterComponent = () => {
         <Route path="/change" exact>
           <Change />
         </Route>
-
+        <Route path="/uijeong" exact>
+          <UiJeong />
+        </Route>  
         <Route path="/change3" exact>
           <Change3 />
         </Route>

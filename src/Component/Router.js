@@ -12,14 +12,11 @@ import Navigation from "./Navigation";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
 import Change3 from "../Routes/Change3";
-<<<<<<< HEAD
 import MyAppPage from "../Routes/MyAppPage";
 import Loginpage from "../Routes/Loginpage";
-=======
 import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
->>>>>>> bb450d218e458aa2e11368885a8ebd6f290a9cf6
 const RouterComponent = () => {
   return (
     <Router>

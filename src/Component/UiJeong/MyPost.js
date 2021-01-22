@@ -30,7 +30,7 @@ const Board = styled.div`
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
-    font-size: 15px;
+    font-size: 17px;
     background-color: white;
 `;
 
@@ -53,7 +53,7 @@ const MyPost = () => {
     return (
         <>
             <TopBar>
-                ✔내가 쓴 글
+                ✔ 내가 쓴 글
             </TopBar>
             <Back>
                 <Board>

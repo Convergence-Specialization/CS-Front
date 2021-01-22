@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Icons, mainPageIcons } from "../../assets/Resources";
+import { Icons, mainPageIcons } from "../../../assets/Resources";
+
 const Con = styled.div`
   width: 85%;
   padding: 20px;
@@ -104,16 +105,16 @@ const CommentBox1 = styled.div`
   border: solid #dcdcdc;
   border-width: 0px 0px 1px 0px;
   background-color: white;
- 
+
   margin-bottom: 10px;
 `;
 const CommentBox2 = styled.div`
   background-color: #f9f9f9;
   margin-bottom: 10px;
   width: 85%;
-  padding: 10px 0px 0px 10px;
+  padding: 10px 10px 0px 10px;
+  justify-content: center;
   @media (max-width: 430px) {
-   
     margin-bottom: 5px;
   }
 `;
@@ -278,7 +279,6 @@ export const Time1 = styled.div`
     padding: 8px 5px 0px 0px;
   }
 `;
-
 
 const InConvergence = () => {
   return (

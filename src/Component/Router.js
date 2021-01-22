@@ -9,9 +9,8 @@ import Login from "../Routes/Login";
 import AppPage from "../Routes/AppPage";
 import MyPage from "../Routes/MyPage";
 import Change from "../Routes/Change";
-import Junha from "../Routes/Junha";
 import Change3 from "../Routes/Change3";
-import Eunsotest from "../Routes/Eunsotest";
+import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 const RouterComponent = () => {
@@ -20,9 +19,6 @@ const RouterComponent = () => {
       <Switch>
         <Route path="/login" exact>
           <Login />
-        </Route>
-        <Route path="/junha" exact>
-          <Junha />
         </Route>
         <Route path="/signup">
           <SignUp />
@@ -39,8 +35,8 @@ const RouterComponent = () => {
         <Route path="/change" exact>
           <Change />
         </Route>
-        <Route path="/Eunsotest" exact>
-          <Eunsotest />
+        <Route path="/event" exact>
+          <Event />
         </Route>
         <Route path="/change3" exact>
           <Change3 />

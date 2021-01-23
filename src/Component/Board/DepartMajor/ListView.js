@@ -5,7 +5,7 @@ import { mainPageIcons } from "../../../assets/Resources";
 const Con = styled.div`
   width: 100%;
   background-color: #f1f1f1;
-  margin : 0px;
+  padding-bottom : 20px;
 `;
 const TitleBox = styled.div`
   background-color: #ffffff;
@@ -23,7 +23,7 @@ const TitleIconImg = styled.img`
   margin-left: 10px;
 `;
 const Title = styled.div`
-  margin-left: 6px;
+  margin-left: 8px;
   font-weight: bold;
   font-size: 20px;
   font-family: NanumSquareRoundB;
@@ -46,13 +46,13 @@ const PostButton = styled.div`
   text-align: center;
   line-height: 1.12;
   letter-spacing: normal;
-  font-size: 13px;
+  font-size: 15px;
   color: #000000;
   padding: 5px 7px;
   font-family: NanumSquareRoundEB;
   font-weight: bold;
   @media (max-width: 430px) {
-    font-size: 13px;
+    font-size: 14px;
     padding: 5px 7px;
   }
 `;
@@ -64,17 +64,32 @@ const TitleElement = ({ src, name}) => (
 );
 
 const BoardCon = styled.div`
-  width: 100%;
+  
   background-color: #ffffff;
   border-radius: 15px;
-  padding: 0 auto;
-  padding-bottom: 50px;
-  margin: 0 20px 0px 0px;
+  padding: 10px auto;
+  margin: 0px 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+`;
+const MoreButton = styled.div`
+  
+  background-color: #ffffff;
+  border-radius : 15px;
+  margin: 0px 10px;
+  margin-top: 10px;
+  padding: 5px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 5px 7px;
+  }
 `;
 
 const changedboard = () => {
@@ -85,7 +100,14 @@ const changedboard = () => {
          <PostButton>글 작성</PostButton>
       </TitleBox>
       <BoardCon>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
       </BoardCon>
+      <MoreButton>더보기</MoreButton>
     </Con>
   );
 };

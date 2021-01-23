@@ -5,7 +5,7 @@ import { mainPageIcons } from "../../../assets/Resources";
 const Con = styled.div`
   width: 100%;
   background-color: #f1f1f1;
-  margin: 0 auto;
+  margin : 0px;
 `;
 const TitleBox = styled.div`
   background-color: #ffffff;
@@ -69,7 +69,7 @@ const BoardCon = styled.div`
   border-radius: 15px;
   padding: 0 auto;
   padding-bottom: 50px;
-  margin: 0 auto;
+  margin: 0 20px 0px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;

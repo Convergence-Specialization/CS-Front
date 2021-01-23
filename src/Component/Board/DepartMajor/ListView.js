@@ -9,8 +9,8 @@ const Con = styled.div`
 `;
 const TitleBox = styled.div`
   background-color: #ffffff;
-  padding : 10px;
-  margin-bottom:15px;
+  padding: 10px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
 `;
@@ -41,8 +41,9 @@ const PostButton = styled.div`
   width: 15%;
   padding: 5px 7px;
   border-radius: 13px;
-  background-color: #D4E6FB;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #d4e6fb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   text-align: center;
   line-height: 1.12;
   letter-spacing: normal;
@@ -56,7 +57,7 @@ const PostButton = styled.div`
     padding: 5px 7px;
   }
 `;
-const TitleElement = ({ src, name}) => (
+const TitleElement = ({ src, name }) => (
   <TitleWrap>
     <TitleIconImg src={src} />
     <Title>{name}</Title>
@@ -77,19 +78,18 @@ const BoardCon = styled.div`
   margin-bottom: 30px;
 `;
 
-const changedboard = () => {
+const ChangedBoard = () => {
   return (
     <Con>
       <TitleBox>
-         <TitleElement src={mainPageIcons.airplane} name={"전과 게시판"} />
-         <PostButton>글 작성</PostButton>
+        <TitleElement src={mainPageIcons.airplane} name={"전과 게시판"} />
+        <PostButton>글 작성</PostButton>
       </TitleBox>
-      <BoardCon>
-      </BoardCon>
+      <BoardCon></BoardCon>
     </Con>
   );
 };
-export default changedboard;
+export default ChangedBoard;
 /*
 const MoveCon = styled.div`
   font-weight: normal;
@@ -143,4 +143,3 @@ const BoveSmallCon = styled.div`
     margin: 10px 0;
   }
 `; */
-

@@ -32,7 +32,7 @@ const DepartPresenter = () => {
   }, [location]);
   return (
     <>
-      <Navbar />
+      <Navbar Navname = "융특 커뮤니티 슝"/>
       {/* useEffect에서 페이지 어디로 갈지 결정되면 renderElement로 페이지를 뿌려줘! */}
       {renderElement}
     </>

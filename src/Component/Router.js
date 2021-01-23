@@ -8,6 +8,7 @@ import {
 import Login from "../Routes/Login";
 import AppPage from "../Routes/AppPage";
 import MyPage from "../Routes/MyPage";
+import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/ChangeInformation";
 import ChangePW from "../Routes/ChangePW";
 import Event from "../Routes/Event";
@@ -33,7 +34,7 @@ const RouterComponent = () => {
           <MyPage />
         </Route>
         <Route path="/mypage/myposts">
-          <MyPage />
+          <MyPosts />
         </Route>
         <Route path="/mypage/changeinformation" exact>
           <ChangeInformation />

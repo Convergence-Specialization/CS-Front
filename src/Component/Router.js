@@ -8,8 +8,8 @@ import {
 import Login from "../Routes/Login";
 import AppPage from "../Routes/AppPage";
 import MyPage from "../Routes/MyPage";
-import Change from "../Routes/Change";
-import Change3 from "../Routes/Change3";
+import ChangeInformation from "../Routes/ChangeInformation";
+import ChangePW from "../Routes/ChangePW";
 import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
@@ -35,14 +35,14 @@ const RouterComponent = () => {
         <Route path="/mypage/myposts">
           <MyPage />
         </Route>
-        <Route path="/change" exact>
-          <Change />
+        <Route path="/mypage/changeinformation" exact>
+          <ChangeInformation />
         </Route> 
         <Route path="/event" exact>
           <Event />
         </Route>
-        <Route path="/change3" exact>
-          <Change3 />
+        <Route path="/mypage/changepw" exact>
+          <ChangePW />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

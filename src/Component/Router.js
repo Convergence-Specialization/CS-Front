@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   HashRouter as Router,
   Route,
@@ -53,7 +53,7 @@ const RouterComponent = () => {
     </Router>
   );
 };
-const AppRouter= ({isLoggedIn}) =>{
+const AppRouter= ({isLoggedIn, userObj}) =>{
   return (
     <Router>
       {isLoggedIn && <Navigation />}
@@ -61,7 +61,7 @@ const AppRouter= ({isLoggedIn}) =>{
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              <MyAppPage />
+              <MyAppPage userObj = {userObj}/>
             </Route>
             <Route exact path="/profile">
               <Profile />

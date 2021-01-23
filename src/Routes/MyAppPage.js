@@ -6,27 +6,25 @@ import React, { useState, useEffect } from "react";
 import {dbService, firestoreInstance} from "../fbase";
 
 
-const MyAppPage = () => {
+const MyAppPage = ({userObj}) => {
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
-    const getNweets = async () => {
-      const dbNweets = await dbService.collection("nweets").get();
-      dbNweets.forEach((document) => {
-        const nweetObject = {
-          ...document.data(),
-          id: document.id,
-        };
-        setNweets((prev) => [nweetObject, ...prev]);
-      });
-    };
+
     useEffect(() => {
-      getNweets();
+      dbService.collection("nweets").onSnapshot((snapshot) => {
+        const nweetArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setNweets(nweetArray);
+      });
     }, []);
     const onSubmit = async (event) => {
       event.preventDefault();
       await dbService.collection("nweets").add({
-        nweet,
+        text :nweet,
         createdAt: firestoreInstance.FieldValue.serverTimestamp(),
+        creatorId : userObj.uid,
       }).catch((error)=>{
           alert(error)
       });
@@ -53,7 +51,9 @@ const MyAppPage = () => {
         <div>
         {nweets.map((nweet) => (
           <div key={nweet.id}>
-            <h4>{nweet.nweet}</h4>
+            <h4>{nweet.text}</h4>
+            <h5>{nweet.creatorId}</h5>
+            <></>
           </div>
         ))}
       </div>

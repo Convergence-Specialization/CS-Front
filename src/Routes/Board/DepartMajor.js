@@ -4,7 +4,6 @@ import Read from "../../Component/Board/DepartMajor/Read";
 import Create from "../../Component/Board/DepartMajor/Create";
 
 import ListView from "../../Component/Board/DepartMajor/ListView";
-import Navbar from "../../Component/Navbar";
 
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";

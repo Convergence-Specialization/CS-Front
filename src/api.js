@@ -17,7 +17,7 @@ export const boardApi = {
           .then((querySnapshot) => {
             let dataArray = [];
             querySnapshot.forEach((doc) => {
-              dataArray.push(doc.data());
+              dataArray.push({ ...doc.data(), id: doc.id });
             });
             return {
               result: "success",

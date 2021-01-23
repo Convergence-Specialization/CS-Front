@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { mainPageIcons } from "../../../assets/Resources";
+import { useHistory } from "react-router-dom";
+import { boardApi } from "../../../api";
 
 const Con = styled.div`
   width: 100%;
@@ -70,6 +72,7 @@ const BoardCon = styled.div`
   padding: 10px auto;
   margin: 0px 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -93,13 +96,52 @@ const MoreButton = styled.div`
 `;
 
 const ChangedBoard = () => {
+  const history = useHistory();
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    boardApi.departMajor.readList().then(({ result, body }) => {
+      if (result === "success") {
+        setPosts(
+          body.map((item) => {
+            return {
+              ...item,
+              timestamp: item.timestamp.toDate().toString(),
+            };
+          })
+        );
+      } else {
+        alert("오류발생");
+      }
+    });
+  }, []);
   return (
     <Con>
       <TitleBox>
         <TitleElement src={mainPageIcons.airplane} name={"전과 게시판"} />
-        <PostButton>글 작성</PostButton>
+        <PostButton
+          onClick={() => {
+            history.push({
+              pathname: "/board/departmajor",
+              state: { pageName: "create" },
+            });
+          }}>
+          글 작성
+        </PostButton>
       </TitleBox>
       <BoardCon>
+        {posts.length !== 0 &&
+          posts.map((item, idx) => (
+            <div
+              key={idx}
+              style={{ margin: "10px 0" }}
+              onClick={() => {
+                alert(item.id);
+              }}>
+              <div>제목: {item.title}</div>
+              <div>글 내용: {item.body}</div>
+              <div>쓴 시간: {item.timestamp}</div>
+            </div>
+          ))}
         <br />
         <br />
         <br />

@@ -1,4 +1,4 @@
-import { dbInstance } from "./firebase";
+import { dbInstance } from "./fbase";
 
 const boardDB = {
   convergence: dbInstance().collection("convergence"),

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { boardApi } from "../../../api";
-import { auth } from "../../../firebase";
+import { auth } from "../../../fbase";
 
 const Container = styled.div`
   width: 100%;

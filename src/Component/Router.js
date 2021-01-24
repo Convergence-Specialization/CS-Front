@@ -20,6 +20,7 @@ import ChangePW from "../Routes/ChangePW";
 import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
+import ChangeMajorBoard from "../Routes/ChangeMajorBoard";
 const RouterComponent = () => {
   return (
     <Router>
@@ -50,6 +51,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/mypage/changepw" exact>
           <ChangePW />
+        </Route>
+        <Route path="/changemajorboard" exact>
+          <ChangeMajorBoard />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

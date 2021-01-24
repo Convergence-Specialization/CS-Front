@@ -4,12 +4,12 @@ import AppPage from "../Component/AppPage";
 import BottomNav from "../Component/BottomNav";
 import React, { useState, useEffect } from "react";
 import {dbService, firestoreInstance} from "../fbase";
+import Comment from "./Comment";
 
 
 const MyAppPage = ({userObj}) => {
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
-
     useEffect(() => {
       dbService.collection("nweets").onSnapshot((snapshot) => {
         const nweetArray = snapshot.docs.map((doc) => ({
@@ -50,11 +50,7 @@ const MyAppPage = ({userObj}) => {
         </form>
         <div>
         {nweets.map((nweet) => (
-          <div key={nweet.id}>
-            <h4>{nweet.text}</h4>
-            <h5>{nweet.creatorId}</h5>
-            <></>
-          </div>
+          <Comment key = {nweet.id} commentObj ={nweet} isOwner = {nweet.creatorId === userObj.uid}/>
         ))}
       </div>
       </div>

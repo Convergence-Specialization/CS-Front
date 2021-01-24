@@ -12,7 +12,7 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/104562898-4c460700-568c-11eb-93c7-ae49f7ff4a39.png",
   공지:
     "https://user-images.githubusercontent.com/74090222/104570579-7b14ab00-5695-11eb-8947-26260ef97545.png",
-  화살표:
+  UpArrow:
     "https://user-images.githubusercontent.com/74090222/104585329-31cd5700-56a7-11eb-913d-0daddf15de16.png",
   숭실:
     "https://user-images.githubusercontent.com/74090222/104586083-5413a480-56a8-11eb-865d-e154a8f65127.png",

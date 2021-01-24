@@ -1,14 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import GlobalStyles from "./GlobalStyles";
-import Router from "./Router";
+import AppRouter from "./Router";
+import {authService} from "../fbase";
+import { FaSlidersH } from "react-icons/fa";
+
 
 function App() {
-  return (
-    <>
-      <GlobalStyles />
-      <Router />
-    </>
-  );
-}
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        setUserObj(user);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
+  return(
+  <>
+  {init ? <AppRouter isLoggedIn={isLoggedIn} userObj ={userObj} /> : "Initializing...(로딩중)"}
+</>
+);}
 
 export default App;

@@ -1,13 +1,17 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
+  Route,
   Switch,
   Redirect,
-  Route,
 } from "react-router-dom";
-import Login from "../Routes/Login";
-import AppPage from "../Routes/AppPage";
+
+import Profile from "../Routes/Profile";
+import Navigation from "./Navigation";
+
 import MyPage from "../Routes/MyPage";
+import MyAppPage from "../Routes/MyAppPage";
+import Loginpage from "../Routes/Loginpage";
 import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/ChangeInformation";
 import ChangePW from "../Routes/ChangePW";
@@ -19,7 +23,7 @@ const RouterComponent = () => {
     <Router>
       <Switch>
         <Route path="/login" exact>
-          <Login />
+          <Loginpage />
         </Route>
         <Route path="/signup">
           <SignUp />
@@ -28,7 +32,7 @@ const RouterComponent = () => {
           <DepartMajor />
         </Route>
         <Route path="/app" exact>
-          <AppPage />
+          <MyAppPage />
         </Route>
         <Route path="/mypage" exact>
           <MyPage />
@@ -50,4 +54,31 @@ const RouterComponent = () => {
     </Router>
   );
 };
-export default RouterComponent;
+const AppRouter= ({isLoggedIn, userObj}) =>{
+  return (
+    <Router>
+      {isLoggedIn && <Navigation />}
+      <Switch>
+        {isLoggedIn ? (
+          <>
+            <Route exact path="/">
+              <MyAppPage userObj = {userObj}/>
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
+          </>
+        ) :( 
+          <>
+            <Route exact path="/">
+              <Loginpage />
+            </Route>
+          </>
+        )}
+      </Switch>
+    </Router>
+  )
+};
+
+export default AppRouter;
+

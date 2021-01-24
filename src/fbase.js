@@ -22,7 +22,8 @@ export const ui = new firebaseui.auth.AuthUI(firebase.auth());
 export const firebaseInstance = firebase;
 export const db = firebase.firestore();
 export const authService = firebase.auth();
-
+export const dbInstance = firebase.firestore;
+export const auth = firebase.app().auth();
 
 export const dbService = firebase.firestore();
 export const firestoreInstance = firebase.firestore;

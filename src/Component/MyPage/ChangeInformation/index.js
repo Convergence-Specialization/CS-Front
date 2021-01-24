@@ -2,7 +2,7 @@ import React from "react";
 import Board from "./Board";
 
 
-export default function Change() {
+const ChangeInformation =() => {
   // const classes = useStyles();
   return (
     <div>
@@ -10,3 +10,4 @@ export default function Change() {
     </div>
   );
 }
+export default  ChangeInformation;

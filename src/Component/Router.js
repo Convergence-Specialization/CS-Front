@@ -10,10 +10,11 @@ import Profile from "../Routes/Profile";
 import Navigation from "./Navigation";
 
 import MyPage from "../Routes/MyPage";
-import Change from "../Routes/Change";
-import Change3 from "../Routes/Change3";
 import MyAppPage from "../Routes/MyAppPage";
 import Loginpage from "../Routes/Loginpage";
+import MyPosts from "../Routes/MyPage/MyPostsListView";
+import ChangeInformation from "../Routes/ChangeInformation";
+import ChangePW from "../Routes/ChangePW";
 import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
@@ -37,16 +38,16 @@ const RouterComponent = () => {
           <MyPage />
         </Route>
         <Route path="/mypage/myposts">
-          <MyPage />
+          <MyPosts />
         </Route>
-        <Route path="/change" exact>
-          <Change />
+        <Route path="/mypage/changeinformation" exact>
+          <ChangeInformation />
         </Route> 
         <Route path="/event" exact>
           <Event />
         </Route>
-        <Route path="/change3" exact>
-          <Change3 />
+        <Route path="/mypage/changepw" exact>
+          <ChangePW />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

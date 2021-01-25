@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
@@ -8,6 +8,8 @@ import {
 
 import Profile from "../Routes/Profile";
 import Navigation from "./Navigation";
+
+import AppPage from "../Routes/AppPage";
 
 import MyPage from "../Routes/MyPage";
 import MyAppPage from "../Routes/MyAppPage";
@@ -31,8 +33,8 @@ const RouterComponent = () => {
         <Route path="/board/departmajor">
           <DepartMajor />
         </Route>
-        <Route path="/app" exact>
-          <MyAppPage />
+        <Route path="/" exact>
+          <AppPage />
         </Route>
         <Route path="/mypage" exact>
           <MyPage />
@@ -42,7 +44,7 @@ const RouterComponent = () => {
         </Route>
         <Route path="/mypage/changeinformation" exact>
           <ChangeInformation />
-        </Route> 
+        </Route>
         <Route path="/event" exact>
           <Event />
         </Route>
@@ -54,7 +56,7 @@ const RouterComponent = () => {
     </Router>
   );
 };
-const AppRouter= ({isLoggedIn, userObj}) =>{
+const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
     <Router>
       {isLoggedIn && <Navigation />}
@@ -62,13 +64,13 @@ const AppRouter= ({isLoggedIn, userObj}) =>{
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              <MyAppPage userObj = {userObj}/>
+              <MyAppPage userObj={userObj} />
             </Route>
             <Route exact path="/profile">
               <Profile />
             </Route>
           </>
-        ) :( 
+        ) : (
           <>
             <Route exact path="/">
               <Loginpage />
@@ -77,8 +79,7 @@ const AppRouter= ({isLoggedIn, userObj}) =>{
         )}
       </Switch>
     </Router>
-  )
+  );
 };
 
-export default AppRouter;
-
+export default RouterComponent;

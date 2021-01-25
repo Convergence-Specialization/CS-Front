@@ -74,15 +74,7 @@ const Wrap = styled.div`
     margin: 5px 0px;
   }
 `;
-const Img = styled.img`
-  width: 15%;
-  margin-bottom: 50px;
-  @media (max-width: 430px) {
-    font-size: 12px;
-    padding-top: 30px;
-    margin: 30px 0px;
-  }
-`;
+
 const ImgNav = styled.img`
   width: 7%;
   margin-bottom: 50px;

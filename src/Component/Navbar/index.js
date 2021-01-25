@@ -4,7 +4,7 @@ import {
   NavLink,
   Bars,
   NavOpen,
-  NavLinkOpen,
+
   IconImg,
   NavLeftMargin,
   NavContainer,
@@ -16,7 +16,7 @@ import {
   NavOpenSingleItemBox,
   NavOpenItemText,
 } from "./NavbarElements";
-import { Link } from "react-router-dom";
+
 
 import { mainPageIcons } from "../../assets/Resources";
 

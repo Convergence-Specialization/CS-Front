@@ -1,7 +1,4 @@
 import React, {useState} from "react";
-import Footer from "../Component/Footer";
-import Login from "../Component/Login";
-import Navbar from "../Component/Navbar";
 import { authService, firebaseInstance } from "../fbase";
 
 

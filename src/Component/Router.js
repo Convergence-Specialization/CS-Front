@@ -20,6 +20,9 @@ import ChangePW from "../Routes/ChangePW";
 import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
+import ChangeMajorBoard from "../Routes/ChangeMajorBoard";
+import ConvergenceBoard from "../Routes/ConvergenceBoard";
+
 const RouterComponent = () => {
   return (
     <Router>
@@ -48,8 +51,15 @@ const RouterComponent = () => {
         <Route path="/event" exact>
           <Event />
         </Route>
+        {/* TODO: 얘네는 글쓰는 페이지라서 위에 라우트 연결 하면 됨! */}
         <Route path="/mypage/changepw" exact>
           <ChangePW />
+        </Route>
+        <Route path="/changemajorboard" exact>
+          <ChangeMajorBoard />
+        </Route>
+        <Route path="/convergenceboard" exact>
+          <ConvergenceBoard />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

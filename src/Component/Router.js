@@ -21,6 +21,8 @@ import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import ChangeMajorBoard from "../Routes/ChangeMajorBoard";
+import ConvergenceBoard from "../Routes/ConvergenceBoard";
+
 const RouterComponent = () => {
   return (
     <Router>
@@ -54,6 +56,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/changemajorboard" exact>
           <ChangeMajorBoard />
+        </Route>
+        <Route path="/convergenceboard" exact>
+          <ConvergenceBoard />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

@@ -51,6 +51,7 @@ const RouterComponent = () => {
         <Route path="/event" exact>
           <Event />
         </Route>
+        {/* TODO: 얘네는 글쓰는 페이지라서 위에 라우트 연결 하면 됨! */}
         <Route path="/mypage/changepw" exact>
           <ChangePW />
         </Route>

@@ -1,7 +1,3 @@
-import Footer from "../Component/Footer";
-import Navbar from "../Component/Navbar";
-import AppPage from "../Component/AppPage";
-import BottomNav from "../Component/BottomNav";
 import React, { useState, useEffect } from "react";
 import {dbService, firestoreInstance} from "../fbase";
 import Comment from "./Comment";

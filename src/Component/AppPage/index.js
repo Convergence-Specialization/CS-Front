@@ -297,11 +297,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
+              alt='heart'
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
+              alt='comment'
             />
             <span>27</span>
           </DepartmentSubWrapper>
@@ -312,11 +314,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
+              alt='heart'
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
+              alt='comment'
             />
             <span>27</span>
           </DepartmentSubWrapper>
@@ -327,11 +331,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
+              alt='heart'
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
+              alt='comment'
             />
             <span>27</span>
           </DepartmentSubWrapper>
@@ -342,11 +348,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
+              alt='heart'
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
+              alt='comment'
             />
             <span>27</span>
           </DepartmentSubWrapper>

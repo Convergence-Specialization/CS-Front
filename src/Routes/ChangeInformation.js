@@ -3,7 +3,7 @@ import ChangeInformation from "../Component/MyPage/ChangeInformation";
 import Navbar from "../Component/Navbar";
 import BottomNav from "../Component/BottomNav";
 
-export default () => {
+const ChangeInformationPresenter = () => {
   return (
     <>
       <Navbar Navname="마이페이지" />
@@ -13,3 +13,4 @@ export default () => {
     </>
   );
 };
+export default ChangeInformationPresenter;

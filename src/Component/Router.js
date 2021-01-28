@@ -13,7 +13,7 @@ import AppPage from "../Routes/AppPage";
 
 import MyPage from "../Routes/MyPage";
 import MyAppPage from "../Routes/MyAppPage";
-import Loginpage from "../Routes/Loginpage";
+import Loginpage from "../Component/Login";
 import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/ChangeInformation";
 import ChangePW from "../Routes/ChangePW";

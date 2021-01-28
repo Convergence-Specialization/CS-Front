@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Read from "../../Component/Board/DepartMajor/Read";
-import Create from "../../Component/Board/DepartMajor/Create";
+import Create from "../../Component/Board/DepartMajor/Create_API";
 
 import ListView from "../../Component/Board/DepartMajor/ListView";
 

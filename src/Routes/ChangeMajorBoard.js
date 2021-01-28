@@ -1,6 +1,6 @@
 import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
-import ChangeMajorBoard from "../Component/UiJeong/ChangeMajorBoard";
+import ChangeMajorBoard from "../Component/Board/DepartMajor/Create";
 
 export default () => {
   return (

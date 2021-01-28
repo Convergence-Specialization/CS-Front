@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Read from "../../Component/Board/Convergence/Read";
-import Create from "../../Component/Board/Convergence/Create";
+import Create from "../../Component/Board/Convergence/Create_API";
 
 import ListView from "../../Component/Board/Convergence/ListView";
 

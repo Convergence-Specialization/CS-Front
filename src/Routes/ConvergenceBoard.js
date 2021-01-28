@@ -1,6 +1,6 @@
 import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
-import ConvergenceBoard from "../Component/UiJeong/ConvergenceBoard";
+import ConvergenceBoard from "../Component/Board/Convergence/Create";
 
 export default () => {
   return (

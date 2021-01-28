@@ -4,7 +4,7 @@ import { mainPageIcons } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import { boardApi } from "../../../api";
 
-import GoUp from "../../../Component/GoUp";
+import GoUp from "../../SmallComponents/GoUp";
 
 const Con = styled.div`
   width: 100%;

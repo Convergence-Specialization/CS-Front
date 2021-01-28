@@ -11,11 +11,11 @@ const Container = styled.div`
 const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px;
+  justify-content: space-between;
+  margin-bottom: 10px;
 `;
 const TitleIconImg = styled.img`
   width: 25px;
-  margin-left: 45px;
 `;
 const Title = styled.div`
   margin-left: 6px;
@@ -218,19 +218,21 @@ const DepartmentSubWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
-const Button1 = styled.div`
+const TitleAndButtonWrapper = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 94%;
 `;
 const Button = styled.div`
   text-align: center;
-  padding: 10px 20px 0px 20px;
-  margin: 10px 0px 5px 0px;
+  padding: 6px 14px;
+  margin-bottom: 1px;
   border-radius: 20px;
   font-size: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #d4e6fb;
+  cursor: pointer;
 `;
 const MainPage = () => {
   const history = useHistory();
@@ -276,10 +278,12 @@ const MainPage = () => {
           </IntroduceBox4>
         </IntroduceWrapper>
       </BoardContainer>
-      <Button1>
-        <TitleElement src={mainPageIcons.airplane} name={"전과 게시판"} />
-        <Button>더보기</Button>
-      </Button1>
+      <TitleAndButtonWrapper>
+        <TitleElement src={mainPageIcons.airplane} name={"융특 게시판"} />
+        <Button onClick={() => history.push("/board/convergence")}>
+          더보기
+        </Button>
+      </TitleAndButtonWrapper>
       <BoardContainer>
         <BoardChildWrapper>12시 기상</BoardChildWrapper>
         <BoardChildWrapper>6시간 코딩</BoardChildWrapper>
@@ -287,10 +291,12 @@ const MainPage = () => {
         <BoardChildWrapper>4시간 코딩</BoardChildWrapper>
         <BoardChildWrapper>5시간 취침</BoardChildWrapper>
       </BoardContainer>
-      <Button1>
+      <TitleAndButtonWrapper>
         <TitleElement src={mainPageIcons.airplane} name={"전과 게시판"} />
-        <Button>더보기</Button>
-      </Button1>
+        <Button onClick={() => history.push("/board/departmajor")}>
+          더보기
+        </Button>
+      </TitleAndButtonWrapper>
       <BoardContainer>
         <BoardChildWrapper>
           <BoardChildTitle>ㅎㅇㅎㅇ</BoardChildTitle>

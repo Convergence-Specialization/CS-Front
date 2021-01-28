@@ -11,14 +11,15 @@ import Navigation from "./Navigation";
 import Profile from "../Routes/Profile";
 import MainPage from "../Routes/MainPage";
 import MyPage from "../Routes/MyPage";
-import Loginpage from "../Routes/Loginpage";
-import Loginpage from "../Component/Login";
+// import LoginPage from "../Routes/LoginPage";
+import LoginPage from "../Component/Login";
 import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/ChangeInformation";
 import ChangePW from "../Routes/ChangePW";
 import Event from "../Routes/Event";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
+import Convergence from "../Routes/Board/Convergence";
 import ChangeMajorBoard from "../Routes/ChangeMajorBoard";
 import ConvergenceBoard from "../Routes/ConvergenceBoard";
 
@@ -30,10 +31,13 @@ const RouterComponent = () => {
           <MainPage />
         </Route>
         <Route path="/login" exact>
-          <Loginpage />
+          <LoginPage />
         </Route>
         <Route path="/signup">
           <SignUp />
+        </Route>
+        <Route path="/board/convergence">
+          <Convergence />
         </Route>
         <Route path="/board/departmajor">
           <DepartMajor />

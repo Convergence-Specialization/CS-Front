@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Icons, Images, mainPageIcons } from "../../assets/Resources";
+import { message } from "antd";
+import { authService } from "../../fbase";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -150,7 +152,23 @@ const Login = () => {
         value={pw}
         onChange={({ target: { value } }) => setPw(value)}
       />
-      <Button>로그인</Button>
+      <Button
+        onClick={() => {
+          if (id === "" || pw === "") {
+            message.error("아이디와 비밀번호를 입력해주세요.");
+            return;
+          }
+          authService
+            .signInWithEmailAndPassword(id, pw)
+            .then((result) => {
+              alert(result);
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }}>
+        로그인
+      </Button>
       <Button>Google in with ⚽</Button>
       <TextBox>
         <Link to="/signup">

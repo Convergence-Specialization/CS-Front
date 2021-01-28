@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Icons } from "../../../assets/Resources";
 
-const TopBar = styled.div`
+export const TopBar = styled.div`
     background-color: white; 
     padding: 10px 20px; 
     font-size: 18px;
@@ -40,7 +40,7 @@ const Box = styled.div`
 `;
 
 const BlankPost = styled.div`
-    padding: 150px;
+    padding: 150px 100px 100px 100px;
     margin: 10px auto;
     font-weight: 600;
     font-stretch: normal;

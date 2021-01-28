@@ -20,27 +20,9 @@ const Back = styled.div`
     padding: 10px;
 `;
 
-const Title = styled.div`
-    width: 90%;
-    height: 15px;
-    padding: 20px;
-    display: flex;
-    margin: 10px auto;
-    flex-direction: column;
-    border-radius: 15px;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    font-family: NanumSquareRoundR;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    font-size: 15px;
-    background-color: white;
-    color: #939393;
-`;
-
 const Text = styled.div`
     width: 90%;
-    height: 350px;
+    height: 500px;
     padding: 20px;
     display: flex;
     margin: 10px auto;
@@ -58,17 +40,19 @@ const Text = styled.div`
 
 const Wrap = styled.div`
     display: flex;
-    color: #8D8D8D;
+    font-size: 15px;
+    font-weight: bold;
+    color: #939393;
 `;
 
 const Wrap2 = styled.div`
     display: flex;
-    color: red;
+    color: #8D8D8D;
 `;
 
-const Img = styled.img`
-    width: 40px;
-    padding: 0px 5px;
+const Wrap3 = styled.div`
+    display: flex;
+    color: red;
 `;
 
 const ButtonContainer = styled.div`
@@ -95,32 +79,35 @@ const Button = styled.div`
   }
 `;
 
-const ChangeMajorBoard = () => {
+const Img = styled.img`
+    width: 40px;
+    padding: 0px 5px;
+`;
+
+
+const ConvergenceBoard = () => {
     return (
-        <>
-            <TopBar> <Img src={Icons.Paperplane} /> 전과게시판</TopBar>
+        <>  
+            <TopBar> <Img src={Icons.Paperplane} /> 융특게시판 </TopBar>
             <Back>
-                <Title>제목</Title>
                 <Text>
-                    <Wrap>여기를 눌러서 글을 작성하실 수 있습니다.</Wrap>
-                    <Wrap></Wrap>
-                    <Wrap>[융특 슝 이용 규칙 준수]</Wrap>    
-                    <Wrap>융특 슝의 이용규칙 전문을 반드시 숙지하신 후 글을 작성해 주세요.</Wrap>
-                    <Wrap>이용규칙을 위반한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의</Wrap>
-                    <Wrap>제재가 가해질 수 있습니다.</Wrap>
-                    <Wrap></Wrap>
-                    <Wrap>- 욕설, 비하, 음란물, 개인정보가 포함된 게시물 사용 금지</Wrap>
-                    <Wrap2>- 특정인이나 단체/지역을 비방하는 행위 금지 </Wrap2>
+                    <Wrap>내용을 입력하세요</Wrap>
+                    <Wrap2> </Wrap2>
+                    <Wrap2>[융특 슝 이용규칙 준수]</Wrap2>
+                    <Wrap2>융특 슝의 이용규칙 전문을 반드시 숙지하신 후 글을 작성해 주세요.</Wrap2>
+                    <Wrap2>이용규칙을 위한한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의 제재가 가해질 수 있습니다.</Wrap2>
+                    <Wrap2> </Wrap2>
+                    <Wrap2>- 욕설, 비하, 음란물, 개인정보가 포함된 게시물 사용 금지</Wrap2>
+                    <Wrap3>- 특정인이나 단체/지역을 비방하는 행위 금지</Wrap3>
                 </Text>
-                <ButtonContainer> 
+                <ButtonContainer>
                     <Button>취소</Button>
                     <Button>완료</Button>
-                </ButtonContainer>  
+                </ButtonContainer>
             </Back>
         </>
     );
 }
 
-export default ChangeMajorBoard;
 
-//종이비행기 이미지, 본문 한 칸 띄우기, textarea, placeholder  미완성
+export default ConvergenceBoard;

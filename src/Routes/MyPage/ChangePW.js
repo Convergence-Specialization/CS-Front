@@ -1,5 +1,5 @@
-import ChangePW from "../Component/MyPage/ChangePW";
-import Navbar from "../Component/Navbar";
+import ChangePW from "../../Component/MyPage/ChangePW";
+import Navbar from "../../Component/Navbar";
 
 const ChangePWPresenter = () => {
   return (

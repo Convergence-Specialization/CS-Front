@@ -3,7 +3,7 @@ import {dbService, firestoreInstance} from "../fbase";
 import Comment from "./Comment";
 
 
-const MyAppPage = ({userObj}) => {
+const MyMainPage = ({userObj}) => {
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
     useEffect(() => {
@@ -51,6 +51,6 @@ const MyAppPage = ({userObj}) => {
       </div>
       </div>
     );
-  };export default MyAppPage;
+  };export default MyMainPage;
 
 //로그인 한 후 메인 페이지

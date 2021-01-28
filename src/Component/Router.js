@@ -6,13 +6,12 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Profile from "../Routes/Profile";
 import Navigation from "./Navigation";
 
-import AppPage from "../Routes/AppPage";
-
+import Profile from "../Routes/Profile";
+import MainPage from "../Routes/MainPage";
 import MyPage from "../Routes/MyPage";
-import MyAppPage from "../Routes/MyAppPage";
+// import MyMainPage from "../Routes/MyMainPage";
 import Loginpage from "../Routes/Loginpage";
 import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/ChangeInformation";
@@ -34,7 +33,7 @@ const RouterComponent = () => {
           <DepartMajor />
         </Route>
         <Route path="/" exact>
-          <AppPage />
+          <MainPage />
         </Route>
         <Route path="/mypage" exact>
           <MyPage />
@@ -52,31 +51,6 @@ const RouterComponent = () => {
           <ChangePW />
         </Route>
         <Redirect path="*" to="/" />
-      </Switch>
-    </Router>
-  );
-};
-const AppRouter = ({ isLoggedIn, userObj }) => {
-  return (
-    <Router>
-      {isLoggedIn && <Navigation />}
-      <Switch>
-        {isLoggedIn ? (
-          <>
-            <Route exact path="/">
-              <MyAppPage userObj={userObj} />
-            </Route>
-            <Route exact path="/profile">
-              <Profile />
-            </Route>
-          </>
-        ) : (
-          <>
-            <Route exact path="/">
-              <Loginpage />
-            </Route>
-          </>
-        )}
       </Switch>
     </Router>
   );

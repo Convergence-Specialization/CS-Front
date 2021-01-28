@@ -11,7 +11,6 @@ const Con = styled.div`
   background-color: #d3dae3;
   @media(max-width: 430px){
     /* width: 130%; */
-    margin: 30px 0px 0px 0px;
   padding: 0px 30px 0px 20px;
   }
 `;

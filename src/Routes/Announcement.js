@@ -1,4 +1,3 @@
-import Footer from "../Component/Footer";
 import Announcement from "../Component/Announcement/Read";
 import Navbar from "../Component/Navbar";
 import NavBot from "../Component/NavBot";
@@ -12,7 +11,6 @@ export default () => {
         Name="공지사항"
       />
       <Announcement />
-      <Footer />
     </>
   );
 };

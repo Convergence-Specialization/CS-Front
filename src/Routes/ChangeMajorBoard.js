@@ -1,4 +1,3 @@
-import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
 import ChangeMajorBoard from "../Component/Board/DepartMajor/Create";
 
@@ -7,7 +6,6 @@ export default () => {
     <>
       <Navbar Navname='융특 커뮤니티 슝'/>
       <ChangeMajorBoard />
-      <Footer />
     </>
   );
 };

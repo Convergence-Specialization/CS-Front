@@ -97,7 +97,6 @@ const MoreButton = styled.div`
   }
 `;
 
-
 const ChangedBoard = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
@@ -146,12 +145,8 @@ const ChangedBoard = () => {
             </div>
           ))}
       </BoardCon>
-      <MoreButton
-        onClich={()=>{
-        }}>
-        더보기
-      </MoreButton>
-      <GoUp/>
+      <MoreButton onClich={() => {}}>더보기</MoreButton>
+      <GoUp />
     </Con>
   );
 };

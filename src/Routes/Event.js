@@ -1,4 +1,3 @@
-import Footer from "../Component/Footer";
 import Event from "../Component/Board/Announcement/Event/ListView";
 import Navbar from "../Component/Navbar";
 
@@ -7,7 +6,6 @@ const EventPresenter = () => {
     <>
       <Navbar Navname="융특 커뮤니티 슝" />
       <Event />
-      <Footer />
     </>
   );
 };

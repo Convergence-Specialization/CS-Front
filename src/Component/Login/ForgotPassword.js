@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Icons, Images, mainPageIcons } from "../../../assets/Resources";
+import { Icons, Images } from "../../assets/Resources";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -81,9 +81,9 @@ const NavWrapper = styled.div`
 `;
 const TextBox = styled.div`
   width: 70%;
-  display:flex;
-  flex-direction:column;
-  margin:70px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 70px 0px 10px;
 `;
 const NavText = styled.div`
   font-family: NanumGothic;
@@ -102,8 +102,8 @@ const NavText = styled.div`
   }
 `;
 const Text = styled.div`
-  width:100%;
-   font-family: NanumSquareRoundR;
+  width: 100%;
+  font-family: NanumSquareRoundR;
   font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -113,12 +113,12 @@ const Text = styled.div`
   text-align: center;
   color: #ffffff;
   @media (max-width: 430px) {
-    width:100%;
+    width: 100%;
     font-size: 15px;
   }
 `;
 const Title = styled.div`
-  width:100%;
+  width: 100%;
   font-family: NanumSquareRoundEB;
   font-size: 30px;
   font-weight: normal;

@@ -4,7 +4,7 @@ import { mainPageIcons } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import { boardApi } from "../../../api";
 
-import GoUp from "../../../Component/GoUp";
+import GoUp from "../../SmallComponents/GoUp";
 
 const Con = styled.div`
   width: 100%;
@@ -97,7 +97,6 @@ const MoreButton = styled.div`
   }
 `;
 
-
 const ChangedBoard = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
@@ -146,12 +145,8 @@ const ChangedBoard = () => {
             </div>
           ))}
       </BoardCon>
-      <MoreButton
-        onClich={()=>{
-        }}>
-        더보기
-      </MoreButton>
-      <GoUp/>
+      <MoreButton onClich={() => {}}>더보기</MoreButton>
+      <GoUp />
     </Con>
   );
 };

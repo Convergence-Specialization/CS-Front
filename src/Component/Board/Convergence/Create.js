@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Icons } from "../../assets/Resources";
-
+import { Icons } from "../../../assets/Resources";
 
 const TopBar = styled.div`
     display: flex;
@@ -15,7 +14,7 @@ const TopBar = styled.div`
     font-style: normal;
 `;
 
-const Back = styled.div`
+const Back = styled.div` 
     background-color: #F5F5F5;
     padding: 10px;
 `;

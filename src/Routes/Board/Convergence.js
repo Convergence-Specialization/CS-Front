@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import Read from "../../Component/Board/DepartMajor/Read";
-import Create from "../../Component/Board/DepartMajor/Create_API";
+import Read from "../../Component/Board/Convergence/Read";
+import Create from "../../Component/Board/Convergence/Create_API";
 
-import ListView from "../../Component/Board/DepartMajor/ListView";
+import ListView from "../../Component/Board/Convergence/ListView";
 
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
@@ -32,7 +32,7 @@ const DepartPresenter = () => {
   }, [location]);
   return (
     <>
-      <Navbar Navname = "융특 커뮤니티 슝"/>
+      <Navbar Navname="융특 커뮤니티 슝" />
       {/* useEffect에서 페이지 어디로 갈지 결정되면 renderElement로 페이지를 뿌려줘! */}
       {renderElement}
     </>

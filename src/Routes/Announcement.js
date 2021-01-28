@@ -1,20 +1,15 @@
-import Footer from "../Component/Footer";
-import Announcement from "../Component/Announcement/Read";
 import Navbar from "../Component/Navbar";
-import NavBot from "../Component/NavBot";
-import BottomNav from "../Component/BottomNav";
+import NavBot from "../Component/SmallComponents/NavBot";
+import Announcement from "../Component/Board/Announcement/Normal/Read";
+import { mainPageIcons } from "../assets/Resources";
 
-export default () => {
+const AnnouncementPresenter = () => {
   return (
     <>
       <Navbar Navname="융특 커뮤니티 슝" />
-      <NavBot
-        Icon="https://user-images.githubusercontent.com/62606632/104843043-f97a8280-590b-11eb-9ff6-95dcd26563be.png"
-        Name="공지사항"
-      />
+      <NavBot Icon={mainPageIcons.announce} Name="공지사항" />
       <Announcement />
-      <BottomNav />
-      <Footer />
     </>
   );
 };
+export default AnnouncementPresenter;

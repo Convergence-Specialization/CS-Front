@@ -23,6 +23,9 @@ const RouterComponent = () => {
   return (
     <Router>
       <Switch>
+        <Route path="/" exact>
+          <MainPage />
+        </Route>
         <Route path="/login" exact>
           <Loginpage />
         </Route>
@@ -31,9 +34,6 @@ const RouterComponent = () => {
         </Route>
         <Route path="/board/departmajor">
           <DepartMajor />
-        </Route>
-        <Route path="/" exact>
-          <MainPage />
         </Route>
         <Route path="/mypage" exact>
           <MyPage />

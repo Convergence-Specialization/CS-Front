@@ -4,7 +4,6 @@ import {
   NavLink,
   Bars,
   NavOpen,
-
   IconImg,
   NavLeftMargin,
   NavContainer,
@@ -16,11 +15,11 @@ import {
   NavOpenSingleItemBox,
   NavOpenItemText,
 } from "./NavbarElements";
-
-
+import { useHistory } from "react-router-dom";
 import { mainPageIcons } from "../../assets/Resources";
 
 const Navbar = ({ Navname }) => {
+  const history = useHistory();
   const [navClicked, setNavClicked] = useState(false);
   return (
     <>
@@ -30,7 +29,11 @@ const Navbar = ({ Navname }) => {
           <NavLink to="/">{Navname}</NavLink>
           <NavLeftMargin />
           <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
-          <IconImg src={mainPageIcons.profile} alt={"프로필 아이콘"} />
+          <IconImg
+            onClick={() => history.push("/login")}
+            src={mainPageIcons.profile}
+            alt={"프로필 아이콘"}
+          />
         </Nav>
         <NavOpen
           style={

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { mainPageIcons } from "../../assets/Resources";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -50,7 +51,7 @@ const BoardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-   margin-bottom:30px;
+  margin-bottom: 30px;
 `;
 const BoardChildWrapper = styled.div`
   margin-top: 13px;
@@ -220,19 +221,19 @@ const DepartmentSubWrapper = styled.div`
 const Button1 = styled.div`
   display: flex;
   justify-content: space-between;
-  width:94%;
- 
+  width: 94%;
 `;
 const Button = styled.div`
   text-align: center;
   padding: 10px 20px 0px 20px;
-  margin:10px 0px 5px 0px;
+  margin: 10px 0px 5px 0px;
   border-radius: 20px;
-  font-Size:10px;
+  font-size: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #d4e6fb;
 `;
 const MainPage = () => {
+  const history = useHistory();
   return (
     <Container>
       <TitleElement src={mainPageIcons.announce} name={"학생회공지"} />
@@ -297,13 +298,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
-              alt='heart'
+              alt="heart"
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
-              alt='comment'
+              alt="comment"
             />
             <span>27</span>
           </DepartmentSubWrapper>
@@ -314,13 +315,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
-              alt='heart'
+              alt="heart"
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
-              alt='comment'
+              alt="comment"
             />
             <span>27</span>
           </DepartmentSubWrapper>
@@ -331,13 +332,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
-              alt='heart'
+              alt="heart"
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
-              alt='comment'
+              alt="comment"
             />
             <span>27</span>
           </DepartmentSubWrapper>
@@ -348,13 +349,13 @@ const MainPage = () => {
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.heart}
-              alt='heart'
+              alt="heart"
             />
             <span>27</span>
             <img
               style={{ width: "15px", margin: "0 7px" }}
               src={mainPageIcons.comment}
-              alt='comment'
+              alt="comment"
             />
             <span>27</span>
           </DepartmentSubWrapper>

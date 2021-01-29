@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
 import { Icons, Images, mainPageIcons } from "../../assets/Resources";
 import { message } from "antd";
-import { authService } from "../../fbase";
+import { authService } from "../../firebase";
 
 const Container = styled.div`
   width: 100%;
@@ -155,27 +155,27 @@ const Login = () => {
         onChange={({ target: { value } }) => setPw(value)}
       />
       <Button
-        onClick={() => {
+        onClick={async () => {
           if (id === "" || pw === "") {
             message.error("아이디와 비밀번호를 입력해주세요.");
             return;
           }
-          authService
-            .signInWithEmailAndPassword(id, pw)
-            .then((result) => {
-              alert(result);
-            })
+          await authService.signInWithEmailAndPassword(id, pw).catch(() => {
+            message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
+          });
+          const idToken = await authService.currentUser
+            .getIdToken()
             .catch((err) => {
-              alert(err);
+              message.error("토큰 실패. 개발자에게 문의해주세요.");
             });
+          localStorage.setItem("idToken", idToken);
+          message.success("로그인 성공");
         }}>
         로그인
       </Button>
       <Button>Google in with ⚽</Button>
       <TextBox>
-        <Link to="/signup">
-          <Text>회원가입</Text>
-        </Link>
+        <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>
       </TextBox>
     </Container>

@@ -1,14 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { Icons, mainPageIcons } from "../../../assets/Resources";
 const Container = styled.div`
-  padding: 20px;
-  height: 10px;
+  padding: 10px 15px;
   display: flex;
-  position: relative;
   align-items: center;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
+  position: relative;
 `;
 export const IconImg = styled.img`
   width: 23px;
@@ -17,24 +16,40 @@ export const IconImg = styled.img`
 
 export const Text = styled.div`
   font-family: NanumSquareRoundB;
-  font-size: 21px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.64;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
+  font-size: 18px;
+  font-weight: bold;
+`;
+const PostButton = styled.div`
+  position: absolute;
+  padding: 5px 10px;
+  right: 10px;
+  border-radius: 13px;
+  background-color: #d4e6fb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
 `;
 
-const NavBot = ({ Name, Icon }) => {
+const NavBot = ({ Name, Icon, postButtonRef }) => {
+  const history = useHistory();
   return (
-    <>
-      <Container>
-        <IconImg src={Icon}/>
-        <Text>{Name}</Text>
-      </Container>
-    </>
+    <Container>
+      <IconImg src={Icon} />
+      <Text>{Name}</Text>
+      {!!postButtonRef && (
+        <PostButton
+          onClick={() => {
+            history.push({
+              pathname: `/board/${postButtonRef}`,
+              state: { pageName: "create" },
+            });
+          }}>
+          글 작성
+        </PostButton>
+      )}
+    </Container>
   );
 };
 

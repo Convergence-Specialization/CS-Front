@@ -1,132 +1,114 @@
-import React from "react";
+import { message } from "antd";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { Icons } from "../../../assets/Resources";
+import { departMajorApi } from "../../../api";
+import { useAuth } from "../../Watchers";
 
-const TopBar = styled.div`
+const Container = styled.div`
+  padding-top: 15px;
   display: flex;
-  align-items: center;
-  background-color: white;
-  padding: 5px 5px;
-  font-size: 18px;
-  font-family: NanumSquareRoundR;
-  font-weight: bolder;
-  font-stretch: normal;
-  font-style: normal;
-`;
-
-const Back = styled.div`
-  background-color: #f5f5f5;
-  padding: 10px;
-`;
-
-const Title = styled.div`
-  width: 90%;
-  height: 15px;
-  padding: 20px;
-  display: flex;
-  margin: 10px auto;
   flex-direction: column;
-  border-radius: 15px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  font-family: NanumSquareRoundR;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  font-size: 15px;
-  background-color: white;
-  color: #939393;
-`;
-
-const Text = styled.div`
-  width: 90%;
-  height: 350px;
-  padding: 20px;
-  display: flex;
-  margin: 10px auto;
-  flex-direction: column;
-  border-radius: 15px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  font-size: 10px;
-  line-height: 30px;
-  background-color: white;
-`;
-
-const Wrap = styled.div`
-  display: flex;
-  color: #8d8d8d;
-`;
-
-const Wrap2 = styled.div`
-  display: flex;
-  color: red;
-`;
-
-const Img = styled.img`
-  width: 40px;
-  padding: 0px 5px;
-`;
-
-const ButtonContainer = styled.div`
-  padding: 7px 0px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: #f1f1f1;
 `;
-
-const Button = styled.div`
-  margin: 5px auto;
-  padding: 7px 22px;
-  background-color: #d4e6fb;
-  border-radius: 12px;
-  font-family: NanumSquareRoundR;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
+const TitleInput = styled.input`
+  width: 90%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  line-height: 1.12;
-  text-align: center;
-  @media (max-width: 430px) {
-    font-size: 15px;
+  margin-bottom: 10px;
+`;
+const ContentTextArea = styled.textarea`
+  padding: 10px 15px;
+  width: 90%;
+  min-height: 60vh;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  ::placeholder {
+    font-size: 14px;
   }
 `;
+const ButtonWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Button = styled.div`
+  padding: 10px 40px;
+  border-radius: 15px;
+  background-color: #d4e6fb;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+`;
 
-const ChangeMajorBoard = () => {
+const Create = () => {
+  const user = useAuth();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  const history = useHistory();
   return (
-    <>
-      <TopBar>
-        {" "}
-        <Img src={Icons.Paperplane} /> 전과게시판
-      </TopBar>
-      <Back>
-        <Title>제목</Title>
-        <Text>
-          <Wrap>여기를 눌러서 글을 작성하실 수 있습니다.</Wrap>
-          <Wrap></Wrap>
-          <Wrap>[융특 슝 이용 규칙 준수]</Wrap>
-          <Wrap>
-            융특 슝의 이용규칙 전문을 반드시 숙지하신 후 글을 작성해 주세요.
-          </Wrap>
-          <Wrap>
-            이용규칙을 위반한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의
-          </Wrap>
-          <Wrap>제재가 가해질 수 있습니다.</Wrap>
-          <Wrap></Wrap>
-          <Wrap>- 욕설, 비하, 음란물, 개인정보가 포함된 게시물 사용 금지</Wrap>
-          <Wrap2>- 특정인이나 단체/지역을 비방하는 행위 금지 </Wrap2>
-        </Text>
-        <ButtonContainer>
-          <Button>취소</Button>
-          <Button>완료</Button>
-        </ButtonContainer>
-      </Back>
-    </>
+    <Container>
+      <TitleInput
+        placeholder="제목"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <ContentTextArea
+        placeholder={`여기를 눌러서 글을 작성하실 수 있습니다.
+
+[융특 슝 이용 규칙 준수]
+융특 슝의 이용규칙 전문을 반드시 숙지하신 후 글을 작성해 주세요.
+이용규칙을 위반한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의
+제재가 가해질 수 있습니다. 
+
+- 욕설, 비하, 음란물, 개인정보가 포함된 게시물 게시 금지
+- 특정인이나 단체 / 지역을 비방하는 행위 금지`}
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
+      <ButtonWrapper>
+        <Button onClick={() => history.goBack()}>취소</Button>
+        <Button
+          onClick={async () => {
+            if (uploading) return;
+            if (title === "" || content === "") {
+              message.error("제목 또는 글 내용을 작성해주세요.");
+              return;
+            }
+            // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.
+            setUploading(true);
+            message.loading("업로드 중...");
+            const requestBody = {
+              title,
+              content,
+            };
+            departMajorApi
+              .create(requestBody)
+              .then(() => {
+                message.destroy();
+                history.goBack();
+              })
+              .catch((err) => {
+                message.destroy();
+                message.error(err.message);
+                setUploading(false);
+              });
+          }}>
+          완료
+        </Button>
+      </ButtonWrapper>
+    </Container>
   );
 };
-
-export default ChangeMajorBoard;
-
-//종이비행기 이미지, 본문 한 칸 띄우기, textarea, placeholder  미완성
+export default Create;

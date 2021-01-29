@@ -6,7 +6,6 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Profile from "../WOOHYUKTEMP/Profile";
 import MainPage from "../Routes/MainPage";
 import MyPage from "../Routes/MyPage";
 import LoginPage from "../Component/Login";

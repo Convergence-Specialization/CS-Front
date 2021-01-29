@@ -94,6 +94,10 @@ const Button = styled.div`
   }
 `;
 
+// 로그인 여부 체크
+
+
+
 const ChangeMajorBoard = () => {
   return (
     <>

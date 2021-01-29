@@ -100,22 +100,7 @@ const MoreButton = styled.div`
 const ChangedBoard = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    boardApi.departMajor.readList().then(({ result, body }) => {
-      if (result === "success") {
-        setPosts(
-          body.map((item) => {
-            return {
-              ...item,
-              timestamp: item.timestamp.toDate().toString(),
-            };
-          })
-        );
-      } else {
-        alert("오류발생");
-      }
-    });
-  }, []);
+  useEffect(() => {}, []);
   return (
     <Con>
       <TitleBox>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { boardApi } from "../../../api";
+// import { boardApi } from "../../../api";
 import { auth } from "../../../fbase";
 
 const Container = styled.div`
@@ -35,8 +35,8 @@ const Create = () => {
       />
       <SubmitButton
         onClick={async () => {
-          let resultObject = await boardApi.departMajor.create("강제", text);
-          alert(resultObject.result);
+          // let resultObject = await boardApi.departMajor.create("강제", text);
+          // alert(resultObject.result);
           setText("");
         }}>
         저장

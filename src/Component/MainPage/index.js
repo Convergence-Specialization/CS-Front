@@ -10,9 +10,17 @@ const Container = styled.div`
 `;
 const TitleWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  align-items:center;
+  text-align:center;
+  justify-content:start;
+  margin: 0px 0px 0px 30px;
+`;
+const TitleWrapper1 = styled.div`
+  display: flex;
+  align-items:center;
+  text-align:center;
+  justify-content:start;
+  margin: 0px 0px 0px 30px;
 `;
 const TitleIconImg = styled.img`
   width: 25px;
@@ -40,23 +48,26 @@ const TitleElement = ({ src, name }) => (
     <Title>{name}</Title>
   </TitleWrapper>
 );
+const TitleElement1 = ({ src, name }) => (
+  <TitleWrapper1>
+    <TitleIconImg src={src} alt={"제목 아이콘"} />
+    <Title>{name}</Title>
+  </TitleWrapper1>
+);
 const BoardContainer = styled.div`
-  width: 90%;
   border-radius: 20px;
   background-color: #f1f1f1;
-  padding: 0 auto;
-  padding-bottom: 13px;
-  margin: 0 auto;
+  padding: 0px 10px 10px;
+  margin: 10px 20px 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
 `;
 const BoardChildWrapper = styled.div`
-  margin-top: 13px;
+  margin-top: 10px;
   padding: 10px;
-  width: 90%;
+  width: 100%;
   background-color: white;
   border-radius: 15px;
   display: flex;
@@ -64,9 +75,6 @@ const BoardChildWrapper = styled.div`
   align-items: center;
   font-family: NanumSquareRoundR;
   font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
   letter-spacing: normal;
   text-align: left;
@@ -221,13 +229,13 @@ const DepartmentSubWrapper = styled.div`
 const TitleAndButtonWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-top:20px;
   justify-content: space-between;
   width: 94%;
 `;
 const Button = styled.div`
   text-align: center;
   padding: 6px 14px;
-  margin-bottom: 1px;
   border-radius: 20px;
   font-size: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -238,7 +246,12 @@ const MainPage = () => {
   const history = useHistory();
   return (
     <Container>
-      <TitleElement src={mainPageIcons.announce} name={"학생회공지"} />
+      <TitleAndButtonWrapper>
+        <TitleElement src={mainPageIcons.announce} name={"공지사항"} />
+        <Button onClick={() => history.push("/board/announcement")}>
+          더보기
+        </Button>
+      </TitleAndButtonWrapper>
       <BoardContainer>
         <BoardChildWrapper>
           <BoardChildTitle>추석맞이 융병호 게임</BoardChildTitle>

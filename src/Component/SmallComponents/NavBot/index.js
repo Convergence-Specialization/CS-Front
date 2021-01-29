@@ -38,15 +38,17 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
     <Container>
       <IconImg src={Icon} />
       <Text>{Name}</Text>
-      <PostButton
-        onClick={() => {
-          history.push({
-            pathname: `/board/${postButtonRef}`,
-            state: { pageName: "create" },
-          });
-        }}>
-        글 작성
-      </PostButton>
+      {!!postButtonRef && (
+        <PostButton
+          onClick={() => {
+            history.push({
+              pathname: `/board/${postButtonRef}`,
+              state: { pageName: "create" },
+            });
+          }}>
+          글 작성
+        </PostButton>
+      )}
     </Container>
   );
 };

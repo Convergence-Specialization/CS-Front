@@ -13,7 +13,7 @@ const TitleWrapper = styled.div`
   align-items:center;
   text-align:center;
   justify-content:start;
-  margin: 0px 0px 0px 30px;
+  margin-left: 30px;
 `;
 const TitleWrapper1 = styled.div`
   display: flex;

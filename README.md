@@ -2,11 +2,11 @@
 
 ## 개발 환경
 
-Front: React JS
-Back:
-  DB: Cloud Firestore
-  API: Heroku Node JS
-  Hosting: GIthub pages
+Front: React JS  
+Back:  
+  DB: Cloud Firestore  
+  API: Heroku Node JS  
+  Hosting: GIthub pages  
 
 ## 초기 구동법
 

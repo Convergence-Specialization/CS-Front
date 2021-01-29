@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { departMajorApi } from "../../../api";
 // import { boardApi } from "../../../api";
-import { auth } from "../../../fbase";
+// import { auth } from "../../../firebase";
 
 const Container = styled.div`
   width: 100%;
@@ -35,6 +36,11 @@ const Create = () => {
       />
       <SubmitButton
         onClick={async () => {
+          const body = {
+            title: "asdf",
+            content: text,
+          };
+          await departMajorApi.create(body);
           // let resultObject = await boardApi.departMajor.create("강제", text);
           // alert(resultObject.result);
           setText("");

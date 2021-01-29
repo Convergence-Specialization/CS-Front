@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
 import { Icons, Images, mainPageIcons } from "../../assets/Resources";
 import { message } from "antd";
-import { authService } from "../../fbase";
+import { authService } from "../../firebase";
 
 const Container = styled.div`
   width: 100%;

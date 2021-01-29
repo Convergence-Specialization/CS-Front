@@ -22,3 +22,4 @@ export const auth = firebase.app().auth();
 
 export const dbService = firebase.firestore();
 export const firestoreInstance = firebase.firestore;
+ 

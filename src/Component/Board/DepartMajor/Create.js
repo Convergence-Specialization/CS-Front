@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { departMajorApi } from "../../../api";
-import jwt_decode from "jwt-decode";
 import { useAuth } from "../../Watchers";
 
 const Container = styled.div`

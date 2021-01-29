@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { mainPageIcons } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import { departMajorApi } from "../../../api";
 
@@ -8,38 +7,41 @@ import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 import GoUp from "../../SmallComponents/GoUp";
+import LoadingComponent from "../../SmallComponents/Loading";
 
 const Container = styled.div`
   width: 100%;
   padding-bottom: 20px;
 `;
 
-
 const BoardContainer = styled.div`
   width: 95%;
+  min-height: 80vh;
   background-color: white;
   border-radius: 15px;
   margin: 20px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 const BoardChildWrapper = styled.div`
-  padding: 10px;
+  padding: 12px;
+  font-size: 15px;
   border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
 const BoardChildTitle = styled.div`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
 `;
 const BoardChildContent = styled.div`
+  font-size: 15px;
   width: 95%;
   white-space: pre-wrap;
 `;
 const BoardChildTimeText = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 12px;
+  right: 12px;
 `;
 const BoardChildMetaText = styled.div`
   text-align: right;
@@ -65,22 +67,30 @@ const ChangedBoard = () => {
       .then((res) => setPosts(res.data.docsArray))
       .catch();
   }, []);
-  console.log(posts);
-  console.log();
   return (
     <Container>
-      
       <BoardContainer>
-        {posts.map((item, idx) => (
-          <BoardChildWrapper key={idx}>
-            <BoardChildTitle>{item.title}</BoardChildTitle>
-            <BoardChildContent>{item.content}</BoardChildContent>
-            <BoardChildTimeText>
-              {formatDistanceToNow(item.timestamp, { locale: ko })} 전
-            </BoardChildTimeText>
-            <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
-          </BoardChildWrapper>
-        ))}
+        {posts.length === 0 ? (
+          <LoadingComponent />
+        ) : (
+          posts.map((item, idx) => (
+            <BoardChildWrapper
+              key={idx}
+              onClick={() =>
+                history.push({
+                  pathname: `/board/departmajor`,
+                  state: { pageName: "read" },
+                })
+              }>
+              <BoardChildTitle>{item.title}</BoardChildTitle>
+              <BoardChildContent>{item.content}</BoardChildContent>
+              <BoardChildTimeText>
+                {formatDistanceToNow(item.timestamp, { locale: ko })} 전
+              </BoardChildTimeText>
+              <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
+            </BoardChildWrapper>
+          ))
+        )}
       </BoardContainer>
       <MoreButton onClick={() => {}}>더보기</MoreButton>
       <GoUp />

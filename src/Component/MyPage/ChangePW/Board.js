@@ -11,8 +11,7 @@ const Con = styled.div`
     0 2px 4px 1px rgba(0, 0, 0, 0.06);
   margin: 0px auto 30px auto;
   @media(max-width:430px){
-    width:75%;
-    padding: 15px;
+    padding: 15px 0px 15px 0px;
   }
 `;
 
@@ -37,23 +36,19 @@ const Wrap = styled.div`
   }
 `;
 const Oon = styled.div`
-  margin-left: 70px;
-  padding: 50px 0px 9px 20px;
-  width: 50%;
+  margin: 50px 0px 15px 90px;
   display: flex;
   justify-content: start;
   @media(max-width:430px){
-    margin-left: 50px;
+    margin: 50px 0px 10px 50px;
   }
 `;
 const Jon = styled.div`
-  margin-left: 70px;
-  padding: 0px 0px 9px 20px;
-  width: 50%;
+  margin: 0px 0px 15px 90px;
   display: flex;
   justify-content: start;
   @media(max-width:430px){
-    margin-left: 50px;
+    margin: 0px 0px 10px 50px;
   }
 `;
 const Text = styled.div`
@@ -76,7 +71,7 @@ const Kon = styled.div`
   padding: 20px 10px 20px 10px;
   margin: 40px auto;
   border-radius: 25px;
-  width:84%;
+  width:82%;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ccd3dc;
   font-family: NanumSquareRoundR;

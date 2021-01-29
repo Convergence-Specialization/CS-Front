@@ -83,7 +83,7 @@ const Img = styled.img`
     padding: 0px 5px;
 `;
 
-
+ 
 const ConvergenceBoard = () => {
     return (
         <>  

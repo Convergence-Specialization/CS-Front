@@ -2,137 +2,89 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { mainPageIcons } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import { boardApi } from "../../../api";
+import { departMajorApi } from "../../../api";
+
+import ko from "date-fns/locale/ko";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 import GoUp from "../../SmallComponents/GoUp";
 
-const Con = styled.div`
+const Container = styled.div`
   width: 100%;
-  background-color: #f1f1f1;
   padding-bottom: 20px;
 `;
-const TitleBox = styled.div`
-  background-color: #ffffff;
-  padding: 10px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
-`;
-const TitleWrap = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const TitleIconImg = styled.img`
-  width: 25px;
-  margin-left: 10px;
-`;
-const Title = styled.div`
-  margin-left: 8px;
-  font-weight: bold;
-  font-size: 20px;
-  font-family: NanumSquareRoundB;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.17;
-  letter-spacing: normal;
-  text-align: left;
-  color: #242323;
-  @media (max-width: 430px) {
-    font-size: 17px;
-  }
-`;
-const PostButton = styled.div`
-  width: 15%;
-  padding: 5px 7px;
-  border-radius: 13px;
-  background-color: #d4e6fb;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  text-align: center;
-  line-height: 1.12;
-  letter-spacing: normal;
-  font-size: 15px;
-  color: #000000;
-  padding: 5px 7px;
-  font-family: NanumSquareRoundEB;
-  font-weight: bold;
-  @media (max-width: 430px) {
-    font-size: 14px;
-    padding: 5px 7px;
-  }
-`;
-const TitleElement = ({ src, name }) => (
-  <TitleWrap>
-    <TitleIconImg src={src} />
-    <Title>{name}</Title>
-  </TitleWrap>
-);
 
-const BoardCon = styled.div`
-  background-color: #ffffff;
+
+const BoardContainer = styled.div`
+  width: 95%;
+  background-color: white;
   border-radius: 15px;
-  padding: 5px 10px;
-  margin: 0px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin: 20px auto;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
+const BoardChildWrapper = styled.div`
+  padding: 10px;
+  border-bottom: 2.5px solid #f1f1f1;
+  position: relative;
+`;
+const BoardChildTitle = styled.div`
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
+const BoardChildContent = styled.div`
+  width: 95%;
+  white-space: pre-wrap;
+`;
+const BoardChildTimeText = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
+const BoardChildMetaText = styled.div`
+  text-align: right;
+`;
+
 const MoreButton = styled.div`
-  background-color: #ffffff;
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  background-color: white;
   border-radius: 15px;
-  margin: 0px 10px;
-  margin-top: 13px;
-  padding: 5px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  @media (max-width: 768px) {
-    font-size: 14px;
-    padding: 5px 7px;
-  }
+  padding: 10px 0;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 
 const ChangedBoard = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    departMajorApi
+      .getLists({ size: 10 })
+      .then((res) => setPosts(res.data.docsArray))
+      .catch();
+  }, []);
+  console.log(posts);
+  console.log();
   return (
-    <Con>
-      <TitleBox>
-        <TitleElement src={mainPageIcons.airplane} name={"전과 게시판"} />
-        <PostButton
-          onClick={() => {
-            history.push({
-              pathname: "/board/departmajor",
-              state: { pageName: "create" },
-            });
-          }}>
-          글 작성
-        </PostButton>
-      </TitleBox>
-      <BoardCon>
-        {posts.length !== 0 &&
-          posts.map((item, idx) => (
-            <div
-              key={idx}
-              style={{ margin: "8px 0" }}
-              onClick={() => {
-                alert(item.id);
-              }}>
-              <div>제목: {item.title}</div>
-              <div>글 내용: {item.body}</div>
-              <div>쓴 시간: {item.timestamp}</div>
-            </div>
-          ))}
-      </BoardCon>
-      <MoreButton onClich={() => {}}>더보기</MoreButton>
+    <Container>
+      
+      <BoardContainer>
+        {posts.map((item, idx) => (
+          <BoardChildWrapper key={idx}>
+            <BoardChildTitle>{item.title}</BoardChildTitle>
+            <BoardChildContent>{item.content}</BoardChildContent>
+            <BoardChildTimeText>
+              {formatDistanceToNow(item.timestamp, { locale: ko })} 전
+            </BoardChildTimeText>
+            <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
+          </BoardChildWrapper>
+        ))}
+      </BoardContainer>
+      <MoreButton onClick={() => {}}>더보기</MoreButton>
       <GoUp />
-    </Con>
+    </Container>
   );
 };
 export default ChangedBoard;

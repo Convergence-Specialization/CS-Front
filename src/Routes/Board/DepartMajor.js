@@ -21,15 +21,25 @@ const DepartPresenter = () => {
         break;
       case "create":
         setRenderElement(
-          <NavBot Name="전과 게시판" Icon={mainPageIcons.airplane}>
+          <>
+            <NavBot Name="전과 게시판" Icon={mainPageIcons.airplane} />
             <Create />
-          </NavBot>
+          </>
         );
         break;
       case "update":
         break;
       default:
-        setRenderElement(<ListView />);
+        setRenderElement(
+          <>
+            <NavBot
+              Name="전과 게시판"
+              Icon={mainPageIcons.airplane}
+              postButtonRef={"departmajor"}
+            />
+            <ListView />
+          </>
+        );
     }
   }, [location]);
   return (

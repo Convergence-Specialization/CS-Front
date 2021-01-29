@@ -8,6 +8,7 @@ const api = axios.create({
 const getBearer = () => `Bearer ${localStorage.getItem("idToken")}`;
 
 export const departMajorApi = {
+  getLists: (body) => api.post("board/departmajor/listview", body),
   create: (body) =>
     api.post("board/departmajor/create", body, {
       headers: {

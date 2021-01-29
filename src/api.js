@@ -75,8 +75,12 @@ export const boardApi = {
           };
         });
     },
-    read: async (title, body) => {},
-    update: async (title, body) => {},
+    read: async (title, body) => {
+      
+    },
+    update: async (title, body) => {
+      
+    },
     delete: async (docId) => {
       boardDB.departMajor
         .doc(docId)

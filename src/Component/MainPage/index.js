@@ -14,6 +14,9 @@ const TitleWrapper = styled.div`
   text-align:center;
   justify-content:start;
   margin-left: 30px;
+  @media (max-width: 430px) {
+    margin-left: 20px;
+  }
 `;
 const TitleWrapper1 = styled.div`
   display: flex;
@@ -24,21 +27,21 @@ const TitleWrapper1 = styled.div`
 `;
 const TitleIconImg = styled.img`
   width: 25px;
+  @media (max-width: 430px) {
+    width: 20px;
+  }
 `;
 const Title = styled.div`
   margin-left: 6px;
   font-weight: bold;
   font-size: 20px;
   font-family: NanumSquareRoundB;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.17;
   letter-spacing: normal;
   text-align: left;
   color: #242323;
   @media (max-width: 430px) {
-    font-size: 17px;
+    font-size: 15px;
   }
 `;
 
@@ -47,12 +50,6 @@ const TitleElement = ({ src, name }) => (
     <TitleIconImg src={src} alt={"제목 아이콘"} />
     <Title>{name}</Title>
   </TitleWrapper>
-);
-const TitleElement1 = ({ src, name }) => (
-  <TitleWrapper1>
-    <TitleIconImg src={src} alt={"제목 아이콘"} />
-    <Title>{name}</Title>
-  </TitleWrapper1>
 );
 const BoardContainer = styled.div`
   border-radius: 20px;
@@ -63,6 +60,9 @@ const BoardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 430px) {
+    margin: 10px 10px 30px 10px;
+  }
 `;
 const BoardChildWrapper = styled.div`
   margin-top: 10px;
@@ -80,25 +80,19 @@ const BoardChildWrapper = styled.div`
   text-align: left;
   color: #444444;
   @media (max-width: 430px) {
-    font-size: 12px;
+    font-size: 11px;
   }
 `;
 const BoardChildTitle = styled.div`
   font-family: NanumSquareRoundR;
-  font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
   letter-spacing: normal;
   text-align: left;
   color: #444444;
   @media (max-width: 430px) {
-    font-size: 12px;
   }
 `;
 const BoardAnnounceSubText = styled.div`
-  font-size: 14px;
 `;
 const IntroduceWrapper = styled.div`
   margin-top: 12px;
@@ -232,6 +226,7 @@ const TitleAndButtonWrapper = styled.div`
   margin-top:20px;
   justify-content: space-between;
   width: 94%;
+  
 `;
 const Button = styled.div`
   text-align: center;

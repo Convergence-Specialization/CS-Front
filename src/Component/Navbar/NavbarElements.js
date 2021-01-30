@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 export const NavContainer = styled.div`
   width: 100%;
+  max-width: 768px;
   position: fixed;
   z-index: 99;
 `;
@@ -112,16 +113,13 @@ export const NavOpenItemImg = styled.img``;
 export const NavOpenItemText = styled.div``;
 
 export const Bars = styled(FaBars)`
-  display: none;
-  @media (max-width: 1023px) {
-    color: white;
-    display: block;
-    margin: auto 0 auto 13.1px;
-    font-size: 1.8rem;
-    cursor: pointer;
-    @media (max-width: 430px) {
-      font-size: 1.5rem;
-    }
+  color: white;
+  display: block;
+  margin: auto 0 auto 13.1px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  @media (max-width: 430px) {
+    font-size: 1.5rem;
   }
 `;
 export const IconImg = styled.img`

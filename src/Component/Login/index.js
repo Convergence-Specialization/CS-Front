@@ -25,7 +25,6 @@ const BackgroundImg = styled.div`
   background-size: cover;
   position: absolute;
   z-index: -2;
-  transform: scale(1.02);
 `;
 const BackgroundFilter = styled.div`
   width: 100%;
@@ -80,6 +79,7 @@ const Img = styled.img`
 const TextBox = styled.div`
   width: 30%;
   display: flex;
+  color: white;
   justify-content: space-between;
 `;
 const Text = styled.div`
@@ -137,6 +137,7 @@ const Login = () => {
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>
       </TextBox>
     </Container>
-  );
+  ); 
 };
 export default Login;
+ 

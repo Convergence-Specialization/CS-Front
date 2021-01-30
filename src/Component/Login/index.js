@@ -136,11 +136,9 @@ const Login = () => {
       <Button
         onClick={async () => {
           let provider = new firebaseInstance.auth.GoogleAuthProvider();
-          const data = await authService
-            .signInWithPopup(provider)
-            .catch((error) => {
-              message.error(error);
-            });
+          await authService.signInWithPopup(provider).catch((error) => {
+            message.error(error);
+          });
           const idToken = await authService.currentUser
             .getIdToken()
             .catch(() => {

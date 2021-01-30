@@ -137,7 +137,7 @@ const Login = () => {
         onClick={async () => {
           let provider = new firebaseInstance.auth.GoogleAuthProvider();
           await authService.signInWithPopup(provider).catch((error) => {
-            message.error(error);
+            message.error(error.message);
           });
           const idToken = await authService.currentUser
             .getIdToken()

@@ -66,7 +66,7 @@ const ChangedBoard = () => {
     departMajorApi
       .getLists({ size: 10 })
       .then((res) => setPosts(res.data.docsArray))
-      .catch((error) => message.error(error));
+      .catch((error) => message.error(error.message));
   }, []);
   return (
     <Container>

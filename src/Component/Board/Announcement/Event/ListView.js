@@ -21,7 +21,6 @@ const Title = styled.div`
   margin-left: 6px;
   font-weight: bold;
   font-size: 20px;
-  text-align: left;
   color: #242323;
   @media (max-width: 430px) {
     font-size: 17px;
@@ -53,13 +52,10 @@ const BoardChildWrapper = styled.div`
   padding: 10px;
   width: 90%;
   height: 250px;
-  background-color: white;
   border-radius: 15px;
-
   justify-content: space-between;
   align-items: center;
   line-height: 1.12;
-  text-align: left;
   color: #444444;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   @media (max-width: 430px) {
@@ -86,8 +82,6 @@ const BoardChildMain = styled.div`
   margin-top: 15px;
   font-size: 15px;
   line-height: 1.17;
-  letter-spacing: normal;
-  text-align: left;
   color: #000000;
 `;
 

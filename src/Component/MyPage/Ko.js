@@ -29,12 +29,8 @@ const Qitle = styled.div`
 const Text = styled.div`
   display: flex;
   margin: 0px 3px 0px 10px;
-  font-family: NanumSquareRoundR;
   font-size: 27px;
   line-height: 1.41;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media(max-width:430px){
     font-size:15px;
   }
@@ -42,12 +38,8 @@ const Text = styled.div`
 const Wext = styled.div`
   margin: 2px 0px 0px 5px;
   font-weight: 900;
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.41;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media(max-width:430px){
     font-size:15px;
   }
@@ -69,12 +61,8 @@ const Oon = styled.div`
   padding: 10px 20px;
   border-radius: 18px;
   background-color: #d3dae3;
-  font-family: NanumSquareRoundR;
   font-size: 15px;
   line-height: 1.15;
-  letter-spacing: normal;
-  text-align: center;
-  color: #000000;
   @media(max-width:430px){
     font-size:8px;
     padding: 8px 18px;

@@ -88,7 +88,6 @@ export const NavOpenUpperButtonWrapper = styled.div`
   justify-content: space-between;
 `;
 export const NavOpenUpperButton = styled.div`
-  background-color: white;
   border-radius: 10px;
   color: black;
   width: 48%;

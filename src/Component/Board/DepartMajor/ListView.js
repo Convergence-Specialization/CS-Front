@@ -8,6 +8,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
+import { message } from "antd";
 
 const Container = styled.div`
   width: 100%;
@@ -65,7 +66,7 @@ const ChangedBoard = () => {
     departMajorApi
       .getLists({ size: 10 })
       .then((res) => setPosts(res.data.docsArray))
-      .catch();
+      .catch((error) => message.error(error.message));
   }, []);
   return (
     <Container>
@@ -85,7 +86,11 @@ const ChangedBoard = () => {
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <BoardChildContent>{item.content}</BoardChildContent>
               <BoardChildTimeText>
-                {formatDistanceToNow(item.timestamp, { locale: ko })} 전
+                {formatDistanceToNow(item.timestamp, { locale: ko }).replace(
+                  "약 ",
+                  ""
+                )}{" "}
+                전
               </BoardChildTimeText>
               <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
             </BoardChildWrapper>

@@ -54,7 +54,8 @@ export const NavOpen = styled.div`
   width: 50%;
   height: 100vh;
   position: absolute;
-  top: 55px;
+  top: 45px;
+  border-right: 1px solid grey;
   background: white;
   z-index: 1;
   opacity: 1;
@@ -89,14 +90,15 @@ export const NavOpenUpperButton = styled.div`
   background-color: white;
   border-radius: 10px;
   color: black;
-  width: 35%;
+  width: 48%;
   padding: 10px;
-  font-size: 15px;
+  font-size: 12px;
   text-align: center;
 `;
 export const NavOpenUpperDescWrapper = styled.div`
+  font-size: 12px;
   margin-top: 15px;
-  width: 70%;
+  width: 90%;
   color: white;
   border: 1px solid white;
   padding: 10px;
@@ -104,7 +106,7 @@ export const NavOpenUpperDescWrapper = styled.div`
 export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
-  border: 1px solid black;
+  border-bottom: 1px solid grey;
 `;
 export const NavOpenItemImg = styled.img``;
 export const NavOpenItemText = styled.div``;

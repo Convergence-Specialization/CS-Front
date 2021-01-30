@@ -54,7 +54,9 @@ const Navbar = ({ Navname, isTransparent }) => {
               <NavOpenUpperButton>로그인</NavOpenUpperButton>
               <NavOpenUpperButton>회원가입</NavOpenUpperButton>
             </NavOpenUpperButtonWrapper>
-            <NavOpenUpperDescWrapper>asdfasdf</NavOpenUpperDescWrapper>
+            <NavOpenUpperDescWrapper>
+              회원정보가 없습니다.
+            </NavOpenUpperDescWrapper>
           </NavOpenUpperContainer>
           <NavOpenSingleItemBox>
             <NavOpenItemText>Home</NavOpenItemText>

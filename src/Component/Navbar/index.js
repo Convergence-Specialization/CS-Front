@@ -115,13 +115,13 @@ const Navbar = ({
             <NavOpenItemImg src={sideBarIcons.alarm} alt={"알림함 아이콘"} />
             <NavOpenItemText>알림함</NavOpenItemText>
           </NavOpenSingleItemBox>
-          <NavOpenSingleItemBox>
+          <NavOpenSingleItemBox
+            onClick={() => setAnnounceOpened(!announceOpened)}>
             <NavOpenItemMargin />
             <NavOpenItemText>학생회 공지사항</NavOpenItemText>
             <NavOpenItemArrowButton
-              onClick={() => setAnnounceOpened(!announceOpened)}
               src={
-                announceOpened ? sideBarIcons.downButton : sideBarIcons.upButton
+                announceOpened ? sideBarIcons.upButton : sideBarIcons.downButton
               }
               alt={"화살표 아이콘"}
             />
@@ -138,13 +138,12 @@ const Navbar = ({
               </NavOpenSingleItemBox>
             </>
           )}
-          <NavOpenSingleItemBox>
+          <NavOpenSingleItemBox onClick={() => setBoardOpened(!boardOpened)}>
             <NavOpenItemMargin />
             <NavOpenItemText>게시판</NavOpenItemText>
             <NavOpenItemArrowButton
-              onClick={() => setBoardOpened(!boardOpened)}
               src={
-                boardOpened ? sideBarIcons.downButton : sideBarIcons.upButton
+                boardOpened ? sideBarIcons.upButton : sideBarIcons.downButton
               }
               alt={"화살표 아이콘"}
             />
@@ -161,11 +160,11 @@ const Navbar = ({
               </NavOpenSingleItemBox>
             </>
           )}
-          <NavOpenSingleItemBox>
+          <NavOpenSingleItemBox
+            onClick={() => setReferSiteOpened(!referSiteOpened)}>
             <NavOpenItemMargin />
             <NavOpenItemText>관련 사이트</NavOpenItemText>
             <NavOpenItemArrowButton
-              onClick={() => setReferSiteOpened(!referSiteOpened)}
               src={
                 referSiteOpened
                   ? sideBarIcons.downButton

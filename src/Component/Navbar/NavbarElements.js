@@ -17,7 +17,7 @@ export const NavUpperMargin = styled.div`
 `;
 export const Nav = styled.nav`
   width: 100%;
-  background: #a2c8f3;
+  background: #7AB8F3;
   height: 60px;
   position: relative;
   display: flex;
@@ -37,7 +37,7 @@ export const NavLink = styled(Link)`
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
   margin: 0 auto;
   left: 50%;
   transform: translateX(-50%);
@@ -45,7 +45,7 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   cursor: pointer;
   @media (max-width: 430px) {
-    font-size: 15px;
+    font-size: 17px;
   }
 `;
 export const NavOpen = styled.div`

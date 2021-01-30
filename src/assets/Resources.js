@@ -58,3 +58,14 @@ export const mainPageIcons = {
   Energy:
     "https://user-images.githubusercontent.com/74090222/104556073-45b29200-5682-11eb-8abf-f71982f054e9.png",
 };
+
+export const sideBarIcons = {
+  home:
+    "https://user-images.githubusercontent.com/62606632/106357764-7ca7c980-634b-11eb-9e93-955355c4747c.png",
+  alarm:
+    "https://user-images.githubusercontent.com/62606632/106357753-6863cc80-634b-11eb-870b-f4540d68c5b3.png",
+  upButton:
+    "https://user-images.githubusercontent.com/62606632/106357829-eb852280-634b-11eb-8350-bef56489ed1d.png",
+  downButton:
+    "https://user-images.githubusercontent.com/62606632/106357828-ea53f580-634b-11eb-990f-048425c1576c.png",
+};

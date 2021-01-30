@@ -14,10 +14,13 @@ import {
   NavOpenUpperDescWrapper,
   NavOpenSingleItemBox,
   NavOpenItemText,
+  NavOpenItemImg,
+  NavOpenItemMargin,
+  NavOpenItemArrowButton,
 } from "./NavbarElements";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Watchers";
-import { mainPageIcons } from "../../assets/Resources";
+import { mainPageIcons, sideBarIcons } from "../../assets/Resources";
 
 const Navbar = ({
   Navname,
@@ -30,6 +33,11 @@ const Navbar = ({
   const user = useAuth();
   const history = useHistory();
   const [navClicked, setNavClicked] = useState(false);
+
+  const [announceOpened, setAnnounceOpened] = useState(false);
+  const [boardOpened, setBoardOpened] = useState(false);
+  const [referSiteOpened, setReferSiteOpened] = useState(false);
+
   return (
     <>
       <NavContainer>
@@ -69,19 +77,31 @@ const Navbar = ({
             </NavOpenUpperDescWrapper>
           </NavOpenUpperContainer>
           <NavOpenSingleItemBox>
+            <NavOpenItemImg src={sideBarIcons.home} alt={"집 아이콘"} />
             <NavOpenItemText>Home</NavOpenItemText>
           </NavOpenSingleItemBox>
           <NavOpenSingleItemBox>
-            <NavOpenItemText>마이페이지</NavOpenItemText>
-          </NavOpenSingleItemBox>
-          <NavOpenSingleItemBox>
+            <NavOpenItemImg src={sideBarIcons.alarm} alt={"알림함 아이콘"} />
             <NavOpenItemText>알림함</NavOpenItemText>
           </NavOpenSingleItemBox>
           <NavOpenSingleItemBox>
+            <NavOpenItemMargin />
             <NavOpenItemText>학생회 공지사항</NavOpenItemText>
+            <NavOpenItemArrowButton
+              onClick={() => setAnnounceOpened(!announceOpened)}
+              src={
+                announceOpened ? sideBarIcons.downButton : sideBarIcons.upButton
+              }
+              alt={"화살표 아이콘"}
+            />
           </NavOpenSingleItemBox>
           <NavOpenSingleItemBox>
-            <NavOpenItemText>Home</NavOpenItemText>
+            <NavOpenItemMargin />
+            <NavOpenItemText>게시판</NavOpenItemText>
+          </NavOpenSingleItemBox>
+          <NavOpenSingleItemBox>
+            <NavOpenItemMargin />
+            <NavOpenItemText>관련 사이트</NavOpenItemText>
           </NavOpenSingleItemBox>
         </NavOpen>
       </NavContainer>

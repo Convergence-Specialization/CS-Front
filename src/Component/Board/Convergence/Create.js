@@ -5,7 +5,6 @@ import { Icons } from "../../../assets/Resources";
 const TopBar = styled.div`
   display: flex;
   align-items: center;
-  background-color: white;
   padding: 5px 5px;
   font-size: 18px;
   font-weight: bolder;
@@ -25,10 +24,8 @@ const Text = styled.div`
   flex-direction: column;
   border-radius: 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  font-weight: normal;
   font-size: 10px;
   line-height: 30px;
-  background-color: white;
 `;
 
 const Wrap = styled.div`

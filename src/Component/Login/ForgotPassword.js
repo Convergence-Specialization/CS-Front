@@ -35,7 +35,7 @@ const BackgroundFilter = styled.div`
 const Button = styled.div`
   border: 2px solid white;
   padding: 10px 20px;
-  width: 42%;
+  width: 60%;
   margin: 10px 0;
   text-align: center;
   font-size: 14px;
@@ -43,7 +43,7 @@ const Button = styled.div`
   cursor: pointer;
 `;
 const InputBox = styled.input`
-  width: 45%;
+  width: 60%;
   margin: 15px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
@@ -55,15 +55,6 @@ const InputBox = styled.input`
   ::placeholder {
     color: white;
   }
-  @media (max-width: 430px) {
-    width: 52%;
-  }
-`;
-const TextBox = styled.div`
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  margin: 70px 0px 10px;
 `;
 const Text = styled.div`
   width: 75%;
@@ -93,10 +84,10 @@ const ForgotPassword = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Title>이메일 주소로 비밀번호 찾기</Title>
+      <Title>이메일 주소로 계정 찾기</Title>
       <Text>
         비밀번호는 가입 시 등록한 메일 주소로 알려드립니다. 가입할 때 등록한
-        메일주소를 입력하고 버튼을 클릭해주세요
+        메일주소를 입력하고 *PW 찾기* 버튼을 클릭해주세요
       </Text>
       <InputBox
         id="emailInputBox"
@@ -127,7 +118,7 @@ const ForgotPassword = () => {
               message.error(error.message);
             });
         }}>
-        메일 발송
+        PW 찾기
       </Button>
     </Container>
   );

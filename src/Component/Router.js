@@ -8,7 +8,7 @@ import {
 
 import MainPage from "../Routes/MainPage";
 import MyPage from "../Routes/MyPage";
-import LoginPage from "../Component/Login";
+import LoginPage from "../Routes/Login";
 import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/MyPage/ChangeInformation";
 import ChangePW from "../Routes/MyPage/ChangePW";

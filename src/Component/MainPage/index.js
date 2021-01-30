@@ -96,6 +96,20 @@ const Button = styled.div`
   background-color: #d4e6fb;
   cursor: pointer;
 `;
+const Slick = styled.div`
+  background-color: red;
+  margin: 10px 20px 30px 20px;
+  @media (max-width: 430px) {
+    margin: 10px 10px 30px 10px;
+  }
+`;
+const SlickBox = styled.div`
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 430px) {
+  }
+`;
 const IntroduceImage = styled.img`
   width: 70%;
 `;
@@ -107,7 +121,7 @@ const MainPage = () => {
     centerPadding: "100px",
     slidesToShow: 5,
     swipeToSlide: true,
-    arrows:false,
+    arrows: false,
   };
   return (
     <Container>
@@ -128,37 +142,28 @@ const MainPage = () => {
         </BoardChildWrapper>
       </BoardContainer>
       <TitleElement src={mainPageIcons.airplane} name={"융합전공 소개"} />
-      <div>
+      <Slick>
         <Slider {...settings}>
-          <div>
-          <IntroduceImage src={mainPageIcons.Car} />
-          </div>
-          <div>
-          <IntroduceImage src={mainPageIcons.Energy} />
-          </div>
-          <div>
-          <IntroduceImage src={mainPageIcons.Security} />
-          </div>
-          <div>
-          <IntroduceImage src={mainPageIcons.BigData} />
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div>
-          <div>
-            <h3>9</h3>
-          </div>
+          <SlickBox>
+            <IntroduceImage src={mainPageIcons.Car} />
+          </SlickBox>
+          <SlickBox>
+            <IntroduceImage src={mainPageIcons.Energy} />
+          </SlickBox>
+          <SlickBox>
+            <IntroduceImage src={mainPageIcons.Security} />
+          </SlickBox>
+          <SlickBox>
+            <IntroduceImage src={mainPageIcons.BigData} />
+          </SlickBox>
+          <SlickBox>
+            <IntroduceImage src={mainPageIcons.Ict} />
+          </SlickBox>
+          <SlickBox>
+            <IntroduceImage src={mainPageIcons.Unification} />
+          </SlickBox>
         </Slider>
-      </div>
+      </Slick>
       <TitleAndButtonWrapper>
         <TitleElement src={mainPageIcons.airplane} name={"융특 게시판"} />
         <Button onClick={() => history.push("/board/convergence")}>

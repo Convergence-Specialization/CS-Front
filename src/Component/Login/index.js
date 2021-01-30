@@ -89,7 +89,6 @@ const Text = styled.div`
     font-size: 10px;
   }
 `;
-
 const Login = () => {
   const history = useHistory();
   const [id, setId] = useState("");
@@ -139,7 +138,17 @@ const Login = () => {
       }
       const data = await authService.signInWithPopup(provider);
       console.log(data);
+      message.success("로그인 성공");
       }} name = "google">구글 로그인</Button>
+
+        <Button onClick = {async(event) => {
+         authService.signOut();
+         message.success("로그아웃 성공");
+
+      }}>로그아웃</Button>
+
+
+
       <TextBox>
         <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>

@@ -1,11 +1,11 @@
 import React from "react";
-import Login from "../Component/Login";
-import Navbar from "../Component/Navbar";
+import LostPw from "../../Component/Login/ForgotPassword";
+import Navbar from "../../Component/Navbar";
 
 const LoginPresenter = () => (
   <>
     <Navbar isTransparent />
-    <Login />
+    <LostPw />
   </>
 );
 export default LoginPresenter;

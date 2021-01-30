@@ -124,11 +124,12 @@ const Login = () => {
           });
           const idToken = await authService.currentUser
             .getIdToken()
-            .catch((err) => {
+            .catch(() => {
               message.error("토큰 실패. 개발자에게 문의해주세요.");
             });
           localStorage.setItem("idToken", idToken);
           message.success("로그인 성공");
+          history.push("/");
         }}>
         로그인
       </Button>
@@ -140,8 +141,14 @@ const Login = () => {
             .catch((error) => {
               message.error(error);
             });
-          // TODO: idToken 처리
-          console.log(data);
+          const idToken = await authService.currentUser
+            .getIdToken()
+            .catch(() => {
+              message.error("토큰 실패. 개발자에게 문의해주세요.");
+            });
+          localStorage.setItem("idToken", idToken);
+          message.success("로그인 성공");
+          history.push("/");
         }}
         name="google">
         구글 로그인

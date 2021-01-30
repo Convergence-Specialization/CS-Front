@@ -5,7 +5,7 @@ import React from "react";
 const MainPagePresenter = () => {
   return (
     <>
-      <Navbar Navname="융특 커뮤니티 슝" />
+      <Navbar/>
       <MainPage />
     </>
   );

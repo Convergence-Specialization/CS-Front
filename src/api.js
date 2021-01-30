@@ -10,6 +10,10 @@ const getBearer = () => {
   return `Bearer ${localStorage.getItem("idToken")}`;
 };
 
+export const userApi = {
+  lostPw: (body) => api.post("/users/changepw", body),
+};
+
 export const departMajorApi = {
   getLists: (body) => api.post("board/departmajor/listview", body),
   create: (body) =>

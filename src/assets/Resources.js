@@ -65,7 +65,7 @@ export const sideBarIcons = {
   alarm:
     "https://user-images.githubusercontent.com/62606632/106357753-6863cc80-634b-11eb-870b-f4540d68c5b3.png",
   upButton:
-    "https://user-images.githubusercontent.com/62606632/106357829-eb852280-634b-11eb-8350-bef56489ed1d.png",
+    "https://user-images.githubusercontent.com/62606632/106358679-fee6bc80-6350-11eb-976f-2f02fa3ecd9c.png",
   downButton:
-    "https://user-images.githubusercontent.com/62606632/106357828-ea53f580-634b-11eb-990f-048425c1576c.png",
+    "https://user-images.githubusercontent.com/62606632/106358677-fe4e2600-6350-11eb-916c-66592eaa3e90.png",
 };

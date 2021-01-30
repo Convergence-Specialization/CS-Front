@@ -21,6 +21,8 @@ import {
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Watchers";
 import { mainPageIcons, sideBarIcons } from "../../assets/Resources";
+import { message } from "antd";
+import { authService } from "../../firebase";
 
 const Navbar = ({
   Navname,
@@ -37,7 +39,6 @@ const Navbar = ({
   const [announceOpened, setAnnounceOpened] = useState(false);
   const [boardOpened, setBoardOpened] = useState(false);
   const [referSiteOpened, setReferSiteOpened] = useState(false);
-
   return (
     <>
       <NavContainer>
@@ -69,11 +70,41 @@ const Navbar = ({
           }>
           <NavOpenUpperContainer>
             <NavOpenUpperButtonWrapper>
-              <NavOpenUpperButton>로그인</NavOpenUpperButton>
-              <NavOpenUpperButton>회원가입</NavOpenUpperButton>
+              {!!user ? (
+                <>
+                  <NavOpenUpperButton
+                    onClick={() => {
+                      authService
+                        .signOut()
+                        .then(() => {
+                          message.success("로그아웃 완료");
+                          history.push("/");
+                        })
+                        .catch((error) => {
+                          message.error(error.message);
+                        });
+                    }}>
+                    로그아웃
+                  </NavOpenUpperButton>
+                  <NavOpenUpperButton onClick={() => history.push("/mypage")}>
+                    마이페이지
+                  </NavOpenUpperButton>
+                </>
+              ) : (
+                <>
+                  <NavOpenUpperButton onClick={() => history.push("/login")}>
+                    로그인
+                  </NavOpenUpperButton>
+                  <NavOpenUpperButton onClick={() => history.push("/signup")}>
+                    회원가입
+                  </NavOpenUpperButton>
+                </>
+              )}
             </NavOpenUpperButtonWrapper>
             <NavOpenUpperDescWrapper>
-              회원정보가 없습니다.
+              {!!user
+                ? user.displayName.concat("님 환영합니다")
+                : "로그인을 해주세요"}
             </NavOpenUpperDescWrapper>
           </NavOpenUpperContainer>
           <NavOpenSingleItemBox>
@@ -95,14 +126,74 @@ const Navbar = ({
               alt={"화살표 아이콘"}
             />
           </NavOpenSingleItemBox>
+          {announceOpened && (
+            <>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>공지사항</NavOpenItemText>
+              </NavOpenSingleItemBox>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>학부 행사</NavOpenItemText>
+              </NavOpenSingleItemBox>
+            </>
+          )}
           <NavOpenSingleItemBox>
             <NavOpenItemMargin />
             <NavOpenItemText>게시판</NavOpenItemText>
+            <NavOpenItemArrowButton
+              onClick={() => setBoardOpened(!boardOpened)}
+              src={
+                boardOpened ? sideBarIcons.downButton : sideBarIcons.upButton
+              }
+              alt={"화살표 아이콘"}
+            />
           </NavOpenSingleItemBox>
+          {boardOpened && (
+            <>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>융특게시판</NavOpenItemText>
+              </NavOpenSingleItemBox>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>전과게시판</NavOpenItemText>
+              </NavOpenSingleItemBox>
+            </>
+          )}
           <NavOpenSingleItemBox>
             <NavOpenItemMargin />
             <NavOpenItemText>관련 사이트</NavOpenItemText>
+            <NavOpenItemArrowButton
+              onClick={() => setReferSiteOpened(!referSiteOpened)}
+              src={
+                referSiteOpened
+                  ? sideBarIcons.downButton
+                  : sideBarIcons.upButton
+              }
+              alt={"화살표 아이콘"}
+            />
           </NavOpenSingleItemBox>
+          {referSiteOpened && (
+            <>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>숭실대학교 홈페이지</NavOpenItemText>
+              </NavOpenSingleItemBox>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>유세인트</NavOpenItemText>
+              </NavOpenSingleItemBox>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>스마트캠퍼스</NavOpenItemText>
+              </NavOpenSingleItemBox>
+              <NavOpenSingleItemBox isChild>
+                <NavOpenItemMargin />
+                <NavOpenItemText>융특 홈페이지</NavOpenItemText>
+              </NavOpenSingleItemBox>
+            </>
+          )}
         </NavOpen>
       </NavContainer>
       <NavUpperMargin style={isTransparent ? { display: "none" } : {}} />

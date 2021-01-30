@@ -117,6 +117,8 @@ const Login = () => {
             message.error("아이디와 비밀번호를 입력해주세요.");
             return;
           }
+          message.destroy();
+          message.loading("로그인 중..");
           await authService.signInWithEmailAndPassword(id, pw).catch(() => {
             message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
           });
@@ -126,6 +128,7 @@ const Login = () => {
               message.error("토큰 실패. 개발자에게 문의해주세요.");
             });
           localStorage.setItem("idToken", idToken);
+          message.destroy();
           message.success("로그인 성공");
           history.push("/");
         }}>

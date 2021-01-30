@@ -7,8 +7,6 @@ export const Images = {
 export const Icons = {
   LOGO:
     "https://user-images.githubusercontent.com/62606632/104090284-1f26dc80-52b9-11eb-99fe-49ffbf539e68.png",
-  Paperplane:
-    "https://user-images.githubusercontent.com/74090222/104562898-4c460700-568c-11eb-93c7-ae49f7ff4a39.png",
   공지:
     "https://user-images.githubusercontent.com/74090222/104570579-7b14ab00-5695-11eb-8947-26260ef97545.png",
   UpArrow:
@@ -31,6 +29,8 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/105375009-a9712800-5c4b-11eb-8bfd-45753729f92c.png",
   horse:
     "https://user-images.githubusercontent.com/74090222/105382734-bdb92300-5c53-11eb-8ec0-bdb7a3dfdbb3.png",
+  check:
+    "https://user-images.githubusercontent.com/76280160/106360557-65250c80-635c-11eb-9457-3e4df46a9a9e.png",
 };
 export const mainPageIcons = {
   profile:

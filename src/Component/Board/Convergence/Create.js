@@ -1,14 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Icons } from "../../../assets/Resources";
-
-const TopBar = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 5px 5px;
-  font-size: 18px;
-  font-weight: bolder;
-`;
+import { mainPageIcons } from "../../../assets/Resources";
+import NavBot from "../../SmallComponents/NavBot";
 
 const Back = styled.div`
   background-color: #f5f5f5;
@@ -74,10 +67,10 @@ const Img = styled.img`
 const ConvergenceBoard = () => {
   return (
     <>
-      <TopBar>
-        {" "}
-        <Img src={Icons.Paperplane} /> 융특게시판{" "}
-      </TopBar>
+      <NavBot
+        Name="융특게시판"
+        Icon={mainPageIcons.airplane}
+      />
       <Back>
         <Text>
           <Wrap>내용을 입력하세요</Wrap>
@@ -87,8 +80,7 @@ const ConvergenceBoard = () => {
             융특 슝의 이용규칙 전문을 반드시 숙지하신 후 글을 작성해 주세요.
           </Wrap2>
           <Wrap2>
-            이용규칙을 위한한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의
-            제재가 가해질 수 있습니다.
+            이용규칙을 위한한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의 제재가 가해질 수 있습니다.
           </Wrap2>
           <Wrap2> </Wrap2>
           <Wrap2>

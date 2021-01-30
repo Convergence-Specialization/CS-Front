@@ -19,7 +19,7 @@ import { useHistory } from "react-router-dom";
 import { mainPageIcons } from "../../assets/Resources";
 import { useAuth } from "../Watchers";
 
-const Navbar = ({ Navname, isTransparent }) => {
+const Navbar = ({ Navname, isTransparent, IconRight1, IconNameRight1, IconRight2, IconNameRight2 }) => {
   const user = useAuth();
   const history = useHistory();
   const [navClicked, setNavClicked] = useState(false);
@@ -30,7 +30,7 @@ const Navbar = ({ Navname, isTransparent }) => {
           <Bars onClick={() => setNavClicked(!navClicked)} />
           <NavLink to="/">{!!Navname ? Navname : "융특 커뮤니티 슝"}</NavLink>
           <NavLeftMargin />
-          <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
+          <IconImg src={IconRight1} alt={IconNameRight1} />
           <IconImg
             onClick={() => {
               if (user) {
@@ -39,8 +39,8 @@ const Navbar = ({ Navname, isTransparent }) => {
                 history.push("/login");
               }
             }}
-            src={mainPageIcons.profile}
-            alt={"프로필 아이콘"}
+            src={IconRight2}
+            alt={IconNameRight2}
           />
         </Nav>
         <NavOpen

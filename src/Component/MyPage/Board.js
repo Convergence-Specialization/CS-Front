@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { authService } from "../../firebase";
 
 const Con = styled.div`
   padding: 20px;
@@ -29,8 +30,8 @@ const Qrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  @media(max-width:430px){
-    font-size:12px;
+  @media (max-width: 430px) {
+    font-size: 12px;
     padding: 10px 20px;
   }
 `;
@@ -52,9 +53,9 @@ const Wrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  @media(max-width:430px){
-    font-size:12px;
-    width:85%;
+  @media (max-width: 430px) {
+    font-size: 12px;
+    width: 85%;
     padding: 10px 20px;
   }
 `;
@@ -73,9 +74,9 @@ const Jrap = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
-  @media(max-width:430px){
-    font-size:12px;
-    width:85%;
+  @media (max-width: 430px) {
+    font-size: 12px;
+    width: 85%;
     padding: 10px 20px;
   }
 `;
@@ -101,7 +102,12 @@ const Board = () => {
           <div>회원탈퇴</div>
         </Wrap>
         <Jrap>
-          <div>로그아웃</div>
+          <div
+            onClick={() => {
+              authService.signOut();
+            }}>
+            로그아웃
+          </div>
         </Jrap>
       </Con>
     </>

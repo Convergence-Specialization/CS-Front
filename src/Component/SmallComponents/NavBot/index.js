@@ -17,7 +17,6 @@ export const IconImg = styled.img`
 `;
 
 export const Text = styled.div`
-  font-family: NanumSquareRoundB;
   font-size: 18px;
   font-weight: bold;
 `;

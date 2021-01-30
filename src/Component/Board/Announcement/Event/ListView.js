@@ -106,12 +106,7 @@ const BoardButton = styled.div`
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
-  letter-spacing: normal;
   text-align: center;
   color: #444444;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);

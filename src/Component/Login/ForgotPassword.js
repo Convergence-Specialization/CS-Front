@@ -1,6 +1,9 @@
+import { message } from "antd";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { Icons, Images } from "../../assets/Resources";
+import { userApi } from "../../api";
+import { Images } from "../../assets/Resources";
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -35,25 +38,15 @@ const Button = styled.div`
   width: 42%;
   margin: 10px 0;
   text-align: center;
-  font-family: Arial;
-  font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.15;
-  letter-spacing: normal;
-  color: #ffffff;
+  font-size: 14px;
+  color: white;
   cursor: pointer;
-  @media (max-width: 430px) {
-    font-size: 14px;
-    padding: 10px 30px;
-  }
 `;
 const InputBox = styled.input`
   width: 45%;
   margin: 15px;
-  background-color: rgba(0, 0, 0, 0);
   border: none;
+  background-color: rgba(0, 0, 0, 0);
   border-bottom: 2px solid white;
   padding: 10px;
   color: white;
@@ -66,100 +59,76 @@ const InputBox = styled.input`
     width: 52%;
   }
 `;
-
-const ImgNav = styled.img`
-  width: 7%;
-  margin-bottom: 50px;
-`;
-const NavWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  padding: 20px;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-`;
 const TextBox = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
   margin: 70px 0px 10px;
 `;
-const NavText = styled.div`
-  font-family: NanumGothic;
-  padding: 10px;
-  font-size: 32px;
-  font-weight: 800;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.13;
-  letter-spacing: normal;
-  text-align: center;
-  color: #ffffff;
-  @media (max-width: 430px) {
-    font-size: 20px;
-    padding: 3px;
-  }
-`;
 const Text = styled.div`
-  width: 100%;
-  font-family: NanumSquareRoundR;
+  width: 75%;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.74;
-  letter-spacing: normal;
   text-align: center;
   color: #ffffff;
   @media (max-width: 430px) {
-    width: 100%;
     font-size: 15px;
   }
 `;
 const Title = styled.div`
-  width: 100%;
-  font-family: NanumSquareRoundEB;
   font-size: 30px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.17;
-  letter-spacing: normal;
-  text-align: center;
   color: #ffffff;
+  margin-bottom: 20px;
   @media (max-width: 430px) {
     font-size: 20px;
   }
 `;
 
 const ForgotPassword = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   return (
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <NavWrapper>
-        <ImgNav src={Icons.menu} />
-        <NavText>융특 커뮤니티 슝</NavText>
-        <ImgNav src={Icons.화살표} />
-      </NavWrapper>
       <Title>이메일 주소로 비밀번호 찾기</Title>
-      <TextBox>
-        <Text>비밀번호는 가입 시 등록한 메일 주소로</Text>
-        <Text>알려드립니다. 가입할 때 등록한 메일주소를</Text>
-        <Text>입력하고 버튼을 클릭해주세요</Text>
-      </TextBox>
-
+      <Text>
+        비밀번호는 가입 시 등록한 메일 주소로 알려드립니다. 가입할 때 등록한
+        메일주소를 입력하고 버튼을 클릭해주세요
+      </Text>
       <InputBox
+        id="emailInputBox"
         type="email"
         placeholder="이메일"
         value={email}
-        disabled={false}
         onChange={({ target: { value } }) => setEmail(value)}
       />
-      <Button>메일 발송</Button>
+      <Button
+        onClick={() => {
+          if (loading) return;
+          let email = document.getElementById("emailInputBox").value;
+          if (email === "") {
+            message.error("이메일을 입력해주세요");
+            return;
+          }
+          message.loading("발송 중입니다..", 10);
+          setLoading(true);
+          userApi
+            .lostPw({ email })
+            .then(() => {
+              message.destroy();
+              message.success("재설정 이메일을 발송했습니다.");
+              history.push("/login");
+            })
+            .catch((error) => {
+              message.destroy();
+              message.error(error.message);
+            });
+        }}>
+        메일 발송
+      </Button>
     </Container>
   );
 };

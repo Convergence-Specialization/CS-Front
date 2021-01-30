@@ -2,7 +2,7 @@ export const Images = {
   Background:
     "https://user-images.githubusercontent.com/62606632/104093808-46d56f00-52d0-11eb-8bbd-08293cdaf869.jpg",
   Background3:
-    "https://user-images.githubusercontent.com/74090222/104919656-f1891400-59d9-11eb-8ef4-34a1fa7c19dd.jpg",
+    "https://user-images.githubusercontent.com/62606632/106345507-12b00580-62f4-11eb-8cc4-413c60950343.png",
 };
 export const Icons = {
   LOGO:
@@ -29,9 +29,9 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/105071114-83227f80-5ac7-11eb-9fc0-bd35d7631399.png",
   verticalmenu:
     "https://user-images.githubusercontent.com/74090222/105375009-a9712800-5c4b-11eb-8bfd-45753729f92c.png",
-    horse:
+  horse:
     "https://user-images.githubusercontent.com/74090222/105382734-bdb92300-5c53-11eb-8ec0-bdb7a3dfdbb3.png",
-  };
+};
 export const mainPageIcons = {
   profile:
     "https://user-images.githubusercontent.com/62606632/104839596-7e15d280-5905-11eb-8fcd-f41f493df3a8.png",

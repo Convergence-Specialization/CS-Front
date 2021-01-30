@@ -7,30 +7,35 @@ const Container = styled.div`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
+  background-color: white;
 `;
 const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  text-align: center;
+  justify-content: start;
+  margin-left: 30px;
+  @media (max-width: 430px) {
+    margin-left: 20px;
+  }
 `;
 const TitleIconImg = styled.img`
   width: 25px;
+  @media (max-width: 430px) {
+    width: 20px;
+  }
 `;
 const Title = styled.div`
   margin-left: 6px;
   font-weight: bold;
   font-size: 20px;
   font-family: NanumSquareRoundB;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.17;
   letter-spacing: normal;
   text-align: left;
   color: #242323;
   @media (max-width: 430px) {
-    font-size: 17px;
+    font-size: 15px;
   }
 `;
 
@@ -41,22 +46,22 @@ const TitleElement = ({ src, name }) => (
   </TitleWrapper>
 );
 const BoardContainer = styled.div`
-  width: 90%;
   border-radius: 20px;
   background-color: #f1f1f1;
-  padding: 0 auto;
-  padding-bottom: 13px;
-  margin: 0 auto;
+  padding: 0px 10px 10px;
+  margin: 10px 20px 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
+  @media (max-width: 430px) {
+    margin: 10px 10px 30px 10px;
+  }
 `;
 const BoardChildWrapper = styled.div`
-  margin-top: 13px;
+  margin-top: 10px;
   padding: 10px;
-  width: 90%;
+  width: 100%;
   background-color: white;
   border-radius: 15px;
   display: flex;
@@ -64,34 +69,24 @@ const BoardChildWrapper = styled.div`
   align-items: center;
   font-family: NanumSquareRoundR;
   font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
   letter-spacing: normal;
   text-align: left;
   color: #444444;
   @media (max-width: 430px) {
-    font-size: 12px;
+    font-size: 11px;
   }
 `;
 const BoardChildTitle = styled.div`
   font-family: NanumSquareRoundR;
-  font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
   letter-spacing: normal;
   text-align: left;
   color: #444444;
   @media (max-width: 430px) {
-    font-size: 12px;
   }
 `;
-const BoardAnnounceSubText = styled.div`
-  font-size: 14px;
-`;
+const BoardAnnounceSubText = styled.div``;
 const IntroduceWrapper = styled.div`
   margin-top: 12px;
   width: 95%;
@@ -221,13 +216,13 @@ const DepartmentSubWrapper = styled.div`
 const TitleAndButtonWrapper = styled.div`
   display: flex;
   align-items: center;
+  padding-top: 20px;
   justify-content: space-between;
   width: 94%;
 `;
 const Button = styled.div`
   text-align: center;
   padding: 6px 14px;
-  margin-bottom: 1px;
   border-radius: 20px;
   font-size: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -238,7 +233,12 @@ const MainPage = () => {
   const history = useHistory();
   return (
     <Container>
-      <TitleElement src={mainPageIcons.announce} name={"학생회공지"} />
+      <TitleAndButtonWrapper>
+        <TitleElement src={mainPageIcons.announce} name={"공지사항"} />
+        <Button onClick={() => history.push("/board/announcement")}>
+          더보기
+        </Button>
+      </TitleAndButtonWrapper>
       <BoardContainer>
         <BoardChildWrapper>
           <BoardChildTitle>추석맞이 융병호 게임</BoardChildTitle>

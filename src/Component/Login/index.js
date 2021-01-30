@@ -124,24 +124,28 @@ const Login = () => {
           });
           const idToken = await authService.currentUser
             .getIdToken()
-            .catch((err) => {
+            .catch(() => {
               message.error("토큰 실패. 개발자에게 문의해주세요.");
             });
           localStorage.setItem("idToken", idToken);
           message.success("로그인 성공");
+          history.push("/");
         }}>
         로그인
       </Button>
       <Button
         onClick={async () => {
-          let provider = new firebaseInstance.auth.GoogleAuthProvider();
-          const data = await authService
-            .signInWithPopup(provider)
-            .catch((error) => {
-              message.error(error);
-            });
-          // TODO: idToken 처리
-          console.log(data);
+          try {
+            let provider = new firebaseInstance.auth.GoogleAuthProvider();
+            await authService.signInWithPopup(provider);
+            const idToken = await authService.currentUser.getIdToken();
+            localStorage.setItem("idToken", idToken);
+            message.success("로그인 성공");
+            history.push("/");
+          } catch (error) {
+            message.error(error.message);
+            message.error("토큰 실패. 개발자에게 문의해주세요.");
+          }
         }}
         name="google">
         구글 로그인

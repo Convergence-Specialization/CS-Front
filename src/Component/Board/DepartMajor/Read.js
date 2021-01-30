@@ -5,7 +5,6 @@ import { Icons, mainPageIcons } from "../../../assets/Resources";
 const WhiteContainer = styled.div`
   width: 90%;
   padding: 9px 15px;
-  background-color: white;
   margin: 10px auto;
   border-radius: 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -20,7 +19,6 @@ const SubText = styled.div`
   margin-bottom: 10px;
   font-size: 13px;
   line-height: 1.15;
-  letter-spacing: normal;
 `;
 const LikeCountText = styled.div`
   font-size: 14px;

@@ -43,7 +43,6 @@ const Button = styled.div`
   font-size: 18px;
   font-weight: bold;
   line-height: 1.15;
-  letter-spacing: normal;
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 14px;
@@ -84,7 +83,6 @@ const TextBox = styled.div`
 `;
 const Text = styled.div`
   font-size: 14px;
-  text-align: left;
   @media (max-width: 430px) {
     font-size: 10px;
   }

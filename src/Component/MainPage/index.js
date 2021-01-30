@@ -8,7 +8,6 @@ const Container = styled.div`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
-  background-color: white;
 `;
 const TitleWrapper = styled.div`
   display: flex;
@@ -31,8 +30,6 @@ const Title = styled.div`
   font-weight: bold;
   font-size: 20px;
   line-height: 1.17;
-  letter-spacing: normal;
-  text-align: left;
   color: #242323;
   @media (max-width: 430px) {
     font-size: 15px;
@@ -62,15 +59,12 @@ const BoardChildWrapper = styled.div`
   margin-top: 10px;
   padding: 10px;
   width: 100%;
-  background-color: white;
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
   line-height: 1.12;
-  letter-spacing: normal;
-  text-align: left;
   color: #444444;
   @media (max-width: 430px) {
     font-size: 11px;
@@ -78,8 +72,6 @@ const BoardChildWrapper = styled.div`
 `;
 const BoardChildTitle = styled.div`
   line-height: 1.12;
-  letter-spacing: normal;
-  text-align: left;
   color: #444444;
   @media (max-width: 430px) {
   }
@@ -116,12 +108,7 @@ const MainPage = () => {
     centerPadding: "100px",
     slidesToShow: 5,
     swipeToSlide: true,
-    arrows:true,
-    afterChange: function(index) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: red`
-      );
-    }
+    arrows:false,
   };
   return (
     <Container>

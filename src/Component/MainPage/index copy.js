@@ -7,7 +7,6 @@ const Container = styled.div`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
-  background-color: white;
 `;
 const TitleWrapper = styled.div`
   display: flex;
@@ -30,8 +29,6 @@ const Title = styled.div`
   font-weight: bold;
   font-size: 20px;
   line-height: 1.17;
-  letter-spacing: normal;
-  text-align: left;
   color: #242323;
   @media (max-width: 430px) {
     font-size: 15px;
@@ -61,15 +58,12 @@ const BoardChildWrapper = styled.div`
   margin-top: 10px;
   padding: 10px;
   width: 100%;
-  background-color: white;
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
   line-height: 1.12;
-  letter-spacing: normal;
-  text-align: left;
   color: #444444;
   @media (max-width: 430px) {
     font-size: 11px;
@@ -77,8 +71,6 @@ const BoardChildWrapper = styled.div`
 `;
 const BoardChildTitle = styled.div`
   line-height: 1.12;
-  letter-spacing: normal;
-  text-align: left;
   color: #444444;
   @media (max-width: 430px) {
   }
@@ -97,7 +89,6 @@ const IntroduceBox = styled.div`
   padding: 10px;
   margin: 0px 0;
   border-radius: 0px;
-  background-color: white;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -113,7 +104,6 @@ const IntroduceBox5 = styled.div`
   padding: 10px;
   margin: 0px 0;
   border-radius: 0px;
-  background-color: white;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -129,7 +119,6 @@ const IntroduceBox1 = styled.div`
   padding: 10px;
   margin: 0px 0;
   border-radius: 20px 0px 0px 0px;
-  background-color: white;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -145,7 +134,6 @@ const IntroduceBox2 = styled.div`
   padding: 10px;
   margin: 0px 0;
   border-radius: 0px 20px 0px 0px;
-  background-color: white;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -161,7 +149,6 @@ const IntroduceBox3 = styled.div`
   padding: 10px;
   margin: 0px 0;
   border-radius: 0px 0px 0px 20px;
-  background-color: white;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -177,7 +164,7 @@ const IntroduceBox4 = styled.div`
   padding: 10px;
   margin: 0px 0;
   border-radius: 0px 0px 20px 0px;
-  background-color: white;
+
   font-size: 14px;
   font-weight: bold;
   text-align: center;
@@ -193,14 +180,8 @@ const IntroduceImage = styled.img`
 `;
 const IntroduceText = styled.div`
   margin-top: 10px;
-  font-family: NanumGothic;
   font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.53;
-  letter-spacing: normal;
-  text-align: center;
   color: #3b3b3b;
   @media (max-width: 430px) {
     font-size: 10px;

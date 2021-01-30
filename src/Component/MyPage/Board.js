@@ -18,13 +18,9 @@ const Qrap = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
-  background-color: white;
   padding: 10px 30px;
   font-size: 20px;
   line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media (max-width: 430px) {
     font-size: 12px;
     padding: 10px 20px;
@@ -33,16 +29,12 @@ const Qrap = styled.div`
 const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: white;
   padding: 15px 30px;
   border: solid;
   border-width: 0px 0px 1px 0px;
   margin: 0px 0px 10px 0px;
   font-size: 20px;
   line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media (max-width: 430px) {
     font-size: 12px;
     padding: 10px 20px;
@@ -52,14 +44,10 @@ const Jrap = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
-  background-color: white;
   padding: 10px 30px;
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
+
   @media (max-width: 430px) {
     font-size: 12px;
     width: 85%;

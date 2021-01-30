@@ -3,13 +3,9 @@ import styled from "styled-components";
 import { Icons } from "../../../assets/Resources";
 
 export const TopBar = styled.div`
-    background-color: white; 
     padding: 10px 20px; 
     font-size: 18px;
-    font-family: NanumSquareRoundR;
     font-weight: bolder;
-    font-stretch: normal;
-    font-style: normal;
 `;
 
 const Back = styled.div`
@@ -26,12 +22,8 @@ const Board = styled.div`
     flex-direction: column;
     border-radius: 15px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    font-family: NanumSquareRoundR;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
     font-size: 17px;
-    background-color: white;
 `;
 
 const Box = styled.div`
@@ -43,8 +35,6 @@ const BlankPost = styled.div`
     padding: 150px 100px 100px 100px;
     margin: 10px auto;
     font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
     font-size: 14px;
     color: #C8C8C8;
 `;

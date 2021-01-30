@@ -9,33 +9,22 @@ const Con = styled.div`
   flex-direction: column;
   border-radius: 30px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
 `;
 const Wrap = styled.div`
-   font-family: NanumSquareRoundR;
-   color: #545454;
+  color: #545454;
   font-size: 20px;
   line-height: 1.85;
-  margin-left:10px;
+  margin-left: 10px;
   letter-spacing: normal;
   @media (max-width: 430px) {
     font-size: 15px;
-  
   }
 `;
 const Qrap = styled.div`
   text-align: end;
-  font-family: NanumSquareRoundR;
   margin-top: 20px;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.15;
-  letter-spacing: normal;
   text-align: left;
   color: #545454;
   @media (max-width: 430px) {
@@ -43,7 +32,6 @@ const Qrap = styled.div`
   }
 `;
 const Jrap = styled.div`
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.7;
   letter-spacing: normal;
@@ -52,7 +40,6 @@ const Jrap = styled.div`
   }
 `;
 const Title = styled.div`
-  
   font-size: 23px;
   line-height: 1.52;
   letter-spacing: normal;
@@ -137,11 +124,8 @@ const Button = styled.div`
   padding: 15px 10px;
   border-radius: 10px;
   background-color: #b0d0f2;
-  font-family: NanumSquareRoundEB;
   font-size: 17px;
   line-height: 1.12;
-  letter-spacing: normal;
-  text-align: center;
   color: #545454;
   @media (max-width: 430px) {
     font-size: 12px;
@@ -162,7 +146,6 @@ const CommentButton = styled.div`
   }
 `;
 const CommentButtonText = styled.div`
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.15;
   letter-spacing: normal;
@@ -253,7 +236,7 @@ export const HorseImg = styled.img`
 
   @media (max-width: 430px) {
     width: 10%;
-  border-radius: 40px;
+    border-radius: 40px;
   }
 `;
 export const Time = styled.div`

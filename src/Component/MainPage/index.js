@@ -193,7 +193,6 @@ const IntroduceImage = styled.img`
 `;
 const IntroduceText = styled.div`
   margin-top: 10px;
-  font-family: NanumGothic;
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;

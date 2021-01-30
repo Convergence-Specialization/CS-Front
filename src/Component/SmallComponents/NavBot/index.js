@@ -1,7 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+
 const Container = styled.div`
+  font-family: "NanumSquareRound";
   padding: 10px 15px;
   display: flex;
   align-items: center;

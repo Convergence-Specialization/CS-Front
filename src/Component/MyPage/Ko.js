@@ -21,7 +21,6 @@ const Title = styled.div`
   justify-content: start;
 `;
 const Qitle = styled.div`
-
   width: 100%;
   margin-top:10px;
   display: flex;

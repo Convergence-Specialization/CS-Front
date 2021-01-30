@@ -18,6 +18,7 @@ import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
+import IconsSource from "./IconsSource";
 
 const RouterComponent = () => {
   return (
@@ -59,6 +60,9 @@ const RouterComponent = () => {
         {/* TODO: 얘네는 글쓰는 페이지라서 위에 라우트 연결 하면 됨! */}
         <Route path="/mypage/changepw" exact>
           <ChangePW />
+        </Route>
+        <Route path="/IconsSource" exact>
+          <IconsSource />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

@@ -99,7 +99,7 @@ const Button = styled.div`
   cursor: pointer;
 `;
 const Slick = styled.div`
-  background-color: red;
+  background-color: #f1f1f1;
   margin: 10px 20px 30px 20px;
   padding: 10px;
   border-radius: 20px;

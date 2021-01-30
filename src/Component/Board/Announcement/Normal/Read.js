@@ -5,7 +5,6 @@ const Container = styled.div`
   width: 100%;
   background-color: #f1f1f1;
   padding: 5px 0px 20px 0px;
-  font-family: NanumSquareRoundR;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

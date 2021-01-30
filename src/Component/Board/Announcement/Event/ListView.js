@@ -21,12 +21,6 @@ const Title = styled.div`
   margin-left: 6px;
   font-weight: bold;
   font-size: 20px;
-  font-family: NanumSquareRoundB;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.17;
-  letter-spacing: normal;
   text-align: left;
   color: #242323;
   @media (max-width: 430px) {
@@ -64,12 +58,7 @@ const BoardChildWrapper = styled.div`
 
   justify-content: space-between;
   align-items: center;
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
-  letter-spacing: normal;
   text-align: left;
   color: #444444;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -83,15 +72,10 @@ const BoardLine = styled.div`
   margin: 5px 10px 5px 10px;
 `;
 const BoardChildTitle = styled.div`
-  font-family: NanumSquareRoundR;
   font-size: 18px;
   margin: 5px 5px 10px 10px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.17;
-  letter-spacing: normal;
-  text-align: left;
   color: #000000;
   @media (max-width: 430px) {
     font-size: 18px;
@@ -100,11 +84,7 @@ const BoardChildTitle = styled.div`
 const BoardChildMain = styled.div`
   margin-left: 10px;
   margin-top: 15px;
-  font-family: NanumSquareRoundR;
   font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.17;
   letter-spacing: normal;
   text-align: left;
@@ -126,12 +106,7 @@ const BoardButton = styled.div`
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
-  letter-spacing: normal;
   text-align: center;
   color: #444444;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);

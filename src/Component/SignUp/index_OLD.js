@@ -21,8 +21,6 @@ const BackgroundImg = styled.div`
   background-image: url(${Images.Background3});
   background-size: cover;
   position: absolute;
-  /* transform: scale(1.03); */
-  /* filter: blur(5px); */
   z-index: -2;
 `;
 const BackgroundFilter = styled.div`
@@ -38,13 +36,9 @@ const Button = styled.div`
   width: 42%;
   margin: 10px 0;
   text-align: center;
-  font-family: Arial;
   font-size: 18px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.15;
-  letter-spacing: normal;
   color: #ffffff;
   @media (max-width: 430px) {
     font-size: 14px;
@@ -116,7 +110,7 @@ const NavText = styled.div`
   }
 `;
 const Text = styled.div`
-   font-family: Arial;
+  font-family: Arial;
   padding: 15px 0px 15px 20px;
   font-size: 14px;
   font-weight: normal;
@@ -135,7 +129,7 @@ const Text = styled.div`
 const Text2 = styled.div`
   font-family: Arial;
   margin: 0px 27px 7px 14px;
-  width:20%;
+  width: 20%;
   padding: 16px 0px 0px;
   font-size: 14px;
   font-weight: normal;
@@ -147,7 +141,7 @@ const Text2 = styled.div`
   color: #ffffff;
   border-bottom: 2px solid white;
   @media (max-width: 430px) {
-    width:24%;
+    width: 24%;
     padding: 16px 0px 0px;
     margin: 6px 22px 4px 5px;
     font-size: 8px;
@@ -168,13 +162,13 @@ const Text1 = styled.div`
   }
 `;
 const TextBox2 = styled.div`
-    width:30%;
-    display:flex;
-    
-    justify-content:flex-end;
-    @media (max-width: 430px) {
-    width:19%;
-    margin-top:10px;
+  width: 30%;
+  display: flex;
+
+  justify-content: flex-end;
+  @media (max-width: 430px) {
+    width: 19%;
+    margin-top: 10px;
   }
 `;
 const SignUp = () => {

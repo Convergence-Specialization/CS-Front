@@ -20,7 +20,6 @@ const Qrap = styled.div`
   justify-content: space-between;
   background-color: white;
   padding: 10px 30px;
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.13;
   letter-spacing: normal;
@@ -39,7 +38,6 @@ const Wrap = styled.div`
   border: solid;
   border-width: 0px 0px 1px 0px;
   margin: 0px 0px 10px 0px;
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.13;
   letter-spacing: normal;

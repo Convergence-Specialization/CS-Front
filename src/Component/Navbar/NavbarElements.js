@@ -3,6 +3,7 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
+  font-family: "Jal_Onuel";
   width: 100%;
   max-width: 768px;
   position: fixed;
@@ -17,7 +18,7 @@ export const NavUpperMargin = styled.div`
 `;
 export const Nav = styled.nav`
   width: 100%;
-  background: #7AB8F3;
+  background: #7ab8f3;
   height: 60px;
   position: relative;
   display: flex;
@@ -41,7 +42,6 @@ export const NavLink = styled(Link)`
   margin: 0 auto;
   left: 50%;
   transform: translateX(-50%);
-  font-weight: bold;
   padding: 0 1rem;
   cursor: pointer;
   @media (max-width: 430px) {

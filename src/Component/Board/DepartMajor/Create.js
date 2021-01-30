@@ -51,7 +51,6 @@ const Button = styled.div`
 `;
 
 const Create = () => {
-  const user = useAuth();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -80,7 +79,7 @@ const Create = () => {
       <ButtonWrapper>
         <Button onClick={() => history.goBack()}>취소</Button>
         <Button
-          onClick={async () => {
+          onClick={() => {
             if (uploading) return;
             if (title === "" || content === "") {
               message.error("제목 또는 글 내용을 작성해주세요.");

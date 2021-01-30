@@ -4,7 +4,7 @@ import { authService } from "../../firebase";
 
 const Con = styled.div`
   padding: 20px;
-  border-radius: 40px;
+  border-radius: 30px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
   margin: 30px;
@@ -18,12 +18,12 @@ const Qrap = styled.div`
   width: 90%;
   display: flex;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 10px 20px;
   font-size: 20px;
   line-height: 1.13;
   @media (max-width: 430px) {
     font-size: 12px;
-    padding: 10px 20px;
+    padding: 0px 10px;
   }
 `;
 const Wrap = styled.div`

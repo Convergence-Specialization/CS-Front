@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Wrap = styled.div`
   margin: 30px;
   padding: 50px 20px 20px 50px;
-  border-radius: 45px;
+  border-radius: 30px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
   @media(max-width:430px){
@@ -21,7 +21,6 @@ const Title = styled.div`
   justify-content: start;
 `;
 const Qitle = styled.div`
-
   width: 100%;
   margin-top:10px;
   display: flex;

@@ -10,17 +10,22 @@ export const NavContainer = styled.div`
 export const NavUpperMargin = styled.div`
   width: 100%;
   height: 60px;
+  @media (max-width: 430px) {
+    height: 45px;
+  }
 `;
 export const Nav = styled.nav`
   width: 100%;
-  font-family: "Noto Sans KR", sans-serif;
   background: #a2c8f3;
   height: 60px;
-  display: flex;
   position: relative;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 10;
+  @media (max-width: 430px) {
+    height: 45px;
+  }
 `;
 export const NavLeftMargin = styled.div`
   flex: 1;
@@ -38,6 +43,9 @@ export const NavLink = styled(Link)`
   font-weight: bold;
   padding: 0 1rem;
   cursor: pointer;
+  @media (max-width: 430px) {
+    font-size: 15px;
+  }
 `;
 export const NavOpen = styled.div`
   display: flex;
@@ -46,7 +54,8 @@ export const NavOpen = styled.div`
   width: 50%;
   height: 100vh;
   position: absolute;
-  top: 55px;
+  top: 45px;
+  border-right: 1px solid grey;
   background: white;
   z-index: 1;
   opacity: 1;
@@ -81,23 +90,23 @@ export const NavOpenUpperButton = styled.div`
   background-color: white;
   border-radius: 10px;
   color: black;
-  width: 35%;
+  width: 48%;
   padding: 10px;
-  font-size: 15px;
+  font-size: 12px;
   text-align: center;
 `;
 export const NavOpenUpperDescWrapper = styled.div`
+  font-size: 12px;
   margin-top: 15px;
-  width: 70%;
+  width: 90%;
   color: white;
   border: 1px solid white;
   padding: 10px;
 `;
 export const NavOpenSingleItemBox = styled.div`
-  /* flex: 1; */
   align-self: stretch;
   padding: 10px;
-  border: 1px solid black;
+  border-bottom: 1px solid grey;
 `;
 export const NavOpenItemImg = styled.img``;
 export const NavOpenItemText = styled.div``;
@@ -110,6 +119,9 @@ export const Bars = styled(FaBars)`
     margin: auto 0 auto 13.1px;
     font-size: 1.8rem;
     cursor: pointer;
+    @media (max-width: 430px) {
+      font-size: 1.5rem;
+    }
   }
 `;
 export const IconImg = styled.img`
@@ -117,4 +129,7 @@ export const IconImg = styled.img`
   margin-right: 13px;
   justify-self: self-end;
   cursor: pointer;
+  @media (max-width: 430px) {
+    width: 20px;
+  }
 `;

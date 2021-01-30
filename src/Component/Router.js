@@ -8,7 +8,7 @@ import {
 
 import MainPage from "../Routes/MainPage";
 import MyPage from "../Routes/MyPage";
-import LoginPage from "../Component/Login";
+import LoginPage from "../Routes/Login/Login";
 import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/MyPage/ChangeInformation";
 import ChangePW from "../Routes/MyPage/ChangePW";
@@ -17,7 +17,7 @@ import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Announcement";
-import ForgotPassword from "./Login/ForgotPassword";
+import ForgotPassword from "../Routes/Login/LostPw";
 
 const RouterComponent = () => {
   return (

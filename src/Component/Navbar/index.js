@@ -17,20 +17,28 @@ import {
 } from "./NavbarElements";
 import { useHistory } from "react-router-dom";
 import { mainPageIcons } from "../../assets/Resources";
+import { useAuth } from "../Watchers";
 
-const Navbar = ({ Navname }) => {
+const Navbar = ({ Navname, isTransparent }) => {
+  const user = useAuth();
   const history = useHistory();
   const [navClicked, setNavClicked] = useState(false);
   return (
     <>
       <NavContainer>
-        <Nav>
+        <Nav style={isTransparent ? { backgroundColor: "rgba(0,0,0,0)" } : {}}>
           <Bars onClick={() => setNavClicked(!navClicked)} />
-          <NavLink to="/">{Navname}</NavLink>
+          <NavLink to="/">{!!Navname ? Navname : "융특 커뮤니티 슝"}</NavLink>
           <NavLeftMargin />
           <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
           <IconImg
-            onClick={() => history.push("/login")}
+            onClick={() => {
+              if (user) {
+                history.push("/mypage");
+              } else {
+                history.push("/login");
+              }
+            }}
             src={mainPageIcons.profile}
             alt={"프로필 아이콘"}
           />
@@ -46,7 +54,9 @@ const Navbar = ({ Navname }) => {
               <NavOpenUpperButton>로그인</NavOpenUpperButton>
               <NavOpenUpperButton>회원가입</NavOpenUpperButton>
             </NavOpenUpperButtonWrapper>
-            <NavOpenUpperDescWrapper>asdfasdf</NavOpenUpperDescWrapper>
+            <NavOpenUpperDescWrapper>
+              회원정보가 없습니다.
+            </NavOpenUpperDescWrapper>
           </NavOpenUpperContainer>
           <NavOpenSingleItemBox>
             <NavOpenItemText>Home</NavOpenItemText>
@@ -65,7 +75,7 @@ const Navbar = ({ Navname }) => {
           </NavOpenSingleItemBox>
         </NavOpen>
       </NavContainer>
-      <NavUpperMargin />
+      <NavUpperMargin style={isTransparent ? { display: "none" } : {}} />
     </>
   );
 };

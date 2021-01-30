@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, useHistory } from "react-router-dom";
-import { Icons, Images, mainPageIcons } from "../../assets/Resources";
+import { useHistory } from "react-router-dom";
+import { Images, mainPageIcons } from "../../assets/Resources";
 import { message } from "antd";
 import { authService } from "../../firebase";
 
@@ -36,17 +36,14 @@ const BackgroundFilter = styled.div`
 const Button = styled.div`
   border: 2px solid white;
   padding: 10px 20px;
-  width: 42%;
+  width: 50%;
   margin: 10px 0;
   text-align: center;
-  font-family: Arial;
+  color: white;
   font-size: 18px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.15;
   letter-spacing: normal;
-  color: #ffffff;
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 14px;
@@ -79,49 +76,15 @@ const Img = styled.img`
     margin: 30px 0px;
   }
 `;
-const ImgNav = styled.img`
-  width: 7%;
-  margin-bottom: 50px;
-`;
-const NavWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  padding: 20px;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-`;
 const TextBox = styled.div`
   width: 30%;
   display: flex;
+  color: white;
   justify-content: space-between;
 `;
-const NavText = styled.div`
-  font-family: NanumGothic;
-  padding: 10px;
-  font-size: 32px;
-  font-weight: 800;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.13;
-  letter-spacing: normal;
-  text-align: center;
-  color: #ffffff;
-  @media (max-width: 430px) {
-    font-size: 20px;
-    padding: 3px;
-  }
-`;
 const Text = styled.div`
-  font-family: NanumGothic;
   font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.7;
-  letter-spacing: normal;
   text-align: left;
-  color: #ffffff;
   @media (max-width: 430px) {
     font-size: 10px;
   }
@@ -135,11 +98,6 @@ const Login = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <NavWrapper>
-        <ImgNav src={Icons.menu} />
-        <NavText>융특 커뮤니티 슝</NavText>
-        <ImgNav src={Icons.화살표} />
-      </NavWrapper>
       <Img src={mainPageIcons.profile} />
       <InputBox
         type="id"
@@ -179,6 +137,7 @@ const Login = () => {
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>
       </TextBox>
     </Container>
-  );
+  ); 
 };
 export default Login;
+ 

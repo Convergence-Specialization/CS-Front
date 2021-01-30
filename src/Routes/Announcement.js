@@ -6,7 +6,7 @@ import { mainPageIcons } from "../assets/Resources";
 const AnnouncementPresenter = () => {
   return (
     <>
-      <Navbar Navname="융특 커뮤니티 슝" />
+      <Navbar/>
       <NavBot Icon={mainPageIcons.announce} Name="공지사항" />
       <Announcement />
     </>

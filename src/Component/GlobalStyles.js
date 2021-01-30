@@ -9,6 +9,12 @@ const GlobalStyles = createGlobalStyle`
         font-weight: normal;
         font-style: normal;
     }
+    @font-face {
+        font-family: 'KoPubDotum';
+        src: url('https://cdn.jsdelivr.net/npm/font-kopub@1.0/fonts/KoPubDotum-Medium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
     * {
         margin: 0;
         padding: 0;
@@ -17,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
         max-width: 768px;
         margin: 0 auto;
         background-color:#f1f1f1;
-        font-family: 'NanumSquareRound', sans-serif;
+        font-family: 'NanumSquareRound','KoPubDotum', sans-serif;
     }
 `;
 

@@ -7,23 +7,17 @@ const Container = styled.div`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
+  background-color: white;
 `;
 const TitleWrapper = styled.div`
   display: flex;
-  align-items:center;
-  text-align:center;
-  justify-content:start;
+  align-items: center;
+  text-align: center;
+  justify-content: start;
   margin-left: 30px;
   @media (max-width: 430px) {
     margin-left: 20px;
   }
-`;
-const TitleWrapper1 = styled.div`
-  display: flex;
-  align-items:center;
-  text-align:center;
-  justify-content:start;
-  margin: 0px 0px 0px 30px;
 `;
 const TitleIconImg = styled.img`
   width: 25px;
@@ -92,8 +86,7 @@ const BoardChildTitle = styled.div`
   @media (max-width: 430px) {
   }
 `;
-const BoardAnnounceSubText = styled.div`
-`;
+const BoardAnnounceSubText = styled.div``;
 const IntroduceWrapper = styled.div`
   margin-top: 12px;
   width: 95%;
@@ -223,10 +216,9 @@ const DepartmentSubWrapper = styled.div`
 const TitleAndButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-top:20px;
+  padding-top: 20px;
   justify-content: space-between;
   width: 94%;
-  
 `;
 const Button = styled.div`
   text-align: center;

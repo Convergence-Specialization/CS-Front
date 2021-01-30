@@ -18,15 +18,15 @@ import {
 import { useHistory } from "react-router-dom";
 import { mainPageIcons } from "../../assets/Resources";
 
-const Navbar = ({ Navname }) => {
+const Navbar = ({ Navname, isTransparent }) => {
   const history = useHistory();
   const [navClicked, setNavClicked] = useState(false);
   return (
     <>
       <NavContainer>
-        <Nav>
+        <Nav style={isTransparent ? { backgroundColor: "rgba(0,0,0,0)" } : {}}>
           <Bars onClick={() => setNavClicked(!navClicked)} />
-          <NavLink to="/">{Navname}</NavLink>
+          <NavLink to="/">{!!Navname || "융특 커뮤니티 슝"}</NavLink>
           <NavLeftMargin />
           <IconImg src={mainPageIcons.notification} alt={"알림 아이콘"} />
           <IconImg
@@ -65,7 +65,7 @@ const Navbar = ({ Navname }) => {
           </NavOpenSingleItemBox>
         </NavOpen>
       </NavContainer>
-      <NavUpperMargin />
+      <NavUpperMargin style={isTransparent ? { display: "none" } : {}} />
     </>
   );
 };

@@ -25,7 +25,6 @@ const BackgroundImg = styled.div`
   background-size: cover;
   position: absolute;
   z-index: -2;
-  transform: scale(1.02);
 `;
 const BackgroundFilter = styled.div`
   width: 100%;

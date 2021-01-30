@@ -8,6 +8,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
+  background-color:white;
 `;
 const TitleWrapper = styled.div`
   display: flex;
@@ -65,6 +66,7 @@ const BoardChildWrapper = styled.div`
   font-size: 15px;
   line-height: 1.12;
   color: #444444;
+  background-color:white;
   @media (max-width: 430px) {
     font-size: 11px;
   }
@@ -99,6 +101,8 @@ const Button = styled.div`
 const Slick = styled.div`
   background-color: red;
   margin: 10px 20px 30px 20px;
+  padding:10px;
+  border-radius: 20px;
   @media (max-width: 430px) {
     margin: 10px 10px 30px 10px;
   }

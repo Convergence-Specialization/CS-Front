@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { Images, mainPageIcons } from "../../assets/Resources";
 import { message } from "antd";
-import { authService } from "../../firebase";
+import { authService, firebaseInstance } from "../../firebase";
 
 const Container = styled.div`
   width: 100%;
@@ -94,6 +94,7 @@ const Login = () => {
   const history = useHistory();
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+
   return (
     <Container>
       <BackgroundImg />
@@ -131,13 +132,25 @@ const Login = () => {
         }}>
         로그인
       </Button>
-      <Button>Google in with ⚽</Button>
+      <Button
+        onClick={async () => {
+          let provider = new firebaseInstance.auth.GoogleAuthProvider();
+          const data = await authService
+            .signInWithPopup(provider)
+            .catch((error) => {
+              message.error(error);
+            });
+          // TODO: idToken 처리
+          console.log(data);
+        }}
+        name="google">
+        구글 로그인
+      </Button>
       <TextBox>
         <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>
       </TextBox>
     </Container>
-  ); 
+  );
 };
 export default Login;
- 

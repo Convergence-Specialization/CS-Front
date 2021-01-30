@@ -10,6 +10,9 @@ export const NavContainer = styled.div`
 export const NavUpperMargin = styled.div`
   width: 100%;
   height: 60px;
+  @media (max-width: 430px) {
+    height: 40px;
+  }
 `;
 export const Nav = styled.nav`
   width: 100%;
@@ -21,6 +24,9 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   z-index: 10;
+  @media (max-width: 430px) {
+    height: 45px;
+  }
 `;
 export const NavLeftMargin = styled.div`
   flex: 1;
@@ -38,6 +44,9 @@ export const NavLink = styled(Link)`
   font-weight: bold;
   padding: 0 1rem;
   cursor: pointer;
+  @media (max-width: 430px) {
+    font-size: 15px;
+  }
 `;
 export const NavOpen = styled.div`
   display: flex;
@@ -110,6 +119,9 @@ export const Bars = styled(FaBars)`
     margin: auto 0 auto 13.1px;
     font-size: 1.8rem;
     cursor: pointer;
+    @media (max-width: 430px) {
+      font-size: 1.5rem;
+  }
   }
 `;
 export const IconImg = styled.img`
@@ -117,4 +129,7 @@ export const IconImg = styled.img`
   margin-right: 13px;
   justify-self: self-end;
   cursor: pointer;
+  @media (max-width: 430px) {
+   width: 20px;
+  }
 `;

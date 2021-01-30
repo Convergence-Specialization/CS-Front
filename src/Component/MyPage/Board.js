@@ -4,13 +4,12 @@ import { authService } from "../../firebase";
 
 const Con = styled.div`
   padding: 20px;
-  width: 82%;
-  border-radius: 54px;
+  border-radius: 40px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
-  margin: 30px auto;
+  margin: 30px;
   @media (max-width: 430px) {
-    width: 75%;
+    margin: 30px 20px;
     padding: 15px;
   }
 `;
@@ -32,7 +31,6 @@ const Qrap = styled.div`
   }
 `;
 const Wrap = styled.div`
-  width: 90%;
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -47,7 +45,6 @@ const Wrap = styled.div`
   color: #000000;
   @media (max-width: 430px) {
     font-size: 12px;
-    width: 85%;
     padding: 10px 20px;
   }
 `;
@@ -59,9 +56,6 @@ const Jrap = styled.div`
   padding: 10px 30px;
   font-family: NanumSquareRoundR;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.13;
   letter-spacing: normal;
   text-align: left;

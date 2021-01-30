@@ -1,8 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import { mainPageIcons } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import React, { Component } from "react";
-import Slider from "react-slick";
 
 const Container = styled.div`
   width: 100%;
@@ -85,6 +84,128 @@ const BoardChildTitle = styled.div`
   }
 `;
 const BoardAnnounceSubText = styled.div``;
+const IntroduceWrapper = styled.div`
+  margin-top: 12px;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+const IntroduceBox = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox5 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox1 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 20px 0px 0px 0px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox2 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px 20px 0px 0px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox3 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px 0px 0px 20px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox4 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px 0px 20px 0px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceImage = styled.img`
+  width: 70%;
+`;
+const IntroduceText = styled.div`
+  margin-top: 10px;
+  font-family: NanumGothic;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3b3b3b;
+  @media (max-width: 430px) {
+    font-size: 10px;
+  }
+`;
 const DepartmentSubWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -105,24 +226,8 @@ const Button = styled.div`
   background-color: #d4e6fb;
   cursor: pointer;
 `;
-const IntroduceImage = styled.img`
-  width: 70%;
-`;
 const MainPage = () => {
   const history = useHistory();
-  const settings = {
-    className: "center",
-    infinite: true,
-    centerPadding: "100px",
-    slidesToShow: 5,
-    swipeToSlide: true,
-    arrows:true,
-    afterChange: function(index) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: red`
-      );
-    }
-  };
   return (
     <Container>
       <TitleAndButtonWrapper>
@@ -142,37 +247,34 @@ const MainPage = () => {
         </BoardChildWrapper>
       </BoardContainer>
       <TitleElement src={mainPageIcons.airplane} name={"융합전공 소개"} />
-      <div>
-        <Slider {...settings}>
-          <div>
-          <IntroduceImage src={mainPageIcons.Car} />
-          </div>
-          <div>
-          <IntroduceImage src={mainPageIcons.Energy} />
-          </div>
-          <div>
-          <IntroduceImage src={mainPageIcons.Security} />
-          </div>
-          <div>
-          <IntroduceImage src={mainPageIcons.BigData} />
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div>
-          <div>
-            <h3>9</h3>
-          </div>
-        </Slider>
-      </div>
+      <BoardContainer>
+        <IntroduceWrapper>
+          <IntroduceBox1>
+            <IntroduceImage src={mainPageIcons.Car} />
+            <IntroduceText>스마트 자동차</IntroduceText>
+          </IntroduceBox1>
+          <IntroduceBox>
+            <IntroduceImage src={mainPageIcons.Energy} />
+            <IntroduceText>에너지 공학</IntroduceText>
+          </IntroduceBox>
+          <IntroduceBox2>
+            <IntroduceImage src={mainPageIcons.Security} />
+            <IntroduceText>정보보안</IntroduceText>
+          </IntroduceBox2>
+          <IntroduceBox3>
+            <IntroduceImage src={mainPageIcons.BigData} />
+            <IntroduceText>빅데이터</IntroduceText>
+          </IntroduceBox3>
+          <IntroduceBox5>
+            <IntroduceImage src={mainPageIcons.Ict} />
+            <IntroduceText>ICT 유통물류</IntroduceText>
+          </IntroduceBox5>
+          <IntroduceBox4>
+            <IntroduceImage src={mainPageIcons.Unification} />
+            <IntroduceText>통일외교 및 개발협력</IntroduceText>
+          </IntroduceBox4>
+        </IntroduceWrapper>
+      </BoardContainer>
       <TitleAndButtonWrapper>
         <TitleElement src={mainPageIcons.airplane} name={"융특 게시판"} />
         <Button onClick={() => history.push("/board/convergence")}>

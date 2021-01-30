@@ -3,15 +3,14 @@ import { Icons } from "../../assets/Resources";
 import styled from "styled-components";
 
 const Wrap = styled.div`
-  width: 82%;
-  margin: 30px auto;
+  margin: 30px;
   padding: 50px 20px 20px 50px;
   border-radius: 45px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
   @media(max-width:430px){
-    width:75%;
-    padding: 40px 15px 15px 40px;
+    padding: 30px 15px 15px 30px;
+    margin: 20px;
   }
 `;
 const Title = styled.div`
@@ -32,9 +31,6 @@ const Text = styled.div`
   margin: 0px 3px 0px 10px;
   font-family: NanumSquareRoundR;
   font-size: 27px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.41;
   letter-spacing: normal;
   text-align: left;
@@ -48,9 +44,6 @@ const Wext = styled.div`
   font-weight: 900;
   font-family: NanumSquareRoundR;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.41;
   letter-spacing: normal;
   text-align: left;
@@ -78,9 +71,6 @@ const Oon = styled.div`
   background-color: #d3dae3;
   font-family: NanumSquareRoundR;
   font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.15;
   letter-spacing: normal;
   text-align: center;

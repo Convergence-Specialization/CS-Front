@@ -21,6 +21,7 @@ const BoardContainer = styled.div`
   border-radius: 15px;
   margin: 20px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
 `;
 const BoardChildWrapper = styled.div`
   padding: 12px;
@@ -55,6 +56,7 @@ const MoreButton = styled.div`
   border-radius: 15px;
   padding: 10px 0;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
 `;
 
 const ChangedBoard = () => {

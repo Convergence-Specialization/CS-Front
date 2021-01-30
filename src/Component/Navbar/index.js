@@ -103,7 +103,9 @@ const Navbar = ({
             </NavOpenUpperButtonWrapper>
             <NavOpenUpperDescWrapper>
               {!!user
-                ? user.displayName.concat("님 환영합니다")
+                ? (!!user.displayName ? user.displayName : "융슝이").concat(
+                    "님 환영합니다"
+                  )
                 : "로그인을 해주세요"}
             </NavOpenUpperDescWrapper>
           </NavOpenUpperContainer>

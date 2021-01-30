@@ -3,7 +3,6 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-  font-family: "Jal_Onuel";
   width: 100%;
   max-width: 768px;
   position: fixed;
@@ -34,6 +33,7 @@ export const NavLeftMargin = styled.div`
 `;
 
 export const NavLink = styled(Link)`
+  font-family: "Jal_Onuel";
   position: absolute;
   color: white;
   text-align: center;
@@ -94,6 +94,7 @@ export const NavOpenUpperButton = styled.div`
   padding: 10px;
   font-size: 12px;
   text-align: center;
+  background-color: white;
 `;
 export const NavOpenUpperDescWrapper = styled.div`
   font-size: 12px;
@@ -109,6 +110,9 @@ export const NavOpenSingleItemBox = styled.div`
   border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
+  position: relative;
+  background-color: ${(props) => (props.isChild ? "#EFEFEF" : "white")};
+  font-weight: ${(props) => (props.isChild ? "normal" : "bold")};
 `;
 export const NavOpenItemMargin = styled.div`
   width: 22px;
@@ -122,7 +126,9 @@ export const NavOpenItemText = styled.div`
   font-size: 13px;
 `;
 export const NavOpenItemArrowButton = styled.img`
-  width: 20px;
+  position: absolute;
+  right: 10px;
+  width: 15px;
 `;
 
 export const Bars = styled(FaBars)`

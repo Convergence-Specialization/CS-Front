@@ -25,7 +25,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   z-index: 10;
   @media (max-width: 430px) {
-    height: 45px;
+    height: 40px;
   }
 `;
 export const NavLeftMargin = styled.div`

@@ -29,7 +29,6 @@ const Title = styled.div`
   margin-left: 6px;
   font-weight: bold;
   font-size: 20px;
-  font-family: NanumSquareRoundB;
   line-height: 1.17;
   letter-spacing: normal;
   text-align: left;
@@ -67,7 +66,6 @@ const BoardChildWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: NanumSquareRoundR;
   font-size: 15px;
   line-height: 1.12;
   letter-spacing: normal;
@@ -78,7 +76,6 @@ const BoardChildWrapper = styled.div`
   }
 `;
 const BoardChildTitle = styled.div`
-  font-family: NanumSquareRoundR;
   line-height: 1.12;
   letter-spacing: normal;
   text-align: left;

@@ -1,26 +1,23 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import round_ttf from "../assets/fonts/Nanum-Round/NanumSquareRoundR.ttf";
 
 const GlobalStyles = createGlobalStyle`
     ${reset};
+    @font-face {
+        font-family: 'NanumSquareRound';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
     * {
         margin: 0;
         padding: 0;
     }
-    @font-face {
-      font-family: "NanumSquare";
-      src: url("https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css");
-    }
-    @font-face{
-        font-family:'Nanum-round';
-        src: url(${round_ttf})
-    }
-    body{
+    body {
         max-width: 768px;
         margin: 0 auto;
         background-color:#f1f1f1;
-        font-family: "Noto Sans KR", sans-serif;
+        font-family: 'NanumSquareRound', sans-serif;
     }
 `;
 

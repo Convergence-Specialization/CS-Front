@@ -48,7 +48,6 @@ const Title = styled.div`
   }
 `;
 const TextBox = styled.div`
-  font-family: NanumSquareRoundB;
   line-height: 1.75;
   display: flex;
   padding: 8px 0px;

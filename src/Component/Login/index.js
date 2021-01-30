@@ -134,12 +134,12 @@ const Login = () => {
       </Button>
         <Button onClick = {async(event) => {
         let provider;
-    {
+      {
       provider =new firebaseInstance.auth.GoogleAuthProvider();
-    }
-    const data = await authService.signInWithPopup(provider);
-    console.log(data);
-  }} name = "google">구글 로그인</Button>
+      }
+      const data = await authService.signInWithPopup(provider);
+      console.log(data);
+      }} name = "google">구글 로그인</Button>
       <TextBox>
         <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>

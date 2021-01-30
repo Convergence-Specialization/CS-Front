@@ -144,7 +144,7 @@ const Login = () => {
             history.push("/");
           } catch (error) {
             message.error(error.message);
-            message.error("토큰 실패. 개발자에게 문의해주세요.");
+            message.error("로그인 실패");
           }
         }}
         name="google">

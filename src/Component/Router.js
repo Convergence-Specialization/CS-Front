@@ -21,7 +21,7 @@ import ForgotPassword from "../Routes/Login/LostPw";
 
 const RouterComponent = () => {
   return (
-    <Router>
+    <Router basename="/CS-Front">
       <Switch>
         <Route path="/" exact>
           <MainPage />

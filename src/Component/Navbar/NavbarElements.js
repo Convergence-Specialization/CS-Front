@@ -26,7 +26,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   z-index: 10;
   @media (max-width: 430px) {
-    height: 40px;
+    height: 45px;
   }
 `;
 export const NavLeftMargin = styled.div`
@@ -108,9 +108,23 @@ export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
   border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
 `;
-export const NavOpenItemImg = styled.img``;
-export const NavOpenItemText = styled.div``;
+export const NavOpenItemMargin = styled.div`
+  width: 22px;
+  height: 10px;
+`;
+export const NavOpenItemImg = styled.img`
+  width: 16px;
+  margin-right: 6px;
+`;
+export const NavOpenItemText = styled.div`
+  font-size: 13px;
+`;
+export const NavOpenItemArrowButton = styled.img`
+  width: 20px;
+`;
 
 export const Bars = styled(FaBars)`
   color: white;

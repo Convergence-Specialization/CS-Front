@@ -44,7 +44,7 @@ const DepartPresenter = () => {
   }, [location]);
   return (
     <>
-      <Navbar Navname="융특 커뮤니티 슝" />
+      <Navbar/>
       {renderElement}
     </>
   );

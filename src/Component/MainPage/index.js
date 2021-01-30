@@ -35,7 +35,6 @@ const Title = styled.div`
     font-size: 15px;
   }
 `;
-
 const TitleElement = ({ src, name }) => (
   <TitleWrapper>
     <TitleIconImg src={src} alt={"제목 아이콘"} />

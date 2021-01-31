@@ -3,9 +3,6 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { departMajorApi } from "../../../api";
 
-import ko from "date-fns/locale/ko";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { message } from "antd";
@@ -48,6 +45,10 @@ const BoardChildWrapper = styled.div`
   font-size: 15px;
   border-bottom: 2.5px solid #f1f1f1;
   position: relative;
+`;
+const BoardChildTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 const BoardChildTitle = styled.div`
   font-weight: bold;
@@ -137,14 +138,20 @@ const ChangedBoard = () => {
                     state: { pageName: "read" },
                   })
                 }>
-                <BoardChildTitle>{item.title}</BoardChildTitle>
+                <BoardChildTitleWrapper>
+                  {item.subject !== "NONE" && (
+                    <SubjectSelectImg
+                      style={{ width: "23px", marginTop: "-5px" }}
+                      src={subjectDicts[item.subject].img}
+                      alt={"asdf"}
+                    />
+                  )}
+                  <BoardChildTitle>{item.title}</BoardChildTitle>
+                </BoardChildTitleWrapper>
+
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
-                  {formatDistanceToNow(item.timestamp, { locale: ko }).replace(
-                    "약 ",
-                    ""
-                  )}{" "}
-                  전
+                  {item.timestampDistance} 전
                 </BoardChildTimeText>
                 <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
               </BoardChildWrapper>

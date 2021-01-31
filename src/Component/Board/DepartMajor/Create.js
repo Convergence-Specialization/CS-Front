@@ -74,8 +74,7 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [uploading, setUploading] = useState(false);
-  const [subjectSelected, setSubjectSelected] = useState("");
-
+  const [subjectSelected, setSubjectSelected] = useState("NONE");
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
 
   const history = useHistory();
@@ -136,10 +135,6 @@ const Create = () => {
               if (uploading) return;
               if (title === "" || content === "") {
                 message.error("제목 또는 글 내용을 작성해주세요.");
-                return;
-              }
-              if (subjectSelected === "") {
-                message.error("말머리를 선택해주세요.");
                 return;
               }
               // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.

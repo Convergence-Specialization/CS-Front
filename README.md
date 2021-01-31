@@ -2,7 +2,9 @@
 
 ## 개발 환경
 
-Front: React JS  
+Front:  
+React JS  
+  
 Back:  
   DB: Cloud Firestore  
   API: Heroku Node JS  

@@ -3,9 +3,6 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { departMajorApi } from "../../../api";
 
-import ko from "date-fns/locale/ko";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { message } from "antd";
@@ -154,11 +151,7 @@ const ChangedBoard = () => {
 
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
-                  {formatDistanceToNow(item.timestamp, { locale: ko }).replace(
-                    "약 ",
-                    ""
-                  )}{" "}
-                  전
+                  {item.timestampDistance} 전
                 </BoardChildTimeText>
                 <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
               </BoardChildWrapper>

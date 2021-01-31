@@ -1,6 +1,8 @@
 import axios from "axios";
 import { db } from "./firebase";
 // TODO: Firestore 속성에서 50 이상 요청은 못하게.
+import ko from "date-fns/locale/ko";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const api = axios.create({
   baseURL: "https://convergence-ssu.herokuapp.com/",
@@ -33,11 +35,19 @@ export const departMajorApi = {
         let docsArray = [];
         querySnapshot.forEach((doc) => {
           let data = doc.data();
+
+          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+            locale: ko,
+          }).replace("약 ", "");
+          if (distanceText.includes("미만")) {
+            distanceText = "방금";
+          }
+
           docsArray.push({
             docId: doc.id,
             title: data.title,
             content: data.content,
-            timestamp: data.timestamp.toMillis(),
+            timestampDistance: distanceText,
             commentCount: data.comments_count,
             likeCount: data.likes_count,
             subject: data.subject,

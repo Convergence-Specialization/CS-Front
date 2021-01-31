@@ -110,12 +110,17 @@ export const SelectSubjectModal = ({
           </TitleWrapper>
           <UpperWrapper onClick={() => setSubjectSelected("NONE")}>
             <ContentText>말머리 선택 안 함</ContentText>
-            <CheckBox type="checkbox" checked={subjectSelected === "NONE"} />
+            <CheckBox
+              readOnly
+              type="checkbox"
+              checked={subjectSelected === "NONE"}
+            />
           </UpperWrapper>
           <ChildWrapper onClick={() => setSubjectSelected("SMART_CAR")}>
             <TitleImg src={subjectDicts.SMART_CAR.img} alt={"말머리 아이콘"} />
             <ContentText>스마트 자동차</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               checked={subjectSelected === "SMART_CAR"}
               style={{ position: "absolute", right: "10px" }}
@@ -128,6 +133,7 @@ export const SelectSubjectModal = ({
             />
             <ContentText>에너지 공학</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "ENERGY_SCIENCE"}
@@ -137,6 +143,7 @@ export const SelectSubjectModal = ({
             <TitleImg src={subjectDicts.SECURITY.img} alt={"말머리 아이콘"} />
             <ContentText>정보보안</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "SECURITY"}
@@ -146,6 +153,7 @@ export const SelectSubjectModal = ({
             <TitleImg src={subjectDicts.BIGDATA.img} alt={"말머리 아이콘"} />
             <ContentText>빅데이터</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "BIGDATA"}
@@ -155,6 +163,7 @@ export const SelectSubjectModal = ({
             <TitleImg src={subjectDicts.ICT.img} alt={"말머리 아이콘"} />
             <ContentText>ICT 유통물류</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "ICT"}
@@ -164,6 +173,7 @@ export const SelectSubjectModal = ({
             <TitleImg src={subjectDicts.KOREA.img} alt={"말머리 아이콘"} />
             <ContentText>통일 외교 및 개발협력</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "KOREA"}

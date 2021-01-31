@@ -27,6 +27,8 @@ import { authService } from "../../firebase";
 const Navbar = ({
   Navname,
   isTransparent,
+  isRight1Disabled,
+  isRight2Disabled,
   IconRight1,
   IconNameRight1,
   IconRight2,
@@ -46,21 +48,25 @@ const Navbar = ({
           <Bars onClick={() => setNavClicked(!navClicked)} />
           <NavLink to="/">{!!Navname ? Navname : "융특 커뮤니티 슝"}</NavLink>
           <NavLeftMargin />
-          <IconImg
-            src={IconRight1 || mainPageIcons.notification}
-            alt={IconNameRight1 || "아이콘2"}
-          />
-          <IconImg
-            onClick={() => {
-              if (user) {
-                history.push("/mypage");
-              } else {
-                history.push("/login");
-              }
-            }}
-            src={IconRight2 || mainPageIcons.profile}
-            alt={IconNameRight2 || "아이콘1"}
-          />
+          {!isRight1Disabled && (
+            <IconImg
+              src={IconRight1 || mainPageIcons.notification}
+              alt={IconNameRight1 || "아이콘2"}
+            />
+          )}
+          {!isRight2Disabled && (
+            <IconImg
+              onClick={() => {
+                if (user) {
+                  history.push("/mypage");
+                } else {
+                  history.push("/login");
+                }
+              }}
+              src={IconRight2 || mainPageIcons.profile}
+              alt={IconNameRight2 || "아이콘1"}
+            />
+          )}
         </Nav>
         <NavOpen
           style={

@@ -58,9 +58,9 @@ const Wrap = styled.div`
   padding: 10px;
   color: white;
   position: absolute;
-  font-size:20px;
+  font-size: 20px;
   @media (max-width: 430px) {
-    font-size:11px;
+    font-size: 11px;
   }
 `;
 const CorrectAlarm = styled.div`
@@ -87,6 +87,7 @@ const InputBoxAndAlarmWrapper1 = styled.div`
 `;
 const InputBox = styled.input`
   width: 60%;
+  color: white;
   outline: none;
   border: none;
   background-color: rgba(0, 0, 0, 0);
@@ -97,7 +98,7 @@ const InputBox = styled.input`
     color: #a1a1a1;
   }
   @media (max-width: 430px) {
-    font-size:15px;
+    font-size: 15px;
   }
 `;
 const CheckBox = styled.input`
@@ -118,11 +119,11 @@ const Text = styled.div`
   width: 20%;
   padding: 10px 0px 0px;
   font-size: 17px;
-  text-align:center;
+  text-align: center;
   line-height: 1.14;
   color: #ffffff;
   border-bottom: 2px solid white;
-  position:absolute;
+  position: absolute;
   left: 170px;
   @media (max-width: 430px) {
     font-size: 10px;
@@ -157,8 +158,7 @@ const SignUp = () => {
           placeholder="비밀번호 확인"
           value={pwCheck}
           onChange={({ target: { value } }) => setPwCheck(value)}
-          style={{ width: "100%" }}
-        ></InputBox>
+          style={{ width: "100%" }}></InputBox>
         <CorrectAlarm>{pw === pwCheck ? "일치" : "불일치"}</CorrectAlarm>
       </InputBoxAndAlarmWrapper>
       <InputBox id="nameField" placeholder="이름" />
@@ -168,8 +168,8 @@ const SignUp = () => {
         <CheckBox id="isConvergence" type="checkbox" />
       </InputBoxAndAlarmWrapper>
       <InputBoxAndAlarmWrapper1>
-          <Wrap>약관에 동의합니다.</Wrap>
-          <Text>자세히 보기</Text>
+        <Wrap>약관에 동의합니다.</Wrap>
+        <Text>자세히 보기</Text>
         <CheckBox id="didAgree" type="checkbox" />
       </InputBoxAndAlarmWrapper1>
       <Button
@@ -212,8 +212,7 @@ const SignUp = () => {
               setLoading(false);
             });
         }}
-        disabled={pw !== pwCheck}
-      >
+        disabled={pw !== pwCheck}>
         회원가입
       </Button>
     </Container>

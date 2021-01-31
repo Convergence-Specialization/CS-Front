@@ -5,7 +5,7 @@ import { mainPageIcons } from "../assets/Resources";
 const SignUpPresenter = () => {
   return (
     <>
-      <Navbar isTransparent isRight2Disabled isRight1Disabled />
+      <Navbar isTransparent Iconleft isRight2Disabled isRight1Disabled />
       <SignUp />
     </>
   );

@@ -30,6 +30,7 @@ const Navbar = ({
   isRight1Disabled,
   isRight2Disabled,
   IconRight1,
+  Iconleft,
   IconNameRight1,
   IconRight2,
   IconNameRight2,
@@ -45,7 +46,9 @@ const Navbar = ({
     <>
       <NavContainer>
         <Nav style={isTransparent ? { backgroundColor: "rgba(0,0,0,0)" } : {}}>
-          <Bars onClick={() => setNavClicked(!navClicked)} />
+        {!Iconleft && (
+            <Bars onClick={() => setNavClicked(!navClicked)} />
+          )}
           <NavLink to="/">{!!Navname ? Navname : "융특 커뮤니티 슝"}</NavLink>
           <NavLeftMargin />
           {!isRight1Disabled && (

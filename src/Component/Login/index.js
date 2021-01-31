@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Images, mainPageIcons } from "../../assets/Resources";
 import { message } from "antd";
 import { authService, firebaseInstance } from "../../firebase";
+import { userApi } from "../../api";
 
 const Container = styled.div`
   width: 100%;
@@ -139,10 +140,18 @@ const Login = () => {
           try {
             let provider = new firebaseInstance.auth.GoogleAuthProvider();
             await authService.signInWithPopup(provider);
-            const idToken = await authService.currentUser.getIdToken();
-            localStorage.setItem("idToken", idToken);
-            message.success("로그인 성공");
-            history.push("/");
+            let { status } = await userApi.checkGoogleSignUped({
+              uid: authService.currentUser.uid,
+            });
+            if (status === 200) {
+              history.push("/signup/google");
+            } else if (status === 201) {
+              const idToken = await authService.currentUser.getIdToken();
+              localStorage.setItem("idToken", idToken);
+              console.log(authService.currentUser);
+              message.success("로그인 성공");
+              history.push("/");
+            }
           } catch (error) {
             message.error(error.message);
             message.error("로그인 실패");

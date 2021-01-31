@@ -18,10 +18,14 @@ import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
+import IconsSource from "./IconsSource";
+
+// 임시로 해놓음 ***********
+import SignUpGoogle from "../Component/SignUp/signup_google";
 
 const RouterComponent = () => {
   return (
-    <Router>
+    <Router basename="/CS-Front">
       <Switch>
         <Route path="/" exact>
           <MainPage />
@@ -29,11 +33,14 @@ const RouterComponent = () => {
         <Route path="/login" exact>
           <LoginPage />
         </Route>
-        <Route path="/login/lostpw" exact>
+        <Route path="/login/lostpw">
           <ForgotPassword />
         </Route>
-        <Route path="/signup">
+        <Route path="/signup" exact>
           <SignUp />
+        </Route>
+        <Route path="/signup/google">
+          <SignUpGoogle />
         </Route>
         <Route path="/board/convergence">
           <Convergence />
@@ -56,10 +63,12 @@ const RouterComponent = () => {
         <Route path="/mypage/changeinformation" exact>
           <ChangeInformation />
         </Route>
-
         {/* TODO: 얘네는 글쓰는 페이지라서 위에 라우트 연결 하면 됨! */}
         <Route path="/mypage/changepw" exact>
           <ChangePW />
+        </Route>
+        <Route path="/IconsSource" exact>
+          <IconsSource />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

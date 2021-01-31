@@ -1,14 +1,12 @@
+import React from "react";
 import styled from "styled-components";
 import { mainPageIcons } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import React, { Component } from "react";
-import Slider from "react-slick";
 
 const Container = styled.div`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
-  background-color: white;
 `;
 const TitleWrapper = styled.div`
   display: flex;
@@ -36,6 +34,7 @@ const Title = styled.div`
     font-size: 15px;
   }
 `;
+
 const TitleElement = ({ src, name }) => (
   <TitleWrapper>
     <TitleIconImg src={src} alt={"제목 아이콘"} />
@@ -66,7 +65,6 @@ const BoardChildWrapper = styled.div`
   font-size: 15px;
   line-height: 1.12;
   color: #444444;
-  background-color: white;
   @media (max-width: 430px) {
     font-size: 11px;
   }
@@ -78,6 +76,117 @@ const BoardChildTitle = styled.div`
   }
 `;
 const BoardAnnounceSubText = styled.div``;
+const IntroduceWrapper = styled.div`
+  margin-top: 12px;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+const IntroduceBox = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox5 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox1 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 20px 0px 0px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox2 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px 20px 0px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox3 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px 0px 0px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceBox4 = styled.div`
+  width: 27%;
+  padding: 10px;
+  margin: 0px 0;
+  border-radius: 0px 0px 20px 0px;
+
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-width: 1px 1px 1px 1px;
+`;
+const IntroduceImage = styled.img`
+  width: 70%;
+`;
+const IntroduceText = styled.div`
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.53;
+  color: #3b3b3b;
+  @media (max-width: 430px) {
+    font-size: 10px;
+  }
+`;
 const DepartmentSubWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -98,50 +207,8 @@ const Button = styled.div`
   background-color: #d4e6fb;
   cursor: pointer;
 `;
-const Slick = styled.div`
-  background-color: #f1f1f1;
-  margin: 10px 20px 30px 20px;
-  padding: 10px;
-  border-radius: 20px;
-  @media (max-width: 430px) {
-    margin: 10px 10px 30px 10px;
-  }
-`;
-const SlickBox = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media (max-width: 430px) {
-  }
-`;
-const SlickBox1 = styled.div`
-  padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-  @media (max-width: 430px) {
-  }
-`;
-const SlickText = styled.div`
-  font-size: 10px;
-  text-align: center;
-  @media (max-width: 430px) {
-  }
-`;
-const IntroduceImage = styled.img`
-  margin: 0 auto;
-  width: 40px;
-`;
 const MainPage = () => {
   const history = useHistory();
-  const settings = {
-    className: "center",
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 4,
-    swipeToSlide: true,
-    arrows: false,
-  };
   return (
     <Container>
       <TitleAndButtonWrapper>
@@ -161,36 +228,34 @@ const MainPage = () => {
         </BoardChildWrapper>
       </BoardContainer>
       <TitleElement src={mainPageIcons.airplane} name={"융합전공 소개"} />
-      <Slick>
-        <SlickBox1>
-          <Slider {...settings}>
-            <SlickBox>
-              <IntroduceImage src={mainPageIcons.Car} />
-              <SlickText>스마트 자동차</SlickText>
-            </SlickBox>
-            <SlickBox>
-              <IntroduceImage src={mainPageIcons.Energy} />
-              <SlickText>에너지 공학</SlickText>
-            </SlickBox>
-            <SlickBox>
-              <IntroduceImage src={mainPageIcons.Security} />
-              <SlickText>정보보안</SlickText>
-            </SlickBox>
-            <SlickBox>
-              <IntroduceImage src={mainPageIcons.BigData} />
-              <SlickText>빅데이터</SlickText>
-            </SlickBox>
-            <SlickBox>
-              <IntroduceImage src={mainPageIcons.Ict} />
-              <SlickText>ICT 유통물류</SlickText>
-            </SlickBox>
-            <SlickBox>
-              <IntroduceImage src={mainPageIcons.Unification} />
-              <SlickText>통일외교</SlickText>
-            </SlickBox>
-          </Slider>
-        </SlickBox1>
-      </Slick>
+      <BoardContainer>
+        <IntroduceWrapper>
+          <IntroduceBox1>
+            <IntroduceImage src={mainPageIcons.Car} />
+            <IntroduceText>스마트 자동차</IntroduceText>
+          </IntroduceBox1>
+          <IntroduceBox>
+            <IntroduceImage src={mainPageIcons.Energy} />
+            <IntroduceText>에너지 공학</IntroduceText>
+          </IntroduceBox>
+          <IntroduceBox2>
+            <IntroduceImage src={mainPageIcons.Security} />
+            <IntroduceText>정보보안</IntroduceText>
+          </IntroduceBox2>
+          <IntroduceBox3>
+            <IntroduceImage src={mainPageIcons.BigData} />
+            <IntroduceText>빅데이터</IntroduceText>
+          </IntroduceBox3>
+          <IntroduceBox5>
+            <IntroduceImage src={mainPageIcons.Ict} />
+            <IntroduceText>ICT 유통물류</IntroduceText>
+          </IntroduceBox5>
+          <IntroduceBox4>
+            <IntroduceImage src={mainPageIcons.Unification} />
+            <IntroduceText>통일외교 및 개발협력</IntroduceText>
+          </IntroduceBox4>
+        </IntroduceWrapper>
+      </BoardContainer>
       <TitleAndButtonWrapper>
         <TitleElement src={mainPageIcons.airplane} name={"융특 게시판"} />
         <Button onClick={() => history.push("/board/convergence")}>

@@ -1,7 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+
 const Container = styled.div`
+  font-family: "NanumSquareRound";
   padding: 10px 15px;
   display: flex;
   align-items: center;
@@ -15,7 +17,6 @@ export const IconImg = styled.img`
 `;
 
 export const Text = styled.div`
-  font-family: NanumSquareRoundB;
   font-size: 18px;
   font-weight: bold;
 `;

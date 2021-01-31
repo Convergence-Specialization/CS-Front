@@ -5,10 +5,6 @@ const Container = styled.div`
   width: 100%;
   background-color: #f1f1f1;
   padding: 5px 0px 20px 0px;
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   flex-direction: column;
 `;
 const MainBox = styled.div`
@@ -26,7 +22,7 @@ const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
   line-height: 1.52;
-  letter-spacing: normal;
+
 `;
 
 const Writter = styled.div`
@@ -34,8 +30,6 @@ const Writter = styled.div`
   margin: 0 0 10px 15px;
   font-size: 15px;
   line-height: 1.15;
-  letter-spacing: normal;
-  text-align: left;
   color: #545454;
   @media (max-width: 430px) {
     font-size: 12px;
@@ -84,12 +78,7 @@ const ListButton = styled.div`
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.12;
-  letter-spacing: normal;
   text-align: center;
   color: #444444;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);

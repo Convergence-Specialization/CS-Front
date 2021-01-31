@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { Images, mainPageIcons } from "../../assets/Resources";
 import { message } from "antd";
-import { authService } from "../../firebase";
+import { authService, firebaseInstance } from "../../firebase";
+import { userApi } from "../../api";
 
 const Container = styled.div`
   width: 100%;
@@ -43,7 +44,6 @@ const Button = styled.div`
   font-size: 18px;
   font-weight: bold;
   line-height: 1.15;
-  letter-spacing: normal;
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 14px;
@@ -84,7 +84,6 @@ const TextBox = styled.div`
 `;
 const Text = styled.div`
   font-size: 14px;
-  text-align: left;
   @media (max-width: 430px) {
     font-size: 10px;
   }
@@ -94,6 +93,9 @@ const Login = () => {
   const history = useHistory();
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+
+  // 구글 로그인 중에도 message.loading 넣기.
+  //  회원가입 할 때에 융특 사람인지 체크하는거 선택인거 강조하기.
   return (
     <Container>
       <BackgroundImg />
@@ -118,26 +120,54 @@ const Login = () => {
             message.error("아이디와 비밀번호를 입력해주세요.");
             return;
           }
+          message.destroy();
+          message.loading("로그인 중..");
           await authService.signInWithEmailAndPassword(id, pw).catch(() => {
             message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
           });
           const idToken = await authService.currentUser
             .getIdToken()
-            .catch((err) => {
+            .catch(() => {
               message.error("토큰 실패. 개발자에게 문의해주세요.");
             });
           localStorage.setItem("idToken", idToken);
+          message.destroy();
           message.success("로그인 성공");
+          history.push("/");
         }}>
         로그인
       </Button>
-      <Button>Google in with ⚽</Button>
+      <Button
+        onClick={async () => {
+          try {
+            let provider = new firebaseInstance.auth.GoogleAuthProvider();
+            await authService.signInWithPopup(provider);
+            let { status } = await userApi.checkGoogleSignUped({
+              uid: authService.currentUser.uid,
+            });
+            if (status === 200) {
+              history.push("/signup/google");
+            } else if (status === 201) {
+              const idToken = await authService.currentUser.getIdToken();
+              localStorage.setItem("idToken", idToken);
+              console.log(authService.currentUser);
+              message.success("구글 로그인 성공");
+              history.push("/");
+            }
+          } catch (error) {
+            message.error(error.message);
+            message.error("로그인 실패");
+          }
+        }}
+        name="google">
+        구글 로그인
+      </Button>
+
       <TextBox>
         <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>
       </TextBox>
     </Container>
-  ); 
+  );
 };
 export default Login;
- 

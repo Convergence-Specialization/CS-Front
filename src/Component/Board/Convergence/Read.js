@@ -9,59 +9,41 @@ const Con = styled.div`
   flex-direction: column;
   border-radius: 30px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  font-family: NanumSquareRoundR;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
 `;
 const Wrap = styled.div`
-   font-family: NanumSquareRoundR;
-   color: #545454;
+  color: #545454;
   font-size: 20px;
   line-height: 1.85;
-  margin-left:10px;
-  letter-spacing: normal;
+  margin-left: 10px;
   @media (max-width: 430px) {
     font-size: 15px;
-  
   }
 `;
 const Qrap = styled.div`
   text-align: end;
-  font-family: NanumSquareRoundR;
   margin-top: 20px;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.15;
-  letter-spacing: normal;
-  text-align: left;
   color: #545454;
   @media (max-width: 430px) {
     font-size: 12px;
   }
 `;
 const Jrap = styled.div`
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.7;
-  letter-spacing: normal;
   @media (max-width: 430px) {
     font-size: 15px;
   }
 `;
 const Title = styled.div`
-  
   font-size: 23px;
   line-height: 1.52;
-  letter-spacing: normal;
   @media (max-width: 430px) {
     font-size: 18px;
   }
 `;
 const TextBox = styled.div`
-  font-family: NanumSquareRoundB;
   line-height: 1.75;
   display: flex;
   padding: 8px 0px;
@@ -76,7 +58,6 @@ const TitleWithProps = styled.div`
 const CommentBox = styled.div`
   border-radius: 10px;
   margin-bottom: 15px;
-  background-color: white;
   display: flex;
   padding: 10px 20px 90px 20px;
   border-radius: 10px;
@@ -88,13 +69,8 @@ const CommentBox = styled.div`
 `;
 const CommentText = styled.div`
   width: 90%;
-  font-family: NanumSquareRoundR;
   font-size: 19px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.56;
-  letter-spacing: normal;
   color: #646464;
   @media (max-width: 430px) {
     font-size: 14px;
@@ -104,8 +80,6 @@ const CommentText = styled.div`
 const CommentBox1 = styled.div`
   border: solid #dcdcdc;
   border-width: 0px 0px 1px 0px;
-  background-color: white;
-
   margin-bottom: 10px;
 `;
 const CommentBox2 = styled.div`
@@ -123,9 +97,6 @@ const CommentText1 = styled.div`
   margin: 0px 0px 10px 0px;
   font-size: 23px;
   line-height: 1.17;
-  letter-spacing: normal;
-
-  color: #000000;
   @media (max-width: 430px) {
     font-size: 10px;
 
@@ -137,11 +108,8 @@ const Button = styled.div`
   padding: 15px 10px;
   border-radius: 10px;
   background-color: #b0d0f2;
-  font-family: NanumSquareRoundEB;
   font-size: 17px;
   line-height: 1.12;
-  letter-spacing: normal;
-  text-align: center;
   color: #545454;
   @media (max-width: 430px) {
     font-size: 12px;
@@ -162,10 +130,8 @@ const CommentButton = styled.div`
   }
 `;
 const CommentButtonText = styled.div`
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.15;
-  letter-spacing: normal;
   text-align: center;
   color: #545454;
   @media (max-width: 430px) {
@@ -173,11 +139,8 @@ const CommentButtonText = styled.div`
   }
 `;
 const CommentTitle = styled.div`
-  font-family: NanumSquareRoundEB;
   font-size: 19px;
   line-height: 1.16;
-  letter-spacing: normal;
-  text-align: left;
   color: #000000;
   @media (max-width: 430px) {
     font-size: 12px;
@@ -185,11 +148,8 @@ const CommentTitle = styled.div`
   }
 `;
 const CommentTitle1 = styled.div`
-  font-family: NanumSquareRoundEB;
   font-size: 19px;
   line-height: 1.16;
-  letter-spacing: normal;
-  text-align: left;
   color: #212121;
   @media (max-width: 430px) {
     width: 88%;
@@ -198,11 +158,8 @@ const CommentTitle1 = styled.div`
   }
 `;
 const CommentTitle2 = styled.div`
-  font-family: NanumSquareRoundEB;
   font-size: 19px;
   line-height: 1.16;
-  letter-spacing: normal;
-  text-align: left;
   color: #5ac6b9;
   @media (max-width: 430px) {
     font-size: 12px;
@@ -253,19 +210,13 @@ export const HorseImg = styled.img`
 
   @media (max-width: 430px) {
     width: 10%;
-  border-radius: 40px;
+    border-radius: 40px;
   }
 `;
 export const Time = styled.div`
   padding: 20px 0px 0px 0px;
-  font-family: NanumSquareRoundR;
   font-size: 13px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
   color: #646464;
   @media (max-width: 430px) {
     font-size: 8px;
@@ -274,10 +225,8 @@ export const Time = styled.div`
 `;
 export const Time1 = styled.div`
   padding: 20px 0px 0px 0px;
-  font-family: NanumSquareRoundR;
   font-size: 13px;
   line-height: 1.13;
-  letter-spacing: normal;
   color: #646464;
   @media (max-width: 430px) {
     font-size: 8px;

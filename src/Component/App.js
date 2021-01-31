@@ -3,7 +3,8 @@ import GlobalStyles from "./GlobalStyles";
 import AppRouter from "./Router";
 import { authService } from "../firebase";
 import { FaSlidersH } from "react-icons/fa";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 function App() {
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);

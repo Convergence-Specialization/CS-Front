@@ -8,6 +8,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
+import { message } from "antd";
 
 const Container = styled.div`
   width: 100%;
@@ -17,10 +18,10 @@ const Container = styled.div`
 const BoardContainer = styled.div`
   width: 95%;
   min-height: 80vh;
-  background-color: white;
   border-radius: 15px;
   margin: 20px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
 `;
 const BoardChildWrapper = styled.div`
   padding: 12px;
@@ -52,10 +53,10 @@ const MoreButton = styled.div`
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
-  background-color: white;
   border-radius: 15px;
   padding: 10px 0;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
 `;
 
 const ChangedBoard = () => {
@@ -64,8 +65,8 @@ const ChangedBoard = () => {
   useEffect(() => {
     departMajorApi
       .getLists({ size: 10 })
-      .then((res) => setPosts(res.data.docsArray))
-      .catch();
+      .then((docsArray) => setPosts(docsArray))
+      .catch((error) => message.error(error.message));
   }, []);
   return (
     <Container>
@@ -85,7 +86,11 @@ const ChangedBoard = () => {
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <BoardChildContent>{item.content}</BoardChildContent>
               <BoardChildTimeText>
-                {formatDistanceToNow(item.timestamp, { locale: ko })} 전
+                {formatDistanceToNow(item.timestamp, { locale: ko }).replace(
+                  "약 ",
+                  ""
+                )}{" "}
+                전
               </BoardChildTimeText>
               <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
             </BoardChildWrapper>
@@ -98,3 +103,4 @@ const ChangedBoard = () => {
   );
 };
 export default ChangedBoard;
+// TODO: 미만이 들어가있는 것들은 모두 방금으로 표기.

@@ -49,6 +49,10 @@ const BoardChildWrapper = styled.div`
   border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
+const BoardChildTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 const BoardChildTitle = styled.div`
   font-weight: bold;
   font-size: 16px;
@@ -137,7 +141,17 @@ const ChangedBoard = () => {
                     state: { pageName: "read" },
                   })
                 }>
-                <BoardChildTitle>{item.title}</BoardChildTitle>
+                <BoardChildTitleWrapper>
+                  {item.subject !== "NONE" && (
+                    <SubjectSelectImg
+                      style={{ width: "23px", marginTop: "-5px" }}
+                      src={subjectDicts[item.subject].img}
+                      alt={"asdf"}
+                    />
+                  )}
+                  <BoardChildTitle>{item.title}</BoardChildTitle>
+                </BoardChildTitleWrapper>
+
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
                   {formatDistanceToNow(item.timestamp, { locale: ko }).replace(

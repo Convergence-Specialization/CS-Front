@@ -40,6 +40,7 @@ export const departMajorApi = {
             timestamp: data.timestamp.toMillis(),
             commentCount: data.comments_count,
             likeCount: data.likes_count,
+            subject: data.subject,
           });
         });
         return docsArray;

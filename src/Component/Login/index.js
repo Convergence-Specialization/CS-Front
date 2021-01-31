@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Images, mainPageIcons } from "../../assets/Resources";
 import { message } from "antd";
 import { authService, firebaseInstance } from "../../firebase";
+import { userApi } from "../../api";
 
 const Container = styled.div`
   width: 100%;
@@ -139,10 +140,18 @@ const Login = () => {
           try {
             let provider = new firebaseInstance.auth.GoogleAuthProvider();
             await authService.signInWithPopup(provider);
-            const idToken = await authService.currentUser.getIdToken();
-            localStorage.setItem("idToken", idToken);
-            message.success("로그인 성공");
-            history.push("/");
+            let { status } = await userApi.checkGoogleSignUped({
+              uid: authService.currentUser.uid,
+            });
+            if (status === 200) {
+              history.push("/signup/google");
+            } else if (status === 201) {
+              const idToken = await authService.currentUser.getIdToken();
+              localStorage.setItem("idToken", idToken);
+              console.log(authService.currentUser);
+              message.success("구글 로그인 성공");
+              history.push("/");
+            }
           } catch (error) {
             message.error(error.message);
             message.error("로그인 실패");
@@ -151,6 +160,10 @@ const Login = () => {
         name="google">
         구글 로그인
       </Button>
+      {/* TODO: 구글 로그인을 했는데, firestore의 유저 컬렉션에 본인 정보가 없을 경우 idToken 발급안하고 
+      이름, 이메일, uid 등 가져올 수 있는 정보를 가져온 후, 회원가입 페이지 텍스트 박스 disable 처리하고
+       로그아웃 후 회원가입으로 넘기면 된다!! 
+      그럼 토큰이 없는 것이므로 로그인이 안된거랑 마찬가지! */}
       <TextBox>
         <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>

@@ -20,6 +20,9 @@ import Announcement from "../Routes/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 
+// 임시로 해놓음 ***********
+import SignUpGoogle from "../Component/SignUp/signup_google";
+
 const RouterComponent = () => {
   return (
     <Router basename="/CS-Front">
@@ -30,11 +33,14 @@ const RouterComponent = () => {
         <Route path="/login" exact>
           <LoginPage />
         </Route>
-        <Route path="/login/lostpw" exact>
+        <Route path="/login/lostpw">
           <ForgotPassword />
         </Route>
-        <Route path="/signup">
+        <Route path="/signup" exact>
           <SignUp />
+        </Route>
+        <Route path="/signup/google">
+          <SignUpGoogle />
         </Route>
         <Route path="/board/convergence">
           <Convergence />

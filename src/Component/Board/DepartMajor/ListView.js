@@ -65,7 +65,7 @@ const ChangedBoard = () => {
   useEffect(() => {
     departMajorApi
       .getLists({ size: 10 })
-      .then((res) => setPosts(res.data.docsArray))
+      .then((docsArray) => setPosts(docsArray))
       .catch((error) => message.error(error.message));
   }, []);
   return (
@@ -103,3 +103,4 @@ const ChangedBoard = () => {
   );
 };
 export default ChangedBoard;
+// TODO: 미만이 들어가있는 것들은 모두 방금으로 표기.

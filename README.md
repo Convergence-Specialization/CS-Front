@@ -8,7 +8,7 @@ React JS
 * Back:  
   DB: Cloud Firestore  
   API: Heroku Node JS  
-  Hosting: GIthub pages  
+  Hosting: Github Pages  
 
 ## 팀원
 

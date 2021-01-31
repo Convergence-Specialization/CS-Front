@@ -3,8 +3,8 @@ import { db } from "./firebase";
 // TODO: Firestore 속성에서 50 이상 요청은 못하게.
 
 const api = axios.create({
-  // baseURL: "https://convergence-ssu.herokuapp.com/",
-  baseURL: "http://localhost:5000",
+  baseURL: "https://convergence-ssu.herokuapp.com/",
+  // baseURL: "http://localhost:5000",
 });
 
 const getBearer = () => {

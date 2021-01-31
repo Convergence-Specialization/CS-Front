@@ -160,10 +160,8 @@ const Login = () => {
         name="google">
         구글 로그인
       </Button>
-      {/* TODO: 구글 로그인을 했는데, firestore의 유저 컬렉션에 본인 정보가 없을 경우 idToken 발급안하고 
-      이름, 이메일, uid 등 가져올 수 있는 정보를 가져온 후, 회원가입 페이지 텍스트 박스 disable 처리하고
-       로그아웃 후 회원가입으로 넘기면 된다!! 
-      그럼 토큰이 없는 것이므로 로그인이 안된거랑 마찬가지! */}
+      {/* 구글 로그인 중에도 message.loading 넣기.  */}
+      회원가입 할 때에 융특 사람인지 체크하는거 선택인거 강조하기.
       <TextBox>
         <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>

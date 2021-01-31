@@ -148,6 +148,7 @@ const Create = () => {
               const requestBody = {
                 title,
                 content,
+                subject: subjectSelected,
               };
               departMajorApi
                 .create(requestBody)

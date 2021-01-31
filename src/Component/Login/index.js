@@ -149,7 +149,7 @@ const Login = () => {
               const idToken = await authService.currentUser.getIdToken();
               localStorage.setItem("idToken", idToken);
               console.log(authService.currentUser);
-              message.success("로그인 성공");
+              message.success("구글 로그인 성공");
               history.push("/");
             }
           } catch (error) {

@@ -45,7 +45,9 @@ const SignUpGoogle = () => {
               student_id: document.getElementById("studentId").value,
               is_convergence: document.getElementById("isConvergence").checked,
             })
-            .then(() => {
+            .then(async () => {
+              const idToken = await authService.currentUser.getIdToken();
+              localStorage.setItem("idToken", idToken);
               message.destroy();
               message.success("구글 추가 정보 입력 완료. 즐기십쇼");
               history.push("/");

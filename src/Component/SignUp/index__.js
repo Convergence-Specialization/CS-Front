@@ -136,7 +136,6 @@ const Text1 = styled.div`
 const TextBox2 = styled.div`
   width: 30%;
   display: flex;
-
   justify-content: flex-end;
   @media (max-width: 430px) {
     width: 19%;

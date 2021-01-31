@@ -69,3 +69,7 @@ export const sideBarIcons = {
   downButton:
     "https://user-images.githubusercontent.com/62606632/106358677-fe4e2600-6350-11eb-916c-66592eaa3e90.png",
 };
+export const horseIcons = {
+  normal:
+    "https://user-images.githubusercontent.com/62606632/106386072-906c3200-6416-11eb-842d-d07f329f97aa.jpg",
+};

@@ -94,6 +94,8 @@ const Login = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
 
+  // 구글 로그인 중에도 message.loading 넣기.
+  //  회원가입 할 때에 융특 사람인지 체크하는거 선택인거 강조하기.
   return (
     <Container>
       <BackgroundImg />
@@ -160,8 +162,7 @@ const Login = () => {
         name="google">
         구글 로그인
       </Button>
-      {/* 구글 로그인 중에도 message.loading 넣기.  */}
-      회원가입 할 때에 융특 사람인지 체크하는거 선택인거 강조하기.
+
       <TextBox>
         <Text onClick={() => history.push("/signup")}>회원가입</Text>
         <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>

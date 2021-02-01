@@ -1,5 +1,5 @@
 # 융합특성화 자유전공학부 커뮤니티
-![image](https://github.com/Convergence-Specialization/CS-Front/blob/master/%EC%9B%90%EB%B3%B8%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%AA%A8%EC%9D%8C/social_image.png?raw=true)
+![image]()왜징왜안나오징
 
 ## 개발 환경
  
@@ -13,11 +13,11 @@ React JS
 
 ## 팀원
 
-김의정
-김준하
-안은소
-이우혁
-지연우
-조영현
+김의정 : 기획에도 개발에도 모두 재능있는 인재다. <br/>
+김준하 : 엄청난 천재다.<br/>
+안은소 : 난 멋지다.<br/>
+이우혁 : 우혁 그자체로 빛난다.<br/>
+지연우 : 기획이면 기획 개발이면 개발 공부면 공부 못하는 게 없다.<br/>
+조영현 : 팀의 대장이다.<br/>
   
 https://convergence-specialization.github.io/CS-Front/

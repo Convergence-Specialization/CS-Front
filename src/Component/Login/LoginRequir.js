@@ -50,7 +50,7 @@ const Button = styled.div`
 const TextBox = styled.div`
   border: 2px dashed white;
   padding: 20px 0px;
-  width: 60%;
+  width: 50%;
   margin-bottom:70px;
   text-align: center;
   color: white;
@@ -59,7 +59,7 @@ const TextBox = styled.div`
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 13px;
-    width: 80%;
+    width: 70%;
     margin-bottom:50px;
   }
 `;
@@ -73,7 +73,7 @@ const Img = styled.img`
     margin: 30px 0px;
   }
 `;
-const NoInformation = () => {
+const LoginRequir = () => {
   const history = useHistory();
 
   return (
@@ -82,13 +82,12 @@ const NoInformation = () => {
       <BackgroundFilter />
       <Img src={mainPageIcons.profile} />
       <TextBox>
-        <Text>회원정보가 없습니다!</Text>
-        <Text>입력된 정보가 맞는지 확인해주시기 바랍니다.</Text>
+        <Text>이 페이지는 회원 전용이므로</Text>
+        <Text>로그인 후 이용하여 주십시오.</Text>
       </TextBox>
       <Button onClick={() => history.push("/login")}>로그인</Button>
       <Button onClick={() => history.push("/signup")}>회원가입</Button>
-      <Button onClick={() => history.push("/login/lostpw")}>PW 찾기</Button>
     </Container>
   );
 };
-export default NoInformation;
+export default LoginRequir;

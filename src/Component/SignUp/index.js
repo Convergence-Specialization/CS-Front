@@ -66,11 +66,12 @@ const Wrap = styled.div`
 const CorrectAlarm = styled.div`
   position: absolute;
   width: 30px;
-  background-color: #c2c4c6;
+  background-color: rgba(255, 255, 255, 0.67);
   right: 10px;
   text-align: center;
   padding: 5px 0;
   font-size: 10px;
+  color: #eb4b4b;
   top: 10px;
 `;
 const InputBoxAndAlarmWrapper = styled.div`

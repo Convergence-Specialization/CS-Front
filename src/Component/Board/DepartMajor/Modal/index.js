@@ -108,89 +108,75 @@ export const SelectSubjectModal = ({
             <Title>말머리 선택</Title>
             <TitleImg src={horseIcons.normal} alt={"말머리 아이콘"} />
           </TitleWrapper>
-          <UpperWrapper>
+          <UpperWrapper onClick={() => setSubjectSelected("NONE")}>
             <ContentText>말머리 선택 안 함</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               checked={subjectSelected === "NONE"}
-              onChange={(e) => {
-                if (e.target.checked) setSubjectSelected("NONE");
-              }}
             />
           </UpperWrapper>
-          <ChildWrapper>
+          <ChildWrapper onClick={() => setSubjectSelected("SMART_CAR")}>
             <TitleImg src={subjectDicts.SMART_CAR.img} alt={"말머리 아이콘"} />
             <ContentText>스마트 자동차</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               checked={subjectSelected === "SMART_CAR"}
               style={{ position: "absolute", right: "10px" }}
-              onChange={(e) => {
-                if (e.target.checked) setSubjectSelected("SMART_CAR");
-              }}
             />
           </ChildWrapper>
-          <ChildWrapper>
+          <ChildWrapper onClick={() => setSubjectSelected("ENERGY_SCIENCE")}>
             <TitleImg
               src={subjectDicts.ENERGY_SCIENCE.img}
               alt={"말머리 아이콘"}
             />
             <ContentText>에너지 공학</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "ENERGY_SCIENCE"}
-              onChange={(e) => {
-                if (e.target.checked) setSubjectSelected("ENERGY_SCIENCE");
-              }}
             />
           </ChildWrapper>
-          <ChildWrapper>
+          <ChildWrapper onClick={() => setSubjectSelected("SECURITY")}>
             <TitleImg src={subjectDicts.SECURITY.img} alt={"말머리 아이콘"} />
             <ContentText>정보보안</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "SECURITY"}
-              onChange={(e) => {
-                if (e.target.checked) setSubjectSelected("SECURITY");
-              }}
             />
           </ChildWrapper>
-          <ChildWrapper>
+          <ChildWrapper onClick={() => setSubjectSelected("BIGDATA")}>
             <TitleImg src={subjectDicts.BIGDATA.img} alt={"말머리 아이콘"} />
             <ContentText>빅데이터</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "BIGDATA"}
-              onChange={(e) => {
-                if (e.target.checked) setSubjectSelected("BIGDATA");
-              }}
             />
           </ChildWrapper>
-          <ChildWrapper>
+          <ChildWrapper onClick={() => setSubjectSelected("ICT")}>
             <TitleImg src={subjectDicts.ICT.img} alt={"말머리 아이콘"} />
             <ContentText>ICT 유통물류</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "ICT"}
-              onChange={(e) => {
-                if (e.target.checked) setSubjectSelected("ICT");
-              }}
             />
           </ChildWrapper>
-          <ChildWrapper>
+          <ChildWrapper onClick={() => setSubjectSelected("KOREA")}>
             <TitleImg src={subjectDicts.KOREA.img} alt={"말머리 아이콘"} />
             <ContentText>통일 외교 및 개발협력</ContentText>
             <CheckBox
+              readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
               checked={subjectSelected === "KOREA"}
-              onChange={(e) => {
-                if (e.target.checked) setSubjectSelected("KOREA");
-              }}
             />
           </ChildWrapper>
           <Button onClick={() => onClose()}>확인</Button>

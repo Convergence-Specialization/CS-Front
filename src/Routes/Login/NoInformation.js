@@ -8,4 +8,4 @@ const NoInformationPresenter = () => (
     <NoInformation />
   </>
 );
-export default NoInformation;
+export default NoInformationPresenter ;

@@ -63,27 +63,31 @@ const Wrap = styled.div`
     font-size: 11px;
   }
 `;
-const CorrectAlarm = styled.div`
-  position: absolute;
-  width: 30px;
-  background-color: rgba(255, 255, 255, 0.67);
-  right: 10px;
-  text-align: center;
-  padding: 5px 0;
-  font-size: 10px;
-  color: #eb4b4b;
-  top: 10px;
+const Basic= styled.div`
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 2px solid white;
+  padding: 10px;
+  color: white;
+  margin:10px;
+  font-size: 20px;
+  @media (max-width: 430px) {
+    font-size: 15px;
+  }
 `;
 const InputBoxAndAlarmWrapper = styled.div`
   position: relative;
   width: 60%;
+  margin: 20px;
 `;
 const InputBoxAndAlarmWrapper1 = styled.div`
   position: relative;
   width: 60%;
   top: 50px;
+  margin-bottom:30px;
   @media (max-width: 430px) {
     top: 40px;
+    width: 60%;
   }
 `;
 const InputBox = styled.input`
@@ -95,8 +99,9 @@ const InputBox = styled.input`
   border-bottom: 2px solid white;
   padding: 10px;
   font-size: 20px;
+  margin:10px;
   ::placeholder {
-    color: #a1a1a1;
+    color: #ffffff;
   }
   @media (max-width: 430px) {
     font-size: 15px;
@@ -132,37 +137,51 @@ const Text = styled.div`
     left: 100px;
   }
 `;
-const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-  const [pwCheck, setPwCheck] = useState("");
+const TextBox = styled.div`
+  border: 2px dashed white;
+  padding: 25px 10px;
+  width: 60%;
+  margin-bottom: 70px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.15;
+  cursor: pointer;
+  @media (max-width: 430px) {
+    font-size: 13px;
+    width: 70%;
+    padding: 20px 10px;
+    margin-bottom: 50px;
+  }
+`;
+
+const Title = styled.div`
+  color: #ffffff;
+  width: 59%;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 15px;
+  @media (max-width: 430px) {
+    font-size: 20px;
+    margin: 5px;
+  }
+`;
+const AddInformation = () => {
+  const [email] = useState("");
+  const [pw] = useState("");
+  const [pwCheck] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   return (
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <InputBox
-        placeholder="이메일"
-        value={email}
-        onChange={({ target: { value } }) => setEmail(value)}
-      />
-      <InputBox
-        type="password"
-        placeholder="비밀번호"
-        value={pw}
-        onChange={({ target: { value } }) => setPw(value)}
-      />
-      <InputBoxAndAlarmWrapper>
-        <InputBox
-          type="password"
-          placeholder="비밀번호 확인"
-          value={pwCheck}
-          onChange={({ target: { value } }) => setPwCheck(value)}
-          style={{ width: "100%" }}></InputBox>
-        <CorrectAlarm>{pw === pwCheck ? "일치" : "불일치"}</CorrectAlarm>
-      </InputBoxAndAlarmWrapper>
-      <InputBox id="nameField" placeholder="이름" />
+      <TextBox>추가 정보를 입력해주십시오.</TextBox>
+      <Title>기본 정보</Title>
+      <Basic>ywoo12121@gmail.com</Basic>
+      <Basic>지여누</Basic>
+      <Title>추가 정보</Title>
       <InputBox id="studentNumber" placeholder="학번" />
       <InputBoxAndAlarmWrapper>
         <Wrap>융합특성화자유전공학부 학생입니다.(선택)</Wrap>
@@ -180,15 +199,9 @@ const SignUp = () => {
             alert("약관에 동의해주세요");
             return;
           }
-          if (email === "") {
-            alert("이메일을 입력해주세요");
-            return;
-          }
-          if (
-            document.getElementById("nameField").value === "" ||
-            document.getElementById("studentNumber").value === ""
-          ) {
-            alert("이름과 학번을 입력해주세요");
+
+          if (document.getElementById("studentNumber").value === "") {
+            alert("학번을 입력해주세요");
             return;
           }
           setLoading(true);
@@ -196,11 +209,9 @@ const SignUp = () => {
           userApi
             .signUp({
               method: "EMAIL",
-              name: document.getElementById("nameField").value,
               email: email,
               student_id: document.getElementById("studentNumber").value,
               is_convergence: document.getElementById("isConvergence").checked,
-              password: pw,
             })
             .then(() => {
               message.destroy();
@@ -213,10 +224,11 @@ const SignUp = () => {
               setLoading(false);
             });
         }}
-        disabled={pw !== pwCheck}>
-        회원가입
+        disabled={pw !== pwCheck}
+      >
+        회원가입 하기
       </Button>
     </Container>
   );
 };
-export default SignUp;
+export default AddInformation;

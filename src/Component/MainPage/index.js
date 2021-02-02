@@ -68,12 +68,13 @@ const BoardChildWrapper = styled.div`
   color: #444444;
   background-color: white;
   @media (max-width: 430px) {
-    font-size: 11px;
+    font-size: 13px;
   }
 `;
 const BoardChildTitle = styled.div`
   line-height: 1.12;
   color: #444444;
+  font-size:13px;
   @media (max-width: 430px) {
   }
 `;
@@ -123,7 +124,7 @@ const SlickBox1 = styled.div`
   }
 `;
 const SlickText = styled.div`
-  font-size: 10px;
+  font-size: 13px;
   text-align: center;
   @media (max-width: 430px) {
   }

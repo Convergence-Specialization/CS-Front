@@ -19,6 +19,7 @@ import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
+import Makers from "./Makers";
 import NoInformation from "../Routes/Login/NoInformation";
 import AddInformation from "../Routes/Login/AddInformation";
 import LoginRequir from "../Routes/Login/LoginRequir";
@@ -80,6 +81,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/IconsSource" exact>
           <IconsSource />
+        </Route>
+        <Route path="/makers" exact>
+          <Makers />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

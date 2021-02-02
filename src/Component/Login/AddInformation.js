@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { Images } from "../../assets/Resources";
+import { message } from "antd";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Images, mainPageIcons } from "../../assets/Resources";
-
+import { userApi } from "../../api";
 
 const Container = styled.div`
   width: 100%;
@@ -32,27 +34,114 @@ const BackgroundFilter = styled.div`
   z-index: -1;
 `;
 const Button = styled.div`
+  position: relative;
+  top: 90px;
   border: 2px solid white;
   padding: 10px 20px;
-  width: 50%;
+  width: 60%;
   margin: 10px 0;
   text-align: center;
-  color: white;
   font-size: 18px;
   font-weight: bold;
   line-height: 1.15;
-  cursor: pointer;
+  color: #ffffff;
   @media (max-width: 430px) {
-    font-size: 13px;
+    font-size: 14px;
     padding: 10px 30px;
-    width: 70%;
+    top: 70px;
+  }
+`;
+const Wrap = styled.div`
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 2px solid white;
+  padding: 10px;
+  color: white;
+  position: absolute;
+  font-size: 20px;
+  @media (max-width: 430px) {
+    font-size: 11px;
+  }
+`;
+const Basic= styled.div`
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 2px solid white;
+  padding: 10px;
+  color: white;
+  margin:10px;
+  font-size: 20px;
+  @media (max-width: 430px) {
+    font-size: 15px;
+  }
+`;
+const InputBoxAndAlarmWrapper = styled.div`
+  position: relative;
+  width: 60%;
+  margin: 20px;
+`;
+const InputBoxAndAlarmWrapper1 = styled.div`
+  position: relative;
+  width: 60%;
+  top: 50px;
+  margin-bottom:30px;
+  @media (max-width: 430px) {
+    top: 40px;
+    width: 60%;
+  }
+`;
+const InputBox = styled.input`
+  width: 60%;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 2px solid white;
+  padding: 10px;
+  font-size: 20px;
+  margin:10px;
+  ::placeholder {
+    color: #ffffff;
+  }
+  @media (max-width: 430px) {
+    font-size: 15px;
+  }
+`;
+const CheckBox = styled.input`
+  padding: 10px;
+  position: absolute;
+  color: white;
+  font-size: 15px;
+  right: 10px;
+  top: 20px;
+  ::placeholder {
+    color: white;
+  }
+  @media (max-width: 430px) {
+    top: 15px;
+  }
+`;
+const Text = styled.div`
+  width: 20%;
+  padding: 10px 0px 0px;
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.14;
+  color: #ffffff;
+  border-bottom: 2px solid white;
+  position: absolute;
+  left: 170px;
+  @media (max-width: 430px) {
+    font-size: 10px;
+    width: 22%;
+    left: 100px;
   }
 `;
 const TextBox = styled.div`
   border: 2px dashed white;
-  padding: 30px 10px;
+  padding: 25px 10px;
   width: 60%;
-  margin-bottom:70px;
+  margin-bottom: 70px;
   text-align: center;
   color: white;
   font-size: 18px;
@@ -61,35 +150,84 @@ const TextBox = styled.div`
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 13px;
-    width: 80%;
-    margin-bottom:50px;
+    width: 70%;
+    padding: 20px 10px;
+    margin-bottom: 50px;
   }
 `;
-const Text = styled.div``;
-const Img = styled.img`
-  width: 15%;
-  margin-bottom: 50px;
+
+const Title = styled.div`
+  color: #ffffff;
+  width: 59%;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 15px;
   @media (max-width: 430px) {
-    font-size: 12px;
-    padding-top: 30px;
-    margin: 30px 0px;
+    font-size: 20px;
+    margin: 5px;
   }
 `;
 const AddInformation = () => {
+  const [email] = useState("");
+  const [pw] = useState("");
+  const [pwCheck] = useState("");
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
-
   return (
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Img src={mainPageIcons.profile} />
-      <TextBox>
-        <Text>회원정보가 없습니다!</Text>
-        <Text>입력된 정보가 맞는지 확인해주시기 바랍니다.</Text>
-      </TextBox>
-      <Button onClick={() => history.push("/login")}>로그인</Button>
-      <Button onClick={() => history.push("/signup")}>회원가입</Button>
-      <Button onClick={() => history.push("/login/lostpw")}>PW 찾기</Button>
+      <TextBox>추가 정보를 입력해주십시오.</TextBox>
+      <Title>기본 정보</Title>
+      <Basic>ywoo12121@gmail.com</Basic>
+      <Basic>지여누</Basic>
+      <Title>추가 정보</Title>
+      <InputBox id="studentNumber" placeholder="학번" />
+      <InputBoxAndAlarmWrapper>
+        <Wrap>융합특성화자유전공학부 학생입니다.(선택)</Wrap>
+        <CheckBox id="isConvergence" type="checkbox" />
+      </InputBoxAndAlarmWrapper>
+      <InputBoxAndAlarmWrapper1>
+        <Wrap>약관에 동의합니다.</Wrap>
+        <Text>자세히 보기</Text>
+        <CheckBox id="didAgree" type="checkbox" />
+      </InputBoxAndAlarmWrapper1>
+      <Button
+        onClick={() => {
+          if (loading) return;
+          if (document.getElementById("didAgree").checked === false) {
+            alert("약관에 동의해주세요");
+            return;
+          }
+
+          if (document.getElementById("studentNumber").value === "") {
+            alert("학번을 입력해주세요");
+            return;
+          }
+          setLoading(true);
+          message.loading("회원가입 중..", 10);
+          userApi
+            .signUp({
+              method: "EMAIL",
+              email: email,
+              student_id: document.getElementById("studentNumber").value,
+              is_convergence: document.getElementById("isConvergence").checked,
+            })
+            .then(() => {
+              message.destroy();
+              message.success("회원가입 성공. 로그인 해주세요.");
+              history.push("/login");
+            })
+            .catch((err) => {
+              message.destroy();
+              message.error(err.message);
+              setLoading(false);
+            });
+        }}
+        disabled={pw !== pwCheck}
+      >
+        회원가입 하기
+      </Button>
     </Container>
   );
 };

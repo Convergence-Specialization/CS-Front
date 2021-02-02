@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Icons, Images } from "../../assets/Resources";
+import { Images } from "../../assets/Resources";
 import { message } from "antd";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";

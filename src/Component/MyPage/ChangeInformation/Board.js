@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Con = styled.div`
   padding: 20px;
   width: 82%;
-  background-color: white;
   border-radius: 30px;
   box-shadow: 1px 2px 20px 10px rgba(0, 0, 0, 0.1),
     0 2px 4px 1px rgba(0, 0, 0, 0.06);
@@ -17,7 +16,6 @@ const Con1 = styled.div`
   margin: 0px auto 10px auto;
   padding: 20px;
   width: 82%;
-  background-color: white;
   border-radius: 30px;
   box-shadow: 1px 2px 20px 10px rgba(0, 0, 0, 0.1),
     0 2px 4px 1px rgba(0, 0, 0, 0.06);
@@ -27,20 +25,8 @@ const Con1 = styled.div`
 `;
 
 const Wrap = styled.div`
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
   padding: 0px 20px;
-  font-family: NanumSquareRoundR;
   font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media(max-width:430px){
     font-size:15px;
     padding: 0px 20px ;
@@ -64,12 +50,8 @@ const Jon = styled.div`
   }
 `;
 const Text = styled.div`
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000000;
   @media(max-width:430px){
     font-size:15px;
     
@@ -83,11 +65,8 @@ const Kon = styled.div`
   width:82%;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ccd3dc;
-  font-family: NanumSquareRoundR;
   font-size: 20px;
   line-height: 1.14;
-  letter-spacing: normal;
-  color: #000000;
   @media(max-width:430px){
     font-size:15px;
     padding: 15px 0px ;

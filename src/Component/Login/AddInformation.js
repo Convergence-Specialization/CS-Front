@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { Images, mainPageIcons } from "../../assets/Resources";
 
+
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -74,7 +75,7 @@ const Img = styled.img`
     margin: 30px 0px;
   }
 `;
-const NoInformation = () => {
+const AddInformation = () => {
   const history = useHistory();
 
   return (
@@ -92,4 +93,4 @@ const NoInformation = () => {
     </Container>
   );
 };
-export default NoInformation;
+export default AddInformation;

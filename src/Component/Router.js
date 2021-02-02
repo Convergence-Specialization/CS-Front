@@ -20,6 +20,7 @@ import Announcement from "../Routes/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import NoInformation from "../Routes/Login/NoInformation";
+import AddInformation from "../Routes/Login/AddInformation";
 // 임시로 해놓음 ***********
 import SignUpGoogle from "../Component/SignUp/signup_google";
 
@@ -38,6 +39,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/login/noinformation">
           <NoInformation />
+        </Route>
+        <Route path="/login/addinformation">
+          <AddInformation />
         </Route>
         <Route path="/signup" exact>
           <SignUp />

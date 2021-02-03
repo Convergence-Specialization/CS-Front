@@ -90,6 +90,7 @@ export const NavOpenUpperButtonWrapper = styled.div`
 export const NavOpenUpperButton = styled.div`
   border-radius: 10px;
   color: black;
+  cursor: pointer;
   width: 48%;
   padding: 10px;
   font-size: 12px;
@@ -107,6 +108,7 @@ export const NavOpenUpperDescWrapper = styled.div`
 export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
+  cursor: pointer;
   border-bottom: 1px solid grey;
   display: flex;
   align-items: center;

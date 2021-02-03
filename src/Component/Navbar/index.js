@@ -188,19 +188,19 @@ const Navbar = ({
             <>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>숭실대학교 홈페이지</NavOpenItemText>
+                <NavOpenItemText onClick={() => window.open('https://ssu.ac.kr/')}>숭실대학교 홈페이지</NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText onClick={() => history.push("/")}>유세인트</NavOpenItemText>
+                <NavOpenItemText onClick={() => window.open('https://saint.ssu.ac.kr/irj/portal')}>유세인트</NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>스마트캠퍼스</NavOpenItemText>
+                <NavOpenItemText onClick={() => window.open('http://myclass.ssu.ac.kr/')}>스마트캠퍼스</NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>융특 홈페이지</NavOpenItemText>
+                <NavOpenItemText onClick={() => window.open('http://pre.ssu.ac.kr/web/convergence')}>융특 홈페이지</NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}

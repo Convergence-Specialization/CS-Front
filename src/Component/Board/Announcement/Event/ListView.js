@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { mainPageIcons } from "../../../../assets/Resources";
+import { events } from "../../../../assets/Resources";
+import Slider from "react-slick";
 
 const Container = styled.div`
   width: 100%;
@@ -57,6 +58,7 @@ const BoardChildWrapper = styled.div`
   align-items: center;
   line-height: 1.12;
   color: #444444;
+  background-color: white;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   @media (max-width: 430px) {
     font-size: 12px;
@@ -95,7 +97,7 @@ const BoardButton = styled.div`
   margin: 13px 0 0 310px;
   padding: 5px;
   width: 15%;
-  height: 25px;
+  height: 30px;
   background-color: #d4e6fb;
   border-radius: 15px;
   justify-content: space-between;
@@ -108,36 +110,19 @@ const BoardButton = styled.div`
     font-size: 15px;
   }
 `;
-
 const BoardButtonText = styled.div`
   margin: 5px 0px 5px 0px;
   font-weight: bold;
-`;
-const Button1 = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 94%;
-`;
-const Button = styled.div`
-  text-align: center;
-  padding: 10px 20px 0px 20px;
-  margin: 10px 0px 5px 0px;
-  border-radius: 20px;
-  font-size: 10px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #d4e6fb;
 `;
 
 const Event = () => {
   return (
     <Container>
-      <TitleElement src={mainPageIcons.announce} name={"학부 행사"} />
       <BoardContainer>
         <BoardChildWrapper>
           <BoardChildTitle>진행 중인 행사</BoardChildTitle>
           <BoardLine></BoardLine>
           <BoardChildMain></BoardChildMain>
-          <Square1></Square1>
         </BoardChildWrapper>
         <BoardChildWrapper>
           <BoardChildTitle>종료된 행사</BoardChildTitle>

@@ -146,6 +146,8 @@ const MainPage = () => {
     slidesToShow: 4,
     swipeToSlide: true,
     arrows: false,
+    autoplay : true,
+    autoplaySpeed : 3000,
   };
   return (
     <Container>

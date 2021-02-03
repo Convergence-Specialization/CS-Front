@@ -129,7 +129,7 @@ export const NavSingleBottomTopItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
   cursor: pointer;
-  margin-top: 540px;
+  margin-top: 425px;
   border-top: 1px solid grey;
   display: flex;
   text-align:center;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { authService } from "../../firebase";
+import { useHistory } from "react-router-dom";
 
 const Con = styled.div`
   padding: 20px;
@@ -56,6 +57,7 @@ const Jrap = styled.div`
 `;
 
 const Board = () => {
+  const history = useHistory();
   return (
     <>
       <Con>
@@ -64,16 +66,13 @@ const Board = () => {
         </Qrap>
       </Con>
       <Con>
-        <Qrap>
-          <div>비밀번호 변경</div>
+        <Qrap onClick={() => history.push("/mypage/changeinpw")}>
+          <div >비밀번호 변경</div>
         </Qrap>
       </Con>
       <Con>
         <Wrap>
           <div>서비스 이용약관</div>
-        </Wrap>
-        <Wrap>
-          <div>회원탈퇴</div>
         </Wrap>
         <Jrap>
           <div

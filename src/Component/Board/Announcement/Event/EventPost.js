@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { events } from "../../../../assets/Resources";
-import Slider from "react-slick";
 import { useHistory } from "react-router-dom";
 
 const Container = styled.div`

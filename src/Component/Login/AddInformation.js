@@ -169,9 +169,6 @@ const Title = styled.div`
   }
 `;
 const AddInformation = () => {
-  const [email] = useState("");
-  const [pw] = useState("");
-  const [pwCheck] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   return (

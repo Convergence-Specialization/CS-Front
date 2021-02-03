@@ -81,4 +81,8 @@ export const events = {
     "https://user-images.githubusercontent.com/71367047/106648234-55fbc400-65d3-11eb-9d43-b65cda234ce2.png",
   ssu:
     "https://user-images.githubusercontent.com/71367047/106648200-4da38900-65d3-11eb-882a-601d352b6a60.jpg",
+  friday:
+    "https://user-images.githubusercontent.com/71367047/106778440-535ba600-6689-11eb-96b2-03b524aa3fed.jpg",
+  mentor:
+    "https://user-images.githubusercontent.com/71367047/106778557-7423fb80-6689-11eb-86e5-cd1f6fa67710.jpg",
 };

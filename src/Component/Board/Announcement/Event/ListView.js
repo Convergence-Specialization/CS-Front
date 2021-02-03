@@ -2,6 +2,29 @@ import React from "react";
 import styled from "styled-components";
 import { events } from "../../../../assets/Resources";
 import Slider from "react-slick";
+import { useHistory } from "react-router-dom";
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "black" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "black" }}
+      onClick={onClick}
+    />
+  );
+}
 
 const Container = styled.div`
   width: 100%;
@@ -28,12 +51,6 @@ const Title = styled.div`
   }
 `;
 
-const TitleElement = ({ src, name }) => (
-  <TitleWrapper>
-    <TitleIconImg src={src} alt={"제목 아이콘"} />
-    <Title>{name}</Title>
-  </TitleWrapper>
-);
 const BoardContainer = styled.div`
   width: 100%;
   border-radius: 0px;
@@ -67,7 +84,7 @@ const BoardChildWrapper = styled.div`
 
 const BoardLine = styled.div`
   border: solid 1px #a5a5a5;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 0px 10px;
 `;
 const BoardChildTitle = styled.div`
   font-size: 18px;
@@ -79,22 +96,9 @@ const BoardChildTitle = styled.div`
     font-size: 18px;
   }
 `;
-const BoardChildMain = styled.div`
-  margin-left: 10px;
-  margin-top: 15px;
-  font-size: 15px;
-  line-height: 1.17;
-  color: #000000;
-`;
-
-const Square1 = styled.div`
-  background-color: black;
-  width: 30%;
-  height: 100px;
-`;
 
 const BoardButton = styled.div`
-  margin: 13px 0 0 310px;
+  margin: 15px 10px 0px 290px;
   padding: 5px;
   width: 15%;
   height: 30px;
@@ -110,26 +114,151 @@ const BoardButton = styled.div`
     font-size: 15px;
   }
 `;
+
+const EventImage = styled.img`
+  margin: 0 10px;
+  width: 130px;
+`;
+
 const BoardButtonText = styled.div`
   margin: 5px 0px 5px 0px;
   font-weight: bold;
 `;
 
+const Slick = styled.div`
+  background-color: #f1f1f1;
+  margin: 10px 20px 30px 20px;
+  padding: 10px;
+  border-radius: 20px;
+  @media (max-width: 430px) {
+    margin: 10px 10px 30px 10px;
+  }
+`;
+const SlickBox = styled.div`
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 430px) {
+  }
+`;
+const SlickBox1 = styled.div`
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  @media (max-width: 430px) {
+  }
+`;
+const SlickText = styled.div`
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  @media (max-width: 430px) {
+  }
+`;
+const SlickDate = styled.div`
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2px;
+  @media (max-width: 430px) {
+  }
+`;
 const Event = () => {
+  const history = useHistory();
+  const settings = {
+    dots: true,
+    infinite: false,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+    ],
+    // dots: true,
+    // className: "center",
+    // infinite: false,
+    // centerPadding: "60px",
+    // slidesToShow: 2,
+    // swipeToSlide: true,
+    // arrows: true,
+  };
+
   return (
     <Container>
       <BoardContainer>
         <BoardChildWrapper>
           <BoardChildTitle>진행 중인 행사</BoardChildTitle>
           <BoardLine></BoardLine>
-          <BoardChildMain></BoardChildMain>
+          <SlickBox1>
+            <Slider {...settings}>
+              <SlickBox>
+                <EventImage
+                  src={events.esports}
+                  onClick={() => history.push("/board/announcement")}
+                />
+                <SlickText>융특 E-Sports</SlickText>
+                <SlickDate>21.02.03~ 21.03.04</SlickDate>
+              </SlickBox>
+              <SlickBox>
+                <EventImage src={events.graduate} />
+                <SlickText>융퀴즈 온 더 전과</SlickText>
+                <SlickDate>21.02.03~ 21.03.04</SlickDate>
+              </SlickBox>
+              <SlickBox>
+                <EventImage src={events.ssu} />
+                <SlickText>SSU 캐슬</SlickText>
+                <SlickDate>21.02.03~ 21.02.04</SlickDate>
+              </SlickBox>
+              <SlickBox>
+                <EventImage src={events.friday} />
+                <SlickText>뭔 이벤트였는지 까먹음ㅎ</SlickText>
+                <SlickDate>21.02.03~ 21.02.04</SlickDate>
+              </SlickBox>
+              <SlickBox>
+                <EventImage src={events.mentor} />
+                <SlickText>신입생 멘토 모집</SlickText>
+                <SlickDate>21.02.03~ 21.02.04</SlickDate>
+              </SlickBox>
+            </Slider>
+          </SlickBox1>
         </BoardChildWrapper>
         <BoardChildWrapper>
           <BoardChildTitle>종료된 행사</BoardChildTitle>
           <BoardLine></BoardLine>
-          <BoardChildMain></BoardChildMain>
+          <SlickBox1>
+            <Slider {...settings}>
+              <SlickBox>
+                <EventImage src={events.esports} />
+                <SlickText>융특 E-Sports</SlickText>
+                <SlickDate>20.02.03~ 20.02.04</SlickDate>
+              </SlickBox>
+              <SlickBox>
+                <EventImage src={events.graduate} />
+                <SlickText>융퀴즈 온 더 전과</SlickText>
+                <SlickDate>20.02.03~ 20.02.04</SlickDate>
+              </SlickBox>
+              <SlickBox>
+                <EventImage src={events.ssu} />
+                <SlickText>SSU 캐슬</SlickText>
+                <SlickDate>20.02.03~ 20.02.04</SlickDate>
+              </SlickBox>
+            </Slider>
+          </SlickBox1>
         </BoardChildWrapper>
-
         <BoardButton>
           <BoardButtonText>목록</BoardButtonText>
         </BoardButton>

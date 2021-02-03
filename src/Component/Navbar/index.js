@@ -118,11 +118,11 @@ const Navbar = ({
                 : "로그인을 해주세요"}
             </NavOpenUpperDescWrapper>
           </NavOpenUpperContainer>
-          <NavOpenSingleItemBox>
+          <NavOpenSingleItemBox onClick={() => history.push("/")}>
             <NavOpenItemImg src={sideBarIcons.home} alt={"집 아이콘"} />
             <NavOpenItemText>Home</NavOpenItemText>
           </NavOpenSingleItemBox>
-          <NavOpenSingleItemBox>
+          <NavOpenSingleItemBox onClick={() => history.push("/")}>
             <NavOpenItemImg src={sideBarIcons.alarm} alt={"알림함 아이콘"} />
             <NavOpenItemText>알림함</NavOpenItemText>
           </NavOpenSingleItemBox>
@@ -141,11 +141,11 @@ const Navbar = ({
             <>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>공지사항</NavOpenItemText>
+                <NavOpenItemText onClick={() => history.push("/board/announcement")}>공지사항</NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>학부 행사</NavOpenItemText>
+                <NavOpenItemText onClick={() => history.push("/board/event")}>학부 행사</NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}
@@ -163,11 +163,11 @@ const Navbar = ({
             <>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>융특게시판</NavOpenItemText>
+                <NavOpenItemText onClick={() => history.push("/board/convergence")}>융특게시판</NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>전과게시판</NavOpenItemText>
+                <NavOpenItemText onClick={() => history.push("/board/departmajor")}>전과게시판</NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}
@@ -192,7 +192,7 @@ const Navbar = ({
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />
-                <NavOpenItemText>유세인트</NavOpenItemText>
+                <NavOpenItemText onClick={() => history.push("/")}>유세인트</NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox isChild>
                 <NavOpenItemMargin />

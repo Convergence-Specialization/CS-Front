@@ -46,12 +46,13 @@ const Button = styled.div`
   line-height: 1.15;
   cursor: pointer;
   @media (max-width: 430px) {
-    font-size: 14px;
+    font-size: 13px;
     padding: 10px 30px;
+    width: 70%;
   }
 `;
 const InputBox = styled.input`
-  width: 45%;
+  width: 50%;
   margin: 15px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
@@ -64,7 +65,7 @@ const InputBox = styled.input`
     color: white;
   }
   @media (max-width: 430px) {
-    width: 52%;
+    width: 70%;
   }
 `;
 const Img = styled.img`
@@ -81,11 +82,14 @@ const TextBox = styled.div`
   display: flex;
   color: white;
   justify-content: space-between;
+  @media (max-width: 430px) {
+    width: 40%;
+  }
 `;
 const Text = styled.div`
   font-size: 14px;
   @media (max-width: 430px) {
-    font-size: 10px;
+    font-size: 12px;
   }
 `;
 

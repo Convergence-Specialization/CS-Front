@@ -1,11 +1,11 @@
 import React from "react";
-import LostPw from "../../Component/Login/ForgotPassword";
+import LoginRequir from "../../Component/Login/LoginRequir";
 import Navbar from "../../Component/Navbar";
 
-const LoginPWPresenter = () => (
+const LoginRequirPresenter = () => (
   <>
      <Navbar isTransparent Iconleft isRight2Disabled isRight1Disabled />
-    <LostPw />
+    <LoginRequir />
   </>
 );
-export default LoginPWPresenter;
+export default LoginRequirPresenter ;

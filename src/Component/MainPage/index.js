@@ -63,18 +63,20 @@ const BoardChildWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.12;
   color: #444444;
   background-color: white;
   @media (max-width: 430px) {
-    font-size: 11px;
+    font-size: 13px;
   }
 `;
 const BoardChildTitle = styled.div`
   line-height: 1.12;
   color: #444444;
+  font-size:18px;
   @media (max-width: 430px) {
+    font-size:13px;
   }
 `;
 const BoardAnnounceSubText = styled.div``;
@@ -93,10 +95,13 @@ const Button = styled.div`
   text-align: center;
   padding: 6px 14px;
   border-radius: 20px;
-  font-size: 10px;
+  font-size: 13px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #d4e6fb;
   cursor: pointer;
+  @media (max-width: 430px) {
+    font-size: 12px;
+  }
 `;
 const Slick = styled.div`
   background-color: #f1f1f1;
@@ -123,7 +128,7 @@ const SlickBox1 = styled.div`
   }
 `;
 const SlickText = styled.div`
-  font-size: 10px;
+  font-size: 13px;
   text-align: center;
   @media (max-width: 430px) {
   }

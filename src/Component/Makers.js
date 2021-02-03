@@ -51,7 +51,7 @@ const HorseImg = styled.img`
 const Makers = () => {
   return (
     <>
-      <Navbar isRight1Disabled  IconRight2= {Icons.Home}/>
+      <Navbar isRight1Disabled History IconRight2= {Icons.Home}/>
       <Con>
         <HorseImg src={horseIcons.normal} alt="말머리" />
         <TextBox>

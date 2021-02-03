@@ -36,6 +36,7 @@ const Navbar = ({
   IconNameRight1,
   IconRight2,
   IconNameRight2,
+  History,
 }) => {
   const user = useAuth();
   const history = useHistory();
@@ -61,7 +62,10 @@ const Navbar = ({
             <IconImg
               onClick={() => {
                 if (user) {
-                  history.push("/mypage");
+                  history.push("/");
+                  if (!History) {
+                    history.push("/mypage");
+                  } 
                 } else {
                   history.push("/login");
                 }

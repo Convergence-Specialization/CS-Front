@@ -66,7 +66,7 @@ const Board = () => {
         </Qrap>
       </Con>
       <Con>
-        <Qrap onClick={() => history.push("/mypage/changeinpw")}>
+        <Qrap onClick={() => history.push("/mypage/changepw")}>
           <div >비밀번호 변경</div>
         </Qrap>
       </Con>

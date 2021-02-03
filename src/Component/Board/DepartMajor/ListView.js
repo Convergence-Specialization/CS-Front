@@ -31,7 +31,6 @@ const SubjectSelectImg = styled.img`
 const SubjectSelectText = styled.div`
   color: #646464;
 `;
-
 const BoardContainer = styled.div`
   width: 95%;
   min-height: 80vh;
@@ -68,7 +67,6 @@ const BoardChildTimeText = styled.div`
 const BoardChildMetaText = styled.div`
   text-align: right;
 `;
-
 const MoreButton = styled.div`
   width: 95%;
   margin: 0 auto;
@@ -79,12 +77,10 @@ const MoreButton = styled.div`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
 `;
-
 const ChangedBoard = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
   const [subjectSelected, setSubjectSelected] = useState("");
-
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   useEffect(() => {
     departMajorApi

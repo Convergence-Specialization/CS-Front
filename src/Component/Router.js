@@ -13,6 +13,7 @@ import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/MyPage/ChangeInformation";
 import ChangePW from "../Routes/MyPage/ChangePW";
 import Event from "../Routes/Event";
+import EventPost from "../Routes/EventPost";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
@@ -56,6 +57,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/board/convergence">
           <Convergence />
+        </Route>
+        <Route path="/board/event/eventpost">
+          <EventPost />
         </Route>
         <Route path="/board/departmajor">
           <DepartMajor />

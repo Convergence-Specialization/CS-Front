@@ -5,6 +5,7 @@ import { message } from "antd";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { userApi } from "../../api";
+import { authService } from "../../firebase";
 
 const Container = styled.div`
   width: 100%;
@@ -168,9 +169,6 @@ const Title = styled.div`
   }
 `;
 const AddInformation = () => {
-  const [email] = useState("");
-  const [pw] = useState("");
-  const [pwCheck] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   return (
@@ -179,8 +177,8 @@ const AddInformation = () => {
       <BackgroundFilter />
       <TextBox>추가 정보를 입력해주십시오.</TextBox>
       <Title>기본 정보</Title>
-      <Basic>ywoo12121@gmail.com</Basic>
-      <Basic>지여누</Basic>
+      <Basic>{authService.currentUser.email}</Basic>
+      <Basic>{authService.currentUser.displayName}</Basic>
       <Title>추가 정보</Title>
       <InputBox id="studentNumber" placeholder="학번" />
       <InputBoxAndAlarmWrapper>
@@ -199,7 +197,6 @@ const AddInformation = () => {
             alert("약관에 동의해주세요");
             return;
           }
-
           if (document.getElementById("studentNumber").value === "") {
             alert("학번을 입력해주세요");
             return;
@@ -208,15 +205,19 @@ const AddInformation = () => {
           message.loading("회원가입 중..", 10);
           userApi
             .signUp({
-              method: "EMAIL",
-              email: email,
-              student_id: document.getElementById("studentNumber").value,
+              method: "GOOGLE",
+              uid: authService.currentUser.uid,
+              email: authService.currentUser.email,
+              name: authService.currentUser.displayName,
+              student_id: document.getElementById("studentId").value,
               is_convergence: document.getElementById("isConvergence").checked,
             })
-            .then(() => {
+            .then(async () => {
+              const idToken = await authService.currentUser.getIdToken();
+              localStorage.setItem("idToken", idToken);
               message.destroy();
-              message.success("회원가입 성공. 로그인 해주세요.");
-              history.push("/login");
+              message.success("구글 추가 정보 입력 완료. 즐기십쇼");
+              history.push("/");
             })
             .catch((err) => {
               message.destroy();
@@ -224,7 +225,6 @@ const AddInformation = () => {
               setLoading(false);
             });
         }}
-        disabled={pw !== pwCheck}
       >
         회원가입 하기
       </Button>

@@ -27,9 +27,7 @@ jobs:
         env:
           NODE_ENV: production
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3.7.3
-        env:
-          PERSONAL_TOKEN: ${{secrets.GH_PAT}}
-          PUBLISH_BRANCH: master
-          PUBLISH_DIR: ./public
-          SCRIPT_MODE: true
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

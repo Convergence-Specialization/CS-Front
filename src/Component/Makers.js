@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { horseIcons } from "../assets/Resources";
+import { horseIcons, Icons } from "../assets/Resources";
+import Navbar from "../Component/Navbar";
+
 const Con = styled.div`
   padding: 30px;
   border-radius: 30px;
@@ -9,16 +11,16 @@ const Con = styled.div`
   margin: 30px;
   display: flex;
   @media (max-width: 430px) {
-    margin:15px;
+    margin: 15px;
     padding: 30px 10px;
   }
 `;
 
 const Title = styled.div`
   font-size: 25px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   @media (max-width: 430px) {
-    font-size:20px;
+    font-size: 20px;
   }
 `;
 const Title1 = styled.div`
@@ -31,15 +33,15 @@ const Title1 = styled.div`
 const Text = styled.div`
   color: #727272;
   line-height: 1.41;
-  font-size:20px;
+  font-size: 20px;
   @media (max-width: 430px) {
-    font-size:18px;
+    font-size: 18px;
   }
 `;
 const TextBox = styled.div`
-  margin-top:30px;
+  margin-top: 30px;
   @media (max-width: 430px) {
-    margin-top:0px;
+    margin-top: 0px;
   }
 `;
 const HorseImg = styled.img`
@@ -49,6 +51,7 @@ const HorseImg = styled.img`
 const Makers = () => {
   return (
     <>
+      <Navbar isRight1Disabled History IconRight2= {Icons.Home}/>
       <Con>
         <HorseImg src={horseIcons.normal} alt="말머리" />
         <TextBox>
@@ -97,9 +100,7 @@ const Makers = () => {
           <Text>쉬엄쉬엄 하십쇼ㅠㅠ</Text>
         </TextBox>
       </Con>
-      <Title1>
-        🧡도와주신 분🧡
-      </Title1>
+      <Title1>🧡도와주신 분🧡</Title1>
       <Con>
         <HorseImg src={horseIcons.normal} alt="말머리" />
         <TextBox>
@@ -108,7 +109,6 @@ const Makers = () => {
           <Text>항상 감사합니다 수정님!!!</Text>
         </TextBox>
       </Con>
-
     </>
   );
 };

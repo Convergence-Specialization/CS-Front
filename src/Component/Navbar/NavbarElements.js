@@ -90,6 +90,7 @@ export const NavOpenUpperButtonWrapper = styled.div`
 export const NavOpenUpperButton = styled.div`
   border-radius: 10px;
   color: black;
+  cursor: pointer;
   width: 48%;
   padding: 10px;
   font-size: 12px;
@@ -107,12 +108,33 @@ export const NavOpenUpperDescWrapper = styled.div`
 export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
+  cursor: pointer;
   border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
   position: relative;
   background-color: ${(props) => (props.isChild ? "#EFEFEF" : "white")};
   font-weight: ${(props) => (props.isChild ? "normal" : "bold")};
+`;
+export const NavSingleBottomItemBox = styled.div`
+  align-self: stretch;
+  padding: 10px;
+  cursor: pointer;
+  border-top: 1px solid grey;
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+export const NavSingleBottomTopItemBox = styled.div`
+  align-self: stretch;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 425px;
+  border-top: 1px solid grey;
+  display: flex;
+  text-align:center;
+  align-items: center;
+  position: relative;
 `;
 export const NavOpenItemMargin = styled.div`
   width: 22px;

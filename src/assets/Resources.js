@@ -14,7 +14,7 @@ export const Icons = {
   숭실:
     "https://user-images.githubusercontent.com/74090222/104586083-5413a480-56a8-11eb-865d-e154a8f65127.png",
   Home:
-    "https://user-images.githubusercontent.com/74090222/104623258-8ab3e400-56d5-11eb-814e-69213adceae4.png",
+    "https://user-images.githubusercontent.com/74090222/106783350-8d7b7680-668e-11eb-881e-4a78ff36388c.png",
   menu:
     "https://user-images.githubusercontent.com/74090222/104832900-26ad3d80-58d8-11eb-9b6b-f60818b59f7b.png",
   화살표:

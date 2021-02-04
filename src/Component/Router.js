@@ -13,6 +13,7 @@ import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/MyPage/ChangeInformation";
 import ChangePW from "../Routes/MyPage/ChangePW";
 import Event from "../Routes/Event";
+import EventPost from "../Routes/EventPost";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
@@ -22,7 +23,7 @@ import IconsSource from "./IconsSource";
 import Makers from "./Makers";
 import NoInformation from "../Routes/Login/NoInformation";
 import AddInformation from "../Routes/Login/AddInformation";
-import LoginRequir from "../Routes/Login/LoginRequir";
+import LoginRequire from "../Routes/Login/LoginRequire";
 // 임시로 해놓음 ***********
 import SignUpGoogle from "../Component/SignUp/signup_google";
 
@@ -45,8 +46,8 @@ const RouterComponent = () => {
         <Route path="/login/addinformation">
           <AddInformation />
         </Route>
-        <Route path="/login/loginrequir">
-          <LoginRequir />
+        <Route path="/login/loginrequire">
+          <LoginRequire />
         </Route>
         <Route path="/signup" exact>
           <SignUp />
@@ -56,6 +57,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/board/convergence">
           <Convergence />
+        </Route>
+        <Route path="/board/event/eventpost">
+          <EventPost />
         </Route>
         <Route path="/board/departmajor">
           <DepartMajor />

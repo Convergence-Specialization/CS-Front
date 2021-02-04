@@ -191,6 +191,10 @@ const SignUp = () => {
             alert("이름과 학번을 입력해주세요");
             return;
           }
+          if (pw !== pwCheck) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return;
+          }
           setLoading(true);
           message.loading("회원가입 중..", 10);
           userApi

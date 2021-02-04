@@ -14,7 +14,7 @@ export const Icons = {
   숭실:
     "https://user-images.githubusercontent.com/74090222/104586083-5413a480-56a8-11eb-865d-e154a8f65127.png",
   Home:
-    "https://user-images.githubusercontent.com/74090222/104623258-8ab3e400-56d5-11eb-814e-69213adceae4.png",
+    "https://user-images.githubusercontent.com/74090222/106783350-8d7b7680-668e-11eb-881e-4a78ff36388c.png",
   menu:
     "https://user-images.githubusercontent.com/74090222/104832900-26ad3d80-58d8-11eb-9b6b-f60818b59f7b.png",
   화살표:
@@ -72,4 +72,17 @@ export const sideBarIcons = {
 export const horseIcons = {
   normal:
     "https://user-images.githubusercontent.com/62606632/106386072-906c3200-6416-11eb-842d-d07f329f97aa.jpg",
+};
+
+export const events = {
+  graduate:
+    "https://user-images.githubusercontent.com/71367047/106647389-34e6a380-65d2-11eb-858b-97f0fb8a2d46.jpg",
+  esports:
+    "https://user-images.githubusercontent.com/71367047/106648234-55fbc400-65d3-11eb-9d43-b65cda234ce2.png",
+  ssu:
+    "https://user-images.githubusercontent.com/71367047/106648200-4da38900-65d3-11eb-882a-601d352b6a60.jpg",
+  friday:
+    "https://user-images.githubusercontent.com/71367047/106778440-535ba600-6689-11eb-96b2-03b524aa3fed.jpg",
+  mentor:
+    "https://user-images.githubusercontent.com/71367047/106778557-7423fb80-6689-11eb-86e5-cd1f6fa67710.jpg",
 };

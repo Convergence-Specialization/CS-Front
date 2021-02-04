@@ -1,16 +1,16 @@
-import Event from "../Component/Board/Announcement/Event/ListView";
+import EventPost from "../Component/Board/Announcement/Event/EventPost";
 import NavBot from "../Component/SmallComponents/NavBot";
 import Navbar from "../Component/Navbar";
 import { mainPageIcons } from "../assets/Resources";
 
-const EventPresenter = () => {
+const EventPostPresenter = () => {
   return (
     <>
       <Navbar />
       <NavBot Icon={mainPageIcons.announce} Name="학부행사" />
-      <Event />
+      <EventPost />
     </>
   );
 };
 
-export default EventPresenter;
+export default EventPostPresenter;

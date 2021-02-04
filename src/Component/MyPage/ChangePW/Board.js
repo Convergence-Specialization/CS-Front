@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { message } from "antd";
 
 const Con = styled.div`
   margin: 0px auto 0px auto;
@@ -52,6 +53,7 @@ const Kon = styled.div`
   background-color: #ccd3dc;
   font-size: 20px;
   line-height: 1.14;
+  cursor: pointer;
   @media (max-width: 430px) {
     font-size: 15px;
     padding: 15px 0px;
@@ -129,7 +131,7 @@ const Board = () => {
           return;
         }
         else  {
-          alert("비밀번호가 변경되었습니다..");
+          message.success("비밀번호가 변경되었습니다.");
           history.push("/mypage");
         }
       }}

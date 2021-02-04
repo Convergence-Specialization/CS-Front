@@ -54,6 +54,7 @@ const Oon = styled.div`
   background-color: #d3dae3;
   font-size: 15px;
   line-height: 1.15;
+  cursor: pointer;
   @media(max-width:430px){
     font-size:8px;
     padding: 8px 18px;

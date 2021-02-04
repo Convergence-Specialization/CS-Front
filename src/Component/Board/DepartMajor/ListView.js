@@ -143,7 +143,16 @@ const ChangedBoard = () => {
                       alt={"asdf"}
                     />
                   )}
-                  <BoardChildTitle>{item.title}</BoardChildTitle>
+                  {item.subject === "NONE" && (
+            <BoardChildTitle
+            style={{ width:"85%"}}
+            >{item.title}</BoardChildTitle>
+          )}
+          {item.subject !== "NONE" && (
+            <BoardChildTitle
+            style={{ width:"72%"}}
+            >{item.title}</BoardChildTitle>
+          )}
                 </BoardChildTitleWrapper>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>

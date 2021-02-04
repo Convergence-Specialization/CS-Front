@@ -53,7 +53,7 @@ const BoardChildTitle = styled.div`
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
-  margin-right: 70px;
+  margin-right: 90px;
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 10px;
@@ -67,7 +67,7 @@ const BoardChildContent = styled.div`
   text-overflow:ellipsis;
   white-space:nowrap;
   font-size: 15px;
-  width: 97%;
+  width: 93%;
   margin-bottom: 8px;
 `;
 const BoardChildTimeText = styled.div`
@@ -77,6 +77,10 @@ const BoardChildTimeText = styled.div`
 `;
 const BoardChildMetaText = styled.div`
   text-align: right;
+`;
+const IconImg = styled.img`
+  width: 23px;
+  margin-right: 13px;
 `;
 const MoreButton = styled.div`
   width: 95%;

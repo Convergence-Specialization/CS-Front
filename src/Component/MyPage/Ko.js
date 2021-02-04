@@ -1,6 +1,7 @@
 import React from "react";
 import { Icons } from "../../assets/Resources";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const Wrap = styled.div`
   margin: 30px;
@@ -69,6 +70,7 @@ const Oon = styled.div`
 `;
 
 const Ko = () => {
+  const history = useHistory();
   return (
     <Wrap>
       <Xext>
@@ -90,7 +92,7 @@ const Ko = () => {
       <Xext>
         <Qitle>
           <Dext>
-            <Oon>정보수정</Oon>
+            <Oon onClick={() => history.push("/mypage/changeinformation")}>정보수정</Oon>
           </Dext>
         </Qitle>
       </Xext>

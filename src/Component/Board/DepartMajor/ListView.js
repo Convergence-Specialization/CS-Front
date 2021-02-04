@@ -50,14 +50,25 @@ const BoardChildTitleWrapper = styled.div`
   align-items: center;
 `;
 const BoardChildTitle = styled.div`
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  margin-right: 70px;
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 10px;
 `;
+const BoardChildContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 const BoardChildContent = styled.div`
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
   font-size: 15px;
-  width: 95%;
-  white-space: pre-wrap;
+  width: 97%;
+  margin-bottom: 8px;
 `;
 const BoardChildTimeText = styled.div`
   position: absolute;
@@ -143,12 +154,14 @@ const ChangedBoard = () => {
                     />
                   )}
                   <BoardChildTitle>{item.title}</BoardChildTitle>
+                  <BoardChildTimeText>
+                    {item.timestampDistance} 전
+                  </BoardChildTimeText>
                 </BoardChildTitleWrapper>
-
-                <BoardChildContent>{item.content}</BoardChildContent>
-                <BoardChildTimeText>
-                  {item.timestampDistance} 전
-                </BoardChildTimeText>
+                <BoardChildContentWrapper>
+                  <BoardChildContent>{item.content}</BoardChildContent>
+                </BoardChildContentWrapper>
+                
                 <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
               </BoardChildWrapper>
             ))

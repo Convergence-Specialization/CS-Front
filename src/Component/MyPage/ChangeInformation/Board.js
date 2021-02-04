@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useAuth } from "../../Watchers";
+import { useHistory } from "react-router-dom";
 const Con = styled.div`
   padding: 20px;
   width: 82%;
@@ -73,6 +74,8 @@ const Kon = styled.div`
   }
 `;
 const Board = () => {
+  const user = useAuth();
+  const history = useHistory();
   return (
     <>
       <Oon>
@@ -80,7 +83,10 @@ const Board = () => {
       </Oon>
       <Con>
         <Wrap>
-          <div>지여누</div>
+          <div>{!!user
+                ? (!!user.displayName ? user.displayName : "융슝이").concat(
+                  )
+                : ""}</div>
         </Wrap>
       </Con>
       <Jon>
@@ -88,7 +94,7 @@ const Board = () => {
       </Jon>
       <Con>
         <Wrap>
-          <div>20201884</div>
+          <div>20201830</div>
         </Wrap>
       </Con>
       <Jon>
@@ -96,13 +102,18 @@ const Board = () => {
       </Jon>
       <Con1>
         <Wrap>
-          <div>ywoo121@naver.com</div>
+          <div>{!!user
+                ? (!!user.email ? user.email : "융슝이").concat(
+                  )
+                : ""}</div>
         </Wrap>
       </Con1>
       <Jon>
         <Text>※이메일은 수정되지 않습니다.</Text>
       </Jon>
-      <Kon>정보 수정 완료</Kon>
+      <Kon
+      onClick={() => history.push("/mypage")}
+      >정보 수정 완료</Kon>
     </>
   );
 };

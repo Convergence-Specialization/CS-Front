@@ -51,6 +51,7 @@ const BoardChildTitleWrapper = styled.div`
 `;
 const BoardChildTitle = styled.div`
   font-weight: bold;
+  width:72%;
   font-size: 16px;
   margin-bottom: 10px;
 `;
@@ -144,7 +145,6 @@ const ChangedBoard = () => {
                   )}
                   <BoardChildTitle>{item.title}</BoardChildTitle>
                 </BoardChildTitleWrapper>
-
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
                   {item.timestampDistance} 전

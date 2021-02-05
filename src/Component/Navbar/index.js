@@ -239,7 +239,7 @@ const Navbar = ({
               </NavOpenSingleItemBox>
             </>
           )}
-          <NavSingleBottomTopItemBox isChild onClick={() => history.push("/")}>
+          <NavSingleBottomTopItemBox isChild onClick={() => history.push("/suggestions")}>
             <NavOpenItemMargin />
             <NavOpenItemText>건의사항</NavOpenItemText>
           </NavSingleBottomTopItemBox>

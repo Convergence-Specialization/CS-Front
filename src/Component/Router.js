@@ -21,6 +21,7 @@ import Announcement from "../Routes/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";
+import Suggestions from "./Suggestions";
 import NoInformation from "../Routes/Login/NoInformation";
 import AddInformation from "../Routes/Login/AddInformation";
 import LoginRequire from "../Routes/Login/LoginRequire";
@@ -88,6 +89,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/makers" exact>
           <Makers />
+        </Route>
+        <Route path="/suggestions" exact>
+          <Suggestions />
         </Route>
         <Redirect path="*" to="/" />
       </Switch>

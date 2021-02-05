@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { authService } from "../../firebase";
 import { useHistory } from "react-router-dom";
-
+import { message } from "antd";
 const Con = styled.div`
   padding: 20px;
   border-radius: 30px;
@@ -22,6 +22,7 @@ const Qrap = styled.div`
   padding: 10px 20px;
   font-size: 20px;
   line-height: 1.13;
+  cursor: pointer;
   @media (max-width: 430px) {
     font-size: 12px;
     padding: 0px 10px;
@@ -48,7 +49,7 @@ const Jrap = styled.div`
   padding: 10px 30px;
   font-size: 20px;
   line-height: 1.13;
-
+  cursor: pointer;
   @media (max-width: 430px) {
     font-size: 12px;
     width: 85%;
@@ -78,6 +79,8 @@ const Board = () => {
           <div
             onClick={() => {
               authService.signOut();
+              message.success("로그아웃 완료");
+              history.push("/")
             }}>
             로그아웃
           </div>

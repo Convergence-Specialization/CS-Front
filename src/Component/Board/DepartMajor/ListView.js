@@ -10,6 +10,7 @@ import SelectSubjectModal from "./Modal";
 import { horseIcons } from "../../../assets/Resources";
 import { subjectDicts } from "../../../assets/Dicts";
 
+let a=5;
 const Container = styled.div`
   width: 100%;
   padding: 20px 0;
@@ -55,6 +56,7 @@ const BoardChildTitle = styled.div`
   white-space:nowrap;
   margin-right: 90px;
   font-weight: bold;
+  width: 72%;
   font-size: 16px;
   margin-bottom: 10px;
 `;
@@ -128,9 +130,8 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={
-                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
-                }>
+                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
+              >
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -148,7 +149,8 @@ const ChangedBoard = () => {
                     pathname: `/board/departmajor`,
                     state: { pageName: "read" },
                   })
-                }>
+                }
+              >
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -156,22 +158,38 @@ const ChangedBoard = () => {
                       src={subjectDicts[item.subject].img}
                       alt={"asdf"}
                     />
+                  )}                
+                  {item.subject === "NONE" && (
+                    <BoardChildTitle style={{ width: "80%" }}>
+                      {item.title}
+                    </BoardChildTitle>
                   )}
-                  <BoardChildTitle>{item.title}</BoardChildTitle>
-                  <BoardChildTimeText>
-                    {item.timestampDistance} 전
-                  </BoardChildTimeText>
+                  {item.subject !== "NONE" && (
+                    <BoardChildTitle style={{ width: "72%" }}>
+                      {item.title}
+                    </BoardChildTitle>
+                  )}
                 </BoardChildTitleWrapper>
-                <BoardChildContentWrapper>
-                  <BoardChildContent>{item.content}</BoardChildContent>
-                </BoardChildContentWrapper>
-                
+                <BoardChildContent>{item.content}</BoardChildContent>
+                <BoardChildTimeText>
+                  {item.timestampDistance} 전
+                </BoardChildTimeText>
                 <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
               </BoardChildWrapper>
             ))
           )}
         </BoardContainer>
-        <MoreButton onClick={() => {}}>더보기</MoreButton>
+        <MoreButton
+          onClick={() => {
+            departMajorApi
+            .getLists({ size: 10+a })
+            .then((docsArray) => setPosts(docsArray))
+            .catch((error) => message.error(error.message));
+            a=a+5;
+          }}
+        >
+          더보기
+        </MoreButton>
         <GoUp />
       </Container>
     </>

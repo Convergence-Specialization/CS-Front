@@ -45,6 +45,7 @@ const Button = styled.div`
   font-size: 18px;
   font-weight: bold;
   line-height: 1.15;
+  cursor: pointer;
   color: #ffffff;
   @media (max-width: 430px) {
     font-size: 14px;
@@ -172,6 +173,7 @@ const AddInformation = () => {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   return (
+  
     <Container>
       <BackgroundImg />
       <BackgroundFilter />

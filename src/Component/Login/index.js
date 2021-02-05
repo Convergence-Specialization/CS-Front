@@ -88,6 +88,7 @@ const TextBox = styled.div`
 `;
 const Text = styled.div`
   font-size: 14px;
+  cursor: pointer;
   @media (max-width: 430px) {
     font-size: 12px;
   }

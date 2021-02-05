@@ -117,19 +117,20 @@ export const NavOpenSingleItemBox = styled.div`
   font-weight: ${(props) => (props.isChild ? "normal" : "bold")};
 `;
 export const NavSingleBottomItemBox = styled.div`
-  align-self: stretch;
   padding: 10px;
   cursor: pointer;
   border-top: 1px solid grey;
   display: flex;
   align-items: center;
-  position: relative;
-`;
+  position: fixed;
+  width:188px;
+  bottom:0px;
+  `;
 export const NavSingleBottomTopItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
   cursor: pointer;
-  margin-top: 425px;
+
   border-top: 1px solid grey;
   display: flex;
   text-align:center;

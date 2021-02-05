@@ -173,6 +173,7 @@ const AddInformation = () => {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   return (
+  
     <Container>
       <BackgroundImg />
       <BackgroundFilter />

@@ -200,8 +200,8 @@ const Navbar = ({
             <NavOpenItemArrowButton
               src={
                 referSiteOpened
-                  ? sideBarIcons.downButton
-                  : sideBarIcons.upButton
+                  ? sideBarIcons.upButton
+                  : sideBarIcons.downButton
               }
               alt={"화살표 아이콘"}
             />

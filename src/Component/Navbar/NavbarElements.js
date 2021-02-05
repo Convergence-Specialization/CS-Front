@@ -120,17 +120,16 @@ export const NavSingleBottomItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
   cursor: pointer;
-  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
   display: flex;
   align-items: center;
   position: relative;
-`;
+  `;
 export const NavSingleBottomTopItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
   cursor: pointer;
-  margin-top: 425px;
-  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
   display: flex;
   text-align:center;
   align-items: center;

@@ -10,6 +10,7 @@ import SelectSubjectModal from "./Modal";
 import { horseIcons } from "../../../assets/Resources";
 import { subjectDicts } from "../../../assets/Dicts";
 
+let a=5;
 const Container = styled.div`
   width: 100%;
   padding: 20px 0;
@@ -51,7 +52,7 @@ const BoardChildTitleWrapper = styled.div`
 `;
 const BoardChildTitle = styled.div`
   font-weight: bold;
-  width:72%;
+  width: 72%;
   font-size: 16px;
   margin-bottom: 10px;
 `;
@@ -114,9 +115,8 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={
-                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
-                }>
+                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
+              >
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -134,7 +134,8 @@ const ChangedBoard = () => {
                     pathname: `/board/departmajor`,
                     state: { pageName: "read" },
                   })
-                }>
+                }
+              >
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -144,15 +145,15 @@ const ChangedBoard = () => {
                     />
                   )}
                   {item.subject === "NONE" && (
-            <BoardChildTitle
-            style={{ width:"80%"}}
-            >{item.title}</BoardChildTitle>
-          )}
-          {item.subject !== "NONE" && (
-            <BoardChildTitle
-            style={{ width:"72%"}}
-            >{item.title}</BoardChildTitle>
-          )}
+                    <BoardChildTitle style={{ width: "80%" }}>
+                      {item.title}
+                    </BoardChildTitle>
+                  )}
+                  {item.subject !== "NONE" && (
+                    <BoardChildTitle style={{ width: "72%" }}>
+                      {item.title}
+                    </BoardChildTitle>
+                  )}
                 </BoardChildTitleWrapper>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
@@ -163,7 +164,17 @@ const ChangedBoard = () => {
             ))
           )}
         </BoardContainer>
-        <MoreButton onClick={() => {}}>더보기</MoreButton>
+        <MoreButton
+          onClick={() => {
+            departMajorApi
+            .getLists({ size: 10+a })
+            .then((docsArray) => setPosts(docsArray))
+            .catch((error) => message.error(error.message));
+            a=a+5;
+          }}
+        >
+          더보기
+        </MoreButton>
         <GoUp />
       </Container>
     </>

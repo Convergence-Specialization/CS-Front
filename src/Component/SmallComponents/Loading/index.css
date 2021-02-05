@@ -1,88 +1,62 @@
-
-@keyframes ldio-evw2difor6q {
-  0% { transform: rotate(0) }
-  100% { transform: rotate(360deg) }
+@keyframes ldio-s8te3dv2vnh {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
 }
-.ldio-evw2difor6q div { box-sizing: border-box!important }
-.ldio-evw2difor6q > div {
+.ldio-s8te3dv2vnh div {
+  left: 80.37px;
+  top: 46.17px;
   position: absolute;
-  width: 126.27000000000001px;
-  height: 126.27000000000001px;
-  top: 28.365000000000002px;
-  left: 28.365000000000002px;
-  border-radius: 50%;
-  border: 9.15px solid #000;
-  border-color: #5be1cd transparent #5be1cd transparent;
-  animation: ldio-evw2difor6q 1s linear infinite;
+  animation: ldio-s8te3dv2vnh linear 1s infinite;
+  background: #a2c8f2;
+  width: 10.26px;
+  height: 20.52px;
+  border-radius: 5.13px / 9.439200000000001px;
+  transform-origin: 5.13px 39.33px;
+}.ldio-s8te3dv2vnh div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -0.8888888888888888s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(2) {
+  transform: rotate(40deg);
+  animation-delay: -0.7777777777777778s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(3) {
+  transform: rotate(80deg);
+  animation-delay: -0.6666666666666666s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(4) {
+  transform: rotate(120deg);
+  animation-delay: -0.5555555555555556s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(5) {
+  transform: rotate(160deg);
+  animation-delay: -0.4444444444444444s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(6) {
+  transform: rotate(200deg);
+  animation-delay: -0.3333333333333333s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(7) {
+  transform: rotate(240deg);
+  animation-delay: -0.2222222222222222s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(8) {
+  transform: rotate(280deg);
+  animation-delay: -0.1111111111111111s;
+  background: #a2c8f2;
+}.ldio-s8te3dv2vnh div:nth-child(9) {
+  transform: rotate(320deg);
+  animation-delay: 0s;
+  background: #a2c8f2;
 }
-
-.ldio-evw2difor6q > div:nth-child(2), .ldio-evw2difor6q > div:nth-child(4) {
-  width: 104.31px;
-  height: 104.31px;
-  top: 39.345px;
-  left: 39.345px;
-  animation: ldio-evw2difor6q 1s linear infinite reverse;
-}
-.ldio-evw2difor6q > div:nth-child(2) {
-  border-color: transparent #f8b26a transparent #f8b26a
-}
-.ldio-evw2difor6q > div:nth-child(3) { border-color: transparent }
-.ldio-evw2difor6q > div:nth-child(3) div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform: rotate(45deg);
-}
-.ldio-evw2difor6q > div:nth-child(3) div:before, .ldio-evw2difor6q > div:nth-child(3) div:after { 
-  content: "";
-  display: block;
-  position: absolute;
-  width: 9.15px;
-  height: 9.15px;
-  top: -9.15px;
-  left: 49.410000000000004px;
-  background: #5be1cd;
-  border-radius: 50%;
-  box-shadow: 0 117.12px 0 0 #5be1cd;
-}
-.ldio-evw2difor6q > div:nth-child(3) div:after {
-  left: -9.15px;
-  top: 49.410000000000004px;
-  box-shadow: 117.12px 0 0 0 #5be1cd;
-}
-
-.ldio-evw2difor6q > div:nth-child(4) { border-color: transparent; }
-.ldio-evw2difor6q > div:nth-child(4) div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform: rotate(45deg);
-}
-.ldio-evw2difor6q > div:nth-child(4) div:before, .ldio-evw2difor6q > div:nth-child(4) div:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 9.15px;
-  height: 9.15px;
-  top: -9.15px;
-  left: 38.43px;
-  background: #f8b26a;
-  border-radius: 50%;
-  box-shadow: 0 95.16px 0 0 #f8b26a;
-}
-.ldio-evw2difor6q > div:nth-child(4) div:after {
-  left: -9.15px;
-  top: 38.43px;
-  box-shadow: 95.16px 0 0 0 #f8b26a;
-}
-.loadingio-spinner-double-ring-lbugqr9lyo {
-  width: 183px;
-  height: 183px;
+.loadingio-spinner-spinner-2nr1u380cc7 {
+  width: 171px;
+  height: 171px;
   display: inline-block;
   overflow: hidden;
-  background: none;
+  background: #ffffff;
 }
-.ldio-evw2difor6q {
+.ldio-s8te3dv2vnh {
   width: 100%;
   height: 100%;
   position: relative;
@@ -90,4 +64,4 @@
   backface-visibility: hidden;
   transform-origin: 0 0; /* see note above */
 }
-.ldio-evw2difor6q div { box-sizing: content-box; }
+.ldio-s8te3dv2vnh div { box-sizing: content-box; }

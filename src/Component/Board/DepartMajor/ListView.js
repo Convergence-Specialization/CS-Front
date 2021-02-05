@@ -145,7 +145,7 @@ const ChangedBoard = () => {
                   )}
                   {item.subject === "NONE" && (
             <BoardChildTitle
-            style={{ width:"85%"}}
+            style={{ width:"80%"}}
             >{item.title}</BoardChildTitle>
           )}
           {item.subject !== "NONE" && (

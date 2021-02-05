@@ -252,9 +252,9 @@ const Navbar = ({
               건의사항
             </NavOpenItemText>
           </NavSingleBottomTopItemBox>
-          <NavSingleBottomItemBox isChild>
+          <NavSingleBottomItemBox isChild onClick={() => history.push("/makers")}>
             <NavOpenItemMargin />
-            <NavOpenItemText onClick={() => history.push("/makers")}>
+            <NavOpenItemText>
               만든 사람들
             </NavOpenItemText>
           </NavSingleBottomItemBox>

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useAuth } from "../../Watchers";
+import { useHistory } from "react-router-dom";
+import { message } from "antd";
 const Con = styled.div`
   padding: 20px;
   width: 82%;
@@ -66,6 +68,7 @@ const Kon = styled.div`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ccd3dc;
   font-size: 20px;
+  cursor: pointer;
   line-height: 1.14;
   @media(max-width:430px){
     font-size:15px;
@@ -73,6 +76,8 @@ const Kon = styled.div`
   }
 `;
 const Board = () => {
+  const user = useAuth();
+  const history = useHistory();
   return (
     <>
       <Oon>
@@ -80,7 +85,10 @@ const Board = () => {
       </Oon>
       <Con>
         <Wrap>
-          <div>지여누</div>
+          <div>{!!user
+                ? (!!user.displayName ? user.displayName : "융슝이").concat(
+                  )
+                : ""}</div>
         </Wrap>
       </Con>
       <Jon>
@@ -88,7 +96,7 @@ const Board = () => {
       </Jon>
       <Con>
         <Wrap>
-          <div>20201884</div>
+          <div>20201830</div>
         </Wrap>
       </Con>
       <Jon>
@@ -96,13 +104,20 @@ const Board = () => {
       </Jon>
       <Con1>
         <Wrap>
-          <div>ywoo121@naver.com</div>
+          <div>{!!user
+                ? (!!user.email ? user.email : "융슝이").concat(
+                  )
+                : ""}</div>
         </Wrap>
       </Con1>
       <Jon>
         <Text>※이메일은 수정되지 않습니다.</Text>
       </Jon>
-      <Kon>정보 수정 완료</Kon>
+      <Kon
+      onClick={() =>{ history.push("/mypage")
+      message.success("정보가 수정되었습니다.");
+    }}
+      >정보 수정 완료</Kon>
     </>
   );
 };

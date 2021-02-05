@@ -14,7 +14,7 @@ const Container = styled.div`
 const LoadingComponent = () => (
   <Container>
     <div className="loadingio-spinner-double-ring-lbugqr9lyo">
-      <div className="ldio-evw2difor6q">
+      <div className="ldio-s8te3dv2vnh ">
         <div></div>
         <div></div>
         <div>

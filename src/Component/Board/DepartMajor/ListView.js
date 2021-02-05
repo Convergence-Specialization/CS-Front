@@ -51,6 +51,7 @@ const BoardChildTitleWrapper = styled.div`
 `;
 const BoardChildTitle = styled.div`
   font-weight: bold;
+  width:72%;
   font-size: 16px;
   margin-bottom: 10px;
 `;
@@ -142,9 +143,17 @@ const ChangedBoard = () => {
                       alt={"asdf"}
                     />
                   )}
-                  <BoardChildTitle>{item.title}</BoardChildTitle>
+                  {item.subject === "NONE" && (
+            <BoardChildTitle
+            style={{ width:"80%"}}
+            >{item.title}</BoardChildTitle>
+          )}
+          {item.subject !== "NONE" && (
+            <BoardChildTitle
+            style={{ width:"72%"}}
+            >{item.title}</BoardChildTitle>
+          )}
                 </BoardChildTitleWrapper>
-
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
                   {item.timestampDistance} 전

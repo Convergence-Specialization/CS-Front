@@ -2,7 +2,7 @@ import React from "react";
 import { Icons } from "../../assets/Resources";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-
+import { useAuth } from "../Watchers";
 const Wrap = styled.div`
   margin: 30px;
   padding: 50px 20px 20px 50px;
@@ -35,15 +35,6 @@ const Text = styled.div`
     font-size:15px;
   }
 `;
-const Wext = styled.div`
-  margin: 2px 0px 0px 5px;
-  font-weight: 900;
-  font-size: 20px;
-  line-height: 1.41;
-  @media(max-width:430px){
-    font-size:15px;
-  }
-`;
 const Qext = styled.div`
   display: flex;
 `;
@@ -63,6 +54,7 @@ const Oon = styled.div`
   background-color: #d3dae3;
   font-size: 15px;
   line-height: 1.15;
+  cursor: pointer;
   @media(max-width:430px){
     font-size:8px;
     padding: 8px 18px;
@@ -71,21 +63,28 @@ const Oon = styled.div`
 
 const Ko = () => {
   const history = useHistory();
+  const user = useAuth();
   return (
     <Wrap>
       <Xext>
         <img src={Icons.프로필} alt="프로필" style={{ width: "20%" }}></img>
         <Title>
           <Qext>
-            <Text>지여누</Text>
-            <Wext>|</Wext>
-            <Text>ywo121</Text>
+            <Text>
+            {!!user
+                ? (!!user.displayName ? user.displayName : "융슝이").concat(
+                  )
+                : ""}
+            </Text>
           </Qext>
           <Qext>
             <Text>20201884</Text>
           </Qext>
           <Qext>
-            <Text>ywoo121@naver.com</Text>
+            <Text>{!!user
+                ? (!!user.email ? user.email : "융슝이").concat(
+                  )
+                : ""}</Text>
           </Qext>
         </Title>
       </Xext>

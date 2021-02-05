@@ -21,7 +21,8 @@ import Announcement from "../Routes/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";
-import Suggestions from "./Suggestions";
+import Suggestions from "../Routes/Suggestions";
+
 import NoInformation from "../Routes/Login/NoInformation";
 import AddInformation from "../Routes/Login/AddInformation";
 import LoginRequire from "../Routes/Login/LoginRequire";

@@ -2,9 +2,9 @@ import { message } from "antd";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { departMajorApi } from "../api";
-import { Icons, horseIcons } from "../assets/Resources";
-import Navbar from "../Component/Navbar";
+import { departMajorApi } from "../../api";
+import { horseIcons } from "../../assets/Resources";
+
 const Container = styled.div`
   padding: 40px 0px 25px 0px;
   display: flex;
@@ -81,30 +81,30 @@ const Button = styled.div`
   }
 `;
 const Text = styled.div`
-  font-size:23px;
+  font-size: 23px;
   font-weight: bold;
-  margin:100px 0px 10px 40px;
+  margin: 100px 0px 10px 40px;
   @media (max-width: 430px) {
-    font-size:14px;
-    margin:50px 0px 10px 20px;
+    font-size: 14px;
+    margin: 50px 0px 10px 20px;
   }
 `;
 const Img = styled.img`
   width: 20%;
-  border-radius:50%;
-  position:absolute;
+  border-radius: 50%;
+  position: absolute;
   right: 80px;
   top: 70px;
   @media (max-width: 430px) {
     width: 20%;
-  border-radius:50%;
-  position:absolute;
-  right: 15px;
-  top: 60px;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 60px;
   }
 `;
 
-const Create = () => {
+const Suggestions = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -113,9 +113,8 @@ const Create = () => {
   const history = useHistory();
   return (
     <>
-     <Navbar isRight1Disabled History IconRight2= {Icons.Home} Navname="건의사항" />
       <Text>수정할 점과 건의사항을 자유롭게 적어주세요!</Text>
-      <Img src={horseIcons.normal}/>
+      <Img src={horseIcons.normal} />
       <Container>
         <TitleInput
           placeholder="제목을 입력해주세요"
@@ -147,7 +146,10 @@ const Create = () => {
                 .create(requestBody)
                 .then(() => {
                   message.destroy();
-                  history.goBack();
+                  history.push({
+                    pathname: `suggestions`,
+                    state: { pageName: "suggested" },
+                  });
                 })
                 .catch((err) => {
                   message.destroy();
@@ -163,4 +165,4 @@ const Create = () => {
     </>
   );
 };
-export default Create;
+export default Suggestions;

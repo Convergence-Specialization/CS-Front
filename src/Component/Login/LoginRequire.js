@@ -56,7 +56,6 @@ const TextBox = styled.div`
   color: white;
   font-size: 18px;
   line-height: 1.74;
-  cursor: pointer;
   @media (max-width: 430px) {
     font-size: 13px;
     width: 70%;

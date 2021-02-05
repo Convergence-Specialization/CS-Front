@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: red;
+  background-color: white;
   margin: 10px 20px 0px 20px;
   border-radius: 15px;
   @media (max-width: 430px) {

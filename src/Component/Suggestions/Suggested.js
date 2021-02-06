@@ -4,13 +4,13 @@ import styled from "styled-components";
 import { horseIcons } from "../../assets/Resources";
 
 const Con = styled.div`
-  display:flex;
+  display: flex;
   width: 100%;
   height: 100vh;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0px 10px;
 `;
 const Container = styled.div`
   display: flex;
@@ -69,11 +69,14 @@ const Suggested = () => {
     <Con>
       <Container>
         <Box>
-          <Text>건의사항을 보내주셔서 감사합니다!</Text>
-          <Text>보내주신 건의사항으로 더 나은 커뮤니티를</Text>
-          <Text>만들 수 있도록 노력하겠습니다 :)</Text>
+          <Text>
+            건의사항을 보내주셔서 감사합니다! <br />
+            보내주신 건의사항으로 더 나은 커뮤니티를
+            <br />
+            만들 수 있도록 노력하겠습니다 :)
+          </Text>
         </Box>
-        <Speechbubble></Speechbubble>
+        <Speechbubble />
         <Img src={horseIcons.normal} />
       </Container>
     </Con>

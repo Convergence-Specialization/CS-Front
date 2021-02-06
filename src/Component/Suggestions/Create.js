@@ -108,7 +108,6 @@ const Suggestions = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [uploading, setUploading] = useState(false);
-  const [subjectSelected] = useState("NONE");
 
   const history = useHistory();
   return (

@@ -1,13 +1,17 @@
-import React from "react";
+import { message } from "antd";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
+import { departMajorApi } from "../../../api";
 import { Icons, mainPageIcons } from "../../../assets/Resources";
 
 const WhiteContainer = styled.div`
   width: 90%;
-  padding: 9px 15px;
+  padding: 12px 15px;
   margin: 10px auto;
   border-radius: 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
 `;
 const Title = styled.div`
   font-size: 18px;
@@ -20,6 +24,7 @@ const SubText = styled.div`
   font-size: 13px;
   line-height: 1.15;
 `;
+const ContentText = styled.div``;
 const LikeCountText = styled.div`
   font-size: 14px;
   color: #545454;
@@ -56,7 +61,9 @@ const CommentUpperWrapper = styled.div`
 const CommentUpperText = styled.div`
   font-weight: bold;
 `;
-const CommentChildWrapper = styled.div``;
+const CommentChildWrapper = styled.div`
+  background-color: skyblue;
+`;
 const CommentChildTitle = styled.span``;
 const CommentChildTime = styled.span``;
 const CommentChildText = styled.div``;
@@ -71,6 +78,7 @@ const CommentInputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
 `;
 const CommentInputSecretButton = styled.img`
   width: 12px;
@@ -80,38 +88,50 @@ const CommentInputBox = styled.input`
   outline: none;
   border: none;
   border-radius: 12px;
-  padding: 5px 10px;
+  padding: 10px 10px;
+  background-color: #f6fafe;
   font-size: 15px;
 `;
 const CommentInputSubmitButton = styled.div`
-  padding: 9px 0;
+  padding: 10px 0;
   font-weight: bold;
   width: 60px;
   font-size: 12px;
-  background-color: #d4e6fb;
+  background-color: #b4d5f5;
   color: black;
   border-radius: 10px;
   text-align: center;
 `;
 
 const Read = () => {
+  const location = useLocation();
+  const [content, setContent] = useState({});
+  const [uploading, setUploading] = useState(false);
+
+  useEffect(() => {
+    setContent(location.state.docItem);
+  }, []);
   return (
     <>
-      <WhiteContainer>
-        <Title>컴학 신청한 사람 많음?</Title>
-        <SubText>배고픈 슝슝이 | 21.01.14</SubText>
-        <div>내용</div>
-        <ExtraContentWrapper>
-          <LikeCountText>공감 7 | 댓글 5</LikeCountText>
-          <CommentButton>
-            <CommentImg src={mainPageIcons.heart} alt={"공감 이미지"} />
-            <CommentButtonText>공감</CommentButtonText>
-          </CommentButton>
-        </ExtraContentWrapper>
-      </WhiteContainer>
+      {content.title !== undefined && (
+        <WhiteContainer>
+          <Title>{content.title}</Title>
+          <SubText>배고픈 슝슝이 | {`${content.timestampDistance} 전`}</SubText>
+          <ContentText>{content.content}</ContentText>
+          <ExtraContentWrapper>
+            <LikeCountText>
+              공감 {content.likeCount} | 댓글 {content.commentCount}
+            </LikeCountText>
+            <CommentButton>
+              <CommentImg src={mainPageIcons.heart} alt={"공감 이미지"} />
+              <CommentButtonText>공감</CommentButtonText>
+            </CommentButton>
+          </ExtraContentWrapper>
+        </WhiteContainer>
+      )}
       <WhiteContainer>
         <CommentUpperWrapper>
-          <CommentUpperText>댓글 5</CommentUpperText>
+          <CommentUpperText>댓글</CommentUpperText>
         </CommentUpperWrapper>
         <CommentChildWrapper>
           <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
@@ -121,8 +141,36 @@ const Read = () => {
         </CommentChildWrapper>
       </WhiteContainer>
       <CommentInputContainer>
-        <CommentInputBox placeholder={"댓글을 작성하세요"} />
-        <CommentInputSubmitButton>작성하기</CommentInputSubmitButton>
+        <CommentInputBox
+          placeholder={"댓글을 작성하세요"}
+          id="commentInputBox"
+        />
+        <CommentInputSubmitButton
+          onClick={() => {
+            if (uploading) return;
+            let commentContent = document.getElementById("commentInputBox")
+              .value;
+            if (commentContent === "") {
+              return message.error("댓글을 입력하세요.");
+            }
+            message.loading("댓글 작성중입니다..");
+            departMajorApi.comment
+              .create({
+                docId: content.docId,
+                content: commentContent,
+              })
+              .then(() => {
+                message.destroy();
+                window.location.reload();
+              })
+              .catch((err) => {
+                message.destroy();
+                message.error(err.message);
+              })
+              .finally(() => setUploading(false));
+          }}>
+          작성하기
+        </CommentInputSubmitButton>
       </CommentInputContainer>
     </>
   );

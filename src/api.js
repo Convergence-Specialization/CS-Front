@@ -5,8 +5,8 @@ import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const api = axios.create({
-  baseURL: "https://convergence-ssu.herokuapp.com/",
-  // baseURL: "http://localhost:5000",
+  // baseURL: "https://convergence-ssu.herokuapp.com/",
+  baseURL: "http://localhost:5000",
 });
 
 const getBearer = () => {
@@ -48,6 +48,7 @@ export const departMajorApi = {
             title: data.title,
             content: data.content,
             timestampDistance: distanceText,
+            timestampMillis: data.timestamp.toMillis(),
             commentCount: data.comments_count,
             likeCount: data.likes_count,
             subject: data.subject,
@@ -62,4 +63,59 @@ export const departMajorApi = {
         Authorization: getBearer(),
       },
     }),
+  comment: {
+    getLists: async (body) => {
+      const { docId } = body;
+      let commentsArr = await db
+        .collection("departMajor")
+        .doc(docId)
+        .collection("comments")
+        .get()
+        .then((querySnapshot) => {
+          let docsArray = [];
+          querySnapshot.forEach((doc) => {
+            let data = doc.data();
+            let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+              locale: ko,
+            }).replace("약 ", "");
+            if (distanceText.includes("미만")) {
+              distanceText = "방금";
+            }
+            docsArray.push({
+              commentId: doc.id,
+              content: data.content,
+              timestampDistance: distanceText,
+              timestampMillis: data.timestamp.toMillis(),
+              likeCount: data.likes_count,
+              subCommentsExist: data.subCommentsExist,
+              subComments: [],
+            });
+          });
+        });
+      for (let doc in commentsArr) {
+        // TODO: 여기서부터 다시 천천히 읽고 진행.
+        if (doc.subCommentsExist) {
+          await db
+            .collection("departMajor")
+            .doc(docId)
+            .collection("comments")
+            .doc(doc.commentId)
+            .collection("subcomments")
+            .get()
+            .then((querySnapshot) => {
+              let subcommentsArray = [];
+              querySnapshot.forEach((doc) => {
+                let data = doc.data();
+              });
+            });
+        }
+      }
+    },
+    create: (body) =>
+      api.post("board/departmajor/comment/create", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
+  },
 };

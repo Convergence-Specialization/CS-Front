@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { departMajorApi } from "../../../api";
-import { Icons, mainPageIcons } from "../../../assets/Resources";
+import { Icons, mainPageIcons, readDoc } from "../../../assets/Resources";
+import LoadingComponent from "../../SmallComponents/Loading";
 
 const WhiteContainer = styled.div`
   width: 90%;
@@ -62,12 +63,50 @@ const CommentUpperText = styled.div`
   font-weight: bold;
 `;
 const CommentChildWrapper = styled.div`
-  background-color: skyblue;
+  margin: 5px 0;
+  padding: 5px 0;
+  position: relative;
 `;
-const CommentChildTitle = styled.span``;
-const CommentChildTime = styled.span``;
-const CommentChildText = styled.div``;
-const CommentChildLikeButton = styled.div``;
+const CommentChildTitle = styled.span`
+  font-weight: bold;
+`;
+const CommentChildTime = styled.span`
+  margin-left: 10px;
+  color: grey;
+  font-size: 12px;
+`;
+const CommentChildText = styled.div`
+  margin-top: 12px;
+  font-size: 14px;
+`;
+const CommentButtonWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 5px;
+  bottom: 5px;
+`;
+const CommentChildNewSubButton = styled.img`
+  width: 13px;
+  margin: 0 7px;
+`;
+const CommentChildLikeWrapper = styled.div`
+  padding: 3px 5px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+`;
+const CommentChildLikeImg = styled.img`
+  width: 13px;
+`;
+const CommentChildLikeCount = styled.div`
+  margin-left: 5px;
+  font-size: 13px;
+`;
 
 const CommentInputContainer = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -106,10 +145,27 @@ const CommentInputSubmitButton = styled.div`
 const Read = () => {
   const location = useLocation();
   const [content, setContent] = useState({});
+
+  const [subCommentFocusedId, setSubCommentFocusedId] = useState("");
+
+  const [commentLoading, setCommentLoading] = useState(true);
+  const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     setContent(location.state.docItem);
+    departMajorApi.comment
+      .getLists({
+        docId: location.state.docItem.docId,
+      })
+      .then((commentsArr) => {
+        setComments(commentsArr);
+        setCommentLoading(false);
+        console.log(commentsArr);
+      })
+      .catch((err) => {
+        message.error(err.message);
+      });
   }, []);
   return (
     <>
@@ -133,16 +189,71 @@ const Read = () => {
         <CommentUpperWrapper>
           <CommentUpperText>댓글</CommentUpperText>
         </CommentUpperWrapper>
-        <CommentChildWrapper>
-          <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
-          <CommentChildTime> 1시간 전</CommentChildTime>
-          <CommentChildText>내용</CommentChildText>
-          <CommentChildLikeButton />
-        </CommentChildWrapper>
+        {commentLoading ? (
+          <LoadingComponent />
+        ) : (
+          comments.map((item, idx) => (
+            <>
+              <CommentChildWrapper
+                key={`${idx}COMMENT`}
+                style={
+                  subCommentFocusedId === item.commentId
+                    ? { backgroundColor: "#f6fafe" }
+                    : {}
+                }>
+                <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
+                <CommentChildTime>
+                  {item.timestampDistance + " 전"}
+                </CommentChildTime>
+                <CommentChildText>{item.content}</CommentChildText>
+                <CommentButtonWrapper>
+                  <CommentChildLikeWrapper
+                    onClick={() => {
+                      if (subCommentFocusedId === "") {
+                        document.getElementById("commentInputBox").focus();
+                        setSubCommentFocusedId(item.commentId);
+                      } else {
+                        setSubCommentFocusedId("");
+                      }
+                    }}>
+                    <CommentChildNewSubButton
+                      src={readDoc.speech_bubble}
+                      alt="말풍선 아이콘"
+                    />
+                  </CommentChildLikeWrapper>
+                  <CommentChildLikeWrapper>
+                    <CommentChildLikeImg
+                      src={readDoc.heart_empty}
+                      alt="하트 아이콘"
+                    />
+                    <CommentChildLikeCount>
+                      {item.likeCount}
+                    </CommentChildLikeCount>
+                  </CommentChildLikeWrapper>
+                </CommentButtonWrapper>
+              </CommentChildWrapper>
+              {item.subComments.map((subItem, idx) => (
+                <CommentChildWrapper
+                  key={`${idx}SubComment`}
+                  style={{ backgroundColor: "#f9f9f9" }}>
+                  <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
+                  <CommentChildTime>
+                    {subItem.timestampDistance + " 전"}
+                  </CommentChildTime>
+                  <CommentChildText>{subItem.content}</CommentChildText>
+                </CommentChildWrapper>
+              ))}
+            </>
+          ))
+        )}
       </WhiteContainer>
       <CommentInputContainer>
         <CommentInputBox
-          placeholder={"댓글을 작성하세요"}
+          placeholder={
+            subCommentFocusedId === ""
+              ? "댓글을 작성하세요"
+              : "대댓글을 작성하세요"
+          }
           id="commentInputBox"
         />
         <CommentInputSubmitButton
@@ -154,20 +265,38 @@ const Read = () => {
               return message.error("댓글을 입력하세요.");
             }
             message.loading("댓글 작성중입니다..");
-            departMajorApi.comment
-              .create({
-                docId: content.docId,
-                content: commentContent,
-              })
-              .then(() => {
-                message.destroy();
-                window.location.reload();
-              })
-              .catch((err) => {
-                message.destroy();
-                message.error(err.message);
-              })
-              .finally(() => setUploading(false));
+            if (subCommentFocusedId === "") {
+              departMajorApi.comment
+                .create({
+                  docId: content.docId,
+                  content: commentContent,
+                })
+                .then(() => {
+                  message.destroy();
+                  window.location.reload();
+                })
+                .catch((err) => {
+                  message.destroy();
+                  message.error(err.message);
+                })
+                .finally(() => setUploading(false));
+            } else {
+              departMajorApi.comment
+                .createSubComment({
+                  originalDocId: content.docId,
+                  commentId: subCommentFocusedId,
+                  content: commentContent,
+                })
+                .then(() => {
+                  message.destroy();
+                  window.location.reload();
+                })
+                .catch((err) => {
+                  message.destroy();
+                  message.error(err.message);
+                })
+                .finally(() => setUploading(false));
+            }
           }}>
           작성하기
         </CommentInputSubmitButton>

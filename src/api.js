@@ -66,11 +66,12 @@ export const departMajorApi = {
   comment: {
     getLists: async (body) => {
       const { docId } = body;
+      // 일반 댓글들 가져오기
       let commentsArr = await db
         .collection("departMajor")
         .doc(docId)
         .collection("comments")
-        .orderBy("timestamp", "desc")
+        .orderBy("timestamp")
         .get()
         .then((querySnapshot) => {
           let docsArray = [];
@@ -92,9 +93,10 @@ export const departMajorApi = {
               subComments: [],
             });
           });
+          return docsArray;
         });
-      for (let doc in commentsArr) {
-        // TODO: 여기서부터 다시 천천히 읽고 진행.
+      // 대댓글들 가져오기.
+      commentsArr.forEach(async (doc, idx) => {
         if (doc.subCommentsExist) {
           await db
             .collection("departMajor")
@@ -102,17 +104,40 @@ export const departMajorApi = {
             .collection("comments")
             .doc(doc.commentId)
             .collection("subcomments")
-            .orderBy("timestamp", "desc")
+            .orderBy("timestamp")
             .get()
             .then((querySnapshot) => {
               querySnapshot.forEach((doc) => {
                 let data = doc.data();
-                doc.subComments.push({});
+                let distanceText = formatDistanceToNow(
+                  data.timestamp.toMillis(),
+                  {
+                    locale: ko,
+                  }
+                ).replace("약 ", "");
+                if (distanceText.includes("미만")) {
+                  distanceText = "방금";
+                }
+                commentsArr[idx].subComments.push({
+                  subcommentId: doc.id,
+                  content: data.content,
+                  timestampDistance: distanceText,
+                  timestampMillis: data.timestamp.toMillis(),
+                  likeCount: data.likes_count,
+                });
               });
             });
         }
-      }
+      });
+
+      return commentsArr;
     },
+    createSubComment: (body) =>
+      api.post("board/departmajor/subcomment/create", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
     create: (body) =>
       api.post("board/departmajor/comment/create", body, {
         headers: {

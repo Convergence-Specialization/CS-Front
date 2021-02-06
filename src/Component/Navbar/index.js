@@ -65,7 +65,7 @@ const Navbar = ({
                   history.push("/");
                   if (!History) {
                     history.push("/mypage");
-                  } 
+                  }
                 } else {
                   history.push("/login");
                 }
@@ -146,19 +146,18 @@ const Navbar = ({
           </NavOpenSingleItemBox>
           {announceOpened && (
             <>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild onClick={() => history.push("/board/announcement")}
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => history.push("/board/announcement")}
-                >
-                  공지사항
-                </NavOpenItemText>
+                <NavOpenItemText>공지사항</NavOpenItemText>
               </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild
+                onClick={() => history.push("/board/event")}
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText onClick={() => history.push("/board/event")}>
-                  학부 행사
-                </NavOpenItemText>
+                <NavOpenItemText>학부 행사</NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}
@@ -174,21 +173,19 @@ const Navbar = ({
           </NavOpenSingleItemBox>
           {boardOpened && (
             <>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild
+                onClick={() => history.push("/board/convergence")}
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => history.push("/board/convergence")}
-                >
-                  융특게시판
-                </NavOpenItemText>
+                <NavOpenItemText>융특게시판</NavOpenItemText>
               </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild
+                onClick={() => history.push("/board/departmajor")}
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => history.push("/board/departmajor")}
-                >
-                  전과게시판
-                </NavOpenItemText>
+                <NavOpenItemText>전과게시판</NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}
@@ -208,55 +205,50 @@ const Navbar = ({
           </NavOpenSingleItemBox>
           {referSiteOpened && (
             <>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild
+                onClick={() => window.open("https://ssu.ac.kr/")}
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => window.open("https://ssu.ac.kr/")}
-                >
-                  숭실대학교 홈페이지
-                </NavOpenItemText>
+                <NavOpenItemText o>숭실대학교 홈페이지</NavOpenItemText>
               </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild
+                onClick={() =>
+                  window.open("https://saint.ssu.ac.kr/irj/portal")
+                }
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() =>
-                    window.open("https://saint.ssu.ac.kr/irj/portal")
-                  }
-                >
-                  유세인트
-                </NavOpenItemText>
+                <NavOpenItemText>유세인트</NavOpenItemText>
               </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild
+                onClick={() => window.open("http://myclass.ssu.ac.kr/")}
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => window.open("http://myclass.ssu.ac.kr/")}
-                >
-                  스마트캠퍼스
-                </NavOpenItemText>
+                <NavOpenItemText>스마트캠퍼스</NavOpenItemText>
               </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox isChild>
+              <NavOpenSingleItemBox
+                isChild
+                onClick={() =>
+                  window.open("http://pre.ssu.ac.kr/web/convergence")
+                }
+              >
                 <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() =>
-                    window.open("http://pre.ssu.ac.kr/web/convergence")
-                  }
-                >
-                  융특 홈페이지
-                </NavOpenItemText>
+                <NavOpenItemText>융특 홈페이지</NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}
-          <NavSingleBottomTopItemBox isChild>
+          <NavSingleBottomTopItemBox isChild onClick={() => history.push("/suggestions")}>
             <NavOpenItemMargin />
-            <NavOpenItemText onClick={() => history.push("/")}>
-              건의사항
-            </NavOpenItemText>
+            <NavOpenItemText>건의사항</NavOpenItemText>
           </NavSingleBottomTopItemBox>
-          <NavSingleBottomItemBox isChild>
+          <NavSingleBottomItemBox
+            isChild
+            onClick={() => history.push("/makers")}
+          >
             <NavOpenItemMargin />
-            <NavOpenItemText onClick={() => history.push("/makers")}>
-              만든 사람들
-            </NavOpenItemText>
+            <NavOpenItemText>만든 사람들</NavOpenItemText>
           </NavSingleBottomItemBox>
         </NavOpen>
       </NavContainer>

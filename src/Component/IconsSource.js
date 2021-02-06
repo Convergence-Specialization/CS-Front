@@ -6,10 +6,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   line-height: 1.45;
+  text-align: center;
 `;
 const Title = styled.div`
   margin: 20px 0px 10px;
-  font-size:20px
+  font-size: 20px;
 `;
 
 const IconsSource = () => {
@@ -120,6 +121,31 @@ const IconsSource = () => {
       <div>
         Icons made by{" "}
         <a href="http://www.freepik.com/" title="Freepik">
+          Freepik
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      pencile:{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/pixel-perfect"
+          title="Pixel perfect"
+        >
+          Pixel perfect
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      비밀융슝 :{" "}
+      <div>
+        Icons made by{" "}
+        <a href="https://www.freepik.com/" title="Freepik">
           Freepik
         </a>{" "}
         from{" "}

@@ -1,3 +1,6 @@
+import heart_empty from "../assets/icons/heart_empty.png";
+import speech_bubble from "../assets/icons/speech_bubble.png";
+
 export const Images = {
   Background:
     "https://user-images.githubusercontent.com/62606632/104093808-46d56f00-52d0-11eb-8bbd-08293cdaf869.jpg",
@@ -85,4 +88,9 @@ export const events = {
     "https://user-images.githubusercontent.com/71367047/106778440-535ba600-6689-11eb-96b2-03b524aa3fed.jpg",
   mentor:
     "https://user-images.githubusercontent.com/71367047/106778557-7423fb80-6689-11eb-86e5-cd1f6fa67710.jpg",
+};
+
+export const readDoc = {
+  heart_empty,
+  speech_bubble,
 };

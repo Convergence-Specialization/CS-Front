@@ -10,7 +10,7 @@ import SelectSubjectModal from "./Modal";
 import { horseIcons } from "../../../assets/Resources";
 import { subjectDicts } from "../../../assets/Dicts";
 
-let a=5;
+let a = 5;
 const Container = styled.div`
   width: 100%;
   padding: 20px 0;
@@ -51,9 +51,9 @@ const BoardChildTitleWrapper = styled.div`
   align-items: center;
 `;
 const BoardChildTitle = styled.div`
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin-right: 90px;
   font-weight: bold;
   width: 72%;
@@ -65,9 +65,9 @@ const BoardChildContentWrapper = styled.div`
   align-items: center;
 `;
 const BoardChildContent = styled.div`
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 15px;
   width: 93%;
   margin-bottom: 8px;
@@ -100,6 +100,7 @@ const ChangedBoard = () => {
   const [subjectSelected, setSubjectSelected] = useState("");
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   useEffect(() => {
+    // TODO: API에서 더보기 구현.
     departMajorApi
       .getLists({ size: 10 })
       .then((docsArray) => setPosts(docsArray))
@@ -130,8 +131,9 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
-              >
+                style={
+                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
+                }>
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -147,10 +149,12 @@ const ChangedBoard = () => {
                 onClick={() =>
                   history.push({
                     pathname: `/board/departmajor`,
-                    state: { pageName: "read" },
+                    state: {
+                      pageName: "read",
+                      docItem: item,
+                    },
                   })
-                }
-              >
+                }>
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -158,7 +162,7 @@ const ChangedBoard = () => {
                       src={subjectDicts[item.subject].img}
                       alt={"asdf"}
                     />
-                  )}                
+                  )}
                   {item.subject === "NONE" && (
                     <BoardChildTitle style={{ width: "80%" }}>
                       {item.title}
@@ -182,12 +186,11 @@ const ChangedBoard = () => {
         <MoreButton
           onClick={() => {
             departMajorApi
-            .getLists({ size: 10+a })
-            .then((docsArray) => setPosts(docsArray))
-            .catch((error) => message.error(error.message));
-            a=a+5;
-          }}
-        >
+              .getLists({ size: 10 + a })
+              .then((docsArray) => setPosts(docsArray))
+              .catch((error) => message.error(error.message));
+            a = a + 5;
+          }}>
           더보기
         </MoreButton>
         <GoUp />

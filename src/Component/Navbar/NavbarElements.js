@@ -116,22 +116,16 @@ export const NavOpenSingleItemBox = styled.div`
   background-color: ${(props) => (props.isChild ? "#EFEFEF" : "white")};
   font-weight: ${(props) => (props.isChild ? "normal" : "bold")};
 `;
+export const NavSingleMarginBetween = styled.div`
+  width: 1px;
+  height: 29vh;
+`;
 export const NavSingleBottomItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
   cursor: pointer;
-  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
   display: flex;
-  align-items: center;
-  position: relative;
-  `;
-export const NavSingleBottomTopItemBox = styled.div`
-  align-self: stretch;
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid grey;
-  display: flex;
-  text-align:center;
   align-items: center;
   position: relative;
 `;

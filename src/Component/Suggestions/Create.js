@@ -108,7 +108,6 @@ const Suggestions = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [uploading, setUploading] = useState(false);
-  const [subjectSelected] = useState("NONE");
 
   const history = useHistory();
   return (
@@ -136,26 +135,10 @@ const Suggestions = () => {
               }
               // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.
               setUploading(true);
-              message.loading("업로드 중...");
-              const requestBody = {
-                title,
-                content,
-                subject: subjectSelected,
-              };
-              departMajorApi
-                .create(requestBody)
-                .then(() => {
-                  message.destroy();
-                  history.push({
-                    pathname: `suggestions`,
-                    state: { pageName: "suggested" },
-                  });
-                })
-                .catch((err) => {
-                  message.destroy();
-                  message.error(err.message);
-                  setUploading(false);
-                });
+              history.push({
+                pathname: `suggestions`,
+                state: { pageName: "suggested" },
+              });
             }}
           >
             작성하기

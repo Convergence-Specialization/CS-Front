@@ -19,6 +19,7 @@ import {
   NavOpenItemArrowButton,
   NavSingleBottomItemBox,
   NavSingleBottomTopItemBox,
+  NavSingleMarginBetween,
 } from "./NavbarElements";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Watchers";
@@ -80,8 +81,7 @@ const Navbar = ({
             navClicked
               ? { left: "0", opacity: "1" }
               : { left: "-100%", opacity: "0" }
-          }
-        >
+          }>
           <NavOpenUpperContainer>
             <NavOpenUpperButtonWrapper>
               {!!user ? (
@@ -97,8 +97,7 @@ const Navbar = ({
                         .catch((error) => {
                           message.error(error.message);
                         });
-                    }}
-                  >
+                    }}>
                     로그아웃
                   </NavOpenUpperButton>
                   <NavOpenUpperButton onClick={() => history.push("/mypage")}>
@@ -133,8 +132,7 @@ const Navbar = ({
             <NavOpenItemText>알림함</NavOpenItemText>
           </NavOpenSingleItemBox>
           <NavOpenSingleItemBox
-            onClick={() => setAnnounceOpened(!announceOpened)}
-          >
+            onClick={() => setAnnounceOpened(!announceOpened)}>
             <NavOpenItemMargin />
             <NavOpenItemText>학생회 공지사항</NavOpenItemText>
             <NavOpenItemArrowButton
@@ -150,7 +148,10 @@ const Navbar = ({
                 isChild onClick={() => history.push("/board/announcement")}
               >
                 <NavOpenItemMargin />
-                <NavOpenItemText>공지사항</NavOpenItemText>
+                <NavOpenItemText
+                  onClick={() => history.push("/board/announcement")}>
+                  공지사항
+                </NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox
                 isChild
@@ -178,20 +179,25 @@ const Navbar = ({
                 onClick={() => history.push("/board/convergence")}
               >
                 <NavOpenItemMargin />
-                <NavOpenItemText>융특게시판</NavOpenItemText>
+                <NavOpenItemText
+                  onClick={() => history.push("/board/convergence")}>
+                  융특게시판
+                </NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox
                 isChild
                 onClick={() => history.push("/board/departmajor")}
               >
                 <NavOpenItemMargin />
-                <NavOpenItemText>전과게시판</NavOpenItemText>
+                <NavOpenItemText
+                  onClick={() => history.push("/board/departmajor")}>
+                  전과게시판
+                </NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}
           <NavOpenSingleItemBox
-            onClick={() => setReferSiteOpened(!referSiteOpened)}
-          >
+            onClick={() => setReferSiteOpened(!referSiteOpened)}>
             <NavOpenItemMargin />
             <NavOpenItemText>관련 사이트</NavOpenItemText>
             <NavOpenItemArrowButton
@@ -210,7 +216,10 @@ const Navbar = ({
                 onClick={() => window.open("https://ssu.ac.kr/")}
               >
                 <NavOpenItemMargin />
-                <NavOpenItemText o>숭실대학교 홈페이지</NavOpenItemText>
+                <NavOpenItemText
+                  onClick={() => window.open("https://ssu.ac.kr/")}>
+                  숭실대학교 홈페이지
+                </NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox
                 isChild
@@ -219,14 +228,22 @@ const Navbar = ({
                 }
               >
                 <NavOpenItemMargin />
-                <NavOpenItemText>유세인트</NavOpenItemText>
+                <NavOpenItemText
+                  onClick={() =>
+                    window.open("https://saint.ssu.ac.kr/irj/portal")
+                  }>
+                  유세인트
+                </NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox
                 isChild
                 onClick={() => window.open("http://myclass.ssu.ac.kr/")}
               >
                 <NavOpenItemMargin />
-                <NavOpenItemText>스마트캠퍼스</NavOpenItemText>
+                <NavOpenItemText
+                  onClick={() => window.open("http://myclass.ssu.ac.kr/")}>
+                  스마트캠퍼스
+                </NavOpenItemText>
               </NavOpenSingleItemBox>
               <NavOpenSingleItemBox
                 isChild
@@ -235,21 +252,26 @@ const Navbar = ({
                 }
               >
                 <NavOpenItemMargin />
-                <NavOpenItemText>융특 홈페이지</NavOpenItemText>
+                <NavOpenItemText
+                  onClick={() =>
+                    window.open("http://pre.ssu.ac.kr/web/convergence")
+                  }>
+                  융특 홈페이지
+                </NavOpenItemText>
               </NavOpenSingleItemBox>
             </>
           )}
-          <NavSingleBottomTopItemBox isChild onClick={() => history.push("/suggestions")}>
+          <NavSingleMarginBetween />
+          <NavOpenSingleItemBox
+            onClick={() => history.push("/")}
+            style={{ borderTop: "1px solid grey" }}>
             <NavOpenItemMargin />
             <NavOpenItemText>건의사항</NavOpenItemText>
-          </NavSingleBottomTopItemBox>
-          <NavSingleBottomItemBox
-            isChild
-            onClick={() => history.push("/makers")}
-          >
+          </NavOpenSingleItemBox>
+          <NavOpenSingleItemBox onClick={() => history.push("/")}>
             <NavOpenItemMargin />
             <NavOpenItemText>만든 사람들</NavOpenItemText>
-          </NavSingleBottomItemBox>
+          </NavOpenSingleItemBox>
         </NavOpen>
       </NavContainer>
       <NavUpperMargin style={isTransparent ? { display: "none" } : {}} />

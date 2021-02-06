@@ -70,6 +70,7 @@ export const departMajorApi = {
         .collection("departMajor")
         .doc(docId)
         .collection("comments")
+        .orderBy("timestamp", "desc")
         .get()
         .then((querySnapshot) => {
           let docsArray = [];
@@ -101,11 +102,12 @@ export const departMajorApi = {
             .collection("comments")
             .doc(doc.commentId)
             .collection("subcomments")
+            .orderBy("timestamp", "desc")
             .get()
             .then((querySnapshot) => {
-              let subcommentsArray = [];
               querySnapshot.forEach((doc) => {
                 let data = doc.data();
+                doc.subComments.push({});
               });
             });
         }

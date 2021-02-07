@@ -55,12 +55,15 @@ export const NavOpen = styled.div`
   width: 50%;
   height: 100vh;
   position: absolute;
-  top: 45px;
+  top: 60px;
   border-right: 1px solid grey;
   background: white;
   z-index: 1;
   opacity: 1;
   transition: all 0.2s ease;
+  @media (max-width: 430px) {
+    top: 45px;
+  }
 `;
 export const NavLinkOpen = styled(Link)`
   color: black;

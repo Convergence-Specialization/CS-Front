@@ -43,15 +43,12 @@ const ModalOverlay = styled.div`
 `;
 const ModalInner = styled.div`
   box-sizing: border-box;
-  position: relative;
+  position: fixed;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
   background-color: #fff;
   border-radius: 10px;
   width: ${(props) => props.width || "375px"};
   transform: translateY(-50%);
-  @media (max-width: 430px) {
-    margin: 0 0;
-  }
 `;
 export const SelectSubjectModal = ({ onClose, visible, navClicked }) => {
   const onMaskClick = (e) => {

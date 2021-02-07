@@ -1,170 +1,114 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { horseIcons } from "../../../../assets/Resources";
-
+import { message } from "antd";
+import { useHistory } from "react-router-dom";
 const Container = styled.div`
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-`;
-
-const BoardContainer = styled.div`
-  width: 100%;
-  border-radius: 0px;
-  background-color: #f1f1f1;
-  padding: 0 auto;
-  padding-bottom: 50px;
-  margin: 0 auto;
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
+  background-color: #f1f1f1;
 `;
-
-const BoardWrapper = styled.div`
-  margin-top: 13px;
-  padding: 10px;
-  width: 90%;
-  height: 450px;
-  border-radius: 15px;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 1.12;
-  color: #444444;
-  background-color: white;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  @media (max-width: 430px) {
-    font-size: 12px;
-  }
-`;
-const BoardTitleWrapper = styled.div`
-  margin: 5px 0 10px 5px;
-`;
-const BoardTitle = styled.div`
-  font-size: 15px;
-  font-weight: bold;
-  color: #000000;
-  @media (max-width: 430px) {
-    font-size: 16px;
-  }
-`;
-
-const WritterAndDate = styled.div`
-  font-size: 12px;
-  text-align: center;
-  margin-left: 8px;
-  padding-top: 5px;
-
-  @media (max-width: 430px) {
-  }
-`;
-
-const BoardLine = styled.div`
-  border: solid 1px #a5a5a5;
-  margin: 5px 10px 0px 10px;
-`;
-
-const BoardWritterWrapper = styled.div`
+const InputTitle = styled.input`
   display: flex;
-  align-items: left;
-  padding-top: 5px;
-  justify-content: left;
-  width: 94%;
-`;
-
-const BoardText = styled.div`
-  margin: 5px;
-  font-size: 14px;
-  line-height: 2;
-  word-break: keep-all;
-`;
-
-const BoardButton = styled.div`
-  margin: 0px 10px 0px 290px;
-  padding: 5px;
-  width: 15%;
-  height: 30px;
-  background-color: #d4e6fb;
-  border-radius: 15px;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 1.12;
-  text-align: center;
-  color: #444444;
+  width: 95%;
+  padding: 15px 15px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  font-size: 20px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   @media (max-width: 430px) {
     font-size: 15px;
+    padding: 14px 15px;
+    border-radius: 17px;
   }
 `;
-
-const BoardButtonText = styled.div`
-  margin: 5px 0px 5px 0px;
-  font-weight: bold;
+const InputImg = styled.div`
+  display: flex;
+  width: 95%;
+  padding: 13px 15px;
+  border-radius: 20px;
+  margin: 10px;
+  background-color: white;
+  color: #757575;
+  justify-content: space-between;
+  font-size: 17px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  @media (max-width: 430px) {
+    font-size: 13px;
+  }
 `;
-
+const ContentTextArea = styled.textarea`
+  padding: 10px 15px;
+  width: 95%;
+  min-height: 60vh;
+  border: none;
+  font-size: 17px;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  ::placeholder {
+    font-size: 13px;
+  }
+`;
 const HorseImg = styled.img`
   width: 8%;
 `;
-const SubBox = styled.div`
-  font-size: 14px;
-  width: 90%;
-  margin: 15px auto;
-  background-color: #ffffff;
-  border-radius: 20px;
+const ButtonWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Button = styled.div`
+  padding: 10px 40px;
+  border-radius: 15px;
+  background-color: #d4e6fb;
+  font-weight: bold;
+  text-align: center;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 
-const SubPre = styled.div`
-  display: flex;
-  margin: 10px 20px;
-`;
-const SubFor = styled.div`
-  display: flex;
-  margin: 10px 20px;
-`;
-
-const Announcement = () => {
+const Create = () => {
+  const [title, setTitle] = useState("");
+  const [content] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const history = useHistory();
   return (
-    <Container>
-      <BoardContainer>
-        <BoardWrapper>
-          <BoardTitleWrapper>
-            <BoardTitle>전과 신청 결과는 1월 18일에 발표됩니다.</BoardTitle>
-            <BoardWritterWrapper>
-              <HorseImg src={horseIcons.normal} alt="말머리" />
-              <WritterAndDate>관리자 융슝이 | 21.02.04</WritterAndDate>
-            </BoardWritterWrapper>
-          </BoardTitleWrapper>
-          <BoardLine />
-          <BoardText>
-            뭐하지...?
-            <br />
-            상당히 심심하구만
-            <br />
-            사실 원래 공지사항은 관리자가 글써야하는데 그거 기획도 안 했고 맨
-            마지막에 만들어도 된다고 해서 걍 어떻게 보일지 만들고 있어여
-            <br />
-            뭐하지.... 심심해
-            <br />
-            지금 아이스크림 먹고 싶다
-            <br />
-            서울가면 또 할 거 없는데 울 은소가 다음주에나 서울
-            온대여ㅠㅠㅠㅠㅠㅠㅠㅠ
-            <br />
-            은소씌.... 나랑 놀아줭
-          </BoardText>
-        </BoardWrapper>
-        <SubBox>
-          <SubPre>이전 | '온라인학습법특강' 참여</SubPre>
-          <BoardLine />
-          <SubFor>이후 | 뭐라고 해야하지</SubFor>
-        </SubBox>
-        <BoardButton>
-          <BoardButtonText>목록</BoardButtonText>
-        </BoardButton>
-      </BoardContainer>
-    </Container>
+    <>
+      <Container>
+        <InputTitle
+          placeholder="제목"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <InputImg>
+          <div>첨부할 사진을 선택하세요</div>
+          <div style={{ cursor: "pointer" }}>추가</div>
+        </InputImg>
+        <ContentTextArea placeholder="내용을 입력하세요" />
+        <ButtonWrapper>
+          <Button onClick={() => history.goBack()}>취소</Button>
+          <Button
+            onClick={() => {
+              if (uploading) return;
+              if (title === "" || content === "") {
+                message.error("제목 또는 글 내용을 작성해주세요.");
+                return;
+              }
+              // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.
+              setUploading(true);
+              message.loading("업로드 중...");
+            }}>
+            완료
+          </Button>
+        </ButtonWrapper>
+      </Container>
+    </>
   );
 };
-export default Announcement;
+export default Create;

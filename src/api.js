@@ -42,7 +42,6 @@ export const departMajorApi = {
           if (distanceText.includes("미만")) {
             distanceText = "방금";
           }
-
           docsArray.push({
             docId: doc.id,
             title: data.title,
@@ -95,41 +94,42 @@ export const departMajorApi = {
           });
           return docsArray;
         });
-      // 대댓글들 가져오기.
-      commentsArr.forEach(async (doc, idx) => {
-        if (doc.subCommentsExist) {
-          await db
-            .collection("departMajor")
-            .doc(docId)
-            .collection("comments")
-            .doc(doc.commentId)
-            .collection("subcomments")
-            .orderBy("timestamp")
-            .get()
-            .then((querySnapshot) => {
-              querySnapshot.forEach((doc) => {
-                let data = doc.data();
-                let distanceText = formatDistanceToNow(
-                  data.timestamp.toMillis(),
-                  {
-                    locale: ko,
+      // 대댓글들 가져오기. 병렬 promise 처리.
+      await Promise.all(
+        commentsArr.map(async (doc, idx) => {
+          if (doc.subCommentsExist) {
+            await db
+              .collection("departMajor")
+              .doc(docId)
+              .collection("comments")
+              .doc(doc.commentId)
+              .collection("subcomments")
+              .orderBy("timestamp")
+              .get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  let data = doc.data();
+                  let distanceText = formatDistanceToNow(
+                    data.timestamp.toMillis(),
+                    {
+                      locale: ko,
+                    }
+                  ).replace("약 ", "");
+                  if (distanceText.includes("미만")) {
+                    distanceText = "방금";
                   }
-                ).replace("약 ", "");
-                if (distanceText.includes("미만")) {
-                  distanceText = "방금";
-                }
-                commentsArr[idx].subComments.push({
-                  subcommentId: doc.id,
-                  content: data.content,
-                  timestampDistance: distanceText,
-                  timestampMillis: data.timestamp.toMillis(),
-                  likeCount: data.likes_count,
+                  commentsArr[idx].subComments.push({
+                    subcommentId: doc.id,
+                    content: data.content,
+                    timestampDistance: distanceText,
+                    timestampMillis: data.timestamp.toMillis(),
+                    likeCount: data.likes_count,
+                  });
                 });
               });
-            });
-        }
-      });
-
+          }
+        })
+      );
       return commentsArr;
     },
     createSubComment: (body) =>

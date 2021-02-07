@@ -26,14 +26,13 @@ const InputTitle = styled.input`
   }
 `;
 const InputImg = styled.div`
-  display: flex;
   width: 95%;
   padding: 13px 15px;
   border-radius: 20px;
   margin: 10px;
   background-color: white;
   color: #757575;
-  justify-content: space-between;
+
   font-size: 17px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   @media (max-width: 430px) {
@@ -55,13 +54,18 @@ const ContentTextArea = styled.textarea`
     font-size: 13px;
   }
 `;
-const HorseImg = styled.img`
-  width: 8%;
+const Img = styled.img`
+  width: 18%;
+  margin:10px 10px 0px 10px;
 `;
 const ButtonWrapper = styled.div`
   width: 80%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+`;
+const ImgText = styled.div`
+  display: flex;
   justify-content: space-between;
 `;
 const Button = styled.div`
@@ -87,8 +91,14 @@ const Create = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <InputImg>
-          <div>첨부할 사진을 선택하세요</div>
-          <div style={{ cursor: "pointer" }}>추가</div>
+          <ImgText>
+            <div>첨부할 사진을 선택하세요</div>
+            <div style={{ cursor: "pointer" }}>추가</div>
+          </ImgText>
+          <Img src={horseIcons.normal} alt="말머리" />
+          <Img src={horseIcons.normal} alt="말머리" />
+          <Img src={horseIcons.normal} alt="말머리" />
+          <Img src={horseIcons.normal} alt="말머리" />
         </InputImg>
         <ContentTextArea placeholder="내용을 입력하세요" />
         <ButtonWrapper>
@@ -103,7 +113,8 @@ const Create = () => {
               // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.
               setUploading(true);
               message.loading("업로드 중...");
-            }}>
+            }}
+          >
             완료
           </Button>
         </ButtonWrapper>

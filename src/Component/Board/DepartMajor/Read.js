@@ -161,7 +161,6 @@ const Read = () => {
       .then((commentsArr) => {
         setComments(commentsArr);
         setCommentLoading(false);
-        console.log(commentsArr);
       })
       .catch((err) => {
         message.error(err.message);
@@ -193,7 +192,7 @@ const Read = () => {
           <LoadingComponent />
         ) : (
           comments.map((item, idx) => (
-            <>
+            <React.Fragment key={`${idx}Child`}>
               <CommentChildWrapper
                 key={`${idx}COMMENT`}
                 style={
@@ -209,7 +208,7 @@ const Read = () => {
                 <CommentButtonWrapper>
                   <CommentChildLikeWrapper
                     onClick={() => {
-                      if (subCommentFocusedId === "") {
+                      if (subCommentFocusedId !== item.commentId) {
                         document.getElementById("commentInputBox").focus();
                         setSubCommentFocusedId(item.commentId);
                       } else {
@@ -243,7 +242,7 @@ const Read = () => {
                   <CommentChildText>{subItem.content}</CommentChildText>
                 </CommentChildWrapper>
               ))}
-            </>
+            </React.Fragment>
           ))
         )}
       </WhiteContainer>

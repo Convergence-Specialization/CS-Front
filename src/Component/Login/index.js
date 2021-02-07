@@ -154,7 +154,6 @@ const Login = () => {
             } else if (status === 201) {
               const idToken = await authService.currentUser.getIdToken();
               localStorage.setItem("idToken", idToken);
-              console.log(authService.currentUser);
               message.success("구글 로그인 성공");
               history.push("/");
             }

@@ -41,6 +41,16 @@ const Navbar = ({
           <NavLeftMargin />
           {!isRight1Disabled && (
             <IconImg
+            onClick={() => {
+              if (user) {
+                history.push("/");
+                if (!History) {
+                  history.push("/notification");
+                }
+              } else {
+                history.push("/login");
+              }
+            }}
               src={IconRight1 || mainPageIcons.notification}
               alt={IconNameRight1 || "아이콘2"}
             />

@@ -13,6 +13,7 @@ import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/MyPage/ChangeInformation";
 import ChangePW from "../Routes/MyPage/ChangePW";
 import Event from "../Routes/Event";
+import Notification from "../Routes/Notification";
 import EventPost from "../Routes/EventPost";
 import NormalCreate from "../Routes/NormalCreate";
 import SignUp from "../Routes/SignUp";
@@ -54,6 +55,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/signup" exact>
           <SignUp />
+        </Route>
+        <Route path="/notification" exact>
+          <Notification />
         </Route>
         <Route path="/signup/google">
           <SignUpGoogle />

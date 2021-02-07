@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { horseIcons } from "../../../../assets/Resources";
-import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -126,7 +125,6 @@ const SubFor = styled.div`
 `;
 
 const Announcement = () => {
-  const history = useHistory();
   return (
     <Container>
       <BoardContainer>
@@ -163,10 +161,7 @@ const Announcement = () => {
           <SubFor>이후 | 뭐라고 해야하지</SubFor>
         </SubBox>
         <BoardButton>
-          <BoardButtonText
-          >
-            목록
-          </BoardButtonText>
+          <BoardButtonText>목록</BoardButtonText>
         </BoardButton>
       </BoardContainer>
     </Container>

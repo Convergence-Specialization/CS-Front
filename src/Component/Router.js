@@ -17,7 +17,7 @@ import EventPost from "../Routes/EventPost";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
-import Announcement from "../Routes/Announcement";
+import Announcement from "../Routes/Board/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";

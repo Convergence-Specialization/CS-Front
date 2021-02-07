@@ -31,17 +31,8 @@ const ModalWrapper = styled.div`
   overflow: auto;
   outline: 0;
 `;
-const ModalOverlay = styled.div`
-  box-sizing: border-box;
-  display: ${(props) => (props.visible ? "block" : "none")};
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-`;
-export const SelectSubjectModal = ({ onClose, visible }) => {
+
+export const SelectSubjectModal = ({ onClose, visible, navClicked }) => {
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -54,10 +45,14 @@ export const SelectSubjectModal = ({ onClose, visible }) => {
   const [referSiteOpened, setReferSiteOpened] = useState(false);
   return (
     <>
-      <ModalOverlay visible={visible} />
-      <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
+   
+      <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible} >
         <NavOpen 
-        >
+        style={	
+          {navClicked}	
+          ? { left: "0", opacity: "1" }		
+          : { left: "-100%", opacity: "0" }  
+        }>
           <NavOpenUpperContainer>
             <NavOpenUpperButtonWrapper>
               {!!user ? (

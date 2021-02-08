@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useAuth } from "../../Watchers";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
+import SelectSubjectModal from "../Modal";
 const Con = styled.div`
   padding: 20px;
   width: 82%;
@@ -78,8 +79,14 @@ const Kon = styled.div`
 const Board = () => {
   const user = useAuth();
   const history = useHistory();
+  const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   return (
     <>
+    <SelectSubjectModal
+        visible={subjectModalVisible}
+        onClose={() => setSubjectModalVisible(false)}
+        name="회원 정보가 수정되었습니다."
+      />
       <Oon>
         <Text>이름</Text>
       </Oon>
@@ -114,8 +121,9 @@ const Board = () => {
         <Text>※이메일은 수정되지 않습니다.</Text>
       </Jon>
       <Kon
-      onClick={() =>{ history.push("/mypage")
+      onClick={() =>{
       message.success("정보가 수정되었습니다.");
+      setSubjectModalVisible(true)
     }}
       >정보 수정 완료</Kon>
     </>

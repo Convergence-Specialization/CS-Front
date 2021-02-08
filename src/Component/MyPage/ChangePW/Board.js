@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { useState } from "react";
+
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
-
+import SelectSubjectModal from "../Modal";
 const Con = styled.div`
   margin: 0px auto 0px auto;
   padding: 20px;
@@ -88,8 +88,14 @@ const Board = () => {
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
   const history = useHistory();
+  const [subjectModalVisible, setSubjectModalVisible] = useState(false);
+  const [name, setname] = useState(false);
   return (
     <>
+     <SelectSubjectModal
+        visible={subjectModalVisible}
+        onClose={() => setSubjectModalVisible(false)}
+      />
       <Oon>
         <Text>계정 비밀번호</Text>
       </Oon>
@@ -132,7 +138,7 @@ const Board = () => {
         }
         else  {
           message.success("비밀번호가 변경되었습니다.");
-          history.push("/mypage");
+          setSubjectModalVisible(true)
         }
       }}
       >비밀번호 변경</Kon>

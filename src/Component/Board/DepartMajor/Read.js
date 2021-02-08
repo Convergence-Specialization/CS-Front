@@ -1,9 +1,10 @@
 import { message } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { departMajorApi } from "../../../api";
 import { Icons, mainPageIcons, readDoc } from "../../../assets/Resources";
+import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 
 const WhiteContainer = styled.div`
@@ -107,7 +108,10 @@ const CommentChildLikeCount = styled.div`
   margin-left: 5px;
   font-size: 13px;
 `;
-
+const CommentInputMargin = styled.div`
+  width: 1px;
+  height: 58px;
+`;
 const CommentInputContainer = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -117,6 +121,7 @@ const CommentInputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 768px;
   background-color: white;
 `;
 const CommentInputSecretButton = styled.img`
@@ -148,15 +153,19 @@ const Read = () => {
 
   const [subCommentFocusedId, setSubCommentFocusedId] = useState("");
 
+  // 추후 익명의 슝슝이 별명 변경할 때에 쓰일 예정.
+  const [myEncryptedUid, setMyEncryptedUid] = useState("");
+  const [didILikedThisDoc, setDidILikedThisDoc] = useState(null);
+
   const [commentLoading, setCommentLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
-  useEffect(() => {
-    setContent(location.state.docItem);
-    departMajorApi.comment
+  const getComments = useCallback((myEncryptedUid, docItem) => {
+    return departMajorApi.comment
       .getLists({
-        docId: location.state.docItem.docId,
+        docId: docItem.docId,
+        myEncryptedUid,
       })
       .then((commentsArr) => {
         setComments(commentsArr);
@@ -166,6 +175,41 @@ const Read = () => {
         message.error(err.message);
       });
   }, []);
+
+  const getMyEncryptedUid = useCallback((docItem) => {
+    return departMajorApi
+      .myEncryptedUid({
+        docId: docItem.docId,
+      })
+      .then((res) => res.data.encryptedUid)
+      .catch((err) => {
+        message.error(err.message);
+      });
+  }, []);
+
+  const didILikedDoc = useCallback((myEncryptedUid, docItem) => {
+    return db
+      .collection("departMajor")
+      .doc(docItem.docId)
+      .collection("likes")
+      .where("encryptedUid", "==", myEncryptedUid)
+      .get()
+      .then((querySnapshot) => querySnapshot.size !== 0)
+      .catch((err) => message.error(err));
+  }, []);
+
+  useEffect(() => {
+    if (location.state === undefined) return;
+    const { docItem } = location.state;
+    setContent(docItem);
+    getMyEncryptedUid(docItem).then((myEncryptedUid) => {
+      getComments(myEncryptedUid, docItem);
+      setMyEncryptedUid(myEncryptedUid, docItem);
+      didILikedDoc(myEncryptedUid, docItem).then((liked) =>
+        setDidILikedThisDoc(liked)
+      );
+    });
+  }, [getComments, location.state]);
   return (
     <>
       {content.title !== undefined && (
@@ -177,10 +221,34 @@ const Read = () => {
             <LikeCountText>
               공감 {content.likeCount} | 댓글 {content.commentCount}
             </LikeCountText>
-            <CommentButton>
-              <CommentImg src={mainPageIcons.heart} alt={"공감 이미지"} />
-              <CommentButtonText>공감</CommentButtonText>
-            </CommentButton>
+            {didILikedThisDoc !== null && (
+              <CommentButton
+                style={
+                  didILikedThisDoc
+                    ? { backgroundColor: "black", color: "white" }
+                    : {}
+                }
+                onClick={() => {
+                  if (uploading) return;
+                  setUploading(true);
+                  message.loading("좋아요 누르는 중..", 10);
+                  departMajorApi
+                    .like({ docId: content.docId, like: "LIKE" })
+                    .then(() => {
+                      message.destroy();
+                    })
+                    .catch((err) => {
+                      message.destroy();
+                      message.error(err.message);
+                    })
+                    .finally(() => {
+                      setUploading(false);
+                    });
+                }}>
+                <CommentImg src={mainPageIcons.heart} alt={"공감 이미지"} />
+                <CommentButtonText>공감</CommentButtonText>
+              </CommentButton>
+            )}
           </ExtraContentWrapper>
         </WhiteContainer>
       )}
@@ -246,6 +314,7 @@ const Read = () => {
           ))
         )}
       </WhiteContainer>
+      <CommentInputMargin />
       <CommentInputContainer>
         <CommentInputBox
           placeholder={

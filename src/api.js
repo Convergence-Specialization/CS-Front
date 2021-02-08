@@ -56,15 +56,28 @@ export const departMajorApi = {
         return docsArray;
       });
   },
+  myEncryptedUid: (body) =>
+    api.post("board/departmajor/myencrypteduid", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
   create: (body) =>
     api.post("board/departmajor/create", body, {
       headers: {
         Authorization: getBearer(),
       },
     }),
+  like: (body) =>
+    api.post("board/departmajor/like", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
   comment: {
     getLists: async (body) => {
-      const { docId } = body;
+      // TODO: myEncryptedUid로 본인이 좋아요 누른 댓글들은 좋아요 처리.
+      const { docId, myEncryptedUid } = body;
       // 일반 댓글들 가져오기
       let commentsArr = await db
         .collection("departMajor")

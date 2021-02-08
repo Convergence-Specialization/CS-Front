@@ -62,7 +62,7 @@ const Board = () => {
   return (
     <>
       <Con>
-        <Qrap>
+        <Qrap onClick={() => history.push("/mypage/myposts")}>
           <div>내가 쓴 글</div>
         </Qrap>
       </Con>

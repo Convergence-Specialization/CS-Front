@@ -5,8 +5,8 @@ import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const api = axios.create({
-  baseURL: "https://convergence-ssu.herokuapp.com/",
-  // baseURL: "http://localhost:5000",
+  // baseURL: "https://convergence-ssu.herokuapp.com/",
+  baseURL: "http://localhost:5000",
 });
 
 const getBearer = () => {
@@ -56,8 +56,15 @@ export const departMajorApi = {
         return docsArray;
       });
   },
+  myEncryptedUid: (body) => {},
   create: (body) =>
     api.post("board/departmajor/create", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
+  like: (body) =>
+    api.post("board/departmajor/like", body, {
       headers: {
         Authorization: getBearer(),
       },

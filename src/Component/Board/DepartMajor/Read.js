@@ -117,6 +117,7 @@ const CommentInputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 768px;
   background-color: white;
 `;
 const CommentInputSecretButton = styled.img`
@@ -154,6 +155,7 @@ const Read = () => {
 
   useEffect(() => {
     setContent(location.state.docItem);
+    // 이 과정 함수로 빼서 완료될 때 마다 재실행.
     departMajorApi.comment
       .getLists({
         docId: location.state.docItem.docId,
@@ -177,7 +179,24 @@ const Read = () => {
             <LikeCountText>
               공감 {content.likeCount} | 댓글 {content.commentCount}
             </LikeCountText>
-            <CommentButton>
+            <CommentButton
+              onClick={() => {
+                if (uploading) return;
+                setUploading(true);
+                message.loading("좋아요 누르는 중..", 10);
+                departMajorApi
+                  .like({ docId: content.docId, like: "LIKE" })
+                  .then(() => {
+                    message.destroy();
+                  })
+                  .catch((err) => {
+                    message.destroy();
+                    message.error(err.message);
+                  })
+                  .finally(() => {
+                    setUploading(false);
+                  });
+              }}>
               <CommentImg src={mainPageIcons.heart} alt={"공감 이미지"} />
               <CommentButtonText>공감</CommentButtonText>
             </CommentButton>

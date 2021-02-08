@@ -26,7 +26,9 @@ export default () => {
   }, [location]);
   return (
     <>
-        <Navbar Navname="마이페이지" />
+       <Navbar Navname="마이페이지" 
+      isRight1Disabled History IconRight2= {Icons.Home}
+       />
       <NavBot Name="내가 쓴 글" Icon={Icons.check} />
       {renderElement}
     </>

@@ -34,7 +34,6 @@ const PostButton = styled.div`
 
 const NavBot = ({ Name, Icon, postButtonRef }) => {
   const history = useHistory();
-
   return (
     <Container>
       <IconImg src={Icon} />

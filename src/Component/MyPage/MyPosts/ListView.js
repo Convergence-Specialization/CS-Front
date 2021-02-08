@@ -40,11 +40,11 @@ const SubjectSelectImg = styled.img`
 `;
 const BoardContainer = styled.div`
   width: 95%;
-  min-height: 80vh;
   border-radius: 15px;
   margin: 20px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
+  min-height: 50vh;
 `;
 const BoardChildWrapper = styled.div`
   padding: 12px 12px;
@@ -83,7 +83,14 @@ const BoardChildMetaText = styled.div`
   justify-content: flex-end;
   display: flex;
 `;
-
+const BlankPost = styled.div`
+  padding: 70px 10px 10px 10px;
+  margin: 10px auto;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #c8c8c8;
+`;
 const MyPost = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
@@ -102,7 +109,7 @@ const MyPost = () => {
           <Button>더보기</Button>
         </Box>
         {posts.length === 0 ? (
-          <LoadingComponent />
+          <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
         ) : (
           posts.map((item, idx) => (
             <BoardChildWrapper
@@ -164,7 +171,7 @@ const MyPost = () => {
           <Button>더보기</Button>
         </Box>
         {posts.length === 0 ? (
-          <LoadingComponent />
+          <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
         ) : (
           posts.map((item, idx) => (
             <BoardChildWrapper

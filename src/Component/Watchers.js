@@ -23,6 +23,7 @@ export const UseGoogleAnalytics = () => {
     const idToken = localStorage.getItem("idToken");
     if (idToken !== null) {
       if (jwtDecode(idToken).exp * 1000 < new Date().getTime()) {
+        message.info("토큰 재발급 시도");
         authService.currentUser
           .getIdToken()
           .then((token) => localStorage.setItem("idToken", token))

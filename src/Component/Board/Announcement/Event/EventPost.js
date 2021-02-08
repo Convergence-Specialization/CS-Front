@@ -139,7 +139,7 @@ const Event = () => {
           </BoardText>
         </BoardWrapper>
         <BoardButton>
-          <BoardButtonText onClick={() => history.push("/board/event")}>
+          <BoardButtonText onClick={() => history.goBack()}>
             목록
           </BoardButtonText>
         </BoardButton>

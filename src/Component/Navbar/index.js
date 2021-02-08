@@ -3,30 +3,15 @@ import {
   Nav,
   NavLink,
   Bars,
-  NavOpen,
   IconImg,
   NavLeftMargin,
   NavContainer,
   NavUpperMargin,
-  NavOpenUpperContainer,
-  NavOpenUpperButtonWrapper,
-  NavOpenUpperButton,
-  NavOpenUpperDescWrapper,
-  NavOpenSingleItemBox,
-  NavOpenItemText,
-  NavOpenItemImg,
-  NavOpenItemMargin,
-  NavOpenItemArrowButton,
-  NavSingleBottomItemBox,
-  NavSingleBottomTopItemBox,
-  NavSingleMarginBetween,
 } from "./NavbarElements";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Watchers";
-import { mainPageIcons, sideBarIcons } from "../../assets/Resources";
-import { message } from "antd";
-import { authService } from "../../firebase";
-
+import { mainPageIcons } from "../../assets/Resources";
+import SelectSubjectModal from "./Modal";
 const Navbar = ({
   Navname,
   isTransparent,
@@ -41,20 +26,31 @@ const Navbar = ({
 }) => {
   const user = useAuth();
   const history = useHistory();
-  const [navClicked, setNavClicked] = useState(false);
+  const [subjectModalVisible, setSubjectModalVisible] = useState(false);
 
-  const [announceOpened, setAnnounceOpened] = useState(false);
-  const [boardOpened, setBoardOpened] = useState(false);
-  const [referSiteOpened, setReferSiteOpened] = useState(false);
   return (
     <>
+     <SelectSubjectModal
+        visible={subjectModalVisible}
+        onClose={() => setSubjectModalVisible(false)}
+      />
       <NavContainer>
         <Nav style={isTransparent ? { backgroundColor: "rgba(0,0,0,0)" } : {}}>
-          {!Iconleft && <Bars onClick={() => setNavClicked(!navClicked)} />}
+          {!Iconleft && <Bars onClick={() => setSubjectModalVisible(true)} />}
           <NavLink to="/">{!!Navname ? Navname : "융특 커뮤니티 슝"}</NavLink>
           <NavLeftMargin />
           {!isRight1Disabled && (
             <IconImg
+            onClick={() => {
+              if (user) {
+                history.push("/");
+                if (!History) {
+                  history.push("/notification");
+                }
+              } else {
+                history.push("/login");
+              }
+            }}
               src={IconRight1 || mainPageIcons.notification}
               alt={IconNameRight1 || "아이콘2"}
             />
@@ -76,203 +72,6 @@ const Navbar = ({
             />
           )}
         </Nav>
-        <NavOpen
-          style={
-            navClicked
-              ? { left: "0", opacity: "1" }
-              : { left: "-100%", opacity: "0" }
-          }>
-          <NavOpenUpperContainer>
-            <NavOpenUpperButtonWrapper>
-              {!!user ? (
-                <>
-                  <NavOpenUpperButton
-                    onClick={() => {
-                      authService
-                        .signOut()
-                        .then(() => {
-                          message.success("로그아웃 완료");
-                          history.push("/");
-                        })
-                        .catch((error) => {
-                          message.error(error.message);
-                        });
-                    }}>
-                    로그아웃
-                  </NavOpenUpperButton>
-                  <NavOpenUpperButton onClick={() => history.push("/mypage")}>
-                    마이페이지
-                  </NavOpenUpperButton>
-                </>
-              ) : (
-                <>
-                  <NavOpenUpperButton onClick={() => history.push("/login")}>
-                    로그인
-                  </NavOpenUpperButton>
-                  <NavOpenUpperButton onClick={() => history.push("/signup")}>
-                    회원가입
-                  </NavOpenUpperButton>
-                </>
-              )}
-            </NavOpenUpperButtonWrapper>
-            <NavOpenUpperDescWrapper>
-              {!!user
-                ? (!!user.displayName ? user.displayName : "융슝이").concat(
-                    "님 환영합니다"
-                  )
-                : "로그인을 해주세요"}
-            </NavOpenUpperDescWrapper>
-          </NavOpenUpperContainer>
-          <NavOpenSingleItemBox onClick={() => history.push("/")}>
-            <NavOpenItemImg src={sideBarIcons.home} alt={"집 아이콘"} />
-            <NavOpenItemText>Home</NavOpenItemText>
-          </NavOpenSingleItemBox>
-          <NavOpenSingleItemBox onClick={() => history.push("/")}>
-            <NavOpenItemImg src={sideBarIcons.alarm} alt={"알림함 아이콘"} />
-            <NavOpenItemText>알림함</NavOpenItemText>
-          </NavOpenSingleItemBox>
-          <NavOpenSingleItemBox
-            onClick={() => setAnnounceOpened(!announceOpened)}>
-            <NavOpenItemMargin />
-            <NavOpenItemText>학생회 공지사항</NavOpenItemText>
-            <NavOpenItemArrowButton
-              src={
-                announceOpened ? sideBarIcons.upButton : sideBarIcons.downButton
-              }
-              alt={"화살표 아이콘"}
-            />
-          </NavOpenSingleItemBox>
-          {announceOpened && (
-            <>
-              <NavOpenSingleItemBox
-                isChild onClick={() => history.push("/board/announcement")}
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => history.push("/board/announcement")}>
-                  공지사항
-                </NavOpenItemText>
-              </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox
-                isChild
-                onClick={() => history.push("/board/event")}
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText>학부 행사</NavOpenItemText>
-              </NavOpenSingleItemBox>
-            </>
-          )}
-          <NavOpenSingleItemBox onClick={() => setBoardOpened(!boardOpened)}>
-            <NavOpenItemMargin />
-            <NavOpenItemText>게시판</NavOpenItemText>
-            <NavOpenItemArrowButton
-              src={
-                boardOpened ? sideBarIcons.upButton : sideBarIcons.downButton
-              }
-              alt={"화살표 아이콘"}
-            />
-          </NavOpenSingleItemBox>
-          {boardOpened && (
-            <>
-              <NavOpenSingleItemBox
-                isChild
-                onClick={() => history.push("/board/convergence")}
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => history.push("/board/convergence")}>
-                  융특게시판
-                </NavOpenItemText>
-              </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox
-                isChild
-                onClick={() => history.push("/board/departmajor")}
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => history.push("/board/departmajor")}>
-                  전과게시판
-                </NavOpenItemText>
-              </NavOpenSingleItemBox>
-            </>
-          )}
-          <NavOpenSingleItemBox
-            onClick={() => setReferSiteOpened(!referSiteOpened)}>
-            <NavOpenItemMargin />
-            <NavOpenItemText>관련 사이트</NavOpenItemText>
-            <NavOpenItemArrowButton
-              src={
-                referSiteOpened
-                  ? sideBarIcons.upButton
-                  : sideBarIcons.downButton
-              }
-              alt={"화살표 아이콘"}
-            />
-          </NavOpenSingleItemBox>
-          {referSiteOpened && (
-            <>
-              <NavOpenSingleItemBox
-                isChild
-                onClick={() => window.open("https://ssu.ac.kr/")}
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => window.open("https://ssu.ac.kr/")}>
-                  숭실대학교 홈페이지
-                </NavOpenItemText>
-              </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox
-                isChild
-                onClick={() =>
-                  window.open("https://saint.ssu.ac.kr/irj/portal")
-                }
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() =>
-                    window.open("https://saint.ssu.ac.kr/irj/portal")
-                  }>
-                  유세인트
-                </NavOpenItemText>
-              </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox
-                isChild
-                onClick={() => window.open("http://myclass.ssu.ac.kr/")}
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() => window.open("http://myclass.ssu.ac.kr/")}>
-                  스마트캠퍼스
-                </NavOpenItemText>
-              </NavOpenSingleItemBox>
-              <NavOpenSingleItemBox
-                isChild
-                onClick={() =>
-                  window.open("http://pre.ssu.ac.kr/web/convergence")
-                }
-              >
-                <NavOpenItemMargin />
-                <NavOpenItemText
-                  onClick={() =>
-                    window.open("http://pre.ssu.ac.kr/web/convergence")
-                  }>
-                  융특 홈페이지
-                </NavOpenItemText>
-              </NavOpenSingleItemBox>
-            </>
-          )}
-          <NavSingleMarginBetween />
-          <NavOpenSingleItemBox
-            onClick={() => history.push("/")}
-            style={{ borderTop: "1px solid grey" }}>
-            <NavOpenItemMargin />
-            <NavOpenItemText>건의사항</NavOpenItemText>
-          </NavOpenSingleItemBox>
-          <NavOpenSingleItemBox onClick={() => history.push("/")}>
-            <NavOpenItemMargin />
-            <NavOpenItemText>만든 사람들</NavOpenItemText>
-          </NavOpenSingleItemBox>
-        </NavOpen>
       </NavContainer>
       <NavUpperMargin style={isTransparent ? { display: "none" } : {}} />
     </>

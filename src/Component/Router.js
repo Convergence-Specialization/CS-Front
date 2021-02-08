@@ -13,11 +13,13 @@ import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangeInformation from "../Routes/MyPage/ChangeInformation";
 import ChangePW from "../Routes/MyPage/ChangePW";
 import Event from "../Routes/Event";
+import Notification from "../Routes/Notification";
 import EventPost from "../Routes/EventPost";
+import NormalCreate from "../Routes/NormalCreate";
 import SignUp from "../Routes/SignUp";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
-import Announcement from "../Routes/Announcement";
+import Announcement from "../Routes/Board/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";
@@ -54,6 +56,9 @@ const RouterComponent = () => {
         <Route path="/signup" exact>
           <SignUp />
         </Route>
+        <Route path="/notification" exact>
+          <Notification />
+        </Route>
         <Route path="/signup/google">
           <SignUpGoogle />
         </Route>
@@ -62,6 +67,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/board/event/eventpost">
           <EventPost />
+        </Route>
+        <Route path="/board/event/normalcreate">
+          <NormalCreate />
         </Route>
         <Route path="/board/departmajor">
           <DepartMajor />

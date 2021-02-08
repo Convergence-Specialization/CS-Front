@@ -5,8 +5,8 @@ import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const api = axios.create({
-  // baseURL: "https://convergence-ssu.herokuapp.com/",
-  baseURL: "http://localhost:5000",
+  baseURL: "https://convergence-ssu.herokuapp.com/",
+  // baseURL: "http://localhost:5000",
 });
 
 const getBearer = () => {
@@ -56,7 +56,12 @@ export const departMajorApi = {
         return docsArray;
       });
   },
-  myEncryptedUid: (body) => {},
+  myEncryptedUid: (body) =>
+    api.post("board/departmajor/myencrypteduid", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
   create: (body) =>
     api.post("board/departmajor/create", body, {
       headers: {
@@ -71,7 +76,8 @@ export const departMajorApi = {
     }),
   comment: {
     getLists: async (body) => {
-      const { docId } = body;
+      // TODO: myEncryptedUid로 본인이 좋아요 누른 댓글들은 좋아요 처리.
+      const { docId, myEncryptedUid } = body;
       // 일반 댓글들 가져오기
       let commentsArr = await db
         .collection("departMajor")

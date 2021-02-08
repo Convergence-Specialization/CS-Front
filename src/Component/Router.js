@@ -30,8 +30,10 @@ import AddInformation from "../Routes/Login/AddInformation";
 import LoginRequire from "../Routes/Login/LoginRequire";
 // 임시로 해놓음 ***********
 import SignUpGoogle from "../Component/SignUp/signup_google";
+import { UseGoogleAnalytics } from "./Watchers";
 
 const RouterComponent = () => {
+  UseGoogleAnalytics();
   return (
     <Router basename="/CS-Front">
       <Switch>
@@ -107,5 +109,10 @@ const RouterComponent = () => {
     </Router>
   );
 };
+const RouterExporter = () => (
+  <Router>
+    <RouterComponent />
+  </Router>
+);
 
-export default RouterComponent;
+export default RouterExporter;

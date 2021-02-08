@@ -9,7 +9,7 @@ export const UseGoogleAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
-    ReactGA.initialize("G-KX5S63YY7N");
+    ReactGA.initialize("UA-189137891-1");
   }, []);
 
   useEffect(() => {

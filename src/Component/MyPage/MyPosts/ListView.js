@@ -2,37 +2,25 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { mainPageIcons, horseIcons, readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import { ArrowRight } from "@material-ui/icons";
-
-const Back = styled.div`
-  background-color: #f5f5f5;
-  padding: 10px 0px;
-`;
-
-const Board = styled.div`
-  width: 90%;
-  min-height: 50vh;
-  padding: 5px 0px;
-  display: flex;
-  margin: 10px auto;
-  flex-direction: column;
-  border-radius: 15px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: white;
-  align-items: center;
-`;
+import { message } from "antd";
+import { departMajorApi } from "../../../api";
+import LoadingComponent from "../../SmallComponents/Loading";
+import { subjectDicts } from "../../../assets/Dicts";
 
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
   display: flex;
-  padding: 5px 0px;
+  padding: 10px 0px;
   width: 90%;
+  margin: 0 auto;
+  font-size: 15px;
+  position: relative;
   align-items: center;
   justify-content: space-between;
 `;
 const Text = styled.div`
   font-weight: bold;
-  font-size: 17px;
+  font-size: 20px;
 `;
 const Button = styled.div`
   text-align: center;
@@ -46,143 +34,192 @@ const Button = styled.div`
     font-size: 12px;
   }
 `;
-const BlankPost = styled.div`
-  padding: 70px 10px 10px 10px;
-  margin: 10px auto;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
-  color: #c8c8c8;
+const SubjectSelectImg = styled.img`
+  width: 26px;
+  margin-right: 9px;
 `;
-const Img = styled.img`
-  width: 30px;
+const BoardContainer = styled.div`
+  width: 95%;
+  min-height: 80vh;
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
 `;
-const TextBox = styled.div`
-  border-bottom: 1px solid #aca9a9;
+const BoardChildWrapper = styled.div`
+  padding: 12px 12px;
+  font-size: 15px;
+  border-bottom: 2.5px solid #f1f1f1;
+  position: relative;
+`;
+const BoardChildTitleWrapper = styled.div`
   display: flex;
-  padding: 5px 20px;
-  width: 100%;
-  flex-direction: column;
-`;
-const Time = styled.div`
-  font-size: 10px;
-`;
-const LineBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-`;
-const Name = styled.div`
-  font-size: 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 90%;
-  white-space: nowrap;
-`;
-const NameTimeBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 88%;
   align-items: center;
 `;
-const Contents = styled.div`
-  font-size: 12px;
+const BoardChildTitle = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 90%;
   white-space: nowrap;
-`;
-const HeartComment = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  margin-right: 90px;
+  font-weight: bold;
+  width: 72%;
+  font-size: 16px;
   margin-bottom: 10px;
-  font-size: 10px;
 `;
+const BoardChildContent = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  width: 93%;
+  margin-bottom: 8px;
+`;
+const BoardChildTimeText = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+`;
+const BoardChildMetaText = styled.div`
+  justify-content: flex-end;
+  display: flex;
+`;
+
 const MyPost = () => {
   const history = useHistory();
-  const [posts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    // TODO: API에서 더보기 구현.
+    departMajorApi
+      .getLists({ size: 3 })
+      .then((docsArray) => setPosts(docsArray))
+      .catch((error) => message.error(error.message));
+  }, []);
   return (
     <>
-      <Back>
-        <Board>
-          <Box>
-            <Text>융특 게시판</Text>
-            <Button>더보기</Button>
-          </Box>
-          {posts.length === 1 ? (
-            <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
-          ) : (
-            <TextBox>
-              <LineBox>
-                <Img src={horseIcons.normal} alt={"horse"} />
-                <NameTimeBox>
-                  <Name>배고픈 융슝이</Name>
-                  <Time>1분 전</Time>
-                </NameTimeBox>
-              </LineBox>
-              <LineBox>
-                <Contents>
-                  졸리다아 빨리 출시출시 기대가 됩니다!!!!!!! 다들
-                  화이팅!!!!!!!!!
-                </Contents>
-              </LineBox>
-              <HeartComment>
+      <BoardContainer>
+        <Box>
+          <Text>융특 게시판</Text>
+          <Button>더보기</Button>
+        </Box>
+        {posts.length === 0 ? (
+          <LoadingComponent />
+        ) : (
+          posts.map((item, idx) => (
+            <BoardChildWrapper
+              key={idx}
+              onClick={() =>
+                history.push({
+                  pathname: `/board/departmajor`,
+                  state: {
+                    pageName: "read",
+                    docItem: item,
+                  },
+                })
+              }
+            >
+              <BoardChildTitleWrapper>
+                {item.subject !== "NONE" && (
+                  <SubjectSelectImg
+                    style={{ width: "23px", marginTop: "-5px" }}
+                    src={subjectDicts[item.subject].img}
+                    alt={"asdf"}
+                  />
+                )}
+                {item.subject === "NONE" && (
+                  <BoardChildTitle style={{ width: "80%" }}>
+                    {item.title}
+                  </BoardChildTitle>
+                )}
+                {item.subject !== "NONE" && (
+                  <BoardChildTitle style={{ width: "72%" }}>
+                    {item.title}
+                  </BoardChildTitle>
+                )}
+              </BoardChildTitleWrapper>
+              <BoardChildContent>{item.content}</BoardChildContent>
+              <BoardChildTimeText>
+                {item.timestampDistance} 전
+              </BoardChildTimeText>
+              <BoardChildMetaText>
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "10px", marginRight: " 2px" }}
+                  style={{ width: "15px", marginRight: " 2px" }}
                 />
-                <div>7 |</div>
+                <div>{item.commentCount}</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"
-                  style={{ width: "10px", margin: "0px 4px" }}
+                  style={{ width: "15px", margin: "0px 4px" }}
                 />
-                <div>5</div>
-              </HeartComment>
-            </TextBox>
-          )}
-        </Board>
-        <Board>
-          <Box>
-            <Text>전과 게시판</Text>
-            <Button>더보기</Button>
-          </Box>
-          {posts.length === 1 ? (
-            <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
-          ) : (
-            <TextBox>
-              <LineBox>
-                <Img src={mainPageIcons.Car} alt={"horse"} />
-                <NameTimeBox>
-                  <Name>배고픈 융슝이</Name>
-                  <Time>1분 전</Time>
-                </NameTimeBox>
-              </LineBox>
-              <LineBox>
-                <Contents>
-                  졸리다아 빨리 출시출시 기대가 됩니다!!!!!!! 다들
-                  화이팅!!!!!!!!!
-                </Contents>
-              </LineBox>
-              <HeartComment>
+                <div>{item.likeCount}</div>
+              </BoardChildMetaText>
+            </BoardChildWrapper>
+          ))
+        )}
+      </BoardContainer>
+      <BoardContainer>
+        <Box>
+          <Text>전과 게시판</Text>
+          <Button>더보기</Button>
+        </Box>
+        {posts.length === 0 ? (
+          <LoadingComponent />
+        ) : (
+          posts.map((item, idx) => (
+            <BoardChildWrapper
+              key={idx}
+              onClick={() =>
+                history.push({
+                  pathname: `/board/departmajor`,
+                  state: {
+                    pageName: "read",
+                    docItem: item,
+                  },
+                })
+              }
+            >
+              <BoardChildTitleWrapper>
+                {item.subject !== "NONE" && (
+                  <SubjectSelectImg
+                    style={{ width: "23px", marginTop: "-5px" }}
+                    src={subjectDicts[item.subject].img}
+                    alt={"asdf"}
+                  />
+                )}
+                {item.subject === "NONE" && (
+                  <BoardChildTitle style={{ width: "80%" }}>
+                    {item.title}
+                  </BoardChildTitle>
+                )}
+                {item.subject !== "NONE" && (
+                  <BoardChildTitle style={{ width: "72%" }}>
+                    {item.title}
+                  </BoardChildTitle>
+                )}
+              </BoardChildTitleWrapper>
+              <BoardChildContent>{item.content}</BoardChildContent>
+              <BoardChildTimeText>
+                {item.timestampDistance} 전
+              </BoardChildTimeText>
+              <BoardChildMetaText>
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "10px", marginRight: " 2px" }}
+                  style={{ width: "15px", marginRight: " 2px" }}
                 />
-                <div>7 |</div>
+                <div>{item.commentCount}</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"
-                  style={{ width: "10px", margin: "0px 4px" }}
+                  style={{ width: "15px", margin: "0px 4px" }}
                 />
-                <div>5</div>
-              </HeartComment>
-            </TextBox>
-          )}
-        </Board>
-      </Back>
+                <div>{item.likeCount}</div>
+              </BoardChildMetaText>
+            </BoardChildWrapper>
+          ))
+        )}
+      </BoardContainer>
     </>
   );
 };

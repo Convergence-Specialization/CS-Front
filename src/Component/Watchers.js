@@ -13,21 +13,25 @@ export const UseGoogleAnalytics = () => {
   }, []);
 
   useEffect(() => {
-    if (location.pathname !== "/") {
-      window.scrollTo(0, 0);
-    }
+    console.log("페이지 바뀜");
+
     const currentPath = location.pathname + location.search;
     ReactGA.set({ page: currentPath });
     ReactGA.pageview(currentPath);
 
     const idToken = localStorage.getItem("idToken");
-    if (idToken !== null) {
+    if (idToken !== null && idToken !== "") {
       if (jwtDecode(idToken).exp * 1000 < new Date().getTime()) {
         message.info("토큰 재발급 시도");
-        authService.currentUser
-          .getIdToken()
-          .then((token) => localStorage.setItem("idToken", token))
-          .catch((err) => message.error(err));
+        try {
+          if (!authService.currentUser) return;
+          authService.currentUser
+            .getIdToken()
+            .then((token) => localStorage.setItem("idToken", token))
+            .catch((err) => message.error(err));
+        } catch (err) {
+          console.log(err);
+        }
       }
     }
   }, [location]);

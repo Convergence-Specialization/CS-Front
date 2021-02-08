@@ -121,7 +121,7 @@ export const NavOpenSingleItemBox = styled.div`
 `;
 export const NavSingleMarginBetween = styled.div`
   width: 1px;
-  height: 29vh;
+  
 `;
 export const NavSingleBottomItemBox = styled.div`
   align-self: stretch;

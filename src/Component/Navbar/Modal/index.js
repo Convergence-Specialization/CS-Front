@@ -259,10 +259,8 @@ export const SelectSubjectModal = ({ onClose, visible, navClicked }) => {
                 </NavOpenSingleItemBox>
               </>
             )}
-            <NavSingleMarginBetween />
             <NavOpenSingleItemBox
-              onClick={() => history.push("/")}
-              style={{ borderTop: "1px solid grey" }}
+              onClick={() => history.push("/suggestions")}
             >
               <NavOpenItemMargin />
               <NavOpenItemText>건의사항</NavOpenItemText>

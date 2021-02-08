@@ -6,6 +6,8 @@ import ListView from "../../Component/Board/Convergence/ListView";
 
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
+import NavBot from "../../Component/SmallComponents/NavBot";
+import { mainPageIcons } from "../../assets/Resources";
 
 const DepartPresenter = () => {
   const location = useLocation();
@@ -14,15 +16,40 @@ const DepartPresenter = () => {
   useEffect(() => {
     switch (!!location.state && location.state.pageName) {
       case "read":
-        setRenderElement(<Read />);
+        setRenderElement(
+          <>
+            <NavBot 
+              Name="융특 게시판" 
+              Icon={mainPageIcons.airplane} 
+            />
+          <Read />
+          </>
+        );
         break;
       case "create":
-        setRenderElement(<Create />);
+        setRenderElement(
+          <>
+            <NavBot 
+              Name="융특 게시판" 
+              Icon={mainPageIcons.airplane} 
+            />
+            <Create />
+          </>
+        );
         break;
       case "update":
         break;
       default:
-        setRenderElement(<ListView />);
+        setRenderElement(
+          <>
+            <NavBot
+              Name="융특 게시판"
+              Icon={mainPageIcons.airplane}
+              postButtonRef={"convergence"}
+            />
+            <ListView />
+          </>
+        );
     }
   }, [location]);
   return (

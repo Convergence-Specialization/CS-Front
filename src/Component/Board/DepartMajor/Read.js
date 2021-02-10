@@ -408,6 +408,7 @@ const Read = () => {
             if (commentContent === "") {
               return message.error("댓글을 입력하세요.");
             }
+            setUploading(true);
             message.loading("댓글 작성중입니다..");
             if (subCommentFocusedId === "") {
               departMajorApi.comment

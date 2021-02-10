@@ -26,7 +26,9 @@ const SubText = styled.div`
   font-size: 13px;
   line-height: 1.15;
 `;
-const ContentText = styled.div``;
+const ContentText = styled.div`
+  line-height: 1.5;
+`;
 const LikeCountText = styled.div`
   font-size: 14px;
   color: #545454;
@@ -78,6 +80,7 @@ const CommentChildTime = styled.span`
 `;
 const CommentChildText = styled.div`
   margin-top: 12px;
+  line-height: 1.5;
   font-size: 14px;
 `;
 const CommentButtonWrapper = styled.div`
@@ -247,7 +250,8 @@ const Read = () => {
                     .finally(() => {
                       setUploading(false);
                     });
-                }}>
+                }}
+              >
                 <CommentImg src={mainPageIcons.heart} alt={"공감 이미지"} />
                 <CommentButtonText>공감</CommentButtonText>
               </CommentButton>
@@ -270,12 +274,15 @@ const Read = () => {
                   subCommentFocusedId === item.commentId
                     ? { backgroundColor: "#f6fafe" }
                     : {}
-                }>
+                }
+              >
                 <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
                 <CommentChildTime>
                   {item.timestampDistance + " 전"}
                 </CommentChildTime>
-                <CommentChildText>{item.content}</CommentChildText>
+                <CommentChildText style={{ width: "72%" }}>
+                  {item.content}
+                </CommentChildText>
                 <CommentButtonWrapper>
                   <CommentChildLikeWrapper
                     onClick={() => {
@@ -285,7 +292,8 @@ const Read = () => {
                       } else {
                         setSubCommentFocusedId("");
                       }
-                    }}>
+                    }}
+                  >
                     <CommentChildNewSubButton
                       src={readDoc.speech_bubble}
                       alt="말풍선 아이콘"
@@ -320,7 +328,8 @@ const Read = () => {
                         .finally(() => {
                           setUploading(false);
                         });
-                    }}>
+                    }}
+                  >
                     <CommentChildLikeImg
                       src={readDoc.heart_empty}
                       alt="하트 아이콘"
@@ -334,7 +343,8 @@ const Read = () => {
               {item.subComments.map((subItem, subIdx) => (
                 <CommentChildWrapper
                   key={`${subIdx}SubComment${idx}`}
-                  style={{ backgroundColor: "#f9f9f9" }}>
+                  style={{ backgroundColor: "#f9f9f9" }}
+                >
                   <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
                   <CommentChildTime>
                     {subItem.timestampDistance + " 전"}
@@ -374,7 +384,8 @@ const Read = () => {
                           .finally(() => {
                             setUploading(false);
                           });
-                      }}>
+                      }}
+                    >
                       <CommentChildLikeImg
                         src={readDoc.heart_empty}
                         alt="하트 아이콘"
@@ -446,7 +457,8 @@ const Read = () => {
                 })
                 .finally(() => setUploading(false));
             }
-          }}>
+          }}
+        >
           작성하기
         </CommentInputSubmitButton>
       </CommentInputContainer>

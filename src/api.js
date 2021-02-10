@@ -75,6 +75,18 @@ export const departMajorApi = {
       },
     }),
   comment: {
+    create: (body) =>
+      api.post("board/departmajor/comment/create", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
+    like: (body) =>
+      api.post("board/departmajor/comment/like", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
     getLists: async (body) => {
       // TODO: myEncryptedUid로 본인이 좋아요 누른 댓글들은 좋아요 처리.
       const { docId, myEncryptedUid } = body;
@@ -87,7 +99,7 @@ export const departMajorApi = {
         .get()
         .then((querySnapshot) => {
           let docsArray = [];
-          querySnapshot.forEach((doc) => {
+          querySnapshot.forEach(async (doc) => {
             let data = doc.data();
             let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
               locale: ko,
@@ -110,16 +122,18 @@ export const departMajorApi = {
       // 대댓글들 가져오기. 병렬 promise 처리.
       await Promise.all(
         commentsArr.map(async (doc, idx) => {
-          if (doc.subCommentsExist) {
-            await db
-              .collection("departMajor")
-              .doc(docId)
-              .collection("comments")
-              .doc(doc.commentId)
-              .collection("subcomments")
-              .orderBy("timestamp")
-              .get()
-              .then((querySnapshot) => {
+          await Promise.all([
+            new Promise(async (resolve) => {
+              // 대댓글 가져오는 promise.
+              if (doc.subCommentsExist) {
+                const querySnapshot = await db
+                  .collection("departMajor")
+                  .doc(docId)
+                  .collection("comments")
+                  .doc(doc.commentId)
+                  .collection("subcomments")
+                  .orderBy("timestamp")
+                  .get();
                 querySnapshot.forEach((doc) => {
                   let data = doc.data();
                   let distanceText = formatDistanceToNow(
@@ -139,8 +153,39 @@ export const departMajorApi = {
                     likeCount: data.likes_count,
                   });
                 });
-              });
-          }
+                // 각 대댓글들에서 본인이 좋아요 눌렀는지 확인.
+                await Promise.all(
+                  commentsArr[idx].subComments.map(async (subItem, subIdx) => {
+                    commentsArr[idx].subComments[subIdx].didILiked = await db
+                      .collection("departMajor")
+                      .doc(docId)
+                      .collection("comments")
+                      .doc(commentsArr[idx].commentId)
+                      .collection("subcomments")
+                      .doc(subItem.subcommentId)
+                      .collection("likes")
+                      .where("encryptedUid", "==", myEncryptedUid)
+                      .get()
+                      .then((querySnapshot) => querySnapshot.size !== 0);
+                  })
+                );
+              }
+              resolve();
+            }),
+            new Promise(async (resolve) => {
+              // 내가 좋아요 했는지 확인하는 promise
+              commentsArr[idx].didILiked = await db
+                .collection("departMajor")
+                .doc(docId)
+                .collection("comments")
+                .doc(doc.commentId)
+                .collection("likes")
+                .where("encryptedUid", "==", myEncryptedUid)
+                .get()
+                .then((querySnapshot) => querySnapshot.size !== 0);
+              resolve();
+            }),
+          ]);
         })
       );
       return commentsArr;
@@ -151,8 +196,8 @@ export const departMajorApi = {
           Authorization: getBearer(),
         },
       }),
-    create: (body) =>
-      api.post("board/departmajor/comment/create", body, {
+    likeSubComment: (body) =>
+      api.post("board/departmajor/subcomment/like", body, {
         headers: {
           Authorization: getBearer(),
         },

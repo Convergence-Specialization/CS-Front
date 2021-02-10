@@ -1,5 +1,41 @@
 import { useEffect, useState } from "react";
 import { authService } from "../firebase";
+import { useLocation } from "react-router-dom";
+import ReactGA from "react-ga";
+import jwtDecode from "jwt-decode";
+import { message } from "antd";
+
+export const UseGoogleAnalytics = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.initialize("UA-189137891-1");
+  }, []);
+
+  useEffect(() => {
+    console.log("페이지 바뀜");
+
+    const currentPath = location.pathname + location.search;
+    ReactGA.set({ page: currentPath });
+    ReactGA.pageview(currentPath);
+
+    const idToken = localStorage.getItem("idToken");
+    if (idToken !== null && idToken !== "") {
+      if (jwtDecode(idToken).exp * 1000 < new Date().getTime()) {
+        message.info("토큰 재발급 시도");
+        try {
+          if (!authService.currentUser) return;
+          authService.currentUser
+            .getIdToken()
+            .then((token) => localStorage.setItem("idToken", token))
+            .catch((err) => message.error(err));
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
+  }, [location]);
+};
 
 export const useAuth = () => {
   const fireUser = authService.currentUser;

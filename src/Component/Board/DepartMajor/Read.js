@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { departMajorApi } from "../../../api";
-import { Icons, mainPageIcons, readDoc } from "../../../assets/Resources";
+import { mainPageIcons, readDoc } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 
@@ -205,9 +205,11 @@ const Read = () => {
     getMyEncryptedUid(docItem).then((myEncryptedUid) => {
       getComments(myEncryptedUid, docItem);
       setMyEncryptedUid(myEncryptedUid, docItem);
-      didILikedDoc(myEncryptedUid, docItem).then((liked) =>
-        setDidILikedThisDoc(liked)
-      );
+      if (myEncryptedUid !== undefined) {
+        didILikedDoc(myEncryptedUid, docItem).then((liked) =>
+          setDidILikedThisDoc(liked)
+        );
+      }
     });
   }, [getComments, location.state]);
   return (
@@ -236,6 +238,7 @@ const Read = () => {
                     .like({ docId: content.docId, like: "LIKE" })
                     .then(() => {
                       message.destroy();
+                      setDidILikedThisDoc(true);
                     })
                     .catch((err) => {
                       message.destroy();
@@ -288,7 +291,36 @@ const Read = () => {
                       alt="말풍선 아이콘"
                     />
                   </CommentChildLikeWrapper>
-                  <CommentChildLikeWrapper>
+                  <CommentChildLikeWrapper
+                    style={
+                      item.didILiked
+                        ? { backgroundColor: "black", color: "white" }
+                        : {}
+                    }
+                    onClick={() => {
+                      if (uploading) return;
+                      setUploading(true);
+                      message.loading("좋아요 누르는 중..", 10);
+                      departMajorApi.comment
+                        .like({
+                          originalDocId: content.docId,
+                          commentId: item.commentId,
+                        })
+                        .then(() => {
+                          message.destroy();
+                          let tempComments = [...comments];
+                          tempComments[idx].likeCount++;
+                          tempComments[idx].didILiked = true;
+                          setComments(tempComments);
+                        })
+                        .catch((err) => {
+                          message.destroy();
+                          message.error(err.message);
+                        })
+                        .finally(() => {
+                          setUploading(false);
+                        });
+                    }}>
                     <CommentChildLikeImg
                       src={readDoc.heart_empty}
                       alt="하트 아이콘"
@@ -299,15 +331,59 @@ const Read = () => {
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
               </CommentChildWrapper>
-              {item.subComments.map((subItem, idx) => (
+              {item.subComments.map((subItem, subIdx) => (
                 <CommentChildWrapper
-                  key={`${idx}SubComment`}
+                  key={`${subIdx}SubComment${idx}`}
                   style={{ backgroundColor: "#f9f9f9" }}>
                   <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
                   <CommentChildTime>
                     {subItem.timestampDistance + " 전"}
                   </CommentChildTime>
                   <CommentChildText>{subItem.content}</CommentChildText>
+                  <CommentButtonWrapper>
+                    <CommentChildLikeWrapper
+                      style={
+                        subItem.didILiked
+                          ? { backgroundColor: "black", color: "white" }
+                          : {}
+                      }
+                      onClick={() => {
+                        if (uploading) return;
+                        setUploading(true);
+                        message.loading("좋아요 누르는 중..", 10);
+                        departMajorApi.comment
+                          .likeSubComment({
+                            originalDocId: content.docId,
+                            commentId: item.commentId,
+                            subcommentId: subItem.subcommentId,
+                            like: "LIKE",
+                          })
+                          .then(() => {
+                            message.destroy();
+                            let tempComments = [...comments];
+                            tempComments[idx].subComments[subIdx].likeCount++;
+                            tempComments[idx].subComments[
+                              subIdx
+                            ].didILiked = true;
+                            setComments(tempComments);
+                          })
+                          .catch((err) => {
+                            message.destroy();
+                            message.error(err.message);
+                          })
+                          .finally(() => {
+                            setUploading(false);
+                          });
+                      }}>
+                      <CommentChildLikeImg
+                        src={readDoc.heart_empty}
+                        alt="하트 아이콘"
+                      />
+                      <CommentChildLikeCount>
+                        {subItem.likeCount}
+                      </CommentChildLikeCount>
+                    </CommentChildLikeWrapper>
+                  </CommentButtonWrapper>
                 </CommentChildWrapper>
               ))}
             </React.Fragment>
@@ -340,8 +416,10 @@ const Read = () => {
                   content: commentContent,
                 })
                 .then(() => {
-                  message.destroy();
-                  window.location.reload();
+                  getComments(myEncryptedUid, content).then(() => {
+                    message.destroy();
+                    document.getElementById("commentInputBox").value = "";
+                  });
                 })
                 .catch((err) => {
                   message.destroy();
@@ -356,8 +434,10 @@ const Read = () => {
                   content: commentContent,
                 })
                 .then(() => {
-                  message.destroy();
-                  window.location.reload();
+                  getComments(myEncryptedUid, content).then(() => {
+                    message.destroy();
+                    document.getElementById("commentInputBox").value = "";
+                  });
                 })
                 .catch((err) => {
                   message.destroy();

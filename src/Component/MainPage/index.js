@@ -74,9 +74,9 @@ const BoardChildWrapper = styled.div`
 const BoardChildTitle = styled.div`
   line-height: 1.12;
   color: #444444;
-  font-size:18px;
+  font-size: 18px;
   @media (max-width: 430px) {
-    font-size:13px;
+    font-size: 13px;
   }
 `;
 const BoardAnnounceSubText = styled.div``;
@@ -146,8 +146,8 @@ const MainPage = () => {
     slidesToShow: 4,
     swipeToSlide: true,
     arrows: false,
-    autoplay : true,
-    autoplaySpeed : 3000,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
   return (
     <Container>
@@ -172,27 +172,45 @@ const MainPage = () => {
         <SlickBox1>
           <Slider {...settings}>
             <SlickBox>
-              <IntroduceImage src={mainPageIcons.Car} />
+              <IntroduceImage
+                src={mainPageIcons.Car}
+                onClick={() => history.push("/board/majorintroduce")}
+              />
               <SlickText>스마트 자동차</SlickText>
             </SlickBox>
             <SlickBox>
-              <IntroduceImage src={mainPageIcons.Energy} />
+              <IntroduceImage
+                src={mainPageIcons.Energy}
+                onClick={() => history.push("/board/majorintroduce")}
+              />
               <SlickText>에너지 공학</SlickText>
             </SlickBox>
             <SlickBox>
-              <IntroduceImage src={mainPageIcons.Security} />
+              <IntroduceImage
+                src={mainPageIcons.Security}
+                onClick={() => history.push("/board/majorintroduce")}
+              />
               <SlickText>정보보안</SlickText>
             </SlickBox>
             <SlickBox>
-              <IntroduceImage src={mainPageIcons.BigData} />
+              <IntroduceImage
+                src={mainPageIcons.BigData}
+                onClick={() => history.push("/board/majorintroduce")}
+              />
               <SlickText>빅데이터</SlickText>
             </SlickBox>
             <SlickBox>
-              <IntroduceImage src={mainPageIcons.Ict} />
+              <IntroduceImage
+                src={mainPageIcons.Ict}
+                onClick={() => history.push("/board/majorintroduce")}
+              />
               <SlickText>ICT 유통물류</SlickText>
             </SlickBox>
             <SlickBox>
-              <IntroduceImage src={mainPageIcons.Unification} />
+              <IntroduceImage
+                src={mainPageIcons.Unification}
+                onClick={() => history.push("/board/majorintroduce")}
+              />
               <SlickText>통일외교</SlickText>
             </SlickBox>
           </Slider>

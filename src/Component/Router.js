@@ -17,6 +17,7 @@ import Notification from "../Routes/Notification";
 import EventPost from "../Routes/EventPost";
 import NormalCreate from "../Routes/NormalCreate";
 import SignUp from "../Routes/SignUp";
+import MajorIntroduce from "../Routes/MajorIntroduce";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Board/Announcement";
@@ -69,6 +70,9 @@ const RouterComponent = () => {
         </Route>
         <Route path="/board/event/eventpost">
           <EventPost />
+        </Route>
+        <Route path="/board/majorintroduce">
+          <MajorIntroduce />
         </Route>
         <Route path="/board/event/normalcreate">
           <NormalCreate />

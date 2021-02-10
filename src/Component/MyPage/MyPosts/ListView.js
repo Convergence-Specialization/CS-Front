@@ -85,6 +85,7 @@ const BoardChildTimeText = styled.div`
 const BoardChildMetaText = styled.div`
   justify-content: flex-end;
   display: flex;
+  align-items: flex-end;
 `;
 const BlankPost = styled.div`
   padding: 70px 10px 10px 10px;
@@ -162,13 +163,14 @@ const MyPost = () => {
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "15px", marginRight: " 2px" }}
+                  style={{ width: "18px", marginRight: " 2px" }}
                 />
                 <div>{item.commentCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"
-                  style={{ width: "15px", margin: "0px 4px" }}
+                  style={{ width: "18px", margin: "0px 4px" }}
                 />
                 <div>{item.likeCount}</div>
               </BoardChildMetaText>
@@ -178,7 +180,8 @@ const MyPost = () => {
       </BoardContainer>
       <BoardContainer>
         <Box>
-          <Text>전과 게시판</Text>
+          <Text >
+              전과 게시판</Text>
           <Button
            onClick={() => {
             history.push({
@@ -231,13 +234,14 @@ const MyPost = () => {
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "15px", marginRight: " 2px" }}
+                  style={{ width: "18px", marginRight: " 2px" }}
                 />
                 <div>{item.commentCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"
-                  style={{ width: "15px", margin: "0px 4px" }}
+                  style={{ width: "18px", margin: "0px 4px" }}
                 />
                 <div>{item.likeCount}</div>
               </BoardChildMetaText>

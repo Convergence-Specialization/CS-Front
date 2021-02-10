@@ -26,18 +26,7 @@ const Text = styled.div`
   font-weight: bold;
   font-size: 20px;
 `;
-const Button = styled.div`
-  text-align: center;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #d4e6fb;
-  cursor: pointer;
-  @media (max-width: 430px) {
-    font-size: 12px;
-  }
-`;
+
 const SubjectSelectImg = styled.img`
   width: 26px;
   margin-right: 9px;
@@ -119,7 +108,8 @@ const ConvergenceListView = () => {
     <>
       <BoardContainer>
         <Box>
-          <Text>융특 게시판</Text>
+          <Text >
+              융특 게시판</Text>
         </Box>
         {posts.length === 0 ? (
           <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
@@ -164,20 +154,20 @@ const ConvergenceListView = () => {
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "15px", marginRight: " 2px" }}
+                  style={{ width: "18px", marginRight: " 2px" }}
                 />
                 <div>{item.commentCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"
-                  style={{ width: "15px", margin: "0px 4px" }}
+                  style={{ width: "18px", margin: "0px 4px" }}
                 />
                 <div>{item.likeCount}</div>
               </BoardChildMetaText>
             </BoardChildWrapper>
           ))
         )}
-        
       </BoardContainer>
       <MoreButton
           onClick={() => {

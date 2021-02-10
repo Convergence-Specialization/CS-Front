@@ -31,8 +31,8 @@ const ContentText = styled.div`
 `;
 const LikeCountText = styled.div`
   color: #545454;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 `;
 
 const CommentButton = styled.div`
@@ -67,8 +67,8 @@ const CommentUpperText = styled.div`
   font-weight: bold;
 `;
 const CommentChildWrapper = styled.div`
-  margin: 5px 0;
-  padding: 5px 0;
+  margin: 5px 0px;
+  padding: 5px 0px;
   position: relative;
 `;
 const CommentChildTitle = styled.span`
@@ -89,7 +89,6 @@ const CommentButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  
 `;
 const CommentChildNewSubButton = styled.img`
   width: 13px;
@@ -107,9 +106,17 @@ const CommentChildLikeWrapper = styled.div`
 const CommentChildLikeImg = styled.img`
   width: 13px;
 `;
+const CommentArrow = styled.img`
+  width: 15px;
+  margin: 30px 20px 30px 10px;
+`;
 const CommentChildLikeCount = styled.div`
   margin-left: 5px;
   font-size: 13px;
+`;
+const Box = styled.div`
+  display: flex;
+  padding-bottom: 5px;
 `;
 const CommentInputMargin = styled.div`
   width: 1px;
@@ -164,8 +171,8 @@ const Read = () => {
   const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
-  const [subjectModalVisible, setSubjectModalVisible] = useState(false)
-  const [name, setName] = useState(false)
+  const [subjectModalVisible, setSubjectModalVisible] = useState(false);
+  const [name, setName] = useState(false);
   const getComments = useCallback((myEncryptedUid, docItem) => {
     return departMajorApi.comment
       .getLists({
@@ -219,7 +226,7 @@ const Read = () => {
   }, [getComments, location.state]);
   return (
     <>
-     <SelectSubjectModal
+      <SelectSubjectModal
         visible={subjectModalVisible}
         onClose={() => setSubjectModalVisible(false)}
         name={name}
@@ -231,19 +238,21 @@ const Read = () => {
           <ContentText>{content.content}</ContentText>
           <ExtraContentWrapper>
             <LikeCountText>
-            <img
-                  src={mainPageIcons.heart}
-                  alt="하트 아이콘"
-                  style={{ width: "13px", marginRight: " 4px" }}
-                />
-                <div>{content.likeCount}</div>
-                <div style={{ margin: " 0px 2px 0px 4px", fontSize:'13px' }}>|</div>
-                <img
-                  src={readDoc.speech_bubble}
-                  alt="말풍선 아이콘"
-                  style={{ width: "14px", margin: "0px 4px" }}
-                />
-                <div>{content.commentCount}</div>
+              <img
+                src={mainPageIcons.heart}
+                alt="하트 아이콘"
+                style={{ width: "13px", marginRight: " 4px" }}
+              />
+              <div>{content.likeCount}</div>
+              <div style={{ margin: " 0px 2px 0px 4px", fontSize: "13px" }}>
+                |
+              </div>
+              <img
+                src={readDoc.speech_bubble}
+                alt="말풍선 아이콘"
+                style={{ width: "14px", margin: "0px 4px" }}
+              />
+              <div>{content.commentCount}</div>
             </LikeCountText>
             {didILikedThisDoc !== null && (
               <CommentButton
@@ -259,21 +268,18 @@ const Read = () => {
                     })
                     .catch(() => {
                       message.destroy();
-                      setSubjectModalVisible(true)
-                      setName(false)
+                      setSubjectModalVisible(true);
+                      setName(false);
                     })
                     .finally(() => {
                       setUploading(false);
                     });
-                  }}
+                }}
               >
-                <CommentImg 
-                src={
-                  didILikedThisDoc
-                  ? mainPageIcons.heart   
-                  : Icons.heart      
-                }
-                 alt={"공감 이미지"} />
+                <CommentImg
+                  src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
+                  alt={"공감 이미지"}
+                />
                 <CommentButtonText>공감</CommentButtonText>
               </CommentButton>
             )}
@@ -296,7 +302,7 @@ const Read = () => {
                     ? { backgroundColor: "#f6fafe" }
                     : {}
                 }
-                style={{ borderBottom: '1px solid #aca9a9' }}
+                style={{ borderBottom: "1px solid #aca9a9" }}
               >
                 <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
                 <CommentChildTime>
@@ -340,8 +346,8 @@ const Read = () => {
                         })
                         .catch(() => {
                           message.destroy();
-                          setSubjectModalVisible(true)
-                          setName(true)
+                          setSubjectModalVisible(true);
+                          setName(true);
                         })
                         .finally(() => {
                           setUploading(false);
@@ -349,11 +355,7 @@ const Read = () => {
                     }}
                   >
                     <CommentChildLikeImg
-                       src={
-                        item.didILiked
-                        ? mainPageIcons.heart   
-                        : Icons.heart      
-                      }
+                      src={item.didILiked ? mainPageIcons.heart : Icons.heart}
                       alt="하트 아이콘"
                     />
                     <CommentChildLikeCount>
@@ -362,62 +364,71 @@ const Read = () => {
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
                 {item.subComments.map((subItem, subIdx) => (
-                <CommentChildWrapper
-                  key={`${subIdx}SubComment${idx}`}
-                  style={{ backgroundColor: "#f9f9f9", paddingBottom:"0px", marginBottom:'0px' }}
-                >
-                  <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
-                  <CommentChildTime>
-                    {subItem.timestampDistance + " 전"}
-                  </CommentChildTime>
-                  <CommentChildText>{subItem.content}</CommentChildText>
-                  <CommentButtonWrapper>
-                    <CommentChildLikeWrapper
-                      onClick={() => {
-                        if (uploading) return;
-                        setUploading(true);
-                        message.loading("좋아요 누르는 중..", 10);
-                        departMajorApi.comment
-                          .likeSubComment({
-                            originalDocId: content.docId,
-                            commentId: item.commentId,
-                            subcommentId: subItem.subcommentId,
-                            like: "LIKE",
-                          })
-                          .then(() => {
-                            message.destroy();
-                            let tempComments = [...comments];
-                            tempComments[idx].subComments[subIdx].likeCount++;
-                            tempComments[idx].subComments[
-                              subIdx
-                            ].didILiked = true;
-                            setComments(tempComments);
-                          })
-                          .catch(() => {
-                            message.destroy();
-                            setName(true)
-                          setSubjectModalVisible(true)
-                          })
-                          .finally(() => {
-                            setUploading(false);
-                          });
+                  <Box>
+                    <CommentArrow src={Icons.commentarrow} />
+                    <CommentChildWrapper
+                      key={`${subIdx}SubComment${idx}`}
+                      style={{
+                        backgroundColor: "#f9f9f9",
+                        padding: "5px ",
+                        margin: "0px",
+                        width:'90%',
                       }}
                     >
-                      <CommentChildLikeImg
-                        src={
-                          subItem.didILiked
-                          ? mainPageIcons.heart   
-                          : Icons.heart      
-                        }
-                        alt="하트 아이콘"
-                      />
-                      <CommentChildLikeCount>
-                        {subItem.likeCount}
-                      </CommentChildLikeCount>
-                    </CommentChildLikeWrapper>
-                  </CommentButtonWrapper>
-                </CommentChildWrapper>
-              ))}
+                      <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
+                      <CommentChildTime>
+                        {subItem.timestampDistance + " 전"}
+                      </CommentChildTime>
+                      <CommentChildText>{subItem.content}</CommentChildText>
+                      <CommentButtonWrapper>
+                        <CommentChildLikeWrapper
+                          onClick={() => {
+                            if (uploading) return;
+                            setUploading(true);
+                            message.loading("좋아요 누르는 중..", 10);
+                            departMajorApi.comment
+                              .likeSubComment({
+                                originalDocId: content.docId,
+                                commentId: item.commentId,
+                                subcommentId: subItem.subcommentId,
+                                like: "LIKE",
+                              })
+                              .then(() => {
+                                message.destroy();
+                                let tempComments = [...comments];
+                                tempComments[idx].subComments[subIdx]
+                                  .likeCount++;
+                                tempComments[idx].subComments[
+                                  subIdx
+                                ].didILiked = true;
+                                setComments(tempComments);
+                              })
+                              .catch(() => {
+                                message.destroy();
+                                setName(true);
+                                setSubjectModalVisible(true);
+                              })
+                              .finally(() => {
+                                setUploading(false);
+                              });
+                          }}
+                        >
+                          <CommentChildLikeImg
+                            src={
+                              subItem.didILiked
+                                ? mainPageIcons.heart
+                                : Icons.heart
+                            }
+                            alt="하트 아이콘"
+                          />
+                          <CommentChildLikeCount>
+                            {subItem.likeCount}
+                          </CommentChildLikeCount>
+                        </CommentChildLikeWrapper>
+                      </CommentButtonWrapper>
+                    </CommentChildWrapper>
+                  </Box>
+                ))}
               </CommentChildWrapper>
             </React.Fragment>
           ))

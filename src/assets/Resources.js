@@ -34,6 +34,8 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/105382734-bdb92300-5c53-11eb-8ec0-bdb7a3dfdbb3.png",
   check:
     "https://user-images.githubusercontent.com/76280160/106360557-65250c80-635c-11eb-9457-3e4df46a9a9e.png",
+  heart:
+    "https://user-images.githubusercontent.com/74090222/107526609-5dd2ee00-6bfb-11eb-8c04-9e86ab8a973b.png",
 };
 export const mainPageIcons = {
   profile:

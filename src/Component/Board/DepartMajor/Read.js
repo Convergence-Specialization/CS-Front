@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { departMajorApi } from "../../../api";
-import { mainPageIcons, readDoc } from "../../../assets/Resources";
+import { mainPageIcons, readDoc, Icons } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 
@@ -30,8 +30,9 @@ const ContentText = styled.div`
   line-height: 1.5;
 `;
 const LikeCountText = styled.div`
-  font-size: 14px;
   color: #545454;
+  display:flex;
+  align-items:center;
 `;
 
 const CommentButton = styled.div`
@@ -224,15 +225,22 @@ const Read = () => {
           <ContentText>{content.content}</ContentText>
           <ExtraContentWrapper>
             <LikeCountText>
-              공감 {content.likeCount} | 댓글 {content.commentCount}
+            <img
+                  src={mainPageIcons.heart}
+                  alt="하트 아이콘"
+                  style={{ width: "13px", marginRight: " 4px" }}
+                />
+                <div>{content.likeCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                <img
+                  src={readDoc.speech_bubble}
+                  alt="말풍선 아이콘"
+                  style={{ width: "14px", margin: "0px 4px" }}
+                />
+                <div>{content.commentCount}</div>
             </LikeCountText>
             {didILikedThisDoc !== null && (
               <CommentButton
-                style={
-                  didILikedThisDoc
-                    ? { backgroundColor: "black", color: "white" }
-                    : {}
-                }
                 onClick={() => {
                   if (uploading) return;
                   setUploading(true);
@@ -252,7 +260,13 @@ const Read = () => {
                     });
                 }}
               >
-                <CommentImg src={mainPageIcons.heart} alt={"공감 이미지"} />
+                <CommentImg 
+                src={
+                  didILikedThisDoc
+                  ? mainPageIcons.heart   
+                  : Icons.heart      
+                }
+                 alt={"공감 이미지"} />
                 <CommentButtonText>공감</CommentButtonText>
               </CommentButton>
             )}
@@ -300,11 +314,6 @@ const Read = () => {
                     />
                   </CommentChildLikeWrapper>
                   <CommentChildLikeWrapper
-                    style={
-                      item.didILiked
-                        ? { backgroundColor: "black", color: "white" }
-                        : {}
-                    }
                     onClick={() => {
                       if (uploading) return;
                       setUploading(true);
@@ -331,7 +340,11 @@ const Read = () => {
                     }}
                   >
                     <CommentChildLikeImg
-                      src={readDoc.heart_empty}
+                       src={
+                        item.didILiked
+                        ? mainPageIcons.heart   
+                        : Icons.heart      
+                      }
                       alt="하트 아이콘"
                     />
                     <CommentChildLikeCount>
@@ -352,11 +365,6 @@ const Read = () => {
                   <CommentChildText>{subItem.content}</CommentChildText>
                   <CommentButtonWrapper>
                     <CommentChildLikeWrapper
-                      style={
-                        subItem.didILiked
-                          ? { backgroundColor: "black", color: "white" }
-                          : {}
-                      }
                       onClick={() => {
                         if (uploading) return;
                         setUploading(true);
@@ -387,7 +395,11 @@ const Read = () => {
                       }}
                     >
                       <CommentChildLikeImg
-                        src={readDoc.heart_empty}
+                        src={
+                          subItem.didILiked
+                          ? mainPageIcons.heart   
+                          : Icons.heart      
+                        }
                         alt="하트 아이콘"
                       />
                       <CommentChildLikeCount>

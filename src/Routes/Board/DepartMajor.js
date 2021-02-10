@@ -17,7 +17,15 @@ const DepartPresenter = () => {
   useEffect(() => {
     switch (!!location.state && location.state.pageName) {
       case "read":
-        setRenderElement(<Read />);
+        setRenderElement(
+          <>
+            <NavBot
+              Name="전과 게시판"
+              Icon={mainPageIcons.airplane}
+            />
+            <Read />
+          </>
+          );
         break;
       case "create":
         setRenderElement(

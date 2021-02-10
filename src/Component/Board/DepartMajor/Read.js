@@ -6,7 +6,7 @@ import { departMajorApi } from "../../../api";
 import { mainPageIcons, readDoc, Icons } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
-
+import SelectSubjectModal from "./Modal/Read";
 const WhiteContainer = styled.div`
   width: 90%;
   padding: 12px 15px;
@@ -164,6 +164,8 @@ const Read = () => {
   const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
+  const [subjectModalVisible, setSubjectModalVisible] = useState(false)
+  const [name, setName] = useState(false)
   const getComments = useCallback((myEncryptedUid, docItem) => {
     return departMajorApi.comment
       .getLists({
@@ -217,6 +219,11 @@ const Read = () => {
   }, [getComments, location.state]);
   return (
     <>
+     <SelectSubjectModal
+        visible={subjectModalVisible}
+        onClose={() => setSubjectModalVisible(false)}
+        name={name}
+      />
       {content.title !== undefined && (
         <WhiteContainer>
           <Title>{content.title}</Title>
@@ -250,14 +257,15 @@ const Read = () => {
                       message.destroy();
                       setDidILikedThisDoc(true);
                     })
-                    .catch((err) => {
+                    .catch(() => {
                       message.destroy();
-                      message.error(err.message);
+                      setSubjectModalVisible(true)
+                      setName(false)
                     })
                     .finally(() => {
                       setUploading(false);
                     });
-                }}
+                  }}
               >
                 <CommentImg 
                 src={
@@ -330,9 +338,10 @@ const Read = () => {
                           tempComments[idx].didILiked = true;
                           setComments(tempComments);
                         })
-                        .catch((err) => {
+                        .catch(() => {
                           message.destroy();
-                          message.error(err.message);
+                          setSubjectModalVisible(true)
+                          setName(true)
                         })
                         .finally(() => {
                           setUploading(false);
@@ -384,9 +393,10 @@ const Read = () => {
                             ].didILiked = true;
                             setComments(tempComments);
                           })
-                          .catch((err) => {
+                          .catch(() => {
                             message.destroy();
-                            message.error(err.message);
+                            setName(true)
+                          setSubjectModalVisible(true)
                           })
                           .finally(() => {
                             setUploading(false);

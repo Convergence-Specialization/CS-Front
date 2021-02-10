@@ -74,6 +74,7 @@ const BoardChildTimeText = styled.div`
 const BoardChildMetaText = styled.div`
   justify-content: flex-end;
   display: flex;
+  align-items: center;
 `;
 const BlankPost = styled.div`
   padding: 70px 10px 10px 10px;
@@ -153,7 +154,7 @@ const DepartMajorListView = () => {
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "18px", marginRight: " 2px" }}
+                  style={{ width: "18px", marginRight: " 4px" }}
                 />
                 <div>{item.commentCount}</div>
                 <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>

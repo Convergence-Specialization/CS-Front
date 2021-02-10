@@ -70,6 +70,7 @@ const CommentChildWrapper = styled.div`
   margin: 5px 0;
   padding: 5px 0;
   position: relative;
+  border-bottom: 1px solid #aca9a9;
 `;
 const CommentChildTitle = styled.span`
   font-weight: bold;
@@ -231,7 +232,7 @@ const Read = () => {
                   style={{ width: "13px", marginRight: " 4px" }}
                 />
                 <div>{content.likeCount}</div>
-                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                <div style={{ margin: " 0px 2px 0px 4px", fontSize:'13px' }}>|</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"

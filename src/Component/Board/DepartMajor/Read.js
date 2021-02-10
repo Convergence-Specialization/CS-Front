@@ -70,7 +70,6 @@ const CommentChildWrapper = styled.div`
   margin: 5px 0;
   padding: 5px 0;
   position: relative;
-  border-bottom: 1px solid #aca9a9;
 `;
 const CommentChildTitle = styled.span`
   font-weight: bold;
@@ -86,12 +85,11 @@ const CommentChildText = styled.div`
   font-size: 14px;
 `;
 const CommentButtonWrapper = styled.div`
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  right: 5px;
-  bottom: 5px;
+  justify-content: flex-end;
+  
 `;
 const CommentChildNewSubButton = styled.img`
   width: 13px;
@@ -290,6 +288,7 @@ const Read = () => {
                     ? { backgroundColor: "#f6fafe" }
                     : {}
                 }
+                style={{ borderBottom: '1px solid #aca9a9' }}
               >
                 <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
                 <CommentChildTime>
@@ -353,11 +352,10 @@ const Read = () => {
                     </CommentChildLikeCount>
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
-              </CommentChildWrapper>
-              {item.subComments.map((subItem, subIdx) => (
+                {item.subComments.map((subItem, subIdx) => (
                 <CommentChildWrapper
                   key={`${subIdx}SubComment${idx}`}
-                  style={{ backgroundColor: "#f9f9f9" }}
+                  style={{ backgroundColor: "#f9f9f9", paddingBottom:"0px", marginBottom:'0px' }}
                 >
                   <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
                   <CommentChildTime>
@@ -410,6 +408,7 @@ const Read = () => {
                   </CommentButtonWrapper>
                 </CommentChildWrapper>
               ))}
+              </CommentChildWrapper>
             </React.Fragment>
           ))
         )}

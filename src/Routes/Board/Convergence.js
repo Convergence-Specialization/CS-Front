@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import Read from "../../Component/Board/Convergence/Read";
-import Create from "../../Component/Board/Convergence/Create_API";
 import ListView from "../../Component/Board/Convergence/ListView";
 
 import { useLocation } from "react-router-dom";
@@ -18,22 +17,15 @@ const DepartPresenter = () => {
       case "read":
         setRenderElement(
           <>
-            <NavBot 
-              Name="융특 게시판" 
-              Icon={mainPageIcons.airplane} 
-            />
-          <Read />
+            <NavBot Name="융특 게시판" Icon={mainPageIcons.airplane} />
+            <Read />
           </>
         );
         break;
       case "create":
         setRenderElement(
           <>
-            <NavBot 
-              Name="융특 게시판" 
-              Icon={mainPageIcons.airplane} 
-            />
-            <Create />
+            <NavBot Name="융특 게시판" Icon={mainPageIcons.airplane} />
           </>
         );
         break;
@@ -54,7 +46,7 @@ const DepartPresenter = () => {
   }, [location]);
   return (
     <>
-      <Navbar/>
+      <Navbar />
       {renderElement}
     </>
   );

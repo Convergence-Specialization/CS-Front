@@ -279,7 +279,7 @@ const MainPage = () => {
         {posts.length !== 0 &&
           posts.map((item, idx) => (
             <BoardChildWrapper key={`${idx}DEPARTMAJOR_PREVIEW`}>
-              <BoardChildTitle>{item.content}</BoardChildTitle>
+              <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
                   style={{ width: "15px", margin: "0 7px" }}

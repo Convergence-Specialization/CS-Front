@@ -62,7 +62,7 @@ const BoardText = styled.div`
 const Unification = () => {
   const history = useHistory();
   return (
-    <Container>
+    <Container id="KOREA_DIV">
       <NavBot Icon={mainPageIcons.Unification} Name="통일외교 및 개발협력" />
       <BoardContainer>
         <BoardWrapper>

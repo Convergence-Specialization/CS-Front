@@ -59,7 +59,7 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
-const Unification = () => {
+const BigData = () => {
   const history = useHistory();
   return (
     <Container id="BIG_DATA_DIV">
@@ -81,4 +81,4 @@ const Unification = () => {
     </Container>
   );
 };
-export default Unification;
+export default BigData;

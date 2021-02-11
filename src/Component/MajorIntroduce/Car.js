@@ -59,7 +59,7 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
-const Unification = () => {
+const Car = () => {
   const history = useHistory();
   return (
     <Container id="SMART_CAR_DIV">
@@ -81,4 +81,4 @@ const Unification = () => {
     </Container>
   );
 };
-export default Unification;
+export default Car;

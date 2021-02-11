@@ -196,16 +196,26 @@ const MainPage = () => {
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Energy}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "ENERGY_SCIENCE" },
+                  })
+                }
               />
               <SlickText>에너지 공학</SlickText>
             </SlickBox>
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Security}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "SECURITY" },
+                  })
+                }
               />
-              <SlickText>정보보안</SlickText>
+              <SlickText>정보보호</SlickText>
             </SlickBox>
             <SlickBox>
               <IntroduceImage
@@ -234,7 +244,12 @@ const MainPage = () => {
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Unification}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "KOREA" },
+                  })
+                }
               />
               <SlickText>통일외교</SlickText>
             </SlickBox>

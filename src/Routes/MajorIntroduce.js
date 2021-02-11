@@ -14,7 +14,7 @@ const MajorIntroduce = () => {
     const scrollToFunction = (elementId) => {
       window.scrollTo({
         // TODO: 50이거 네비바 정확한 height로 수정 필요.
-        top: document.getElementById(elementId).offsetTop - 50,
+        top: document.getElementById(elementId).offsetTop - 45,
         behavior: "smooth",
       });
     };
@@ -25,7 +25,18 @@ const MajorIntroduce = () => {
       case "BIG_DATA":
         scrollToFunction("BIG_DATA_DIV");
         break;
-
+      case "ICT":
+        scrollToFunction("ICT_DIV");
+        break;
+      case "SECURITY":
+        scrollToFunction("SECURITY_DIV");
+        break;
+      case "KOREA":
+        scrollToFunction("KOREA_DIV");
+        break;
+      case "ENERGY_SCIENCE":
+        scrollToFunction("ENERGY_SCIENCE_DIV");
+        break;
       default:
         break;
     }

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { mainPageIcons } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
+import { departMajorApi } from "../../api";
 
 const Container = styled.div`
   width: 100%;
@@ -151,6 +152,13 @@ const MainPage = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    departMajorApi
+      .getLists({ size: 5 })
+      .then((docsArray) => setPosts(docsArray))
+      .catch((error) => console.log(error.message));
+  }, []);
   return (
     <Container>
       <TitleAndButtonWrapper>
@@ -238,74 +246,26 @@ const MainPage = () => {
         </Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        <BoardChildWrapper>
-          <BoardChildTitle>ㅎㅇㅎㅇ</BoardChildTitle>
-          <DepartmentSubWrapper>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.heart}
-              alt="heart"
-            />
-            <span>27</span>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.comment}
-              alt="comment"
-            />
-            <span>27</span>
-          </DepartmentSubWrapper>
-        </BoardChildWrapper>
-        <BoardChildWrapper>
-          <BoardChildTitle>ㅎㅇㅎㅇ</BoardChildTitle>
-          <DepartmentSubWrapper>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.heart}
-              alt="heart"
-            />
-            <span>27</span>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.comment}
-              alt="comment"
-            />
-            <span>27</span>
-          </DepartmentSubWrapper>
-        </BoardChildWrapper>
-        <BoardChildWrapper>
-          <BoardChildTitle>ㅎㅇㅎㅇ</BoardChildTitle>
-          <DepartmentSubWrapper>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.heart}
-              alt="heart"
-            />
-            <span>27</span>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.comment}
-              alt="comment"
-            />
-            <span>27</span>
-          </DepartmentSubWrapper>
-        </BoardChildWrapper>
-        <BoardChildWrapper>
-          <BoardChildTitle>ㅎㅇㅎㅇ</BoardChildTitle>
-          <DepartmentSubWrapper>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.heart}
-              alt="heart"
-            />
-            <span>27</span>
-            <img
-              style={{ width: "15px", margin: "0 7px" }}
-              src={mainPageIcons.comment}
-              alt="comment"
-            />
-            <span>27</span>
-          </DepartmentSubWrapper>
-        </BoardChildWrapper>
+        {posts.length !== 0 &&
+          posts.map((item, idx) => (
+            <BoardChildWrapper key={`${idx}DEPARTMAJOR_PREVIEW`}>
+              <BoardChildTitle>{item.content}</BoardChildTitle>
+              <DepartmentSubWrapper>
+                <img
+                  style={{ width: "15px", margin: "0 7px" }}
+                  src={mainPageIcons.heart}
+                  alt="heart"
+                />
+                <span>{item.likeCount}</span>
+                <img
+                  style={{ width: "15px", margin: "0 7px" }}
+                  src={mainPageIcons.comment}
+                  alt="comment"
+                />
+                <span>{item.commentCount}</span>
+              </DepartmentSubWrapper>
+            </BoardChildWrapper>
+          ))}
       </BoardContainer>
     </Container>
   );

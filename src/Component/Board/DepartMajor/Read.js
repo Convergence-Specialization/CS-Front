@@ -28,6 +28,7 @@ const SubText = styled.div`
 `;
 const ContentText = styled.div`
   line-height: 1.5;
+  min-height: 90px;
 `;
 const LikeCountText = styled.div`
   color: #545454;

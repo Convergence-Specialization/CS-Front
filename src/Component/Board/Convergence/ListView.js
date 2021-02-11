@@ -7,8 +7,8 @@ import { departMajorApi } from "../../../api";
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { message } from "antd";
-import {nameList, nameListLength} from "../Convergence/NameList";
-
+import { nameList, nameListLength } from "../Convergence/NameList";
+import { horseIcons, readDoc, mainPageIcons } from "../../../assets/Resources";
 let a = 5;
 const Container = styled.div`
   width: 100%;
@@ -30,8 +30,8 @@ const BoardChildWrapper = styled.div`
   position: relative;
 `;
 const BoardChildTitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
 `;
 const BoardChildTitle = styled.div`
   overflow: hidden;
@@ -42,6 +42,8 @@ const BoardChildTitle = styled.div`
   width: 72%;
   font-size: 16px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 `;
 const BoardChildContentWrapper = styled.div`
   display: flex;
@@ -62,6 +64,9 @@ const BoardChildTimeText = styled.div`
 `;
 const BoardChildMetaText = styled.div`
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 const IconImg = styled.img`
   width: 23px;
@@ -106,17 +111,37 @@ const ConvergenceListView = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitleWrapper>
-                    <BoardChildTitle style={{ width: "80%" }}>
-                      {nameList[Math.floor(Math.random() * nameListLength)]}
-                    </BoardChildTitle>
+                  <BoardChildTitle style={{ width: "80%" }}>
+                    <img
+                      src={horseIcons.newhorse}
+                      alt="융슝이"
+                      style={{ width: "25px", marginRight: "5px" }}
+                    ></img>
+                    {nameList[Math.floor(Math.random() * nameListLength)]}
+                  </BoardChildTitle>
                 </BoardChildTitleWrapper>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
                   {item.timestampDistance} 전
                 </BoardChildTimeText>
-                <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
+                <BoardChildMetaText>
+                  <img
+                    src={mainPageIcons.heart}
+                    alt="하트 아이콘"
+                    style={{ width: "18px", marginRight: " 4px" }}
+                  />
+                  <div>{item.likeCount}</div>
+                  <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                  <img
+                    src={readDoc.speech_bubble}
+                    alt="말풍선 아이콘"
+                    style={{ width: "18px", margin: "0px 4px" }}
+                  />
+                  <div>{item.commentCount}</div>
+                </BoardChildMetaText>
               </BoardChildWrapper>
             ))
           )}
@@ -128,7 +153,8 @@ const ConvergenceListView = () => {
               .then((docsArray) => setPosts(docsArray))
               .catch((error) => message.error(error.message));
             a = a + 5;
-          }}>
+          }}
+        >
           더보기
         </MoreButton>
         <GoUp />

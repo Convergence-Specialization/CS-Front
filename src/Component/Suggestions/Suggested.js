@@ -76,7 +76,7 @@ const Suggested = () => {
           </Text>
         </Box>
         <Speechbubble />
-        <Img src={horseIcons.normal} />
+        <Img src={horseIcons.newhorse} />
       </Container>
     </Con>
   );

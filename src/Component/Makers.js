@@ -46,14 +46,14 @@ const TextBox = styled.div`
 `;
 const HorseImg = styled.img`
   width: 30%;
-  margin-right: 30px;
+  margin: 0 30px 0 10px;
 `;
 const Makers = () => {
   return (
     <>
-      <Navbar isRight1Disabled History IconRight2= {Icons.Home}/>
+      <Navbar isRight1Disabled History IconRight2={Icons.Home} />
       <Con>
-        <HorseImg src={horseIcons.normal} alt="말머리" />
+        <HorseImg src={horseIcons.newhorse} alt="말머리" />
         <TextBox>
           <Title>천재의정</Title>
           <Text>나는야 개발 천재</Text>
@@ -61,7 +61,7 @@ const Makers = () => {
         </TextBox>
       </Con>
       <Con>
-        <HorseImg src={horseIcons.normal} alt="말머리" />
+        <HorseImg src={horseIcons.newhorse} alt="말머리" />
         <TextBox>
           <Title>빛준하</Title>
           <Text>나는야 개발 천재</Text>
@@ -69,7 +69,7 @@ const Makers = () => {
         </TextBox>
       </Con>
       <Con>
-        <HorseImg src={horseIcons.normal} alt="말머리" />
+        <HorseImg src={horseIcons.newhorse} alt="말머리" />
         <TextBox>
           <Title>짱은소</Title>
           <Text>나는야 기획 천재?</Text>
@@ -77,7 +77,7 @@ const Makers = () => {
         </TextBox>
       </Con>
       <Con>
-        <HorseImg src={horseIcons.normal} alt="말머리" />
+        <HorseImg src={horseIcons.newhorse} alt="말머리" />
         <TextBox>
           <Title>실세우혁</Title>
           <Text>나는야 개발 천재</Text>
@@ -85,7 +85,7 @@ const Makers = () => {
         </TextBox>
       </Con>
       <Con>
-        <HorseImg src={horseIcons.normal} alt="말머리" />
+        <HorseImg src={horseIcons.newhorse} alt="말머리" />
         <TextBox>
           <Title>미래연우</Title>
           <Text>나는야 개발 천재</Text>
@@ -93,7 +93,7 @@ const Makers = () => {
         </TextBox>
       </Con>
       <Con>
-        <HorseImg src={horseIcons.normal} alt="말머리" />
+        <HorseImg src={horseIcons.newhorse} alt="말머리" />
         <TextBox>
           <Title>대장영현</Title>
           <Text>대장님 믓지다</Text>
@@ -102,7 +102,7 @@ const Makers = () => {
       </Con>
       <Title1>🧡도와주신 분🧡</Title1>
       <Con>
-        <HorseImg src={horseIcons.normal} alt="말머리" />
+        <HorseImg src={horseIcons.newhorse} alt="말머리" />
         <TextBox>
           <Title>이수정</Title>
           <Text>나는야 디자인 천재</Text>

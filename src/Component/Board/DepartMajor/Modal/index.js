@@ -100,9 +100,9 @@ export const SelectSubjectModal = ({ onClose, visible, subjectSelected }) => {
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInner tabIndex="0" className="modal-inner">
           <TitleWrapper>
-            <TitleImg src={horseIcons.normal} alt={"말머리 아이콘"} />
+            <TitleImg src={horseIcons.newhorse} alt={"말머리 아이콘"} />
             <Title>말머리 선택</Title>
-            <TitleImg src={horseIcons.normal} alt={"말머리 아이콘"} />
+            <TitleImg src={horseIcons.newhorse} alt={"말머리 아이콘"} />
           </TitleWrapper>
           <UpperWrapper onClick={() => setTempChecked("NONE")}>
             <ContentText>말머리 선택 안 함</ContentText>

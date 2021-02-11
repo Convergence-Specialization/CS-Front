@@ -124,7 +124,7 @@ const ChangedBoard = () => {
       />
       <Container>
         <SubjectSelectArea onClick={() => setSubjectModalVisible(true)}>
-          <SubjectSelectImg src={horseIcons.normal} alt="말머리" />
+          <SubjectSelectImg src={horseIcons.newhorse} alt="말머리" />
           {subjectSelected === "" ? (
             <SubjectSelectText>▶{` `}말머리를 선택해주세요</SubjectSelectText>
           ) : (
@@ -138,9 +138,8 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={
-                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
-                }>
+                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
+              >
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -161,7 +160,8 @@ const ChangedBoard = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -211,7 +211,8 @@ const ChangedBoard = () => {
               .then((docsArray) => setPosts(docsArray))
               .catch((error) => message.error(error.message));
             a = a + 5;
-          }}>
+          }}
+        >
           더보기
         </MoreButton>
         <GoUp />

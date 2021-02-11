@@ -184,42 +184,72 @@ const MainPage = () => {
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Car}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "SMART_CAR" },
+                  })
+                }
               />
               <SlickText>스마트 자동차</SlickText>
             </SlickBox>
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Energy}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "ENERGY_SCIENCE" },
+                  })
+                }
               />
               <SlickText>에너지 공학</SlickText>
             </SlickBox>
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Security}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "SECURITY" },
+                  })
+                }
               />
-              <SlickText>정보보안</SlickText>
+              <SlickText>정보보호</SlickText>
             </SlickBox>
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.BigData}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "BIG_DATA" },
+                  })
+                }
               />
               <SlickText>빅데이터</SlickText>
             </SlickBox>
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Ict}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "ICT" },
+                  })
+                }
               />
               <SlickText>ICT 유통물류</SlickText>
             </SlickBox>
             <SlickBox>
               <IntroduceImage
                 src={mainPageIcons.Unification}
-                onClick={() => history.push("/board/majorintroduce")}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "KOREA" },
+                  })
+                }
               />
               <SlickText>통일외교</SlickText>
             </SlickBox>

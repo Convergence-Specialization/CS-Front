@@ -59,10 +59,10 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
-const Unification = () => {
+const Security = () => {
   const history = useHistory();
   return (
-    <Container>
+    <Container id="SECURITY_DIV">
       <NavBot Icon={mainPageIcons.Security} Name="정보보호" />
       <BoardContainer>
         <BoardWrapper>
@@ -79,4 +79,4 @@ const Unification = () => {
     </Container>
   );
 };
-export default Unification;
+export default Security;

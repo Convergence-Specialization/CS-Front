@@ -59,10 +59,10 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
-const Unification = () => {
+const BigData = () => {
   const history = useHistory();
   return (
-    <Container>
+    <Container id="BIG_DATA_DIV">
       <NavBot Icon={mainPageIcons.BigData} Name="빅데이터" />
       <BoardContainer>
         <BoardWrapper>
@@ -81,4 +81,4 @@ const Unification = () => {
     </Container>
   );
 };
-export default Unification;
+export default BigData;

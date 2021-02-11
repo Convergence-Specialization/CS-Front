@@ -59,10 +59,10 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
-const Unification = () => {
+const Car = () => {
   const history = useHistory();
   return (
-    <Container>
+    <Container id="SMART_CAR_DIV">
       <NavBot Icon={mainPageIcons.Car} Name="스마트 자동차" />
       <BoardContainer>
         <BoardWrapper>
@@ -81,4 +81,4 @@ const Unification = () => {
     </Container>
   );
 };
-export default Unification;
+export default Car;

@@ -59,10 +59,10 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
-const Unification = () => {
+const Energy = () => {
   const history = useHistory();
   return (
-    <Container>
+    <Container id="ENERGY_SCIENCE_DIV">
       <NavBot Icon={mainPageIcons.Energy} Name="에너지 공학" />
       <BoardContainer>
         <BoardWrapper>
@@ -83,4 +83,4 @@ const Unification = () => {
     </Container>
   );
 };
-export default Unification;
+export default Energy;

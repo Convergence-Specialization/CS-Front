@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons } from "../../assets/Resources";
+import { mainPageIcons, MajorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -58,11 +58,13 @@ const BoardText = styled.div`
   line-height: 1.7;
   word-break: keep-all;
 `;
-
-const Unification = () => {
+const Image = styled.img`
+  width: 100px;
+`;
+const ICT = () => {
   const history = useHistory();
   return (
-    <Container>
+    <Container id="ICT_DIV">
       <NavBot Icon={mainPageIcons.Ict} Name="ICT 유통물류" />
       <BoardContainer>
         <BoardWrapper>
@@ -83,4 +85,4 @@ const Unification = () => {
     </Container>
   );
 };
-export default Unification;
+export default ICT;

@@ -62,7 +62,7 @@ const BoardText = styled.div`
 const Unification = () => {
   const history = useHistory();
   return (
-    <Container>
+    <Container id="BIG_DATA_DIV">
       <NavBot Icon={mainPageIcons.BigData} Name="빅데이터" />
       <BoardContainer>
         <BoardWrapper>

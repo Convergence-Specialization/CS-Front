@@ -79,7 +79,7 @@ const BoardChildTimeText = styled.div`
 `;
 const BoardChildMetaText = styled.div`
   text-align: right;
-  display:flex;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
 `;
@@ -104,16 +104,20 @@ const ChangedBoard = () => {
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   useEffect(() => {
     // TODO: API에서 더보기 구현.
+    setPosts([]);
     departMajorApi
-      .getLists({ size: 10 })
+      .getLists({ size: 10, subject: subjectSelected })
       .then((docsArray) => setPosts(docsArray))
-      .catch((error) => message.error(error.message));
-  }, []);
+      .catch((error) => console.log(error.message));
+  }, [subjectSelected]);
   return (
     <>
       <SelectSubjectModal
         visible={subjectModalVisible}
-        onClose={() => setSubjectModalVisible(false)}
+        onClose={(tempChecked) => {
+          setSubjectSelected(tempChecked);
+          setSubjectModalVisible(false);
+        }}
         subjectSelected={subjectSelected}
         setSubjectSelected={setSubjectSelected}
         isListView
@@ -148,56 +152,55 @@ const ChangedBoard = () => {
           ) : (
             posts.map((item, idx) => (
               <BoardChildWrapper
-              key={idx}
-              onClick={() =>
-                history.push({
-                  pathname: `/board/departmajor`,
-                  state: {
-                    pageName: "read",
-                    docItem: item,
-                  },
-                })
-              }
-            >
-              <BoardChildTitleWrapper>
-                {item.subject !== "NONE" && (
-                  <SubjectSelectImg
-                    style={{ width: "23px", marginTop: "-5px" }}
-                    src={subjectDicts[item.subject].img}
-                    alt={"asdf"}
+                key={idx}
+                onClick={() =>
+                  history.push({
+                    pathname: `/board/departmajor`,
+                    state: {
+                      pageName: "read",
+                      docItem: item,
+                    },
+                  })
+                }>
+                <BoardChildTitleWrapper>
+                  {item.subject !== "NONE" && (
+                    <SubjectSelectImg
+                      style={{ width: "23px", marginTop: "-5px" }}
+                      src={subjectDicts[item.subject].img}
+                      alt={"asdf"}
+                    />
+                  )}
+                  {item.subject === "NONE" && (
+                    <BoardChildTitle style={{ width: "80%" }}>
+                      {item.title}
+                    </BoardChildTitle>
+                  )}
+                  {item.subject !== "NONE" && (
+                    <BoardChildTitle style={{ width: "72%" }}>
+                      {item.title}
+                    </BoardChildTitle>
+                  )}
+                </BoardChildTitleWrapper>
+                <BoardChildContent>{item.content}</BoardChildContent>
+                <BoardChildTimeText>
+                  {item.timestampDistance} 전
+                </BoardChildTimeText>
+                <BoardChildMetaText>
+                  <img
+                    src={mainPageIcons.heart}
+                    alt="하트 아이콘"
+                    style={{ width: "18px", marginRight: " 4px" }}
                   />
-                )}
-                {item.subject === "NONE" && (
-                  <BoardChildTitle style={{ width: "80%" }}>
-                    {item.title}
-                  </BoardChildTitle>
-                )}
-                {item.subject !== "NONE" && (
-                  <BoardChildTitle style={{ width: "72%" }}>
-                    {item.title}
-                  </BoardChildTitle>
-                )}
-              </BoardChildTitleWrapper>
-              <BoardChildContent>{item.content}</BoardChildContent>
-              <BoardChildTimeText>
-                {item.timestampDistance} 전
-              </BoardChildTimeText>
-              <BoardChildMetaText>
-                <img
-                  src={mainPageIcons.heart}
-                  alt="하트 아이콘"
-                  style={{ width: "18px", marginRight: " 4px" }}
-                />
-                <div>{item.likeCount}</div>
-                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
-                <img
-                  src={readDoc.speech_bubble}
-                  alt="말풍선 아이콘"
-                  style={{ width: "18px", margin: "0px 4px" }}
-                />
-                <div>{item.commentCount}</div>
-              </BoardChildMetaText>
-            </BoardChildWrapper>
+                  <div>{item.likeCount}</div>
+                  <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                  <img
+                    src={readDoc.speech_bubble}
+                    alt="말풍선 아이콘"
+                    style={{ width: "18px", margin: "0px 4px" }}
+                  />
+                  <div>{item.commentCount}</div>
+                </BoardChildMetaText>
+              </BoardChildWrapper>
             ))
           )}
         </BoardContainer>
@@ -217,4 +220,3 @@ const ChangedBoard = () => {
   );
 };
 export default ChangedBoard;
-// TODO: 미만이 들어가있는 것들은 모두 방금으로 표기.

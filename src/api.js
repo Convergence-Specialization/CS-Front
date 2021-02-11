@@ -22,39 +22,71 @@ export const userApi = {
 };
 
 export const departMajorApi = {
-  getLists_OLD: (body) => api.post("board/departmajor/listview", body),
   getLists: (body) => {
-    const { size, startAfterDocId } = body;
+    const { size, startAfterDocId, subject } = body;
     // TODO: if startAfterDocId가 있으면..
-    return db
-      .collection("departMajor")
-      .orderBy("timestamp", "desc")
-      .limit(size)
-      .get()
-      .then((querySnapshot) => {
-        let docsArray = [];
-        querySnapshot.forEach((doc) => {
-          let data = doc.data();
+    if (subject === "" || subject === "NONE") {
+      return db
+        .collection("departMajor")
+        .orderBy("timestamp", "desc")
+        .limit(size)
+        .get()
+        .then((querySnapshot) => {
+          let docsArray = [];
+          querySnapshot.forEach((doc) => {
+            let data = doc.data();
 
-          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
-            locale: ko,
-          }).replace("약 ", "");
-          if (distanceText.includes("미만")) {
-            distanceText = "방금";
-          }
-          docsArray.push({
-            docId: doc.id,
-            title: data.title,
-            content: data.content,
-            timestampDistance: distanceText,
-            timestampMillis: data.timestamp.toMillis(),
-            commentCount: data.comments_count,
-            likeCount: data.likes_count,
-            subject: data.subject,
+            let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+              locale: ko,
+            }).replace("약 ", "");
+            if (distanceText.includes("미만")) {
+              distanceText = "방금";
+            }
+            docsArray.push({
+              docId: doc.id,
+              title: data.title,
+              content: data.content,
+              timestampDistance: distanceText,
+              timestampMillis: data.timestamp.toMillis(),
+              commentCount: data.comments_count,
+              likeCount: data.likes_count,
+              subject: data.subject,
+            });
           });
+          return docsArray;
         });
-        return docsArray;
-      });
+    } else {
+      return db
+        .collection("departMajor")
+        .where("subject", "==", subject)
+        .orderBy("timestamp", "desc")
+        .limit(size)
+        .get()
+        .then((querySnapshot) => {
+          let docsArray = [];
+          querySnapshot.forEach((doc) => {
+            let data = doc.data();
+
+            let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+              locale: ko,
+            }).replace("약 ", "");
+            if (distanceText.includes("미만")) {
+              distanceText = "방금";
+            }
+            docsArray.push({
+              docId: doc.id,
+              title: data.title,
+              content: data.content,
+              timestampDistance: distanceText,
+              timestampMillis: data.timestamp.toMillis(),
+              commentCount: data.comments_count,
+              likeCount: data.likes_count,
+              subject: data.subject,
+            });
+          });
+          return docsArray;
+        });
+    }
   },
   myEncryptedUid: (body) =>
     api.post("board/departmajor/myencrypteduid", body, {

@@ -63,7 +63,7 @@ export const SelectSubjectModal = ({ onClose, visible, navClicked }) => {
   const [referSiteOpened, setReferSiteOpened] = useState(false);
   return (
     <>
-     <ModalOverlay visible={visible} />
+      <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInner tabIndex="0" className="modal-inner">
           <NavOpen>
@@ -259,15 +259,13 @@ export const SelectSubjectModal = ({ onClose, visible, navClicked }) => {
                 </NavOpenSingleItemBox>
               </>
             )}
-            <NavOpenSingleItemBox
-              onClick={() => history.push("/suggestions")}
-            >
+            <NavOpenSingleItemBox onClick={() => history.push("/suggestions")}>
               <NavOpenItemMargin />
               <NavOpenItemText>건의사항</NavOpenItemText>
             </NavOpenSingleItemBox>
             <NavOpenSingleItemBox onClick={() => history.push("/makers")}>
               <NavOpenItemMargin />
-              <NavOpenItemText>만든 사람들</NavOpenItemText>
+              <NavOpenItemText>팀 소개</NavOpenItemText>
             </NavOpenSingleItemBox>
           </NavOpen>
         </ModalInner>

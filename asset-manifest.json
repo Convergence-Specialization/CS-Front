@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/CS-Front/static/css/main.31a42ed9.chunk.css",
-    "main.js": "/CS-Front/static/js/main.5e4c40d2.chunk.js",
-    "main.js.map": "/CS-Front/static/js/main.5e4c40d2.chunk.js.map",
+    "main.css": "/CS-Front/static/css/main.7ace1e92.chunk.css",
+    "main.js": "/CS-Front/static/js/main.6eeb0219.chunk.js",
+    "main.js.map": "/CS-Front/static/js/main.6eeb0219.chunk.js.map",
     "runtime-main.js": "/CS-Front/static/js/runtime-main.aab4bf4c.js",
     "runtime-main.js.map": "/CS-Front/static/js/runtime-main.aab4bf4c.js.map",
     "static/css/2.30c33904.chunk.css": "/CS-Front/static/css/2.30c33904.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.67ece69c.chunk.js.map": "/CS-Front/static/js/2.67ece69c.chunk.js.map",
     "index.html": "/CS-Front/index.html",
     "static/css/2.30c33904.chunk.css.map": "/CS-Front/static/css/2.30c33904.chunk.css.map",
-    "static/css/main.31a42ed9.chunk.css.map": "/CS-Front/static/css/main.31a42ed9.chunk.css.map",
+    "static/css/main.7ace1e92.chunk.css.map": "/CS-Front/static/css/main.7ace1e92.chunk.css.map",
     "static/js/2.67ece69c.chunk.js.LICENSE.txt": "/CS-Front/static/js/2.67ece69c.chunk.js.LICENSE.txt",
     "static/media/heart_empty.1b65a37a.png": "/CS-Front/static/media/heart_empty.1b65a37a.png",
     "static/media/slick-theme.css": "/CS-Front/static/media/slick.c94f7671.ttf",
@@ -20,7 +20,7 @@
     "static/js/runtime-main.aab4bf4c.js",
     "static/css/2.30c33904.chunk.css",
     "static/js/2.67ece69c.chunk.js",
-    "static/css/main.31a42ed9.chunk.css",
-    "static/js/main.5e4c40d2.chunk.js"
+    "static/css/main.7ace1e92.chunk.css",
+    "static/js/main.6eeb0219.chunk.js"
   ]
 }

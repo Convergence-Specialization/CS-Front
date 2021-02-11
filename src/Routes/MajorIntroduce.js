@@ -45,10 +45,10 @@ const MajorIntroduce = () => {
     <>
       <Navbar />
       <Car />
-      <BigData />
       <Energy />
-      <ICT />
       <Security />
+      <BigData />
+      <ICT />
       <Unification />
     </>
   );

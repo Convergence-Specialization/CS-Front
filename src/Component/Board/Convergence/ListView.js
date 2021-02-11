@@ -7,8 +7,8 @@ import { departMajorApi } from "../../../api";
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { message } from "antd";
-import {nameList, nameListLength} from "../Convergence/NameList";
-
+import { nameList, nameListLength } from "../Convergence/NameList";
+import { horseIcons } from "../../../assets/Resources";
 let a = 5;
 const Container = styled.div`
   width: 100%;
@@ -30,8 +30,8 @@ const BoardChildWrapper = styled.div`
   position: relative;
 `;
 const BoardChildTitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
 `;
 const BoardChildTitle = styled.div`
   overflow: hidden;
@@ -42,6 +42,8 @@ const BoardChildTitle = styled.div`
   width: 72%;
   font-size: 16px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 `;
 const BoardChildContentWrapper = styled.div`
   display: flex;
@@ -106,11 +108,17 @@ const ConvergenceListView = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitleWrapper>
-                    <BoardChildTitle style={{ width: "80%" }}>
-                      {nameList[Math.floor(Math.random() * nameListLength)]}
-                    </BoardChildTitle>
+                  <BoardChildTitle style={{ width: "80%" }}>
+                    <img
+                      src={horseIcons.newhorse}
+                      alt="융슝이"
+                      style={{ width: "25px", marginRight: "5px" }}
+                    ></img>
+                    {nameList[Math.floor(Math.random() * nameListLength)]}
+                  </BoardChildTitle>
                 </BoardChildTitleWrapper>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
@@ -128,7 +136,8 @@ const ConvergenceListView = () => {
               .then((docsArray) => setPosts(docsArray))
               .catch((error) => message.error(error.message));
             a = a + 5;
-          }}>
+          }}
+        >
           더보기
         </MoreButton>
         <GoUp />

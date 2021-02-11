@@ -96,7 +96,7 @@ const Create = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <SubjectSelectArea onClick={() => setSubjectModalVisible(true)}>
-          <SubjectSelectImg src={horseIcons.normal} alt="말머리" />
+          <SubjectSelectImg src={horseIcons.newhorse} alt="말머리" />
           {subjectSelected === "" ? (
             <SubjectSelectText>▶{` `}말머리를 선택해주세요</SubjectSelectText>
           ) : (
@@ -110,9 +110,8 @@ const Create = () => {
                 />
               )}
               <SubjectSelectText
-                style={
-                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
-                }>
+                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
+              >
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -159,7 +158,8 @@ const Create = () => {
                   message.error(err.message);
                   setUploading(false);
                 });
-            }}>
+            }}
+          >
             완료
           </Button>
         </ButtonWrapper>

@@ -113,7 +113,7 @@ const Suggestions = () => {
   return (
     <>
       <Text>수정할 점과 건의사항을 자유롭게 적어주세요!</Text>
-      <Img src={horseIcons.normal} />
+      <Img src={horseIcons.newhorse} />
       <Container>
         <TitleInput
           placeholder="제목을 입력해주세요"

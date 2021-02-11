@@ -8,7 +8,7 @@ import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { message } from "antd";
 import { nameList, nameListLength } from "../Convergence/NameList";
-import { horseIcons } from "../../../assets/Resources";
+import { horseIcons, readDoc, mainPageIcons } from "../../../assets/Resources";
 let a = 5;
 const Container = styled.div`
   width: 100%;
@@ -64,6 +64,9 @@ const BoardChildTimeText = styled.div`
 `;
 const BoardChildMetaText = styled.div`
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 const IconImg = styled.img`
   width: 23px;
@@ -124,7 +127,21 @@ const ConvergenceListView = () => {
                 <BoardChildTimeText>
                   {item.timestampDistance} 전
                 </BoardChildTimeText>
-                <BoardChildMetaText>{`댓글 ${item.commentCount} | 공감 ${item.likeCount}`}</BoardChildMetaText>
+                <BoardChildMetaText>
+                  <img
+                    src={mainPageIcons.heart}
+                    alt="하트 아이콘"
+                    style={{ width: "18px", marginRight: " 4px" }}
+                  />
+                  <div>{item.likeCount}</div>
+                  <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                  <img
+                    src={readDoc.speech_bubble}
+                    alt="말풍선 아이콘"
+                    style={{ width: "18px", margin: "0px 4px" }}
+                  />
+                  <div>{item.commentCount}</div>
+                </BoardChildMetaText>
               </BoardChildWrapper>
             ))
           )}

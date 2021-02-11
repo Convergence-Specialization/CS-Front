@@ -85,6 +85,7 @@ const BoardChildTimeText = styled.div`
 const BoardChildMetaText = styled.div`
   justify-content: flex-end;
   display: flex;
+  align-items: center;
 `;
 const BlankPost = styled.div`
   padding: 70px 10px 10px 10px;
@@ -108,16 +109,17 @@ const MyPost = () => {
     <>
       <BoardContainer>
         <Box>
-          <Text >
-              융특 게시판</Text>
+          <Text>융특 게시판</Text>
           <Button
-           onClick={() => {
-            history.push({
-              pathname: `myposts`,
-              state: { pageName: "convergencelistview" },
-            });
-          }}
-          >더보기</Button>
+            onClick={() => {
+              history.push({
+                pathname: `myposts`,
+                state: { pageName: "convergencelistview" },
+              });
+            }}
+          >
+            더보기
+          </Button>
         </Box>
         {posts.length === 0 ? (
           <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
@@ -162,15 +164,16 @@ const MyPost = () => {
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "15px", marginRight: " 2px" }}
+                  style={{ width: "18px", marginRight: " 4px" }}
                 />
-                <div>{item.commentCount}</div>
+                <div>{item.likeCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"
-                  style={{ width: "15px", margin: "0px 4px" }}
+                  style={{ width: "18px", margin: "0px 4px" }}
                 />
-                <div>{item.likeCount}</div>
+                <div>{item.commentCount}</div>
               </BoardChildMetaText>
             </BoardChildWrapper>
           ))
@@ -180,13 +183,15 @@ const MyPost = () => {
         <Box>
           <Text>전과 게시판</Text>
           <Button
-           onClick={() => {
-            history.push({
-              pathname: `myposts`,
-              state: { pageName: "departmajorlistview" },
-            });
-          }}
-          >더보기</Button>
+            onClick={() => {
+              history.push({
+                pathname: `myposts`,
+                state: { pageName: "departmajorlistview" },
+              });
+            }}
+          >
+            더보기
+          </Button>
         </Box>
         {posts.length === 0 ? (
           <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
@@ -231,15 +236,16 @@ const MyPost = () => {
                 <img
                   src={mainPageIcons.heart}
                   alt="하트 아이콘"
-                  style={{ width: "15px", marginRight: " 2px" }}
+                  style={{ width: "18px", marginRight: " 4px" }}
                 />
-                <div>{item.commentCount}</div>
+                <div>{item.likeCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                 <img
                   src={readDoc.speech_bubble}
                   alt="말풍선 아이콘"
-                  style={{ width: "15px", margin: "0px 4px" }}
+                  style={{ width: "18px", margin: "0px 4px" }}
                 />
-                <div>{item.likeCount}</div>
+                <div>{item.commentCount}</div>
               </BoardChildMetaText>
             </BoardChildWrapper>
           ))

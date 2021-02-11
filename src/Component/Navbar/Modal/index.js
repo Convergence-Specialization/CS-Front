@@ -113,7 +113,7 @@ export const SelectSubjectModal = ({ onClose, visible, navClicked }) => {
               <NavOpenItemImg src={sideBarIcons.home} alt={"집 아이콘"} />
               <NavOpenItemText>Home</NavOpenItemText>
             </NavOpenSingleItemBox>
-            <NavOpenSingleItemBox onClick={() => history.push("/")}>
+            <NavOpenSingleItemBox onClick={() => history.push("/notification")}>
               <NavOpenItemImg src={sideBarIcons.alarm} alt={"알림함 아이콘"} />
               <NavOpenItemText>알림함</NavOpenItemText>
             </NavOpenSingleItemBox>

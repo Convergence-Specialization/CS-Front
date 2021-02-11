@@ -26,14 +26,16 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
   person:
     "https://user-images.githubusercontent.com/74090222/104939221-7df40080-59f3-11eb-824d-75e160c46a94.png",
-  댓글화살표:
-    "https://user-images.githubusercontent.com/74090222/105071114-83227f80-5ac7-11eb-9fc0-bd35d7631399.png",
+  commentarrow:
+    "https://user-images.githubusercontent.com/74090222/107540133-0f2c5080-6c09-11eb-96d3-522d35a8d2ce.png",
   verticalmenu:
     "https://user-images.githubusercontent.com/74090222/105375009-a9712800-5c4b-11eb-8bfd-45753729f92c.png",
   horse:
     "https://user-images.githubusercontent.com/74090222/105382734-bdb92300-5c53-11eb-8ec0-bdb7a3dfdbb3.png",
   check:
     "https://user-images.githubusercontent.com/76280160/106360557-65250c80-635c-11eb-9457-3e4df46a9a9e.png",
+  heart:
+    "https://user-images.githubusercontent.com/74090222/107526609-5dd2ee00-6bfb-11eb-8c04-9e86ab8a973b.png",
 };
 export const mainPageIcons = {
   profile:

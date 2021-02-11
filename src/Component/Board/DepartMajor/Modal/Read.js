@@ -33,7 +33,7 @@ const ModalInner = styled.div`
   background-color: #fff;
   border-radius: 15px;
   width: 90%;
-  top: 90%;
+  top: 50%;
   transform: translateY(-50%);
   margin: 0 auto;
   padding: 30px 20px;
@@ -67,7 +67,7 @@ export const SelectSubjectModal = ({
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInner tabIndex="0" className="modal-inner">
-          <Title>{!!name ? name : "비밀번호가 변경되었습니다."}</Title>
+          <Title>{!!name ? "이미 공감한 댓글입니다." : "이미 공감한 글입니다."}</Title>
         </ModalInner>
       </ModalWrapper>
     </>

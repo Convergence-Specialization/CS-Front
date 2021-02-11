@@ -9,12 +9,7 @@ const api = axios.create({
   // baseURL: "http://localhost:5000",
 });
 
-const getBearer = () => {
-  // TODO: token expire 됐는지 확인 후 auth에서 재발급.
-  // TODO: Token Expire 확인 후, user에서 재발급 시도. 재발급 실패 시 전체 로그아웃!!
-  return `Bearer ${localStorage.getItem("idToken")}`;
-};
-
+const getBearer = () => `Bearer ${localStorage.getItem("idToken")}`;
 export const userApi = {
   signUp: (body) => api.post("/user/signup", body),
   lostPw: (body) => api.post("/user/lostpw", body),
@@ -25,9 +20,10 @@ export const departMajorApi = {
   getLists: (body) => {
     const { size, startAfterDocId, subject } = body;
     // TODO: if startAfterDocId가 있으면..
-    if (subject === "" || subject === "NONE") {
+    if (subject !== undefined && subject !== "" && subject !== "NONE") {
       return db
         .collection("departMajor")
+        .where("subject", "==", subject)
         .orderBy("timestamp", "desc")
         .limit(size)
         .get()
@@ -58,7 +54,6 @@ export const departMajorApi = {
     } else {
       return db
         .collection("departMajor")
-        .where("subject", "==", subject)
         .orderBy("timestamp", "desc")
         .limit(size)
         .get()

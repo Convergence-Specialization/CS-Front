@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons } from "../../assets/Resources";
+import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -59,6 +59,17 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
+const ImageWrapper = styled.div`
+  justify-content: center;
+  padding-top: 15px;
+`;
+const Image = styled.img`
+  width: 100%;
+  /* margin: 10px 5px; */
+  padding: 10px;
+  border-radius: 20px;
+`;
+
 const Security = () => {
   const history = useHistory();
   return (
@@ -74,6 +85,9 @@ const Security = () => {
           </BoardText>
           <BoardTitle>- 참여 학과</BoardTitle>
           <BoardText>소프트웨어학부, 수학과, 전자정보공학부</BoardText>
+          <ImageWrapper>
+            <Image src={majorIntroduce.SECURITY}></Image>
+          </ImageWrapper>
         </BoardWrapper>
       </BoardContainer>
     </Container>

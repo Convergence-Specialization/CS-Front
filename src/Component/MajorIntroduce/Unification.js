@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons } from "../../assets/Resources";
+import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -59,6 +59,17 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
+const ImageWrapper = styled.div`
+  justify-content: center;
+  padding-top: 15px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+`;
+
 const Unification = () => {
   const history = useHistory();
   return (
@@ -76,6 +87,9 @@ const Unification = () => {
             정치외교학과, 사회복지학부, 행정학부, 정보사회학과, 언론홍보학과,
             평생교육학과
           </BoardText>
+          <ImageWrapper>
+            <Image src={majorIntroduce.KOREA}></Image>
+          </ImageWrapper>
         </BoardWrapper>
       </BoardContainer>
     </Container>

@@ -9,6 +9,7 @@ const Container = styled.div`
   max-width: 768px;
   margin: 0 auto;
   background-color: white;
+  padding-bottom: 3px;
 `;
 const TitleWrapper = styled.div`
   display: flex;
@@ -130,6 +131,7 @@ const SlickBox1 = styled.div`
 const SlickText = styled.div`
   font-size: 13px;
   text-align: center;
+  margin-top: 8px;
   @media (max-width: 430px) {
   }
 `;

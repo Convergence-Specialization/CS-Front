@@ -456,6 +456,9 @@ const Read = () => {
                 })
                 .then(() => {
                   getComments(myEncryptedUid, content).then(() => {
+                    let tempContent = { ...content };
+                    tempContent.commentCount++;
+                    setContent(tempContent);
                     message.destroy();
                     document.getElementById("commentInputBox").value = "";
                   });
@@ -474,6 +477,9 @@ const Read = () => {
                 })
                 .then(() => {
                   getComments(myEncryptedUid, content).then(() => {
+                    let tempContent = { ...content };
+                    tempContent.commentCount++;
+                    setContent(tempContent);
                     message.destroy();
                     document.getElementById("commentInputBox").value = "";
                   });

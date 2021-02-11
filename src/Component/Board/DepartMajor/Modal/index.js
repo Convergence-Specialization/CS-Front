@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { subjectDicts } from "../../../../assets/Dicts";
 import { horseIcons } from "../../../../assets/Resources";
@@ -87,15 +87,11 @@ const Button = styled.div`
   text-align: center;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
-export const SelectSubjectModal = ({
-  onClose,
-  visible,
-  subjectSelected,
-  setSubjectSelected,
-}) => {
+export const SelectSubjectModal = ({ onClose, visible, subjectSelected }) => {
+  const [tempChecked, setTempChecked] = useState(subjectSelected);
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      onClose(tempChecked);
     }
   };
   return (
@@ -108,25 +104,25 @@ export const SelectSubjectModal = ({
             <Title>말머리 선택</Title>
             <TitleImg src={horseIcons.normal} alt={"말머리 아이콘"} />
           </TitleWrapper>
-          <UpperWrapper onClick={() => setSubjectSelected("NONE")}>
+          <UpperWrapper onClick={() => setTempChecked("NONE")}>
             <ContentText>말머리 선택 안 함</ContentText>
             <CheckBox
               readOnly
               type="checkbox"
-              checked={subjectSelected === "NONE"}
+              checked={tempChecked === "NONE"}
             />
           </UpperWrapper>
-          <ChildWrapper onClick={() => setSubjectSelected("SMART_CAR")}>
+          <ChildWrapper onClick={() => setTempChecked("SMART_CAR")}>
             <TitleImg src={subjectDicts.SMART_CAR.img} alt={"말머리 아이콘"} />
             <ContentText>스마트 자동차</ContentText>
             <CheckBox
               readOnly
               type="checkbox"
-              checked={subjectSelected === "SMART_CAR"}
+              checked={tempChecked === "SMART_CAR"}
               style={{ position: "absolute", right: "10px" }}
             />
           </ChildWrapper>
-          <ChildWrapper onClick={() => setSubjectSelected("ENERGY_SCIENCE")}>
+          <ChildWrapper onClick={() => setTempChecked("ENERGY_SCIENCE")}>
             <TitleImg
               src={subjectDicts.ENERGY_SCIENCE.img}
               alt={"말머리 아이콘"}
@@ -136,50 +132,50 @@ export const SelectSubjectModal = ({
               readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
-              checked={subjectSelected === "ENERGY_SCIENCE"}
+              checked={tempChecked === "ENERGY_SCIENCE"}
             />
           </ChildWrapper>
-          <ChildWrapper onClick={() => setSubjectSelected("SECURITY")}>
+          <ChildWrapper onClick={() => setTempChecked("SECURITY")}>
             <TitleImg src={subjectDicts.SECURITY.img} alt={"말머리 아이콘"} />
             <ContentText>정보보안</ContentText>
             <CheckBox
               readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
-              checked={subjectSelected === "SECURITY"}
+              checked={tempChecked === "SECURITY"}
             />
           </ChildWrapper>
-          <ChildWrapper onClick={() => setSubjectSelected("BIGDATA")}>
+          <ChildWrapper onClick={() => setTempChecked("BIGDATA")}>
             <TitleImg src={subjectDicts.BIGDATA.img} alt={"말머리 아이콘"} />
             <ContentText>빅데이터</ContentText>
             <CheckBox
               readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
-              checked={subjectSelected === "BIGDATA"}
+              checked={tempChecked === "BIGDATA"}
             />
           </ChildWrapper>
-          <ChildWrapper onClick={() => setSubjectSelected("ICT")}>
+          <ChildWrapper onClick={() => setTempChecked("ICT")}>
             <TitleImg src={subjectDicts.ICT.img} alt={"말머리 아이콘"} />
             <ContentText>ICT 유통물류</ContentText>
             <CheckBox
               readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
-              checked={subjectSelected === "ICT"}
+              checked={tempChecked === "ICT"}
             />
           </ChildWrapper>
-          <ChildWrapper onClick={() => setSubjectSelected("KOREA")}>
+          <ChildWrapper onClick={() => setTempChecked("KOREA")}>
             <TitleImg src={subjectDicts.KOREA.img} alt={"말머리 아이콘"} />
             <ContentText>통일 외교 및 개발협력</ContentText>
             <CheckBox
               readOnly
               type="checkbox"
               style={{ position: "absolute", right: "10px" }}
-              checked={subjectSelected === "KOREA"}
+              checked={tempChecked === "KOREA"}
             />
           </ChildWrapper>
-          <Button onClick={() => onClose()}>확인</Button>
+          <Button onClick={() => onClose(tempChecked)}>확인</Button>
         </ModalInner>
       </ModalWrapper>
     </>

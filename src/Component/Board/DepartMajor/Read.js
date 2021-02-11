@@ -274,8 +274,7 @@ const Read = () => {
                     .finally(() => {
                       setUploading(false);
                     });
-                }}
-              >
+                }}>
                 <CommentImg
                   src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
                   alt={"공감 이미지"}
@@ -302,8 +301,7 @@ const Read = () => {
                     ? { backgroundColor: "#f6fafe" }
                     : {}
                 }
-                style={{ borderBottom: "1px solid #aca9a9" }}
-              >
+                style={{ borderBottom: "1px solid #aca9a9" }}>
                 <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
                 <CommentChildTime>
                   {item.timestampDistance + " 전"}
@@ -320,8 +318,7 @@ const Read = () => {
                       } else {
                         setSubCommentFocusedId("");
                       }
-                    }}
-                  >
+                    }}>
                     <CommentChildNewSubButton
                       src={readDoc.speech_bubble}
                       alt="말풍선 아이콘"
@@ -352,8 +349,7 @@ const Read = () => {
                         .finally(() => {
                           setUploading(false);
                         });
-                    }}
-                  >
+                    }}>
                     <CommentChildLikeImg
                       src={item.didILiked ? mainPageIcons.heart : Icons.heart}
                       alt="하트 아이콘"
@@ -372,9 +368,8 @@ const Read = () => {
                         backgroundColor: "#f9f9f9",
                         padding: "5px ",
                         margin: "0px",
-                        width:'90%',
-                      }}
-                    >
+                        width: "90%",
+                      }}>
                       <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
                       <CommentChildTime>
                         {subItem.timestampDistance + " 전"}
@@ -411,8 +406,7 @@ const Read = () => {
                               .finally(() => {
                                 setUploading(false);
                               });
-                          }}
-                        >
+                          }}>
                           <CommentChildLikeImg
                             src={
                               subItem.didILiked
@@ -490,8 +484,7 @@ const Read = () => {
                 })
                 .finally(() => setUploading(false));
             }
-          }}
-        >
+          }}>
           작성하기
         </CommentInputSubmitButton>
       </CommentInputContainer>

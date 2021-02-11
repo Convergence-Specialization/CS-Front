@@ -82,7 +82,10 @@ const Create = () => {
     <>
       <SelectSubjectModal
         visible={subjectModalVisible}
-        onClose={() => setSubjectModalVisible(false)}
+        onClose={(tempChecked) => {
+          setSubjectSelected(tempChecked);
+          setSubjectModalVisible(false);
+        }}
         subjectSelected={subjectSelected}
         setSubjectSelected={setSubjectSelected}
       />

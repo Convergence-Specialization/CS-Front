@@ -98,3 +98,18 @@ export const readDoc = {
   heart_empty,
   speech_bubble,
 };
+
+export const majorIntroduce = {
+  ICT:
+    "https://user-images.githubusercontent.com/71367047/107649653-04cd8d80-6cc1-11eb-804b-f978edc4ec49.png",
+  SMART_CAR:
+    "https://user-images.githubusercontent.com/71367047/107649836-35152c00-6cc1-11eb-96c6-c7a06882bb8d.png",
+  ENERGY_SCIENCE:
+    "https://user-images.githubusercontent.com/71367047/107649743-1d3da800-6cc1-11eb-9965-3921fbf523ba.png",
+  BIGDATA:
+    "https://user-images.githubusercontent.com/71367047/107649779-262e7980-6cc1-11eb-899c-20fbf22415cc.png",
+  SECURITY:
+    "https://user-images.githubusercontent.com/71367047/107649701-131ba980-6cc1-11eb-9594-84d988c5e877.png",
+  KOREA:
+    "https://user-images.githubusercontent.com/71367047/107649804-2d558780-6cc1-11eb-8f1f-859f9e3f7a87.png",
+};

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons } from "../../assets/Resources";
+import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -59,6 +59,17 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
+const ImageWrapper = styled.div`
+  justify-content: center;
+  padding-top: 15px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+`;
+
 const Energy = () => {
   const history = useHistory();
   return (
@@ -78,6 +89,9 @@ const Energy = () => {
             화학공학과, 유기신소재∙파이버공학과, 전기공학부, 기계공학과,
             건축학부
           </BoardText>
+          <ImageWrapper>
+            <Image src={majorIntroduce.ENERGY_SCIENCE}></Image>
+          </ImageWrapper>
         </BoardWrapper>
       </BoardContainer>
     </Container>

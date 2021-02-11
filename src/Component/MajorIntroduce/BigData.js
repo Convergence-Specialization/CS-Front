@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons } from "../../assets/Resources";
+import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -59,6 +59,17 @@ const BoardText = styled.div`
   word-break: keep-all;
 `;
 
+const ImageWrapper = styled.div`
+  justify-content: center;
+  padding-top: 15px;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+`;
+
 const BigData = () => {
   const history = useHistory();
   return (
@@ -76,6 +87,9 @@ const BigData = () => {
           <BoardText>
             소프트웨어학과, 정보통계∙보험수리학과, 스마트시스템소프트웨어학과
           </BoardText>
+          <ImageWrapper>
+            <Image src={majorIntroduce.BIGDATA}></Image>
+          </ImageWrapper>
         </BoardWrapper>
       </BoardContainer>
     </Container>

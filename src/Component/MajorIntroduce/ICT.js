@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons, MajorIntroduce } from "../../assets/Resources";
+import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -22,6 +22,7 @@ const BoardContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
+  position: relative;
 `;
 
 const BoardWrapper = styled.div`
@@ -35,6 +36,7 @@ const BoardWrapper = styled.div`
   line-height: 1.12;
   color: #444444;
   background-color: white;
+  position: relative;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   @media (max-width: 430px) {
     font-size: 12px;
@@ -58,9 +60,18 @@ const BoardText = styled.div`
   line-height: 1.7;
   word-break: keep-all;
 `;
-const Image = styled.img`
-  width: 100px;
+
+const ImageWrapper = styled.div`
+  justify-content: center;
+  padding-top: 15px;
 `;
+
+const Image = styled.img`
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+`;
+
 const ICT = () => {
   const history = useHistory();
   return (
@@ -80,6 +91,9 @@ const ICT = () => {
             경영학부, 벤처중소기업학과, 컴퓨터학부,
             산업∙정보시스템공학과,전자정보공학부
           </BoardText>
+          <ImageWrapper>
+            <Image src={majorIntroduce.ICT}></Image>
+          </ImageWrapper>
         </BoardWrapper>
       </BoardContainer>
     </Container>

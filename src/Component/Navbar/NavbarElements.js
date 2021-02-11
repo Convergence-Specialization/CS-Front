@@ -67,7 +67,7 @@ export const NavOpen = styled.div`
 `;
 export const NavLinkOpen = styled(Link)`
   color: black;
-  border-bottom: 1px solid #a2c8f3;
+  border-bottom: 1px solid#7AB8F3;
   font-size: 25px;
   text-align: center;
   margin: 20px 0;
@@ -81,7 +81,7 @@ export const NavOpenUpperContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #a2c8f3;
+  background-color: #7ab8f3;
 `;
 export const NavOpenUpperButtonWrapper = styled.div`
   width: 90%;

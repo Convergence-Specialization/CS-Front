@@ -8,7 +8,6 @@ import { subjectDicts } from "../../../assets/Dicts";
 import { authService } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 
-let a = 5;
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
   display: flex;
@@ -101,7 +100,7 @@ const DepartMajorListView = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showMoreButtonVisible, setShowMoreButtonVisible] = useState(true);
-
+  const [numToGetList, setNumToGetList] = useState(5);
   useEffect(() => {
     // TODO: API에서 더보기 구현.
     // departMajorApi
@@ -111,11 +110,11 @@ const DepartMajorListView = () => {
     userApi
       .getMyPosts({
         boardName: "departmajor",
-        size: a,
+        size: numToGetList,
         uid: authService.currentUser.uid,
       })
       .then((docsArray) => {
-        if (docsArray.length < a) {
+        if (docsArray.length < numToGetList) {
           setShowMoreButtonVisible(false);
         }
         setPosts(docsArray);
@@ -188,7 +187,11 @@ const DepartMajorListView = () => {
           ))
         )}
       </BoardContainer>
-      {showMoreButtonVisible && <MoreButton>더보기</MoreButton>}
+      {showMoreButtonVisible && (
+        <MoreButton onClick={() => setNumToGetList((num) => num + 5)}>
+          더보기
+        </MoreButton>
+      )}
     </>
   );
 };

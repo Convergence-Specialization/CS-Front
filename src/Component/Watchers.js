@@ -3,7 +3,7 @@ import { authService } from "../firebase";
 import { useLocation } from "react-router-dom";
 import ReactGA from "react-ga";
 import jwtDecode from "jwt-decode";
-import { message } from "antd";
+import message from "antd/lib/message";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const NEED_PERMISSION_PATHS = [

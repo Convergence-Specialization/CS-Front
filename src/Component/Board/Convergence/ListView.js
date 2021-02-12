@@ -6,7 +6,7 @@ import { departMajorApi } from "../../../api";
 
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
-import { message } from "antd";
+import message from "antd/lib/message";
 import { nameList, nameListLength } from "../Convergence/NameList";
 import { horseIcons, readDoc, mainPageIcons } from "../../../assets/Resources";
 let a = 5;

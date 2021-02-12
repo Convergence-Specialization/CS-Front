@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { mainPageIcons, readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import { message } from "antd";
+import message from "antd/lib/message";
 import { departMajorApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
 

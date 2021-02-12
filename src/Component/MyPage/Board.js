@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { authService } from "../../firebase";
 import { useHistory } from "react-router-dom";
-import { message } from "antd";
+import message from "antd/lib/message";
 const Con = styled.div`
   padding: 20px;
   border-radius: 30px;

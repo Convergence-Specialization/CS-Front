@@ -1,4 +1,4 @@
-import { message } from "antd";
+import message from "antd/lib/message";
 import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";

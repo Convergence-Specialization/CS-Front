@@ -5,7 +5,7 @@ import Navbar from "../Component/Navbar";
 
 const GithubAndHelperContainer = styled.div`
   background-color: white;
-  align-items: center;
+  /* align-items: center; */
   padding: 30px 0;
 `;
 
@@ -103,6 +103,29 @@ const Line = styled.div`
 `;
 const HelperWrapper = styled.div`
   margin: 30px 0;
+`;
+const FooterContainer = styled.div`
+  padding: 10px 0;
+  display: flex;
+  @media (max-width: 768px) {
+    padding: 6px;
+  }
+`;
+const SoongsilImg = styled.img`
+  width: 80px;
+`;
+
+const FooterText = styled.div`
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: left;
+  color: #616161;
+  @media (max-width: 430px) {
+  }
+`;
+
+const FooterTextWrapper = styled.div`
+  margin: 20px 10px 0 0;
 `;
 const Makers = () => {
   return (
@@ -227,6 +250,23 @@ const Makers = () => {
           </MakersWrapper>
         </HelperWrapper>
       </GithubAndHelperContainer>
+      <FooterContainer>
+        <GithubWrapper>
+          <SoongsilImg src={Icons.숭실} />
+        </GithubWrapper>
+        <FooterTextWrapper>
+          <FooterText style={{ fontSize: "17px" }}>
+            융합특성화자유전공학부
+          </FooterText>
+          <FooterText>
+            서울특별시 동작구 상도로 309 숭실대학교 문화관 302호
+            <br />
+            융합특성화자유전공학부, 서울특별시 16978
+            <br />
+            TEL) 02-829-8220
+          </FooterText>
+        </FooterTextWrapper>
+      </FooterContainer>
     </>
   );
 };

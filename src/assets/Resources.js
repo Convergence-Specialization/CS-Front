@@ -15,7 +15,7 @@ export const Icons = {
   UpArrow:
     "https://user-images.githubusercontent.com/74090222/104585329-31cd5700-56a7-11eb-913d-0daddf15de16.png",
   숭실:
-    "https://user-images.githubusercontent.com/74090222/104586083-5413a480-56a8-11eb-865d-e154a8f65127.png",
+    "https://user-images.githubusercontent.com/71367047/107774976-14150f80-6d83-11eb-91ca-e15bb9de74ee.png",
   Home:
     "https://user-images.githubusercontent.com/74090222/106783350-8d7b7680-668e-11eb-881e-4a78ff36388c.png",
   menu:
@@ -38,6 +38,8 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/107526609-5dd2ee00-6bfb-11eb-8c04-9e86ab8a973b.png",
   github:
     "https://user-images.githubusercontent.com/71367047/107678883-466d3100-6cdf-11eb-8d68-165ac638840c.png",
+  infoEdit:
+    "https://user-images.githubusercontent.com/71367047/107805681-0ecabb80-6da9-11eb-9b07-e7bf6fed2714.png",
 };
 export const mainPageIcons = {
   profile:

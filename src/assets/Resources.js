@@ -36,6 +36,8 @@ export const Icons = {
     "https://user-images.githubusercontent.com/76280160/106360557-65250c80-635c-11eb-9457-3e4df46a9a9e.png",
   heart:
     "https://user-images.githubusercontent.com/74090222/107526609-5dd2ee00-6bfb-11eb-8c04-9e86ab8a973b.png",
+  github:
+    "https://user-images.githubusercontent.com/71367047/107678883-466d3100-6cdf-11eb-8d68-165ac638840c.png",
 };
 export const mainPageIcons = {
   profile:
@@ -75,10 +77,12 @@ export const sideBarIcons = {
     "https://user-images.githubusercontent.com/62606632/106358677-fe4e2600-6350-11eb-916c-66592eaa3e90.png",
 };
 export const horseIcons = {
-  newhorse:
+  horse:
     "https://user-images.githubusercontent.com/62606632/106386072-906c3200-6416-11eb-842d-d07f329f97aa.jpg",
   newhorse:
     "https://user-images.githubusercontent.com/71367047/107599081-be494600-6c62-11eb-97ba-78dd983080c3.png",
+  face:
+    "https://user-images.githubusercontent.com/71367047/107684414-1aa17980-6ce6-11eb-875f-d0001e4c1736.png",
 };
 
 export const events = {

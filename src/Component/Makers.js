@@ -3,112 +3,230 @@ import styled from "styled-components";
 import { horseIcons, Icons } from "../assets/Resources";
 import Navbar from "../Component/Navbar";
 
-const Con = styled.div`
-  padding: 30px;
-  border-radius: 30px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #ffffff;
-  margin: 30px;
-  display: flex;
-  @media (max-width: 430px) {
-    margin: 15px;
-    padding: 30px 10px;
-  }
+const GithubAndHelperContainer = styled.div`
+  background-color: white;
+  align-items: center;
+  padding: 30px 0;
 `;
 
 const Title = styled.div`
-  font-size: 25px;
-  margin-bottom: 10px;
+  font-family: "양진체";
+  font-size: 22px;
+  text-align: center;
+  color: #727272;
+  margin: 20px 0;
+`;
+const GithubWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
   @media (max-width: 430px) {
-    font-size: 20px;
   }
 `;
-const Title1 = styled.div`
-  font-size: 30px;
-  margin: 130px 0px 30px 50px;
+
+const Line1 = styled.div`
+  width: 0;
+  height: 130px;
+  margin: 0 10px;
+  text-align: center;
+  border: solid 1px #dcdcdc;
+`;
+
+const GithubText = styled.div`
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
   @media (max-width: 430px) {
-    font-size: 25px;
   }
 `;
 const Text = styled.div`
-  color: #727272;
-  line-height: 1.41;
-  font-size: 20px;
+  font-family: "양진체";
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 5px;
+  color: #009bcb;
   @media (max-width: 430px) {
-    font-size: 18px;
   }
 `;
-const TextBox = styled.div`
-  margin-top: 30px;
+const Text2 = styled.div`
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.3;
   @media (max-width: 430px) {
-    margin-top: 0px;
   }
+`;
+const GithubImage = styled.img`
+  margin: 0 auto;
+  width: 60px;
+  border-radius: 55%;
+`;
+
+const TeamContainer = styled.div`
+  padding: 30px 0;
+`;
+
+const MakersTitle = styled.div`
+  font-family: "양진체";
+  line-height: 1.3;
+  margin-top: 8px;
+  font-size: 19px;
+`;
+const MakersWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  @media (max-width: 430px) {
+  }
+`;
+const GithubAndMakersTotalWrapper = styled.div`
+  margin: 30px auto;
+  text-align: center;
+  display: flex;
 `;
 const HorseImg = styled.img`
-  width: 30%;
-  margin: 0 30px 0 10px;
+  /* width: 23%;
+  border-radius: 55%;
+  margin: 19px; */
+  margin: 0 auto;
+  width: 100px;
+  border-radius: 55%;
+`;
+const Line = styled.div`
+  width: 30px;
+  height: 0;
+  margin: 12px 0;
+  border: solid 1px #7b7b7b;
+`;
+const HelperWrapper = styled.div`
+  margin: 30px 0;
 `;
 const Makers = () => {
   return (
     <>
       <Navbar isRight1Disabled History IconRight2={Icons.Home} />
-      <Con>
-        <HorseImg src={horseIcons.newhorse} alt="말머리" />
-        <TextBox>
-          <Title>천재의정</Title>
-          <Text>나는야 개발 천재</Text>
-          <Text>보고싶슴다 ㅠㅠ</Text>
-        </TextBox>
-      </Con>
-      <Con>
-        <HorseImg src={horseIcons.newhorse} alt="말머리" />
-        <TextBox>
-          <Title>빛준하</Title>
-          <Text>나는야 개발 천재</Text>
-          <Text>css 원툴</Text>
-        </TextBox>
-      </Con>
-      <Con>
-        <HorseImg src={horseIcons.newhorse} alt="말머리" />
-        <TextBox>
-          <Title>짱은소</Title>
-          <Text>나는야 기획 천재?</Text>
-          <Text>아니 모든 분야의 천재!!!</Text>
-        </TextBox>
-      </Con>
-      <Con>
-        <HorseImg src={horseIcons.newhorse} alt="말머리" />
-        <TextBox>
-          <Title>실세우혁</Title>
-          <Text>나는야 개발 천재</Text>
-          <Text>군대 그냥 3월에 가자</Text>
-        </TextBox>
-      </Con>
-      <Con>
-        <HorseImg src={horseIcons.newhorse} alt="말머리" />
-        <TextBox>
-          <Title>미래연우</Title>
-          <Text>나는야 개발 천재</Text>
-          <Text>사실 나는 빵팔이</Text>
-        </TextBox>
-      </Con>
-      <Con>
-        <HorseImg src={horseIcons.newhorse} alt="말머리" />
-        <TextBox>
-          <Title>대장영현</Title>
-          <Text>대장님 믓지다</Text>
-          <Text>쉬엄쉬엄 하십쇼ㅠㅠ</Text>
-        </TextBox>
-      </Con>
-      <Title1>🧡도와주신 분🧡</Title1>
-      <Con>
-        <HorseImg src={horseIcons.newhorse} alt="말머리" />
-        <TextBox>
-          <Title>이수정</Title>
-          <Text>나는야 디자인 천재</Text>
-          <Text>항상 감사합니다 수정님!!!</Text>
-        </TextBox>
-      </Con>
+      <GithubAndHelperContainer>
+        <Title>github(깃허브)</Title>
+        <GithubAndMakersTotalWrapper>
+          <GithubWrapper>
+            <GithubImage
+              src={Icons.github}
+              onClick={() =>
+                window.open(
+                  "https://github.com/Convergence-Specialization/CS-Front"
+                )
+              }
+            />
+            <GithubText>CS-Frontend</GithubText>
+          </GithubWrapper>
+          <Line1 />
+          <GithubWrapper>
+            <GithubImage
+              src={Icons.github}
+              onClick={() =>
+                window.open(
+                  "https://github.com/Convergence-Specialization/CS-Backend"
+                )
+              }
+            />
+            <GithubText>CS-Backend</GithubText>
+          </GithubWrapper>
+        </GithubAndMakersTotalWrapper>
+      </GithubAndHelperContainer>
+      <TeamContainer>
+        <Title>팀 소개</Title>
+        <GithubAndMakersTotalWrapper>
+          <MakersWrapper>
+            <HorseImg src={horseIcons.face} />
+            <MakersTitle>조영현</MakersTitle>
+            <Text>
+              LEADER
+              <br />
+              BACK-END
+            </Text>
+            <Line />
+            <Text2>
+              내가 대장임
+              <br /> 코딩짱짱맨
+            </Text2>
+          </MakersWrapper>
+          <MakersWrapper>
+            <HorseImg src={horseIcons.face} />
+            <MakersTitle>안은소</MakersTitle>
+            <Text>
+              FRONT-END
+              <br />
+              DESIGNER
+            </Text>
+            <Line />
+            <Text2>
+              웹 기획
+              <br />
+              웹페이지 개발
+            </Text2>
+          </MakersWrapper>
+          <MakersWrapper>
+            <HorseImg src={horseIcons.face} />
+            <MakersTitle>지연우</MakersTitle>
+            <Text>
+              FRONT-END
+              <br />
+              DESIGNER
+            </Text>
+            <Line />
+            <Text2>
+              웹 기획
+              <br />
+              웹페이지 개발
+            </Text2>
+          </MakersWrapper>
+        </GithubAndMakersTotalWrapper>
+        <GithubAndMakersTotalWrapper>
+          <MakersWrapper>
+            <HorseImg src={horseIcons.face} />
+            <MakersTitle>김의정</MakersTitle>
+            <Text>FRONT-END</Text>
+            <Line />
+            <Text2>웹페이지 개발</Text2>
+          </MakersWrapper>
+          <MakersWrapper>
+            <HorseImg src={horseIcons.face} />
+            <MakersTitle>김준하</MakersTitle>
+            <Text>FRONT-END</Text>
+            <Line />
+            <Text2>
+              프론트엔드 장인
+              <br />
+              웹개발 나한테 줘!
+            </Text2>
+          </MakersWrapper>
+          <MakersWrapper>
+            <HorseImg src={horseIcons.face} />
+            <MakersTitle>이우혁</MakersTitle>
+            <Text>BACK-END</Text>
+            <Line />
+            <Text2>백엔드 장인</Text2>
+          </MakersWrapper>
+        </GithubAndMakersTotalWrapper>
+      </TeamContainer>
+      <GithubAndHelperContainer>
+        <Title>도움주신 분</Title>
+        <HelperWrapper>
+          <MakersWrapper>
+            <HorseImg src={horseIcons.face} />
+            <MakersTitle>이수정</MakersTitle>
+            <Text>DESIGNER</Text>
+            <Line />
+            <Text2>
+              융슝이 캐릭터
+              <br /> 디자인
+            </Text2>
+          </MakersWrapper>
+        </HelperWrapper>
+      </GithubAndHelperContainer>
     </>
   );
 };

@@ -368,7 +368,7 @@ const Read = () => {
                       style={{
                         backgroundColor: "#f9f9f9",
                         padding: "5px ",
-                        margin: "0px",
+                        marginTop: "5px",
                         width: "90%",
                       }}>
                       <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>

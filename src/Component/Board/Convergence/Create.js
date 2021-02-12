@@ -72,7 +72,7 @@ const Create = () => {
         <ButtonWrapper>
           <Button onClick={() => history.goBack()}>취소</Button>
           <Button
-            onClick={() => {
+            /*onClick={() => {
               if (uploading) return;
               if (content === "") {
                 message.error("글 내용을 작성해주세요.");
@@ -95,7 +95,7 @@ const Create = () => {
                   message.error(err.message);
                   setUploading(false);
                 });
-            }}
+            }}*/
           >
             완료
           </Button>

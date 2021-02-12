@@ -120,7 +120,6 @@ const MyPost = () => {
       .catch((error) => message.error(error.message))
       .finally(() => setLoadingDepartMajor(false));
   }, []);
-  console.log(posts);
   return (
     <>
       <BoardContainer>

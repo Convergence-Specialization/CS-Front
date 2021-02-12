@@ -17,7 +17,6 @@ export const userApi = {
   getMyPosts: async (body) => {
     // boardName == departmajor | convergence
     const { boardName, size, uid } = body;
-    console.log(body);
     const querySnapshot = await db
       .collection("users")
       .doc(uid)

@@ -260,7 +260,6 @@ const Read = () => {
                 onClick={() => {
                   if (uploading) return;
                   setUploading(true);
-                  message.loading("좋아요 누르는 중..", 10);
                   departMajorApi
                     .like({ docId: content.docId, like: "LIKE" })
                     .then(() => {
@@ -269,12 +268,17 @@ const Read = () => {
                     })
                     .catch(() => {
                       message.destroy();
-                      setSubjectModalVisible(true);
-                      setName(false);
                     })
                     .finally(() => {
                       setUploading(false);
                     });
+                    if (didILikedThisDoc) {
+                      setSubjectModalVisible(true);
+                      setName(false);
+                    }
+                    else {
+                      message.loading("좋아요 누르는 중..", 10);
+                    }
                 }}>
                 <CommentImg
                   src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
@@ -329,7 +333,6 @@ const Read = () => {
                     onClick={() => {
                       if (uploading) return;
                       setUploading(true);
-                      message.loading("좋아요 누르는 중..", 10);
                       departMajorApi.comment
                         .like({
                           originalDocId: content.docId,
@@ -344,12 +347,17 @@ const Read = () => {
                         })
                         .catch(() => {
                           message.destroy();
-                          setSubjectModalVisible(true);
-                          setName(true);
                         })
                         .finally(() => {
                           setUploading(false);
                         });
+                        if (item.didILiked) {
+                          setSubjectModalVisible(true);
+                          setName(true);
+                        }
+                        else {
+                          message.loading("좋아요 누르는 중..", 10);
+                        }
                     }}>
                     <CommentChildLikeImg
                       src={item.didILiked ? mainPageIcons.heart : Icons.heart}
@@ -368,7 +376,7 @@ const Read = () => {
                       style={{
                         backgroundColor: "#f9f9f9",
                         padding: "5px ",
-                        marginTop: "5px",
+                        marginTT: "5px",
                         width: "90%",
                       }}>
                       <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
@@ -381,7 +389,6 @@ const Read = () => {
                           onClick={() => {
                             if (uploading) return;
                             setUploading(true);
-                            message.loading("좋아요 누르는 중..", 10);
                             departMajorApi.comment
                               .likeSubComment({
                                 originalDocId: content.docId,
@@ -401,12 +408,17 @@ const Read = () => {
                               })
                               .catch(() => {
                                 message.destroy();
-                                setName(true);
-                                setSubjectModalVisible(true);
                               })
                               .finally(() => {
                                 setUploading(false);
                               });
+                              if (item.didILiked) {
+                                setSubjectModalVisible(true);
+                                setName(true);
+                              }
+                              else {
+                                message.loading("좋아요 누르는 중..", 10);
+                              }
                           }}>
                           <CommentChildLikeImg
                             src={

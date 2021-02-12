@@ -66,8 +66,8 @@ export const SelectSubjectModal = ({
     <>
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
-        <ModalInner tabIndex="0" className="modal-inner">
-          <Title>{!!name ? "이미 공감한 댓글입니다." : "이미 공감한 글입니다."}</Title>
+        <ModalInner onClick={onMaskClick} tabIndex="0" className="modal-inner">
+          <Title onClick={onMaskClick}>{!!name ? "이미 공감한 댓글입니다." : "이미 공감한 글입니다."}</Title>
         </ModalInner>
       </ModalWrapper>
     </>

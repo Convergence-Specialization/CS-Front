@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { mainPageIcons, readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
-import { departMajorApi } from "../../../api";
+import { departMajorApi, userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
+import { authService } from "../../../firebase";
+import LoadingComponent from "../../SmallComponents/Loading";
 
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
@@ -47,7 +49,7 @@ const BoardContainer = styled.div`
   margin: 20px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
-  min-height: 50vh;
+  min-height: 20vh;
 `;
 const BoardChildWrapper = styled.div`
   padding: 12px 12px;
@@ -98,13 +100,27 @@ const BlankPost = styled.div`
 const MyPost = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
+  const [loadingConvergence, setLoadingConvergence] = useState(true);
+  const [loadingDepartMajor, setLoadingDepartMajor] = useState(true);
+
   useEffect(() => {
     // TODO: API에서 더보기 구현.
-    departMajorApi
-      .getLists({ size: 3 })
+    // departMajorApi
+    //   .getLists({ size: 3 })
+    //   .then((docsArray) => setPosts(docsArray))
+    //   .catch((error) => message.error(error.message));
+
+    userApi
+      .getMyPosts({
+        boardName: "departmajor",
+        size: 4,
+        uid: authService.currentUser.uid,
+      })
       .then((docsArray) => setPosts(docsArray))
-      .catch((error) => message.error(error.message));
+      .catch((error) => message.error(error.message))
+      .finally(() => setLoadingDepartMajor(false));
   }, []);
+  console.log(posts);
   return (
     <>
       <BoardContainer>
@@ -116,12 +132,13 @@ const MyPost = () => {
                 pathname: `myposts`,
                 state: { pageName: "convergencelistview" },
               });
-            }}
-          >
+            }}>
             더보기
           </Button>
         </Box>
-        {posts.length === 0 ? (
+        {loadingConvergence ? (
+          <LoadingComponent />
+        ) : posts.length === 0 ? (
           <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
         ) : (
           posts.map((item, idx) => (
@@ -135,8 +152,7 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitleWrapper>
                 {item.subject !== "NONE" && (
                   <SubjectSelectImg
@@ -188,12 +204,13 @@ const MyPost = () => {
                 pathname: `myposts`,
                 state: { pageName: "departmajorlistview" },
               });
-            }}
-          >
+            }}>
             더보기
           </Button>
         </Box>
-        {posts.length === 0 ? (
+        {loadingDepartMajor ? (
+          <LoadingComponent />
+        ) : posts.length === 0 ? (
           <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
         ) : (
           posts.map((item, idx) => (
@@ -207,8 +224,7 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitleWrapper>
                 {item.subject !== "NONE" && (
                   <SubjectSelectImg

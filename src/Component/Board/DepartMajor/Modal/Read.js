@@ -41,7 +41,6 @@ const ModalInner = styled.div`
     padding: 20px 20px;
   }
 `;
-
 const Title = styled.div`
   text-align: center;
   color: #437ecb;

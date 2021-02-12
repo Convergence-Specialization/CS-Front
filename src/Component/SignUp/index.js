@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Images } from "../../assets/Resources";
-import { message } from "antd";
+import message from "antd/lib/message";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { userApi } from "../../api";

@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { mainPageIcons, readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import { message } from "antd";
-import { departMajorApi } from "../../../api";
+import message from "antd/lib/message";
+import { departMajorApi, userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
+import { authService } from "../../../firebase";
+import LoadingComponent from "../../SmallComponents/Loading";
 
-let a= 5;
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
   display: flex;
@@ -97,21 +98,39 @@ const MoreButton = styled.div`
 const DepartMajorListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showMoreButtonVisible, setShowMoreButtonVisible] = useState(true);
+  const [numToGetList, setNumToGetList] = useState(5);
   useEffect(() => {
     // TODO: API에서 더보기 구현.
-    departMajorApi
-      .getLists({ size: 7 })
-      .then((docsArray) => setPosts(docsArray))
-      .catch((error) => message.error(error.message));
+    // departMajorApi
+    //   .getLists({ size: 7 })
+    //   .then((docsArray) => setPosts(docsArray))
+    //   .catch((error) => message.error(error.message));
+    userApi
+      .getMyPosts({
+        boardName: "departmajor",
+        size: numToGetList,
+        uid: authService.currentUser.uid,
+      })
+      .then((docsArray) => {
+        if (docsArray.length < numToGetList) {
+          setShowMoreButtonVisible(false);
+        }
+        setPosts(docsArray);
+      })
+      .catch((error) => message.error(error.message))
+      .finally(() => setLoading(false));
   }, []);
   return (
     <>
       <BoardContainer>
         <Box>
-          <Text >
-              전과 게시판</Text>
+          <Text>전과 게시판</Text>
         </Box>
-        {posts.length === 0 ? (
+        {loading ? (
+          <LoadingComponent />
+        ) : posts.length === 0 ? (
           <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
         ) : (
           posts.map((item, idx) => (
@@ -125,8 +144,7 @@ const DepartMajorListView = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitleWrapper>
                 {item.subject !== "NONE" && (
                   <SubjectSelectImg
@@ -169,16 +187,11 @@ const DepartMajorListView = () => {
           ))
         )}
       </BoardContainer>
-      <MoreButton
-          onClick={() => {
-            departMajorApi
-              .getLists({ size: 10 + a })
-              .then((docsArray) => setPosts(docsArray))
-              .catch((error) => message.error(error.message));
-            a = a + 5;
-          }}>
+      {showMoreButtonVisible && (
+        <MoreButton onClick={() => setNumToGetList((num) => num + 5)}>
           더보기
         </MoreButton>
+      )}
     </>
   );
 };

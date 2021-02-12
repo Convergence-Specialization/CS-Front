@@ -14,6 +14,50 @@ export const userApi = {
   signUp: (body) => api.post("/user/signup", body),
   lostPw: (body) => api.post("/user/lostpw", body),
   checkGoogleSignUped: (body) => api.post("/user/checkgoogleexist", body),
+  getMyPosts: async (body) => {
+    // boardName == departmajor | convergence
+    const { boardName, size, uid } = body;
+    const querySnapshot = await db
+      .collection("users")
+      .doc(uid)
+      .collection(`myposts_${boardName}`)
+      .orderBy("timestamp", "desc")
+      .limit(size)
+      .get();
+    let docsArray = [];
+    querySnapshot.forEach((doc) => {
+      docsArray.push({
+        docId: doc.id,
+      });
+    });
+    return await Promise.all(
+      docsArray.map((item, _idx) =>
+        db
+          .collection("departMajor")
+          .doc(item.docId)
+          .get()
+          .then((doc) => {
+            let data = doc.data();
+            let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+              locale: ko,
+            }).replace("약 ", "");
+            if (distanceText.includes("미만")) {
+              distanceText = "방금";
+            }
+            return {
+              docId: doc.id,
+              title: data.title,
+              content: data.content,
+              timestampDistance: distanceText,
+              timestampMillis: data.timestamp.toMillis(),
+              commentCount: data.comments_count,
+              likeCount: data.likes_count,
+              subject: data.subject,
+            };
+          })
+      )
+    );
+  },
 };
 
 export const departMajorApi = {
@@ -31,7 +75,6 @@ export const departMajorApi = {
           let docsArray = [];
           querySnapshot.forEach((doc) => {
             let data = doc.data();
-
             let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
               locale: ko,
             }).replace("약 ", "");

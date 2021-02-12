@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useAuth } from "../../Watchers";
 import { useHistory } from "react-router-dom";
-import { message } from "antd";
+import message from "antd/lib/message";
 import SelectSubjectModal from "../Modal";
 const Con = styled.div`
   padding: 20px;

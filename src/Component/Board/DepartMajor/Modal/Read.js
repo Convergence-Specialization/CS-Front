@@ -37,37 +37,31 @@ const ModalInner = styled.div`
   transform: translateY(-50%);
   margin: 0 auto;
   padding: 30px 20px;
-  @media (max-width: 430px){
+  @media (max-width: 430px) {
     padding: 20px 20px;
   }
 `;
-
 const Title = styled.div`
   text-align: center;
   color: #437ecb;
   font-weight: bold;
   font-size: 20px;
-  @media (max-width: 430px){
+  @media (max-width: 430px) {
     font-size: 15px;
   }
 `;
 
-export const SelectSubjectModal = ({
-  onClose,
-  visible,
-  name
-}) => {
-  const onMaskClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
+export const SelectSubjectModal = ({ onClose, visible, isCommentWarning }) => {
   return (
     <>
       <ModalOverlay visible={visible} />
-      <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
+      <ModalWrapper onClick={onClose} tabIndex="-1" visible={visible}>
         <ModalInner tabIndex="0" className="modal-inner">
-          <Title>{!!name ? "이미 공감한 댓글입니다." : "이미 공감한 글입니다."}</Title>
+          <Title>
+            {!!isCommentWarning
+              ? "이미 공감한 댓글입니다."
+              : "이미 공감한 글입니다."}
+          </Title>
         </ModalInner>
       </ModalWrapper>
     </>

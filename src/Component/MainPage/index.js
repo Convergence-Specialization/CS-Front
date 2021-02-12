@@ -77,6 +77,10 @@ const BoardChildTitle = styled.div`
   line-height: 1.12;
   color: #444444;
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
   @media (max-width: 430px) {
     font-size: 13px;
   }
@@ -140,6 +144,7 @@ const IntroduceImage = styled.img`
   margin: 0 auto;
   width: 40px;
 `;
+
 const MainPage = () => {
   const history = useHistory();
   const settings = {
@@ -278,8 +283,21 @@ const MainPage = () => {
       <BoardContainer>
         {posts.length !== 0 &&
           posts.map((item, idx) => (
-            <BoardChildWrapper key={`${idx}DEPARTMAJOR_PREVIEW`}>
-              <BoardChildTitle>{item.title}</BoardChildTitle>
+            <BoardChildWrapper 
+              key={`${idx}DEPARTMAJOR_PREVIEW`}
+              onClick={() =>
+                history.push({
+                  pathname: `/board/departmajor`,
+                  state: {
+                    pageName: "read",
+                    docItem: item,
+                  },
+                })
+              }
+            >
+              <BoardChildTitle>
+                {item.title}
+              </BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
                   style={{ width: "15px", margin: "0 7px" }}

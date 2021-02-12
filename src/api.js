@@ -36,7 +36,8 @@ export const userApi = {
         db
           .collection("departMajor")
           .doc(item.docId)
-          .get((doc) => {
+          .get()
+          .then((doc) => {
             let data = doc.data();
             let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
               locale: ko,

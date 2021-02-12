@@ -98,6 +98,7 @@ const Login = () => {
   const history = useHistory();
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // 구글 로그인 중에도 message.loading 넣기.
   //  회원가입 할 때에 융특 사람인지 체크하는거 선택인거 강조하기.
@@ -121,6 +122,7 @@ const Login = () => {
       />
       <Button
         onClick={async () => {
+          if (loading) return;
           try {
             if (id === "" || pw === "") {
               message.error("아이디와 비밀번호를 입력해주세요.");
@@ -128,6 +130,7 @@ const Login = () => {
             }
             message.destroy();
             message.loading("로그인 중..");
+            setLoading(true);
             await authService.signInWithEmailAndPassword(id, pw);
             const idToken = await authService.currentUser.getIdToken();
             localStorage.setItem("idToken", idToken);
@@ -138,11 +141,13 @@ const Login = () => {
             message.destroy();
             message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
           }
+          setLoading(false);
         }}>
         로그인
       </Button>
       <Button
         onClick={async () => {
+          if (loading) return;
           try {
             let provider = new firebaseInstance.auth.GoogleAuthProvider();
             await authService.signInWithPopup(provider);

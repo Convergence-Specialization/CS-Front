@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { departMajorApi } from "../api";
 import LoadingComponent from "./SmallComponents/Loading";
-import { message } from "antd";
+import message from "antd/lib/message";
 import { subjectDicts } from "../assets/Dicts";
 
 let a = 0;

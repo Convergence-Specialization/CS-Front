@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import { useHistory } from "react-router-dom";
-import { message } from "antd";
+import message from "antd/lib/message";
 import SelectSubjectModal from "../Modal";
 const Con = styled.div`
   margin: 0px auto 0px auto;

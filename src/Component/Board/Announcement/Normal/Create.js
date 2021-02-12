@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { horseIcons } from "../../../../assets/Resources";
-import { message } from "antd";
+import message from "antd/lib/message";
 import { useHistory } from "react-router-dom";
 const Container = styled.div`
   padding-top: 15px;

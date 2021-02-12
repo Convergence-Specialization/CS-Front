@@ -14,7 +14,7 @@ import {
   NavSingleMarginBetween,
 } from "../../Navbar/NavbarElements";
 import { sideBarIcons } from "../../../assets/Resources";
-import { message } from "antd";
+import message from "antd/lib/message";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../Watchers";
 import { authService } from "../../../firebase";

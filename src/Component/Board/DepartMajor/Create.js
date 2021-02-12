@@ -1,4 +1,4 @@
-import { message } from "antd";
+import message from "antd/lib/message";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";

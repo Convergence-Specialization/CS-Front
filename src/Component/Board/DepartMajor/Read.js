@@ -135,9 +135,6 @@ const CommentInputContainer = styled.div`
   max-width: 768px;
   background-color: white;
 `;
-const CommentInputSecretButton = styled.img`
-  width: 12px;
-`;
 const CommentInputBox = styled.input`
   width: 80%;
   outline: none;

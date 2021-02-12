@@ -170,42 +170,43 @@ const Read = () => {
   const [uploading, setUploading] = useState(false);
 
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
-  const [name, setName] = useState(false);
-  const getComments = useCallback((myEncryptedUid, docItem) => {
-    return departMajorApi.comment
-      .getLists({
+  const [isCommentWarning, setIsCommentWarning] = useState(false);
+  const getComments = useCallback(async (myEncryptedUid, docItem) => {
+    try {
+      const commentsArr = await departMajorApi.comment.getLists({
         docId: docItem.docId,
         myEncryptedUid,
-      })
-      .then((commentsArr) => {
-        setComments(commentsArr);
-        setCommentLoading(false);
-      })
-      .catch((err) => {
-        message.error(err.message);
       });
+      setComments(commentsArr);
+      setCommentLoading(false);
+    } catch (err) {
+      message.error(err.message);
+    }
   }, []);
 
-  const getMyEncryptedUid = useCallback((docItem) => {
-    return departMajorApi
-      .myEncryptedUid({
+  const getMyEncryptedUid = useCallback(async (docItem) => {
+    try {
+      const res = await departMajorApi.myEncryptedUid({
         docId: docItem.docId,
-      })
-      .then((res) => res.data.encryptedUid)
-      .catch((err) => {
-        message.error(err.message);
       });
+      return res.data.encryptedUid;
+    } catch (err) {
+      message.error(err.message);
+    }
   }, []);
 
-  const didILikedDoc = useCallback((myEncryptedUid, docItem) => {
-    return db
-      .collection("departMajor")
-      .doc(docItem.docId)
-      .collection("likes")
-      .where("encryptedUid", "==", myEncryptedUid)
-      .get()
-      .then((querySnapshot) => querySnapshot.size !== 0)
-      .catch((err) => message.error(err));
+  const didILikedDoc = useCallback(async (myEncryptedUid, docItem) => {
+    try {
+      const querySnapshot = await db
+        .collection("departMajor")
+        .doc(docItem.docId)
+        .collection("likes")
+        .where("encryptedUid", "==", myEncryptedUid)
+        .get();
+      return querySnapshot.size !== 0;
+    } catch (err) {
+      return await message.error(err);
+    }
   }, []);
 
   useEffect(() => {
@@ -227,7 +228,7 @@ const Read = () => {
       <SelectSubjectModal
         visible={subjectModalVisible}
         onClose={() => setSubjectModalVisible(false)}
-        name={name}
+        isCommentWarning={isCommentWarning}
       />
       {content.title !== undefined && (
         <WhiteContainer>
@@ -256,6 +257,12 @@ const Read = () => {
               <CommentButton
                 onClick={() => {
                   if (uploading) return;
+                  if (didILikedThisDoc) {
+                    setSubjectModalVisible(true);
+                    setIsCommentWarning(false);
+                    return;
+                  }
+                  message.loading("좋아요 누르는 중..", 10);
                   setUploading(true);
                   departMajorApi
                     .like({ docId: content.docId, like: "LIKE" })
@@ -269,13 +276,6 @@ const Read = () => {
                     .finally(() => {
                       setUploading(false);
                     });
-                    if (didILikedThisDoc) {
-                      setSubjectModalVisible(true);
-                      setName(false);
-                    }
-                    else {
-                      message.loading("좋아요 누르는 중..", 10);
-                    }
                 }}>
                 <CommentImg
                   src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
@@ -329,6 +329,12 @@ const Read = () => {
                   <CommentChildLikeWrapper
                     onClick={() => {
                       if (uploading) return;
+                      if (item.didILiked) {
+                        setSubjectModalVisible(true);
+                        setIsCommentWarning(true);
+                        return;
+                      }
+                      message.loading("좋아요 누르는 중..", 10);
                       setUploading(true);
                       departMajorApi.comment
                         .like({
@@ -348,13 +354,6 @@ const Read = () => {
                         .finally(() => {
                           setUploading(false);
                         });
-                        if (item.didILiked) {
-                          setSubjectModalVisible(true);
-                          setName(true);
-                        }
-                        else {
-                          message.loading("좋아요 누르는 중..", 10);
-                        }
                     }}>
                     <CommentChildLikeImg
                       src={item.didILiked ? mainPageIcons.heart : Icons.heart}
@@ -366,10 +365,9 @@ const Read = () => {
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
                 {item.subComments.map((subItem, subIdx) => (
-                  <Box>
+                  <Box key={`${subIdx}SubComment${idx}`}>
                     <CommentArrow src={Icons.commentarrow} />
                     <CommentChildWrapper
-                      key={`${subIdx}SubComment${idx}`}
                       style={{
                         backgroundColor: "#f9f9f9",
                         padding: "5px ",
@@ -385,6 +383,12 @@ const Read = () => {
                         <CommentChildLikeWrapper
                           onClick={() => {
                             if (uploading) return;
+                            if (subItem.didILiked) {
+                              setSubjectModalVisible(true);
+                              setIsCommentWarning(true);
+                              return;
+                            }
+                            message.loading("좋아요 누르는 중..", 10);
                             setUploading(true);
                             departMajorApi.comment
                               .likeSubComment({
@@ -409,13 +413,6 @@ const Read = () => {
                               .finally(() => {
                                 setUploading(false);
                               });
-                              if (item.didILiked) {
-                                setSubjectModalVisible(true);
-                                setName(true);
-                              }
-                              else {
-                                message.loading("좋아요 누르는 중..", 10);
-                              }
                           }}>
                           <CommentChildLikeImg
                             src={

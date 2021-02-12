@@ -51,14 +51,16 @@ const Title = styled.div`
   }
 `;
 
-export const SelectSubjectModal = ({ onClose, visible, name }) => {
+export const SelectSubjectModal = ({ onClose, visible, isCommentWarning }) => {
   return (
     <>
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onClose} tabIndex="-1" visible={visible}>
         <ModalInner tabIndex="0" className="modal-inner">
           <Title>
-            {!!name ? "이미 공감한 댓글입니다." : "이미 공감한 글입니다."}
+            {!!isCommentWarning
+              ? "이미 공감한 댓글입니다."
+              : "이미 공감한 글입니다."}
           </Title>
         </ModalInner>
       </ModalWrapper>

@@ -1,100 +1,107 @@
-import React from "react";
 import styled from "styled-components";
-import { mainPageIcons } from "../../../assets/Resources";
-import NavBot from "../../SmallComponents/NavBot";
+import { message } from "antd";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import {departMajorApi} from "../../../api";
+// TODO: convergenceApi생성 후 : departMajarApi -> convergenceApi로 수정
+//import { convergenceApi } from "../../../api";
 
-const Back = styled.div`
-  background-color: #f5f5f5;
-  padding: 10px;
-`;
-
-const Text = styled.div`
-  width: 90%;
-  height: 500px;
-  padding: 20px;
+const Container = styled.div`
+  padding-top: 15px;
   display: flex;
-  margin: 10px auto;
   flex-direction: column;
-  border-radius: 15px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  font-size: 10px;
-  line-height: 30px;
-`;
-
-const Wrap = styled.div`
-  display: flex;
-  font-size: 15px;
-  font-weight: bold;
-  color: #939393;
-`;
-
-const Wrap2 = styled.div`
-  display: flex;
-  color: #8d8d8d;
-`;
-
-const Wrap3 = styled.div`
-  display: flex;
-  color: red;
-`;
-
-const ButtonContainer = styled.div`
-  padding: 7px 0px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: #f1f1f1;
 `;
-
-const Button = styled.div`
-  margin: 5px auto;
-  padding: 7px 22px;
-  background-color: #d4e6fb;
-  border-radius: 12px;
-  font-weight: bold;
+const ContentTextArea = styled.textarea`
+  padding: 10px 15px;
+  width: 90%;
+  min-height: 60vh;
+  border: none;
+  outline: none;
+  border-radius: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  line-height: 1.12;
-  text-align: center;
-  @media (max-width: 430px) {
-    font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  ::placeholder {
+    font-size: 13px;
   }
 `;
-
-const Img = styled.img`
-  width: 40px;
-  padding: 0px 5px;
+const ButtonWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Button = styled.div`
+  padding: 10px 40px;
+  border-radius: 15px;
+  background-color: #d4e6fb;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 
-const ConvergenceBoard = () => {
+const Create = () => {
+  const [content, setContent] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  const history = useHistory();
   return (
     <>
-      <NavBot
-        Name="융특게시판"
-        Icon={mainPageIcons.airplane}
-      />
-      <Back>
-        <Text>
-          <Wrap>내용을 입력하세요</Wrap>
-          <Wrap2> </Wrap2>
-          <Wrap2>[융특 슝 이용규칙 준수]</Wrap2>
-          <Wrap2>
-            융특 슝의 이용규칙 전문을 반드시 숙지하신 후 글을 작성해 주세요.
-          </Wrap2>
-          <Wrap2>
-            이용규칙을 위한한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의 제재가 가해질 수 있습니다.
-          </Wrap2>
-          <Wrap2> </Wrap2>
-          <Wrap2>
-            - 욕설, 비하, 음란물, 개인정보가 포함된 게시물 사용 금지
-          </Wrap2>
-          <Wrap3>- 특정인이나 단체/지역을 비방하는 행위 금지</Wrap3>
-        </Text>
-        <ButtonContainer>
-          <Button>취소</Button>
-          <Button>완료</Button>
-        </ButtonContainer>
-      </Back>
+      <Container>
+        <ContentTextArea
+          placeholder={`여기를 눌러서 글을 작성하실 수 있습니다.
+
+게시물 작성 전에 커뮤니티 이용 규칙 전문을 반드시 확인하시기 바랍니다. 이용규칙을 위반한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의 제재가 가해질 수 있습니다.
+
+[융특 슝 이용 규칙]
+- 정치·사회 관련 행위 금지
+- 홍보 및 판매 관련 행위 금지
+- 범죄, 불법 행위등 법령을 위반하는 행위 금지
+- 음란물, 성적 수치심을 유발하는 행위 금지
+- 타인의 개인정보가 포함된 게시물 게시 금지
+- 특정인이나 단체·지역을 비방하는 행위 금지
+- 욕설, 자살, 폭력, 혐오가 포함된 게시물 게시 금지
+
+
+`}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <ButtonWrapper>
+          <Button onClick={() => history.goBack()}>취소</Button>
+          <Button
+            onClick={() => {
+              if (uploading) return;
+              if (content === "") {
+                message.error("글 내용을 작성해주세요.");
+                return;
+              }
+              // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.
+              setUploading(true);
+              message.loading("업로드 중...");
+              const requestBody = {
+                content,
+              };
+              departMajorApi
+                .create(requestBody)
+                .then(() => {
+                  message.destroy();
+                  history.goBack();
+                })
+                .catch((err) => {
+                  message.destroy();
+                  message.error(err.message);
+                  setUploading(false);
+                });
+            }}
+          >
+            완료
+          </Button>
+        </ButtonWrapper>
+      </Container>
     </>
   );
 };
-
-export default ConvergenceBoard;
+export default Create;

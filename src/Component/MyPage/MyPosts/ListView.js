@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { mainPageIcons, readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
-import { departMajorApi } from "../../../api";
+import { departMajorApi, userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
+import { authService } from "../../../firebase";
 
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
@@ -100,8 +101,17 @@ const MyPost = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     // TODO: API에서 더보기 구현.
-    departMajorApi
-      .getLists({ size: 3 })
+    // departMajorApi
+    //   .getLists({ size: 3 })
+    //   .then((docsArray) => setPosts(docsArray))
+    //   .catch((error) => message.error(error.message));
+
+    userApi
+      .getMyPosts({
+        boardName: "departmajor",
+        size: 4,
+        uid: authService.currentUser.uid,
+      })
       .then((docsArray) => setPosts(docsArray))
       .catch((error) => message.error(error.message));
   }, []);
@@ -116,8 +126,7 @@ const MyPost = () => {
                 pathname: `myposts`,
                 state: { pageName: "convergencelistview" },
               });
-            }}
-          >
+            }}>
             더보기
           </Button>
         </Box>
@@ -135,8 +144,7 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitleWrapper>
                 {item.subject !== "NONE" && (
                   <SubjectSelectImg
@@ -188,8 +196,7 @@ const MyPost = () => {
                 pathname: `myposts`,
                 state: { pageName: "departmajorlistview" },
               });
-            }}
-          >
+            }}>
             더보기
           </Button>
         </Box>
@@ -207,8 +214,7 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitleWrapper>
                 {item.subject !== "NONE" && (
                   <SubjectSelectImg

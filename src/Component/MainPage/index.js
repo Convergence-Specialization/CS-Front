@@ -283,7 +283,7 @@ const MainPage = () => {
       <BoardContainer>
         {posts.length !== 0 &&
           posts.map((item, idx) => (
-            <BoardChildWrapper 
+            <BoardChildWrapper
               key={`${idx}DEPARTMAJOR_PREVIEW`}
               onClick={() =>
                 history.push({
@@ -293,11 +293,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
-              <BoardChildTitle>
-                {item.title}
-              </BoardChildTitle>
+              }>
+              <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
                   style={{ width: "15px", margin: "0 7px" }}

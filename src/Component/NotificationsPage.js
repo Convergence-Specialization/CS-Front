@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { departMajorApi } from "../api";
+import { departMajorApi, userApi } from "../api";
 import LoadingComponent from "./SmallComponents/Loading";
-import message from "antd/lib/message";
-import { subjectDicts } from "../assets/Dicts";
+import { boardNameDict, NOTIFICATION_TYPES } from "../assets/Dicts";
+import { useAuth } from "./Watchers";
 
-let a = 0;
 const Container = styled.div`
   width: 100%;
-  padding: 20px 0;
+  /* padding: 20px 0; */
 `;
-
 const SubjectSelectImg = styled.img`
   width: 26px;
   margin-right: 9px;
 `;
-
 const BoardContainer = styled.div`
   width: 95%;
-  min-height: 80vh;
+  min-height: 30vh;
   border-radius: 15px;
   margin: 0px auto 20px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -74,106 +71,126 @@ const BoardChildContent = styled.div`
 
 const NotificationsPage = () => {
   const history = useHistory();
-  const [posts, setPosts] = useState([]);
-  const [ readOpened] = useState(false);
+  const user = useAuth();
+
+  const [unreadNotifications, setUnreadNotifications] = useState([]);
+  const [readNotifications, setReadNotifications] = useState([]);
+
+  const [unreadLoading, setUnreadLoading] = useState(true);
+  const [readLoading, setReadLoading] = useState(true);
+
   useEffect(() => {
-    // TODO: API에서 더보기 구현.
-    departMajorApi
-      .getLists({ size: 10 })
-      .then((docsArray) => setPosts(docsArray))
-      .catch((error) => message.error(error.message));
+    if (user.uid === undefined || user === null) return;
+    // 아직 안읽은 알림들 가져오기
+    userApi
+      .getUnreadNotifications({
+        uid: user.uid,
+        size: 10,
+      })
+      .then((notificationArray) => {
+        setUnreadNotifications(notificationArray);
+        setUnreadLoading(false);
+      })
+      .catch((err) => console.log(err.message));
+
+    // 이미 읽은 알림들 가져오기
+    userApi
+      .getReadNotifications({
+        uid: user.uid,
+        size: 10,
+      })
+      .then((notificationArray) => {
+        setReadNotifications(notificationArray);
+        setReadLoading(false);
+      })
+      .catch((err) => console.log(err.message));
   }, []);
   return (
-    <>
-      <Container>
+    <Container>
       <Text>읽지 않음</Text>
-        <BoardContainer>
-          {posts.length === 0 ? (
-            <LoadingComponent />
-          ) : (
-            posts.map((item, idx) => (
-              <BoardChildWrapper
-                key={idx}
-                onClick={() => {
-                  history.push({
-                    pathname: `/board/departmajor`,
-                    state: {
-                      pageName: "read",
-                      docItem: item,
+      <BoardContainer>
+        {unreadLoading ? (
+          <LoadingComponent />
+        ) : unreadNotifications.length === 0 ? (
+          <div>읽지 않은 알림이 없습니다. css 수정 필요</div>
+        ) : (
+          unreadNotifications.map((item, idx) => (
+            <BoardChildWrapper
+              key={`${idx}UNREAD`}
+              onClick={() => {
+                // TODO: 알림 삭제 (PROMISE)
+                history.push({
+                  pathname: `/board/${item.boardName}`,
+                  state: {
+                    pageName: "read",
+                    docItem: {
+                      docId: item.docId,
+                      // TODO: doc ID to COntent
                     },
-                  });
-                  readOpened(true);
-                }}
-              >
-                <BoardChildTitleWrapper>
-                  {item.subject !== "NONE" && (
-                    <SubjectSelectImg
-                      style={{ width: "23px", marginTop: "-5px" }}
-                      src={subjectDicts[item.subject].img}
-                      alt={"asdf"}
-                    />
-                  )}
-                  {item.subject === "NONE" && (
-                    <BoardChildTitle style={{ width: "80%" }}>
-                      {item.title}
-                    </BoardChildTitle>
-                  )}
-                  {item.subject !== "NONE" && (
-                    <BoardChildTitle style={{ width: "72%" }}>
-                      {item.title}
-                    </BoardChildTitle>
-                  )}
-                </BoardChildTitleWrapper>
-                <BoardChildContent>{item.content}</BoardChildContent>
-              </BoardChildWrapper>
-            ))
-          )}
-        </BoardContainer>
-        <Text>읽음</Text>
-        <BoardContainer>
-          {posts.length === 0 ? (
-            <LoadingComponent />
-          ) : (
-            posts.map((item, idx) => (
-              <BoardChildWrapper
-                key={idx}
-                onClick={() => {
-                  history.push({
-                    pathname: `/board/departmajor`,
-                    state: {
-                      pageName: "read",
-                      docItem: item,
+                  },
+                });
+              }}>
+              <BoardChildTitleWrapper>
+                <SubjectSelectImg
+                  style={{ width: "23px", marginTop: "-5px" }}
+                  src={NOTIFICATION_TYPES[item.type].img}
+                  alt={"공감 아이콘"}
+                />
+                <BoardChildTitle style={{ width: "80%" }}>
+                  {boardNameDict[item.boardName].name}
+                </BoardChildTitle>
+              </BoardChildTitleWrapper>
+              {!!item.preview ? (
+                <BoardChildContent>{`${item.notificationBody}: ${item.preview}`}</BoardChildContent>
+              ) : (
+                <BoardChildContent>{item.notificationBody}</BoardChildContent>
+              )}
+            </BoardChildWrapper>
+          ))
+        )}
+      </BoardContainer>
+      <Text>읽음</Text>
+      <BoardContainer>
+        {readLoading ? (
+          <LoadingComponent />
+        ) : readNotifications.length === 0 ? (
+          <div>읽은 알림이 없습니다. css 수정 필요</div>
+        ) : (
+          readNotifications.map((item, idx) => (
+            <BoardChildWrapper
+              key={`${idx}READ`}
+              onClick={() => {
+                history.push({
+                  pathname: `/board/${item.boardName}`,
+                  state: {
+                    pageName: "read",
+                    docItem: {
+                      docId: item.docId,
+                      // TODO: doc ID to COntent
                     },
-                  });
-                  readOpened(true);
-                }}
-              >
-                <BoardChildTitleWrapper>
-                  {item.subject !== "NONE" && (
-                    <SubjectSelectImg
-                      style={{ width: "23px", marginTop: "-5px" }}
-                      src={subjectDicts[item.subject].img}
-                      alt={"asdf"}
-                    />
-                  )}
-                  {item.subject === "NONE" && (
-                    <BoardChildTitle style={{ width: "80%" }}>
-                      {item.title}
-                    </BoardChildTitle>
-                  )}
-                  {item.subject !== "NONE" && (
-                    <BoardChildTitle style={{ width: "72%" }}>
-                      {item.title}
-                    </BoardChildTitle>
-                  )}
-                </BoardChildTitleWrapper>
-                <BoardChildContent>{item.content}</BoardChildContent>
-              </BoardChildWrapper>
-            ))
-          )}
-        </BoardContainer>
-      </Container>
-    </>
+                  },
+                });
+              }}>
+              <BoardChildTitleWrapper>
+                <SubjectSelectImg
+                  style={{ width: "23px", marginTop: "-5px" }}
+                  src={NOTIFICATION_TYPES[item.type].img}
+                  alt={"공감 아이콘"}
+                />
+                <BoardChildTitle style={{ width: "80%" }}>
+                  {boardNameDict[item.boardName].name}
+                </BoardChildTitle>
+              </BoardChildTitleWrapper>
+              {!!item.preview ? (
+                <BoardChildContent>{`${item.notificationBody}: ${item.preview}`}</BoardChildContent>
+              ) : (
+                <BoardChildContent>{item.notificationBody}</BoardChildContent>
+              )}
+            </BoardChildWrapper>
+          ))
+        )}
+      </BoardContainer>
+    </Container>
   );
 };
 export default NotificationsPage;

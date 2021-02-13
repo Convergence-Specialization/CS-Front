@@ -1,4 +1,5 @@
 import heart_empty from "../assets/icons/heart_empty.png";
+import heart_fill from "../assets/icons/heart_fill.png";
 import speech_bubble from "../assets/icons/speech_bubble.png";
 
 export const Images = {
@@ -103,6 +104,7 @@ export const events = {
 export const readDoc = {
   heart_empty,
   speech_bubble,
+  heart_fill,
 };
 
 export const majorIntroduce = {

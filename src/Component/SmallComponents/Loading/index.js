@@ -13,8 +13,8 @@ const Container = styled.div`
 
 const LoadingComponent = () => (
   <Container>
-    <div class="loadingio-spinner-spinner-5r3w0oiswac">
-      <div class="ldio-nullx5aydum">
+    <div className="loadingio-spinner-spinner-5r3w0oiswac">
+      <div className="ldio-nullx5aydum">
         <div></div>
         <div></div>
         <div></div>

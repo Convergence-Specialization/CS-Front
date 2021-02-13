@@ -59,6 +59,14 @@ export const NOTIFICATION_TYPES = {
 };
 
 export const boardNameDict = {
-  CONVERGENCE: { name: "융특게시판", dbName: "convergence" },
-  DEPARTMAJOR: { name: "전과게시판", dbName: "departMajor" },
+  CONVERGENCE: {
+    name: "융특게시판",
+    dbName: "convergence",
+    addressName: "convergence",
+  },
+  DEPARTMAJOR: {
+    name: "전과게시판",
+    dbName: "departMajor",
+    addressName: "departmajor",
+  },
 };

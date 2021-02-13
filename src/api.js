@@ -80,6 +80,7 @@ export const userApi = {
       }
       notificationsArray.push({
         docId: data.docId,
+        notificationId: item.id,
         boardName: data.boardName,
         type: data.type,
         checked: data.checked,
@@ -112,6 +113,7 @@ export const userApi = {
       }
       notificationsArray.push({
         docId: data.docId,
+        notificationId: item.id,
         boardName: data.boardName,
         type: data.type,
         checked: data.checked,
@@ -337,5 +339,42 @@ export const departMajorApi = {
           Authorization: getBearer(),
         },
       }),
+  },
+};
+
+export const globalApi = {
+  getSingleDoc: async (body) => {
+    let { boardName, docId } = body;
+    const doc = await db.collection(boardName).doc(docId).get();
+    const data = doc.data();
+    let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+      locale: ko,
+    }).replace("약 ", "");
+    if (distanceText.includes("미만")) {
+      distanceText = "방금";
+    }
+    return {
+      docId: doc.id,
+      title: data.title,
+      content: data.content,
+      timestampDistance: distanceText,
+      timestampMillis: data.timestamp.toMillis(),
+      commentCount: data.comments_count,
+      likeCount: data.likes_count,
+      subject: data.subject,
+    };
+  },
+  checkNotification: async (body) => {
+    let { notificationId, uid } = body;
+    try {
+      await db
+        .collection("users")
+        .doc(uid)
+        .collection("notifications")
+        .doc(notificationId)
+        .update({ checked: true });
+    } catch (err) {
+      console.log(err.message);
+    }
   },
 };

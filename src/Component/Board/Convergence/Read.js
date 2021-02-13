@@ -1,9 +1,14 @@
-import { message } from "antd";
+import message from "antd/lib/message";
 import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { departMajorApi } from "../../../api";
-import { mainPageIcons, readDoc, Icons,horseIcons } from "../../../assets/Resources";
+import {
+  mainPageIcons,
+  readDoc,
+  Icons,
+  horseIcons,
+} from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import SelectSubjectModal from "./../DepartMajor/Modal/Read";
@@ -39,7 +44,7 @@ const TitleTimeText = styled.div`
   //left:5px;
   //padding: 8px 0px;
   padding-left: 8px;
-  margin-bottom : 2px;
+  margin-bottom: 2px;
   font-size: 13px;
   font-weight: normal;
   line-height: 1.15;
@@ -48,7 +53,7 @@ const TitleImg = styled.img`
   width: 30px;
   margin-right: 9px;
 `;
-const TitleElement =({titleRandomname, titleTime}) => (
+const TitleElement = ({ titleRandomname, titleTime }) => (
   <TitleWrapper>
     <TitleImg src={horseIcons.newhorse} alt="말머리" />
     <Title>{titleRandomname}</Title>
@@ -262,7 +267,10 @@ const Read = () => {
       />
       {content.title !== undefined && (
         <WhiteContainer>
-          <TitleElement titleRandomname ={"배고픈 슝슝이"} titleTime ={`${content.timestampDistance} 전`} />
+          <TitleElement
+            titleRandomname={"배고픈 슝슝이"}
+            titleTime={`${content.timestampDistance} 전`}
+          />
           <ContentText>{content.content}</ContentText>
           <ExtraContentWrapper>
             <LikeCountText>

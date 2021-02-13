@@ -7,6 +7,7 @@ import { mainPageIcons, readDoc, Icons } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import SelectSubjectModal from "./Modal/Read";
+import { useHistory } from "react-router-dom";
 const WhiteContainer = styled.div`
   width: 90%;
   padding: 12px 15px;
@@ -14,6 +15,7 @@ const WhiteContainer = styled.div`
   border-radius: 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
+  position: relative;
 `;
 const Title = styled.div`
   font-size: 18px;
@@ -154,8 +156,17 @@ const CommentInputSubmitButton = styled.div`
   border-radius: 10px;
   text-align: center;
 `;
+const DocDeleteButton = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+`;
 
 const Read = () => {
+  const history = useHistory();
   const location = useLocation();
   const [content, setContent] = useState({});
 
@@ -235,6 +246,21 @@ const Read = () => {
           <Title>{content.title}</Title>
           <SubText>배고픈 슝슝이 | {`${content.timestampDistance} 전`}</SubText>
           <ContentText>{content.content}</ContentText>
+          <DocDeleteButton
+            onClick={async () => {
+              if (uploading) return;
+              setUploading(true);
+              message.loading("글 삭제중..", 10);
+              try {
+                await departMajorApi.delete({ docId: content.docId });
+                message.destroy();
+                history.push("/board/departmajor");
+              } catch (err) {
+                message.error(err.message);
+              }
+            }}>
+            삭제
+          </DocDeleteButton>
           <ExtraContentWrapper>
             <LikeCountText>
               <img

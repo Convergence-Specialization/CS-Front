@@ -138,8 +138,9 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
-              >
+                style={
+                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
+                }>
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -160,8 +161,7 @@ const ChangedBoard = () => {
                       docItem: item,
                     },
                   })
-                }
-              >
+                }>
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -211,8 +211,7 @@ const ChangedBoard = () => {
               .then((docsArray) => setPosts(docsArray))
               .catch((error) => message.error(error.message));
             a = a + 5;
-          }}
-        >
+          }}>
           더보기
         </MoreButton>
         <GoUp />

@@ -205,6 +205,12 @@ export const departMajorApi = {
         Authorization: getBearer(),
       },
     }),
+  delete: (body) =>
+    api.post("board/departmajor/delete", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
   like: (body) =>
     api.post("board/departmajor/like", body, {
       headers: {

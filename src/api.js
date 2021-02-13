@@ -3,10 +3,11 @@ import { db } from "./firebase";
 // TODO: Firestore 속성에서 50 이상 요청은 못하게.
 import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { NOTIFICATION_TYPES } from "./assets/Dicts";
 
 const api = axios.create({
-  baseURL: "https://convergence-ssu.herokuapp.com/",
-  // baseURL: "http://localhost:5000",
+  // baseURL: "https://convergence-ssu.herokuapp.com/",
+  baseURL: "http://localhost:5000",
 });
 
 const getBearer = () => `Bearer ${localStorage.getItem("idToken")}`;
@@ -57,6 +58,70 @@ export const userApi = {
           })
       )
     );
+  },
+  getReadNotifications: async (body) => {
+    const { uid, size } = body;
+    const querySnapshot = await db
+      .collection("users")
+      .doc(uid)
+      .collection("notifications")
+      .where("checked", "==", true)
+      .orderBy("timestamp", "desc")
+      .limit(size)
+      .get();
+    let notificationsArray = [];
+    querySnapshot.forEach((item) => {
+      let data = item.data();
+      let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+        locale: ko,
+      }).replace("약 ", "");
+      if (distanceText.includes("미만")) {
+        distanceText = "방금";
+      }
+      notificationsArray.push({
+        docId: data.docId,
+        boardName: data.boardName,
+        type: data.type,
+        checked: data.checked,
+        timestampDistance: distanceText,
+        timestampMillis: data.timestamp.toMillis(),
+        notificationBody: NOTIFICATION_TYPES[data.type].content,
+        preview: data.preview,
+      });
+    });
+    return notificationsArray;
+  },
+  getUnreadNotifications: async (body) => {
+    const { uid, size } = body;
+    const querySnapshot = await db
+      .collection("users")
+      .doc(uid)
+      .collection("notifications")
+      .where("checked", "==", false)
+      .orderBy("timestamp", "desc")
+      .limit(size)
+      .get();
+    let notificationsArray = [];
+    querySnapshot.forEach((item) => {
+      let data = item.data();
+      let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+        locale: ko,
+      }).replace("약 ", "");
+      if (distanceText.includes("미만")) {
+        distanceText = "방금";
+      }
+      notificationsArray.push({
+        docId: data.docId,
+        boardName: data.boardName,
+        type: data.type,
+        checked: data.checked,
+        timestampDistance: distanceText,
+        timestampMillis: data.timestamp.toMillis(),
+        notificationBody: NOTIFICATION_TYPES[data.type].content,
+        preview: data.preview,
+      });
+    });
+    return notificationsArray;
   },
 };
 

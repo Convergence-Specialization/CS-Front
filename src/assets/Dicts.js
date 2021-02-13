@@ -1,4 +1,4 @@
-import { mainPageIcons } from "./Resources";
+import { mainPageIcons, readDoc } from "./Resources";
 
 export const subjectDicts = {
   SMART_CAR: {
@@ -28,4 +28,37 @@ export const subjectDicts = {
   NONE: {
     name: "말머리 선택 안 함",
   },
+};
+
+export const NOTIFICATION_TYPES = {
+  LIKE_MY_DOC: {
+    type: "LIKE_MY_DOC",
+    content: "내가 쓴 글에 공감이 눌렸어요!",
+    img: readDoc.heart_fill,
+  },
+  LIKE_MY_COMMENT: {
+    type: "LIKE_MY_COMMENT",
+    content: "내가 쓴 댓글에 공감이 눌렸어요!",
+    img: readDoc.heart_fill,
+  },
+  LIKE_MY_SUBCOMMENT: {
+    type: "LIKE_MY_SUBCOMMENT",
+    content: "내가 쓴 댓글에 공감이 눌렸어요!",
+    img: readDoc.heart_fill,
+  },
+  COMMENT_MY_DOC: {
+    type: "COMMENT_MY_DOC",
+    content: "내가 쓴 글에 댓글이 달렸어요!",
+    img: readDoc.speech_bubble,
+  },
+  COMMENT_MY_SUBCOMMENT: {
+    name: "COMMENT_MY_SUBCOMMENT",
+    content: "내가 쓴 댓글에 대댓글이 달렸어요!",
+    img: readDoc.speech_bubble,
+  },
+};
+
+export const boardNameDict = {
+  CONVERGENCE: { name: "융특게시판", dbName: "convergence" },
+  DEPARTMAJOR: { name: "전과게시판", dbName: "departMajor" },
 };

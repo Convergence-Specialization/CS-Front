@@ -71,6 +71,13 @@ const BoardChildContent = styled.div`
   }
 `;
 
+export const ZeroNotification = styled.div`
+  color: gray;
+  padding: 110px 0;
+  font-size: 15px;
+  text-align: center;
+`;
+
 const NotificationsPage = () => {
   const history = useHistory();
   const user = useAuth();
@@ -116,7 +123,7 @@ const NotificationsPage = () => {
         {unreadLoading ? (
           <LoadingComponent />
         ) : unreadNotifications.length === 0 ? (
-          <div>읽지 않은 알림이 없습니다. css 수정 필요</div>
+          <ZeroNotification>※ 읽지 않은 알림이 없습니다 ※</ZeroNotification>
         ) : (
           unreadNotifications.map((item, idx) => (
             <BoardChildWrapper
@@ -143,7 +150,8 @@ const NotificationsPage = () => {
                     docItem: docData,
                   },
                 });
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}
@@ -189,7 +197,8 @@ const NotificationsPage = () => {
                     docItem: docData,
                   },
                 });
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}

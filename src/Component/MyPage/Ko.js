@@ -112,7 +112,7 @@ const Ko = () => {
         </TextWrapper>
       </InfoWrapper>
       <EditBoxWrapper>
-        <EditBox>
+        <EditBox onClick={() => history.push("/mypage/changeinformation")}>
           <EditWrapper>
             정보수정
             <EditIconImg src={Icons.infoEdit} alt={"정보수정"} />

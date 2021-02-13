@@ -107,48 +107,46 @@ const NotificationsPage = () => {
       .catch((err) => console.log(err.message));
   }, []);
   return (
-    <>
-      <Container>
-        <Text>읽지 않음</Text>
-        <BoardContainer>
-          {unreadLoading ? (
-            <LoadingComponent />
-          ) : unreadNotifications.length === 0 ? (
-            <div>읽지 않은 알림이 없습니다. css 수정 필요</div>
-          ) : (
-            unreadNotifications.map((item, idx) => (
-              <BoardChildWrapper
-                key={`${idx}UNREAD`}
-                onClick={() => {
-                  // TODO: 알림 삭제 (PROMISE)
-                  history.push({
-                    pathname: `/board/${item.boardName}`,
-                    state: {
-                      pageName: "read",
-                      docItem: {
-                        docId: item.docId,
-                        // TODO: doc ID to COntent
-                      },
+    <Container>
+      <Text>읽지 않음</Text>
+      <BoardContainer>
+        {unreadLoading ? (
+          <LoadingComponent />
+        ) : unreadNotifications.length === 0 ? (
+          <div>읽지 않은 알림이 없습니다. css 수정 필요</div>
+        ) : (
+          unreadNotifications.map((item, idx) => (
+            <BoardChildWrapper
+              key={`${idx}UNREAD`}
+              onClick={() => {
+                // TODO: 알림 삭제 (PROMISE)
+                history.push({
+                  pathname: `/board/${item.boardName}`,
+                  state: {
+                    pageName: "read",
+                    docItem: {
+                      docId: item.docId,
+                      // TODO: doc ID to COntent
                     },
-                  });
-                }}>
-                <BoardChildTitleWrapper>
-                  <SubjectSelectImg
-                    style={{ width: "23px", marginTop: "-5px" }}
-                    src={NOTIFICATION_TYPES[item.type].img}
-                    alt={"공감 아이콘"}
-                  />
-                  <BoardChildTitle style={{ width: "80%" }}>
-                    {boardNameDict[item.boardName].name}
-                  </BoardChildTitle>
-                </BoardChildTitleWrapper>
-                <BoardChildContent>{item.notificationBody}</BoardChildContent>
-              </BoardChildWrapper>
-            ))
-          )}
-        </BoardContainer>
-      </Container>
-    </>
+                  },
+                });
+              }}>
+              <BoardChildTitleWrapper>
+                <SubjectSelectImg
+                  style={{ width: "23px", marginTop: "-5px" }}
+                  src={NOTIFICATION_TYPES[item.type].img}
+                  alt={"공감 아이콘"}
+                />
+                <BoardChildTitle style={{ width: "80%" }}>
+                  {boardNameDict[item.boardName].name}
+                </BoardChildTitle>
+              </BoardChildTitleWrapper>
+              <BoardChildContent>{item.notificationBody}</BoardChildContent>
+            </BoardChildWrapper>
+          ))
+        )}
+      </BoardContainer>
+    </Container>
   );
 };
 export default NotificationsPage;

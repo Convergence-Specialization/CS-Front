@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { departMajorApi } from "../../../api";
-
+// TODO: convergenceApi생성 후 : departMajarApi -> convergenceApi로 수정
+//import { convergenceApi } from "../../../api";
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import message from "antd/lib/message";
@@ -29,10 +30,6 @@ const BoardChildWrapper = styled.div`
   border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
-const BoardChildTitleWrapper = styled.div`
-  /* display: flex;
-  align-items: center; */
-`;
 const BoardChildTitle = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
@@ -42,10 +39,6 @@ const BoardChildTitle = styled.div`
   width: 72%;
   font-size: 16px;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-`;
-const BoardChildContentWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -67,10 +60,6 @@ const BoardChildMetaText = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
-const IconImg = styled.img`
-  width: 23px;
-  margin-right: 13px;
 `;
 const MoreButton = styled.div`
   width: 95%;
@@ -105,7 +94,7 @@ const ConvergenceListView = () => {
                 key={idx}
                 onClick={() =>
                   history.push({
-                    pathname: `/board/departmajor`,
+                    pathname: `/board/convergence`,
                     state: {
                       pageName: "read",
                       docItem: item,
@@ -113,7 +102,6 @@ const ConvergenceListView = () => {
                   })
                 }
               >
-                <BoardChildTitleWrapper>
                   <BoardChildTitle style={{ width: "80%" }}>
                     <img
                       src={horseIcons.newhorse}
@@ -122,7 +110,6 @@ const ConvergenceListView = () => {
                     ></img>
                     {nameList[Math.floor(Math.random() * nameListLength)]}
                   </BoardChildTitle>
-                </BoardChildTitleWrapper>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
                   {item.timestampDistance} 전

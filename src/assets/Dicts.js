@@ -51,8 +51,8 @@ export const NOTIFICATION_TYPES = {
     content: "내가 쓴 글에 댓글이 달렸어요!",
     img: readDoc.speech_bubble,
   },
-  COMMENT_MY_SUBCOMMENT: {
-    name: "COMMENT_MY_SUBCOMMENT",
+  SUBCOMMENT_MY_COMMENT: {
+    name: "SUBCOMMENT_MY_COMMENT",
     content: "내가 쓴 댓글에 대댓글이 달렸어요!",
     img: readDoc.speech_bubble,
   },

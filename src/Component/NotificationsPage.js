@@ -72,7 +72,6 @@ const BoardChildContent = styled.div`
 const NotificationsPage = () => {
   const history = useHistory();
   const user = useAuth();
-  const [posts, setPosts] = useState([]);
 
   const [unreadNotifications, setUnreadNotifications] = useState([]);
   const [readNotifications, setReadNotifications] = useState([]);
@@ -141,7 +140,52 @@ const NotificationsPage = () => {
                   {boardNameDict[item.boardName].name}
                 </BoardChildTitle>
               </BoardChildTitleWrapper>
-              <BoardChildContent>{item.notificationBody}</BoardChildContent>
+              {!!item.preview ? (
+                <BoardChildContent>{`${item.notificationBody}: ${item.preview}`}</BoardChildContent>
+              ) : (
+                <BoardChildContent>{item.notificationBody}</BoardChildContent>
+              )}
+            </BoardChildWrapper>
+          ))
+        )}
+      </BoardContainer>
+      <Text>읽음</Text>
+      <BoardContainer>
+        {readLoading ? (
+          <LoadingComponent />
+        ) : readNotifications.length === 0 ? (
+          <div>읽은 알림이 없습니다. css 수정 필요</div>
+        ) : (
+          readNotifications.map((item, idx) => (
+            <BoardChildWrapper
+              key={`${idx}READ`}
+              onClick={() => {
+                history.push({
+                  pathname: `/board/${item.boardName}`,
+                  state: {
+                    pageName: "read",
+                    docItem: {
+                      docId: item.docId,
+                      // TODO: doc ID to COntent
+                    },
+                  },
+                });
+              }}>
+              <BoardChildTitleWrapper>
+                <SubjectSelectImg
+                  style={{ width: "23px", marginTop: "-5px" }}
+                  src={NOTIFICATION_TYPES[item.type].img}
+                  alt={"공감 아이콘"}
+                />
+                <BoardChildTitle style={{ width: "80%" }}>
+                  {boardNameDict[item.boardName].name}
+                </BoardChildTitle>
+              </BoardChildTitleWrapper>
+              {!!item.preview ? (
+                <BoardChildContent>{`${item.notificationBody}: ${item.preview}`}</BoardChildContent>
+              ) : (
+                <BoardChildContent>{item.notificationBody}</BoardChildContent>
+              )}
             </BoardChildWrapper>
           ))
         )}

@@ -94,7 +94,7 @@ const ConvergenceListView = () => {
                 key={idx}
                 onClick={() =>
                   history.push({
-                    pathname: `/board/departmajor`,
+                    pathname: `/board/convergence`,
                     state: {
                       pageName: "read",
                       docItem: item,

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { departMajorApi, userApi } from "../api";
+import { departMajorApi, globalApi, userApi } from "../api";
 import LoadingComponent from "./SmallComponents/Loading";
 import { boardNameDict, NOTIFICATION_TYPES } from "../assets/Dicts";
 import { useAuth } from "./Watchers";
+import message from "antd/lib/message";
+import { isThisMinute } from "date-fns";
 
 const Container = styled.div`
   width: 100%;
@@ -79,8 +81,10 @@ const NotificationsPage = () => {
   const [unreadLoading, setUnreadLoading] = useState(true);
   const [readLoading, setReadLoading] = useState(true);
 
+  const [docLoading, setDocLoading] = useState(false);
+
   useEffect(() => {
-    if (user.uid === undefined || user === null) return;
+    if (user === null || user.uid === undefined) return;
     // 아직 안읽은 알림들 가져오기
     userApi
       .getUnreadNotifications({
@@ -117,16 +121,26 @@ const NotificationsPage = () => {
           unreadNotifications.map((item, idx) => (
             <BoardChildWrapper
               key={`${idx}UNREAD`}
-              onClick={() => {
-                // TODO: 알림 삭제 (PROMISE)
+              onClick={async () => {
+                if (docLoading) return;
+                setDocLoading(true);
+                message.loading("불러오는 중..");
+                let docData = await globalApi.getSingleDoc({
+                  boardName: boardNameDict[item.boardName].dbName,
+                  docId: item.docId,
+                });
+                globalApi.checkNotification({
+                  notificationId: item.notificationId,
+                  uid: user.uid,
+                });
+                message.destroy();
                 history.push({
-                  pathname: `/board/${item.boardName}`,
+                  pathname: `/board/${
+                    boardNameDict[item.boardName].addressName
+                  }`,
                   state: {
                     pageName: "read",
-                    docItem: {
-                      docId: item.docId,
-                      // TODO: doc ID to COntent
-                    },
+                    docItem: docData,
                   },
                 });
               }}>
@@ -159,15 +173,20 @@ const NotificationsPage = () => {
           readNotifications.map((item, idx) => (
             <BoardChildWrapper
               key={`${idx}READ`}
-              onClick={() => {
+              onClick={async () => {
+                if (docLoading) return;
+                setDocLoading(true);
+                message.loading("불러오는 중..");
+                let docData = await globalApi.getSingleDoc({
+                  boardName: boardNameDict[item.boardName].dbName,
+                  docId: item.docId,
+                });
+                message.destroy();
                 history.push({
-                  pathname: `/board/${item.boardName}`,
+                  pathname: `/board/${boardNameDict[item.boardName].dbName}`,
                   state: {
                     pageName: "read",
-                    docItem: {
-                      docId: item.docId,
-                      // TODO: doc ID to COntent
-                    },
+                    docItem: docData,
                   },
                 });
               }}>

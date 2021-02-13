@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { message } from "antd";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import {departMajorApi} from "../../../api";
+import { departMajorApi } from "../../../api";
 // TODO: convergenceApi생성 후 : departMajarApi -> convergenceApi로 수정
 //import { convergenceApi } from "../../../api";
 
@@ -72,7 +71,7 @@ const Create = () => {
         <ButtonWrapper>
           <Button onClick={() => history.goBack()}>취소</Button>
           <Button
-            /*onClick={() => {
+          /*onClick={() => {
               if (uploading) return;
               if (content === "") {
                 message.error("글 내용을 작성해주세요.");

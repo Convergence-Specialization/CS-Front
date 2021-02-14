@@ -25,7 +25,8 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
     "styled-reset": "^4.3.4",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "workbox": "^0.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

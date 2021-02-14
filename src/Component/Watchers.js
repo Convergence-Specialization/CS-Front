@@ -15,6 +15,7 @@ const NEED_PERMISSION_PATHS = [
 export const UseGoogleAnalytics = () => {
   const location = useLocation();
   const history = useHistory();
+  const user = useAuth();
 
   const isPageInLoginRequired = (currentPath) => {
     let isPassed = false;
@@ -32,7 +33,7 @@ export const UseGoogleAnalytics = () => {
 
   useEffect(() => {
     // 로그인 해야하는 페이지 접근할 때
-    if (isPageInLoginRequired(location.pathname) && !authService.currentUser) {
+    if (isPageInLoginRequired(location.pathname) && !user) {
       history.push("/login/loginrequire");
     }
 

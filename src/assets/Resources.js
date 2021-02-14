@@ -2,13 +2,20 @@ import heart_empty from "../assets/icons/heart_empty.png";
 import heart_fill from "../assets/icons/heart_fill.png";
 import speech_bubble from "../assets/icons/speech_bubble.png";
 import three_dots from "../assets/icons/three_dots.png";
+import Background3 from "../assets/Images/Background3.png";
+import ICT from "../assets/MajorIntroduce/ICT.png";
+import BIGDATA from "../assets/MajorIntroduce/BIGDATA.png";
+import KOREA from "../assets/MajorIntroduce/KOREA.png";
+import ENERGY_SCIENCE from "../assets/MajorIntroduce/ENERGY_SCIENCE.png";
+import SECURITY from "../assets/MajorIntroduce/SECURITY.png";
+import SMART_CAR from "../assets/MajorIntroduce/SMART_CAR.png";
+import alarm from "../assets/sideBarIcons/alarm.png";
+import home from "../assets/sideBarIcons/home.png";
+import downButton from "../assets/sideBarIcons/downButton.png";
+import upButton from "../assets/sideBarIcons/upButton.png";
+import newhorse from "../assets/horseIcons/newhorse.png";
+import face from "../assets/horseIcons/face.png";
 
-export const Images = {
-  Background:
-    "https://user-images.githubusercontent.com/62606632/104093808-46d56f00-52d0-11eb-8bbd-08293cdaf869.jpg",
-  Background3:
-    "https://user-images.githubusercontent.com/62606632/106345507-12b00580-62f4-11eb-8cc4-413c60950343.png",
-};
 export const Icons = {
   LOGO:
     "https://user-images.githubusercontent.com/62606632/104090284-1f26dc80-52b9-11eb-99fe-49ffbf539e68.png",
@@ -70,25 +77,6 @@ export const mainPageIcons = {
     "https://user-images.githubusercontent.com/74090222/104556073-45b29200-5682-11eb-8abf-f71982f054e9.png",
 };
 
-export const sideBarIcons = {
-  home:
-    "https://user-images.githubusercontent.com/62606632/106357764-7ca7c980-634b-11eb-9e93-955355c4747c.png",
-  alarm:
-    "https://user-images.githubusercontent.com/62606632/106357753-6863cc80-634b-11eb-870b-f4540d68c5b3.png",
-  upButton:
-    "https://user-images.githubusercontent.com/62606632/106358679-fee6bc80-6350-11eb-976f-2f02fa3ecd9c.png",
-  downButton:
-    "https://user-images.githubusercontent.com/62606632/106358677-fe4e2600-6350-11eb-916c-66592eaa3e90.png",
-};
-export const horseIcons = {
-  horse:
-    "https://user-images.githubusercontent.com/62606632/106386072-906c3200-6416-11eb-842d-d07f329f97aa.jpg",
-  newhorse:
-    "https://user-images.githubusercontent.com/71367047/107599081-be494600-6c62-11eb-97ba-78dd983080c3.png",
-  face:
-    "https://user-images.githubusercontent.com/71367047/107684414-1aa17980-6ce6-11eb-875f-d0001e4c1736.png",
-};
-
 export const events = {
   graduate:
     "https://user-images.githubusercontent.com/71367047/106647389-34e6a380-65d2-11eb-858b-97f0fb8a2d46.jpg",
@@ -109,17 +97,27 @@ export const readDoc = {
   three_dots,
 };
 
+export const Images = {
+  Background3,
+};
+
 export const majorIntroduce = {
-  ICT:
-    "https://user-images.githubusercontent.com/71367047/107649653-04cd8d80-6cc1-11eb-804b-f978edc4ec49.png",
-  SMART_CAR:
-    "https://user-images.githubusercontent.com/71367047/107649836-35152c00-6cc1-11eb-96c6-c7a06882bb8d.png",
-  ENERGY_SCIENCE:
-    "https://user-images.githubusercontent.com/71367047/107649743-1d3da800-6cc1-11eb-9965-3921fbf523ba.png",
-  BIGDATA:
-    "https://user-images.githubusercontent.com/71367047/107649779-262e7980-6cc1-11eb-899c-20fbf22415cc.png",
-  SECURITY:
-    "https://user-images.githubusercontent.com/71367047/107649701-131ba980-6cc1-11eb-9594-84d988c5e877.png",
-  KOREA:
-    "https://user-images.githubusercontent.com/71367047/107649804-2d558780-6cc1-11eb-8f1f-859f9e3f7a87.png",
+  ICT,
+  SMART_CAR,
+  ENERGY_SCIENCE,
+  BIGDATA,
+  SECURITY,
+  KOREA,
+};
+
+export const sideBarIcons = {
+  home,
+  alarm,
+  upButton,
+  downButton,
+};
+
+export const horseIcons = {
+  newhorse,
+  face,
 };

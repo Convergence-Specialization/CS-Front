@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { mainPageIcons, readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
-import { departMajorApi, userApi } from "../../../api";
+import { userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
 import { authService } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
@@ -121,7 +121,7 @@ const DepartMajorListView = () => {
       })
       .catch((error) => message.error(error.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [numToGetList]);
   return (
     <>
       <BoardContainer>

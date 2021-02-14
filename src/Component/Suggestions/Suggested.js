@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { horseIcons } from "../../assets/Resources";
 
@@ -51,6 +50,7 @@ const Speechbubble = styled.div`
 `;
 const Text = styled.div`
   font-size: 23px;
+  white-space: pre-wrap;
   @media (max-width: 430px) {
     font-size: 12px;
   }
@@ -63,16 +63,14 @@ const Img = styled.img`
 `;
 
 const Suggested = () => {
-  const history = useHistory();
   return (
     <Con>
       <Container>
         <Box>
           <Text>
-            건의사항을 보내주셔서 감사합니다! <br />
+            {`건의사항을 보내주셔서 감사합니다!
             보내주신 건의사항으로 더 나은 커뮤니티를
-            <br />
-            만들 수 있도록 노력하겠습니다 :)
+            만들 수 있도록 노력하겠습니다 :)`}
           </Text>
         </Box>
         <Speechbubble />

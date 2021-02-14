@@ -13,7 +13,6 @@
     "axios": "^0.21.1",
     "date-fns": "^2.16.1",
     "firebase": "^8.2.3",
-    "gh-pages": "^3.1.0",
     "jwt-decode": "^3.1.2",
     "material-ui-image": "^3.3.1",
     "react": "^17.0.1",
@@ -26,7 +25,20 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
     "styled-reset": "^4.3.4",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "workbox-cli": "^3.6.3",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,7 +46,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "workbox": "workbox generateSW workbox-config.js"
   },
   "eslintConfig": {
     "extends": [

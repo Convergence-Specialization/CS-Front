@@ -57,7 +57,7 @@ export const UseGoogleAnalytics = () => {
         }
       }
     }
-  }, [location]);
+  }, [location, history, user]);
 };
 
 export const useAuth = () => {

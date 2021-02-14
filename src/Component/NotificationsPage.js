@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { departMajorApi, globalApi, userApi } from "../api";
+import { globalApi, userApi } from "../api";
 import LoadingComponent from "./SmallComponents/Loading";
 import { boardNameDict, NOTIFICATION_TYPES } from "../assets/Dicts";
 import { useAuth } from "./Watchers";
@@ -9,7 +9,6 @@ import message from "antd/lib/message";
 
 const Container = styled.div`
   width: 100%;
-  /* padding: 20px 0; */
 `;
 const SubjectSelectImg = styled.img`
   width: 26px;
@@ -114,7 +113,7 @@ const NotificationsPage = () => {
         setReadLoading(false);
       })
       .catch((err) => console.log(err.message));
-  }, []);
+  }, [user]);
   return (
     <Container>
       <Text>읽지 않음</Text>

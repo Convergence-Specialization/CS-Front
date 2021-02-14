@@ -38,16 +38,17 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
     <Container>
       <IconImg src={Icon} />
       <Text
-      onClick={() => {
-        if (Name == "내가 쓴 글") {
-          history.push("/mypage/myposts");
-        } else if (Name == "전과 게시판") {
-          history.push("/board/departmajor");
-        } else if (Name == "융특 게시판") {
-          history.push("/board/convergence");
-        }
-      }}
-      >{Name}</Text>
+        onClick={() => {
+          if (Name === "내가 쓴 글") {
+            history.push("/mypage/myposts");
+          } else if (Name === "전과 게시판") {
+            history.push("/board/departmajor");
+          } else if (Name === "융특 게시판") {
+            history.push("/board/convergence");
+          }
+        }}>
+        {Name}
+      </Text>
       {!!postButtonRef && (
         <PostButton
           onClick={() => {
@@ -55,8 +56,7 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
               pathname: `/board/${postButtonRef}`,
               state: { pageName: "create" },
             });
-          }}
-        >
+          }}>
           글 작성
         </PostButton>
       )}

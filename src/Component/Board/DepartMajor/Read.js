@@ -275,7 +275,7 @@ const Read = () => {
         );
       }
     });
-  }, [getComments, location.state]);
+  }, [getComments, location.state, didILikedDoc, getMyEncryptedUid]);
   return (
     <>
       <SelectSubjectModal
@@ -370,7 +370,7 @@ const Read = () => {
         </CommentUpperWrapper>
         {commentLoading ? (
           <LoadingComponent />
-        ) : content.commentCount == 0 ? (
+        ) : content.commentCount === 0 ? (
           <BlankPost>※ 작성된 댓글이 없습니다. 댓글을 작성해 주세요.</BlankPost>
         ) : (
           comments.map((item, idx) => (
@@ -595,12 +595,12 @@ const Read = () => {
                   content: commentContent,
                 })
                 .then(() => {
+                  document.getElementById("commentInputBox").value = "";
                   getComments(myEncryptedUid, content).then(() => {
                     let tempContent = { ...content };
                     tempContent.commentCount++;
                     setContent(tempContent);
                     message.destroy();
-                    document.getElementById("commentInputBox").value = "";
                   });
                 })
                 .catch((err) => {
@@ -616,12 +616,12 @@ const Read = () => {
                   content: commentContent,
                 })
                 .then(() => {
+                  document.getElementById("commentInputBox").value = "";
                   getComments(myEncryptedUid, content).then(() => {
                     let tempContent = { ...content };
                     tempContent.commentCount++;
                     setContent(tempContent);
                     message.destroy();
-                    document.getElementById("commentInputBox").value = "";
                   });
                 })
                 .catch((err) => {

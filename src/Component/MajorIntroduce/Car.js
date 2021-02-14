@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
 import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
@@ -71,7 +70,6 @@ const Image = styled.img`
 `;
 
 const Car = () => {
-  const history = useHistory();
   return (
     <Container id="SMART_CAR_DIV">
       <NavBot Icon={mainPageIcons.Car} Name="스마트 자동차" />

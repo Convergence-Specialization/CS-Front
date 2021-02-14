@@ -31,25 +31,6 @@ const Container = styled.div`
   max-width: 768px;
   margin: 0 auto;
 `;
-const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 10px;
-`;
-
-const TitleIconImg = styled.img`
-  width: 25px;
-  margin-left: 10px;
-`;
-const Title = styled.div`
-  margin-left: 6px;
-  font-weight: bold;
-  font-size: 20px;
-  color: #242323;
-  @media (max-width: 430px) {
-    font-size: 17px;
-  }
-`;
 
 const BoardContainer = styled.div`
   width: 100%;
@@ -125,16 +106,6 @@ const BoardButtonText = styled.div`
   font-weight: bold;
 `;
 
-const Slick = styled.div`
-  background-color: #f1f1f1;
-  margin: 10px 20px 30px 20px;
-  padding: 10px;
-  border-radius: 20px;
-  @media (max-width: 430px) {
-    margin: 10px 10px 30px 10px;
-  }
-`;
-
 const SlickBox = styled.div`
   background-color: white;
   display: flex;
@@ -193,13 +164,6 @@ const Event = () => {
         },
       },
     ],
-    // dots: true,
-    // className: "center",
-    // infinite: false,
-    // centerPadding: "60px",
-    // slidesToShow: 2,
-    // swipeToSlide: true,
-    // arrows: true,
   };
 
   return (

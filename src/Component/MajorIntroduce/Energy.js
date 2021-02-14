@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
 import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
@@ -71,7 +70,6 @@ const Image = styled.img`
 `;
 
 const Energy = () => {
-  const history = useHistory();
   return (
     <Container id="ENERGY_SCIENCE_DIV">
       <NavBot Icon={mainPageIcons.Energy} Name="에너지 공학" />

@@ -2,7 +2,7 @@ import message from "antd/lib/message";
 import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
-import { departMajorApi } from "../../../api";
+import { departMajorApi, globalApi } from "../../../api";
 import { mainPageIcons, readDoc, Icons } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
@@ -252,6 +252,10 @@ const Read = () => {
 
   const reloadComments = () => {
     setCommentLoading(true);
+    setSubCommentFocusedId("");
+    globalApi
+      .getSingleDoc({ boardName: "departMajor", docId: content.docId })
+      .then((obj) => setContent(obj));
     getComments(myEncryptedUid, content);
   };
 

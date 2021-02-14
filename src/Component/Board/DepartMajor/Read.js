@@ -115,7 +115,7 @@ const CommentChildLikeImg = styled.img`
 `;
 const CommentArrow = styled.img`
   width: 15px;
-  margin: 30px 20px 30px 10px;
+  margin: 0 10px;
 `;
 const CommentChildLikeCount = styled.div`
   margin-left: 5px;
@@ -123,7 +123,9 @@ const CommentChildLikeCount = styled.div`
 `;
 const Box = styled.div`
   display: flex;
+  align-items: center;
   padding-bottom: 5px;
+  padding-right: 5px;
 `;
 const CommentInputMargin = styled.div`
   width: 1px;
@@ -468,7 +470,7 @@ const Read = () => {
               </CommentChildWrapper>
               {item.subComments.map((subItem, subIdx) => (
                 <Box key={`${subIdx}SubComment${idx}`}>
-                  <CommentArrow src={Icons.commentarrow} />
+                  <CommentArrow src={Icons.commentarrow} alt="대댓글 화살표" />
                   <CommentChildWrapper
                     style={{
                       backgroundColor: "#f9f9f9",

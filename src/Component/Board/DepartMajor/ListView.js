@@ -60,10 +60,6 @@ const BoardChildTitle = styled.div`
   font-size: 16px;
   margin-bottom: 10px;
 `;
-const BoardChildContentWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
 const BoardChildContent = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
@@ -82,10 +78,6 @@ const BoardChildMetaText = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
-const IconImg = styled.img`
-  width: 23px;
-  margin-right: 13px;
 `;
 const MoreButton = styled.div`
   width: 95%;

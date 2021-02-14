@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
 import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
@@ -73,7 +72,6 @@ const Image = styled.img`
 `;
 
 const ICT = () => {
-  const history = useHistory();
   return (
     <Container id="ICT_DIV">
       <NavBot Icon={mainPageIcons.Ict} Name="ICT 유통물류" />

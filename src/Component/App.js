@@ -1,33 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import GlobalStyles from "./GlobalStyles";
 import AppRouter from "./Router";
-import { authService } from "../firebase";
-import { FaSlidersH } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 function App() {
-  const [init, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userObj, setUserObj] = useState(null);
-  // useEffect(() => {
-  //   authService.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setIsLoggedIn(true);
-  //       setUserObj(user);
-  //     } else {
-  //       setIsLoggedIn(false);
-  //     }
-  //     setInit(true);
-  //   });
-  // }, []);
   return (
     <>
       <GlobalStyles />
       <AppRouter />
     </>
-    //   <>
-    //   {init ? <AppRouter isLoggedIn={isLoggedIn} userObj ={userObj} /> : "Initializing...(로딩중)"}
-    // </>
   );
 }
 

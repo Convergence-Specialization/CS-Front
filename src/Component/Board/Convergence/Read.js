@@ -34,15 +34,11 @@ const TitleWrapper = styled.div`
   }
 `;
 const Title = styled.div`
-  //position:relative;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 5px;
 `;
 const TitleTimeText = styled.div`
-  //position:absolute;
-  //left:5px;
-  //padding: 8px 0px;
   padding-left: 8px;
   margin-bottom: 2px;
   font-size: 13px;
@@ -168,9 +164,6 @@ const CommentInputContainer = styled.div`
   max-width: 768px;
   background-color: white;
 `;
-const CommentInputSecretButton = styled.img`
-  width: 12px;
-`;
 const CommentInputBox = styled.input`
   width: 80%;
   outline: none;
@@ -197,7 +190,6 @@ const Read = () => {
 
   const [subCommentFocusedId, setSubCommentFocusedId] = useState("");
 
-  // 추후 익명의 슝슝이 별명 변경할 때에 쓰일 예정.
   const [myEncryptedUid, setMyEncryptedUid] = useState("");
   const [didILikedThisDoc, setDidILikedThisDoc] = useState(null);
 
@@ -257,7 +249,7 @@ const Read = () => {
         );
       }
     });
-  }, [getComments, location.state]);
+  }, [getComments, location.state, didILikedDoc, getMyEncryptedUid]);
   return (
     <>
       <SelectSubjectModal
@@ -337,8 +329,7 @@ const Read = () => {
                   subCommentFocusedId === item.commentId
                     ? { backgroundColor: "#f6fafe" }
                     : {}
-                }
-                style={{ borderBottom: "1px solid #aca9a9" }}>
+                }>
                 <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
                 <CommentChildTime>
                   {item.timestampDistance + " 전"}

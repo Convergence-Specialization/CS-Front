@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { mainPageIcons } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { departMajorApi } from "../../api";
 

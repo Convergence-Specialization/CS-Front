@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
-import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
 import SelectSubjectModal from "../Modal";
+
 const Con = styled.div`
   margin: 0px auto 0px auto;
   padding: 20px;
   width: 82%;
-  background-color:white;
+  background-color: white;
   border-radius: 30px;
   box-shadow: 1px 2px 20px 10px rgba(0, 0, 0, 0.1),
     0 2px 4px 1px rgba(0, 0, 0, 0.06);
@@ -18,8 +17,7 @@ const Con = styled.div`
   }
 `;
 
-const Wrap = styled.div`
-`;
+const Wrap = styled.div``;
 const Oon = styled.div`
   margin: 50px 0px 15px 90px;
   display: flex;
@@ -87,12 +85,10 @@ const Qrap = styled.div`
 const Board = () => {
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
-  const history = useHistory();
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
-  const [name, setname] = useState(false);
   return (
     <>
-     <SelectSubjectModal
+      <SelectSubjectModal
         visible={subjectModalVisible}
         onClose={() => setSubjectModalVisible(false)}
       />
@@ -100,48 +96,46 @@ const Board = () => {
         <Text>계정 비밀번호</Text>
       </Oon>
       <Con>
-        <Qrap>
-       kdkdkdk
-        </Qrap>
+        <Qrap>kdkdkdk</Qrap>
       </Con>
       <Jon>
         <Text>새 계정 비밀번호</Text>
       </Jon>
       <Con>
-      <Wrap>
-        <InputBox
-        type="password"
-        placeholder="비밀번호"
-        value={pw}
-        onChange={({ target: { value } }) => setPw(value)}
-      />
+        <Wrap>
+          <InputBox
+            type="password"
+            placeholder="비밀번호"
+            value={pw}
+            onChange={({ target: { value } }) => setPw(value)}
+          />
         </Wrap>
       </Con>
       <Jon>
         <Text>새 계정 비밀번호 확인</Text>
       </Jon>
       <Con>
-      <Wrap>
-        <InputBox
-        type="password"
-        placeholder="비밀번호 확인"
-        value={pwCheck}
-        onChange={({ target: { value } }) => setPwCheck(value)}
-      />
+        <Wrap>
+          <InputBox
+            type="password"
+            placeholder="비밀번호 확인"
+            value={pwCheck}
+            onChange={({ target: { value } }) => setPwCheck(value)}
+          />
         </Wrap>
       </Con>
       <Kon
-      onClick={() => {
-        if (pw !== pwCheck) {
-          alert("비밀번호가 일치하지 않습니다.");
-          return;
-        }
-        else  {
-          message.success("비밀번호가 변경되었습니다.");
-          setSubjectModalVisible(true)
-        }
-      }}
-      >비밀번호 변경</Kon>
+        onClick={() => {
+          if (pw !== pwCheck) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return;
+          } else {
+            message.success("비밀번호가 변경되었습니다.");
+            setSubjectModalVisible(true);
+          }
+        }}>
+        비밀번호 변경
+      </Kon>
     </>
   );
 };

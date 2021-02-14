@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
 import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
@@ -71,7 +70,6 @@ const Image = styled.img`
 `;
 
 const Security = () => {
-  const history = useHistory();
   return (
     <Container id="SECURITY_DIV">
       <NavBot Icon={mainPageIcons.Security} Name="정보보호" />

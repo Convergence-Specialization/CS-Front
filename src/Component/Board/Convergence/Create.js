@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { departMajorApi } from "../../../api";
-// TODO: convergenceApi생성 후 : departMajarApi -> convergenceApi로 수정
-//import { convergenceApi } from "../../../api";
 
 const Container = styled.div`
   padding-top: 15px;
@@ -43,7 +40,6 @@ const Button = styled.div`
 
 const Create = () => {
   const [content, setContent] = useState("");
-  const [uploading, setUploading] = useState(false);
 
   const history = useHistory();
   return (

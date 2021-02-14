@@ -1,5 +1,5 @@
 {
-  "short_name": "Ssung",
+  "short_name": "융특 커뮤니티 슝",
   "name": "Convergence Specialization Community",
   "icons": [
     {
@@ -11,6 +11,12 @@
       "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",

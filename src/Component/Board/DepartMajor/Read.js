@@ -21,6 +21,7 @@ const WhiteContainer = styled.div`
 const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
+  padding-right: 25px;
 `;
 const SubText = styled.div`
   padding: 8px 0px;

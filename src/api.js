@@ -157,6 +157,7 @@ export const departMajorApi = {
               commentCount: data.comments_count,
               likeCount: data.likes_count,
               subject: data.subject,
+              encryptedUid: data.encryptedUid,
             });
           });
           return docsArray;
@@ -187,6 +188,7 @@ export const departMajorApi = {
               commentCount: data.comments_count,
               likeCount: data.likes_count,
               subject: data.subject,
+              encryptedUid: data.encryptedUid,
             });
           });
           return docsArray;
@@ -207,6 +209,12 @@ export const departMajorApi = {
     }),
   delete: (body) =>
     api.post("board/departmajor/delete", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
+  report: (body) =>
+    api.post("board/departmajor/report", body, {
       headers: {
         Authorization: getBearer(),
       },

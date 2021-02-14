@@ -8,6 +8,7 @@ import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import SelectSubjectModal from "./Modal/Read";
 import { useHistory } from "react-router-dom";
+import ReportOrDelete from "./Modal/ReportOrDelete";
 const WhiteContainer = styled.div`
   width: 90%;
   padding: 12px 15px;
@@ -156,13 +157,11 @@ const CommentInputSubmitButton = styled.div`
   border-radius: 10px;
   text-align: center;
 `;
-const DocDeleteButton = styled.div`
+const DocDeleteButton = styled.img`
   position: absolute;
   top: 12px;
-  right: 15px;
-  background-color: black;
-  color: white;
-  padding: 5px;
+  right: 19px;
+  height: 15px;
 `;
 const BlankPost = styled.div`
   padding: 70px 10px;
@@ -190,6 +189,12 @@ const Read = () => {
 
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   const [isCommentWarning, setIsCommentWarning] = useState(false);
+
+  const [reportOrDeleteModalVisible, setReportOrDeleteModalVisible] = useState(
+    false
+  );
+  const [reportOrDeleteModalDocId, setReportOrDeleteModalDocId] = useState("");
+
   const getComments = useCallback(async (myEncryptedUid, docItem) => {
     try {
       const commentsArr = await departMajorApi.comment.getLists({
@@ -249,26 +254,27 @@ const Read = () => {
         onClose={() => setSubjectModalVisible(false)}
         isCommentWarning={isCommentWarning}
       />
+      <ReportOrDelete
+        visible={reportOrDeleteModalVisible}
+        onClose={() => setReportOrDeleteModalVisible(false)}
+        history={history}
+        docId={reportOrDeleteModalDocId}
+        isDeleteState={myEncryptedUid === content.encryptedUid}
+      />
       {content.title !== undefined && (
         <WhiteContainer>
           <Title>{content.title}</Title>
           <SubText>배고픈 슝슝이 | {`${content.timestampDistance} 전`}</SubText>
           <ContentText>{content.content}</ContentText>
-          <DocDeleteButton
-            onClick={async () => {
-              if (uploading) return;
-              setUploading(true);
-              message.loading("글 삭제중..", 10);
-              try {
-                await departMajorApi.delete({ docId: content.docId });
-                message.destroy();
-                history.push("/board/departmajor");
-              } catch (err) {
-                message.error(err.message);
-              }
-            }}>
-            삭제
-          </DocDeleteButton>
+          {myEncryptedUid !== "" && (
+            <DocDeleteButton
+              src={readDoc.three_dots}
+              onClick={() => {
+                setReportOrDeleteModalVisible(true);
+                setReportOrDeleteModalDocId(content.docId);
+              }}
+            />
+          )}
           <ExtraContentWrapper>
             <LikeCountText>
               <img
@@ -327,71 +333,70 @@ const Read = () => {
         </CommentUpperWrapper>
         {commentLoading ? (
           <LoadingComponent />
+        ) : content.commentCount == 0 ? (
+          <BlankPost>※ 작성된 댓글이 없습니다. 댓글을 작성해 주세요.</BlankPost>
         ) : (
-          ( content.commentCount == 0 ? (
-            <BlankPost>※ 작성된 댓글이 없습니다. 댓글을 작성해 주세요.</BlankPost>
-          ) : (
-            comments.map((item, idx) => (
-              <React.Fragment key={`${idx}Child`}>
-                <CommentChildWrapper
-                  key={`${idx}COMMENT`}
-                  style={
-                    subCommentFocusedId === item.commentId
+          comments.map((item, idx) => (
+            <React.Fragment key={`${idx}Child`}>
+              <CommentChildWrapper
+                key={`${idx}COMMENT`}
+                style={
+                  subCommentFocusedId === item.commentId
                     ? { backgroundColor: "#f6fafe" }
                     : {}
-                  }
-                  style={{ borderBottom: "1px solid #aca9a9" }}>
-                  <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
-                  <CommentChildTime>
-                    {item.timestampDistance + " 전"}
-                  </CommentChildTime>
-                  <CommentChildText style={{ width: "72%" }}>
-                    {item.content}
-                  </CommentChildText>
-                  <CommentButtonWrapper>
-                    <CommentChildLikeWrapper
-                      onClick={() => {
-                        if (subCommentFocusedId !== item.commentId) {
-                          document.getElementById("commentInputBox").focus();
-                          setSubCommentFocusedId(item.commentId);
-                        } else {
-                          setSubCommentFocusedId("");
-                        }
-                      }}>
-                      <CommentChildNewSubButton
-                        src={readDoc.speech_bubble}
-                        alt="말풍선 아이콘"
-                      />
-                    </CommentChildLikeWrapper>
-                    <CommentChildLikeWrapper
-                      onClick={() => {
-                        if (uploading) return;
-                        if (item.didILiked) {
-                          setSubjectModalVisible(true);
-                          setIsCommentWarning(true);
-                          return;
-                        }
-                        message.loading("좋아요 누르는 중..", 10);
-                        setUploading(true);
-                        departMajorApi.comment
-                          .like({
-                            originalDocId: content.docId,
-                            commentId: item.commentId,
-                          })
-                          .then(() => {
-                            message.destroy();
-                            let tempComments = [...comments];
-                            tempComments[idx].likeCount++;
-                            tempComments[idx].didILiked = true;
-                            setComments(tempComments);
-                          })
-                          .catch(() => {
-                            message.destroy();
-                          })
-                          .finally(() => {
-                            setUploading(false);
-                          });
-                      }}>
+                }
+                style={{ borderBottom: "1px solid #aca9a9" }}>
+                <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
+                <CommentChildTime>
+                  {item.timestampDistance + " 전"}
+                </CommentChildTime>
+                <CommentChildText style={{ width: "72%" }}>
+                  {item.content}
+                </CommentChildText>
+                <CommentButtonWrapper>
+                  <CommentChildLikeWrapper
+                    onClick={() => {
+                      if (subCommentFocusedId !== item.commentId) {
+                        document.getElementById("commentInputBox").focus();
+                        setSubCommentFocusedId(item.commentId);
+                      } else {
+                        setSubCommentFocusedId("");
+                      }
+                    }}>
+                    <CommentChildNewSubButton
+                      src={readDoc.speech_bubble}
+                      alt="말풍선 아이콘"
+                    />
+                  </CommentChildLikeWrapper>
+                  <CommentChildLikeWrapper
+                    onClick={() => {
+                      if (uploading) return;
+                      if (item.didILiked) {
+                        setSubjectModalVisible(true);
+                        setIsCommentWarning(true);
+                        return;
+                      }
+                      message.loading("좋아요 누르는 중..", 10);
+                      setUploading(true);
+                      departMajorApi.comment
+                        .like({
+                          originalDocId: content.docId,
+                          commentId: item.commentId,
+                        })
+                        .then(() => {
+                          message.destroy();
+                          let tempComments = [...comments];
+                          tempComments[idx].likeCount++;
+                          tempComments[idx].didILiked = true;
+                          setComments(tempComments);
+                        })
+                        .catch(() => {
+                          message.destroy();
+                        })
+                        .finally(() => {
+                          setUploading(false);
+                        });
+                    }}>
                     <CommentChildLikeImg
                       src={item.didILiked ? mainPageIcons.heart : Icons.heart}
                       alt="하트 아이콘"
@@ -432,48 +437,47 @@ const Read = () => {
                                 originalDocId: content.docId,
                                 commentId: item.commentId,
                                 subcommentId: subItem.subcommentId,
-                                  like: "LIKE",
-                                })
-                                .then(() => {
-                                  message.destroy();
-                                  let tempComments = [...comments];
-                                  tempComments[idx].subComments[subIdx]
-                                    .likeCount++;
-                                  tempComments[idx].subComments[
-                                    subIdx
-                                  ].didILiked = true;
-                                  setComments(tempComments);
-                                })
-                                .catch(() => {
-                                  message.destroy();
-                                })
-                                .finally(() => {
-                                  setUploading(false);
-                                });
-                           }}>
-                              <CommentChildLikeImg
-                                src={
-                                  subItem.didILiked
-                                    ? mainPageIcons.heart
-                                    : Icons.heart
-                                }
-                                alt="하트 아이콘"
-                             />
-                             <CommentChildLikeCount>
-                                {subItem.likeCount}
-                              </CommentChildLikeCount>
-                            </CommentChildLikeWrapper>
-                          </CommentButtonWrapper>
-                        </CommentChildWrapper>
-                      </Box>
-                    ))}
-                  </CommentChildWrapper>
-                </React.Fragment>
-              ))
-            ))
-          )}
-        </WhiteContainer>
-        <CommentInputMargin />
+                                like: "LIKE",
+                              })
+                              .then(() => {
+                                message.destroy();
+                                let tempComments = [...comments];
+                                tempComments[idx].subComments[subIdx]
+                                  .likeCount++;
+                                tempComments[idx].subComments[
+                                  subIdx
+                                ].didILiked = true;
+                                setComments(tempComments);
+                              })
+                              .catch(() => {
+                                message.destroy();
+                              })
+                              .finally(() => {
+                                setUploading(false);
+                              });
+                          }}>
+                          <CommentChildLikeImg
+                            src={
+                              subItem.didILiked
+                                ? mainPageIcons.heart
+                                : Icons.heart
+                            }
+                            alt="하트 아이콘"
+                          />
+                          <CommentChildLikeCount>
+                            {subItem.likeCount}
+                          </CommentChildLikeCount>
+                        </CommentChildLikeWrapper>
+                      </CommentButtonWrapper>
+                    </CommentChildWrapper>
+                  </Box>
+                ))}
+              </CommentChildWrapper>
+            </React.Fragment>
+          ))
+        )}
+      </WhiteContainer>
+      <CommentInputMargin />
       <CommentInputContainer>
         <CommentInputBox
           placeholder={

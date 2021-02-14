@@ -54,6 +54,7 @@ export const userApi = {
               commentCount: data.comments_count,
               likeCount: data.likes_count,
               subject: data.subject,
+              nickname: data.nickname,
             };
           })
       )

@@ -594,12 +594,12 @@ const Read = () => {
                   content: commentContent,
                 })
                 .then(() => {
+                  document.getElementById("commentInputBox").value = "";
                   getComments(myEncryptedUid, content).then(() => {
                     let tempContent = { ...content };
                     tempContent.commentCount++;
                     setContent(tempContent);
                     message.destroy();
-                    document.getElementById("commentInputBox").value = "";
                   });
                 })
                 .catch((err) => {
@@ -615,12 +615,12 @@ const Read = () => {
                   content: commentContent,
                 })
                 .then(() => {
+                  document.getElementById("commentInputBox").value = "";
                   getComments(myEncryptedUid, content).then(() => {
                     let tempContent = { ...content };
                     tempContent.commentCount++;
                     setContent(tempContent);
                     message.destroy();
-                    document.getElementById("commentInputBox").value = "";
                   });
                 })
                 .catch((err) => {

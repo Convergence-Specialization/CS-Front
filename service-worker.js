@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "asset-manifest.json",
-    "revision": "f4c87e203fded0c644a18d4819886796"
+    "revision": "d2be72e5655384382469793b8e61bc36"
   },
   {
     "url": "favicon.ico",
@@ -60,12 +60,28 @@ self.__precacheManifest = [
     "revision": "0dc04204e9b507a7e6aea2320b51283f"
   },
   {
-    "url": "static/js/main.4dd59d3f.chunk.js",
-    "revision": "bd869d82a1db75e3524b6142786fe55a"
+    "url": "static/js/main.744806b5.chunk.js",
+    "revision": "3e2a1d6fd2dbd004bcf480a5a2c55f91"
   },
   {
     "url": "static/js/runtime-main.aab4bf4c.js",
     "revision": "c688dd8b6bee20987c53754da81ce217"
+  },
+  {
+    "url": "static/media/Background3.620463b3.png",
+    "revision": "8a92bbb8ccb809e11e6c197dc326bd5e"
+  },
+  {
+    "url": "static/media/BIGDATA.52977fe0.png",
+    "revision": "23080cbc5c7f5b307438e6669ea1f79c"
+  },
+  {
+    "url": "static/media/ENERGY_SCIENCE.21315476.png",
+    "revision": "189718e444e52bab4a2e40cd9f5df10b"
+  },
+  {
+    "url": "static/media/face.b39f43d7.png",
+    "revision": "c5c32ccee04c2695ed0aa19ed1c79d24"
   },
   {
     "url": "static/media/heart_empty.1b65a37a.png",
@@ -74,6 +90,22 @@ self.__precacheManifest = [
   {
     "url": "static/media/heart_fill.10d77658.png",
     "revision": "12cace44aa04475934ea09cccb58ed74"
+  },
+  {
+    "url": "static/media/ICT.b545ca1b.png",
+    "revision": "16e9456355f02ce67bed2157d1f49594"
+  },
+  {
+    "url": "static/media/KOREA.c06c3066.png",
+    "revision": "11fa2f7434666eacd96ad31dd2986b77"
+  },
+  {
+    "url": "static/media/newhorse.1a723361.png",
+    "revision": "98f73d234630afde437383e59cc74b40"
+  },
+  {
+    "url": "static/media/SECURITY.fc9888e9.png",
+    "revision": "fa6a7a6ee015afd7aa0979776d36275c"
   },
   {
     "url": "static/media/slick.2630a3e3.svg",
@@ -90,6 +122,10 @@ self.__precacheManifest = [
   {
     "url": "static/media/slick.c94f7671.ttf",
     "revision": "d41f55a78e6f49a5512878df1737e58a"
+  },
+  {
+    "url": "static/media/SMART_CAR.f74b2250.png",
+    "revision": "414e8a0868e3c316446f9eb0bb66f465"
   },
   {
     "url": "static/media/speech_bubble.a7384eca.png",

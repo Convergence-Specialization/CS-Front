@@ -27,7 +27,7 @@ const BoardWrapper = styled.div`
   margin-top: 13px;
   padding: 10px;
   width: 90%;
-  height: 700px;
+min-height: 700px;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;

@@ -47,7 +47,7 @@ const CommentButton = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 11px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 `;
 const CommentButtonText = styled.div`
@@ -74,10 +74,15 @@ const CommentUpperText = styled.div`
   font-weight: bold;
 `;
 const CommentChildWrapper = styled.div`
-  margin: 5px 0px;
-  padding: 5px 0px;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   position: relative;
-  border-bottom: 1px solid #aca9a9;
+  border-radius:10px;
+`;
+const CommentEndLineWrapper = styled.div`
+  margin-top: 5px;
+  border-bottom: 1px solid #DCDCDC;
 `;
 const CommentChildTitle = styled.span`
   font-weight: bold;
@@ -89,6 +94,7 @@ const CommentChildTime = styled.span`
 `;
 const CommentChildText = styled.div`
   margin-top: 12px;
+  margin-bottom: 3px;
   line-height: 1.5;
   font-size: 14px;
   white-space: pre-wrap;
@@ -105,7 +111,7 @@ const CommentChildNewSubButton = styled.img`
 `;
 const CommentChildLikeWrapper = styled.div`
   padding: 3px 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
@@ -117,7 +123,7 @@ const CommentChildLikeImg = styled.img`
 `;
 const CommentArrow = styled.img`
   width: 15px;
-  margin: 0 10px;
+  margin: 0px 10px 0px 5px;
 `;
 const CommentChildLikeCount = styled.div`
   margin-left: 5px;
@@ -126,8 +132,6 @@ const CommentChildLikeCount = styled.div`
 const Box = styled.div`
   display: flex;
   align-items: center;
-  padding-bottom: 5px;
-  padding-right: 5px;
 `;
 const CommentInputMargin = styled.div`
   width: 1px;
@@ -474,16 +478,16 @@ const Read = () => {
                     </CommentChildLikeCount>
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
-              </CommentChildWrapper>
+                </CommentChildWrapper>
               {item.subComments.map((subItem, subIdx) => (
                 <Box key={`${subIdx}SubComment${idx}`}>
                   <CommentArrow src={Icons.commentarrow} alt="대댓글 화살표" />
                   <CommentChildWrapper
                     style={{
                       backgroundColor: "#f9f9f9",
-                      padding: "5px ",
+                      padding: "7px ",
                       marginTT: "5px",
-                      width: "90%",
+                      width: "95%",
                     }}
                   >
                     <CommentDeleteButton
@@ -568,6 +572,7 @@ const Read = () => {
                   </CommentChildWrapper>
                 </Box>
               ))}
+              <CommentEndLineWrapper/>
             </React.Fragment>
           ))
         )}

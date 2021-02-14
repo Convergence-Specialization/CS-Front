@@ -393,7 +393,11 @@ const Read = () => {
                     );
                   }}
                 />
-                <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
+                <CommentChildTitle>
+                  {content.encryptedUid === item.encryptedUid
+                    ? "작성자"
+                    : `익명의 슝슝이 ${item.uidIndex}`}
+                </CommentChildTitle>
                 <CommentChildTime>
                   {item.timestampDistance + " 전"}
                 </CommentChildTime>
@@ -479,7 +483,11 @@ const Read = () => {
                           );
                         }}
                       />
-                      <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
+                      <CommentChildTitle>
+                        {content.encryptedUid === subItem.encryptedUid
+                          ? "작성자"
+                          : `익명의 슝슝이 ${subItem.uidIndex}`}
+                      </CommentChildTitle>
                       <CommentChildTime>
                         {subItem.timestampDistance + " 전"}
                       </CommentChildTime>
@@ -542,7 +550,12 @@ const Read = () => {
       </WhiteContainer>
       <CommentInputMargin />
       <CommentInputContainer>
-        <form autoComplete="off" style={{ width: "80%" }}>
+        <form
+          autoComplete="off"
+          style={{ width: "80%" }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") e.preventDefault();
+          }}>
           <CommentInputBox
             placeholder={
               subCommentFocusedId === ""

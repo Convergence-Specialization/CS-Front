@@ -251,8 +251,10 @@ export const departMajorApi = {
         },
       }),
     getLists: async (body) => {
-      // TODO: myEncryptedUid로 본인이 좋아요 누른 댓글들은 좋아요 처리.
       const { docId, myEncryptedUid } = body;
+
+      let uidDict = {};
+
       // 일반 댓글들 가져오기
       let commentsArr = await db
         .collection("departMajor")
@@ -270,6 +272,11 @@ export const departMajorApi = {
             if (distanceText.includes("미만")) {
               distanceText = "방금";
             }
+            // uid 묶음 만들기.
+            if (uidDict[data.encryptedUid] === undefined) {
+              uidDict[data.encryptedUid] = Object.keys(uidDict).length + 1;
+            }
+            let uidIndex = uidDict[data.encryptedUid];
             docsArray.push({
               commentId: doc.id,
               content: data.content,
@@ -279,6 +286,7 @@ export const departMajorApi = {
               likeCount: data.likes_count,
               subCommentsExist: data.subCommentsExist,
               subComments: [],
+              uidIndex,
             });
           });
           return docsArray;
@@ -309,6 +317,12 @@ export const departMajorApi = {
                   if (distanceText.includes("미만")) {
                     distanceText = "방금";
                   }
+                  // uid 묶음 만들기.
+                  if (uidDict[data.encryptedUid] === undefined) {
+                    uidDict[data.encryptedUid] =
+                      Object.keys(uidDict).length + 1;
+                  }
+                  let uidIndex = uidDict[data.encryptedUid];
                   commentsArr[idx].subComments.push({
                     subcommentId: doc.id,
                     encryptedUid: data.encryptedUid,
@@ -316,6 +330,7 @@ export const departMajorApi = {
                     timestampDistance: distanceText,
                     timestampMillis: data.timestamp.toMillis(),
                     likeCount: data.likes_count,
+                    uidIndex,
                   });
                 });
                 // 각 대댓글들에서 본인이 좋아요 눌렀는지 확인.

@@ -413,6 +413,7 @@ export const globalApi = {
     return {
       docId: doc.id,
       title: data.title,
+      encryptedUid: data.encryptedUid,
       nickname: data.nickname,
       content: data.content,
       timestampDistance: distanceText,

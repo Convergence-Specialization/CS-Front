@@ -23,9 +23,15 @@ jobs:
         run: yarn install --prod --pure-lockfile
 
       - name: Build
-        run: CI=false yarn run prod
+        run: CI=false yarn run build
         env:
           NODE_ENV: production
+
+      - name: Workbox
+        run: CI=false yarn run workbox
+        env:
+          NODE_ENV: production
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

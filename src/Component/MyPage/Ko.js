@@ -12,7 +12,7 @@ const InfoContainer = styled.div`
   background-color: #ffffff;
   justify-content: space-between;
   @media (max-width: 430px) {
-    padding: 25px 25px 15px 25px;
+    padding: 25px 25px 15px 23px;
     margin: 25px 20px 20px 20px;
   } ;
 `;
@@ -21,9 +21,9 @@ const TextWrapper = styled.div`
   flex-direction: column;
   display: flex;
   justify-content: left;
-  margin-right: 60px;
+  margin: 20px 60px 0 0;
   @media (max-width: 430px) {
-    margin-right: 15px;
+    margin: 10px 25px 0 0;
   }
 `;
 
@@ -97,7 +97,7 @@ const Ko = () => {
         <img
           src={horseIcons.newhorse}
           alt="프로필"
-          style={{ width: "30%" }}
+          style={{ width: "30%", height: "30%" }}
         ></img>
         <TextWrapper>
           <Text1>

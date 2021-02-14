@@ -6,7 +6,6 @@ import LoadingComponent from "./SmallComponents/Loading";
 import { boardNameDict, NOTIFICATION_TYPES } from "../assets/Dicts";
 import { useAuth } from "./Watchers";
 import message from "antd/lib/message";
-import { isThisMinute } from "date-fns";
 
 const Container = styled.div`
   width: 100%;

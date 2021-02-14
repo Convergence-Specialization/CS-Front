@@ -134,7 +134,7 @@ const Create = () => {
 - 욕설, 자살, 폭력, 혐오가 포함된 게시물 게시 금지`}
           value={content}
           onChange={(e) => setContent(e.target.value)}
-        ></ContentTextArea>
+        />
         <ButtonWrapper>
           <Button onClick={() => history.goBack()}>취소</Button>
           <Button

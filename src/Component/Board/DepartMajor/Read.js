@@ -139,7 +139,7 @@ const CommentInputContainer = styled.div`
   background-color: white;
 `;
 const CommentInputBox = styled.input`
-  width: 80%;
+  width: 100%;
   outline: none;
   border: none;
   border-radius: 12px;
@@ -162,6 +162,12 @@ const DocDeleteButton = styled.img`
   top: 12px;
   right: 19px;
   height: 15px;
+`;
+const CommentDeleteButton = styled.img`
+  position: absolute;
+  top: 7px;
+  right: 9px;
+  height: 12px;
 `;
 const BlankPost = styled.div`
   padding: 70px 10px;
@@ -193,7 +199,18 @@ const Read = () => {
   const [reportOrDeleteModalVisible, setReportOrDeleteModalVisible] = useState(
     false
   );
-  const [reportOrDeleteModalDocId, setReportOrDeleteModalDocId] = useState("");
+  const [reportOrDeleteModalDocId, setReportOrDeleteModalDocId] = useState({});
+  const [reportOrDeleteModalType, setReportOrDeleteModalType] = useState("DOC");
+  const [
+    reportOrDeleteModalDeleteState,
+    setReportOrDeleteModalDeleteState,
+  ] = useState(true);
+
+  const Modal_Type = {
+    DOC: "DOC",
+    COMMENT: "COMMENT",
+    SUBCOMMENT: "SUBCOMMENT",
+  };
 
   const getComments = useCallback(async (myEncryptedUid, docItem) => {
     try {
@@ -233,6 +250,11 @@ const Read = () => {
     }
   }, []);
 
+  const reloadComments = () => {
+    setCommentLoading(true);
+    getComments(myEncryptedUid, content);
+  };
+
   useEffect(() => {
     if (location.state === undefined) return;
     const { docItem } = location.state;
@@ -259,7 +281,9 @@ const Read = () => {
         onClose={() => setReportOrDeleteModalVisible(false)}
         history={history}
         docId={reportOrDeleteModalDocId}
-        isDeleteState={myEncryptedUid === content.encryptedUid}
+        isDeleteState={reportOrDeleteModalDeleteState}
+        modalType={reportOrDeleteModalType}
+        reloadComments={reloadComments}
       />
       {content.title !== undefined && (
         <WhiteContainer>
@@ -271,7 +295,11 @@ const Read = () => {
               src={readDoc.three_dots}
               onClick={() => {
                 setReportOrDeleteModalVisible(true);
-                setReportOrDeleteModalDocId(content.docId);
+                setReportOrDeleteModalDocId({ docId: content.docId });
+                setReportOrDeleteModalType(Modal_Type.DOC);
+                setReportOrDeleteModalDeleteState(
+                  myEncryptedUid === content.encryptedUid
+                );
               }}
             />
           )}
@@ -346,6 +374,21 @@ const Read = () => {
                     : {}
                 }
                 style={{ borderBottom: "1px solid #aca9a9" }}>
+                <CommentDeleteButton
+                  src={readDoc.three_dots}
+                  alt="더 보기"
+                  onClick={() => {
+                    setReportOrDeleteModalVisible(true);
+                    setReportOrDeleteModalDocId({
+                      docId: content.docId,
+                      commentId: item.commentId,
+                    });
+                    setReportOrDeleteModalType(Modal_Type.COMMENT);
+                    setReportOrDeleteModalDeleteState(
+                      myEncryptedUid === item.encryptedUid
+                    );
+                  }}
+                />
                 <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
                 <CommentChildTime>
                   {item.timestampDistance + " 전"}
@@ -416,6 +459,22 @@ const Read = () => {
                         marginTT: "5px",
                         width: "90%",
                       }}>
+                      <CommentDeleteButton
+                        src={readDoc.three_dots}
+                        alt="더 보기"
+                        onClick={() => {
+                          setReportOrDeleteModalVisible(true);
+                          setReportOrDeleteModalDocId({
+                            docId: content.docId,
+                            commentId: item.commentId,
+                            subcommentId: subItem.subcommentId,
+                          });
+                          setReportOrDeleteModalType(Modal_Type.SUBCOMMENT);
+                          setReportOrDeleteModalDeleteState(
+                            myEncryptedUid === subItem.encryptedUid
+                          );
+                        }}
+                      />
                       <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
                       <CommentChildTime>
                         {subItem.timestampDistance + " 전"}
@@ -479,14 +538,16 @@ const Read = () => {
       </WhiteContainer>
       <CommentInputMargin />
       <CommentInputContainer>
-        <CommentInputBox
-          placeholder={
-            subCommentFocusedId === ""
-              ? "댓글을 작성하세요"
-              : "대댓글을 작성하세요"
-          }
-          id="commentInputBox"
-        />
+        <form autoComplete="off" style={{ width: "80%" }}>
+          <CommentInputBox
+            placeholder={
+              subCommentFocusedId === ""
+                ? "댓글을 작성하세요"
+                : "대댓글을 작성하세요"
+            }
+            id="commentInputBox"
+          />
+        </form>
         <CommentInputSubmitButton
           onClick={() => {
             if (uploading) return;

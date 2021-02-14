@@ -6,8 +6,8 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { NOTIFICATION_TYPES } from "./assets/Dicts";
 
 const api = axios.create({
-  baseURL: "https://convergence-ssu.herokuapp.com/",
-  // baseURL: "http://localhost:5000",
+  // baseURL: "https://convergence-ssu.herokuapp.com/",
+  baseURL: "http://localhost:5000",
 });
 
 const getBearer = () => `Bearer ${localStorage.getItem("idToken")}`;
@@ -232,6 +232,18 @@ export const departMajorApi = {
           Authorization: getBearer(),
         },
       }),
+    report: (body) =>
+      api.post("board/departmajor/comment/report", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
+    delete: (body) =>
+      api.post("board/departmajor/comment/delete", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
     like: (body) =>
       api.post("board/departmajor/comment/like", body, {
         headers: {
@@ -262,6 +274,7 @@ export const departMajorApi = {
               commentId: doc.id,
               content: data.content,
               timestampDistance: distanceText,
+              encryptedUid: data.encryptedUid,
               timestampMillis: data.timestamp.toMillis(),
               likeCount: data.likes_count,
               subCommentsExist: data.subCommentsExist,
@@ -298,6 +311,7 @@ export const departMajorApi = {
                   }
                   commentsArr[idx].subComments.push({
                     subcommentId: doc.id,
+                    encryptedUid: data.encryptedUid,
                     content: data.content,
                     timestampDistance: distanceText,
                     timestampMillis: data.timestamp.toMillis(),
@@ -343,6 +357,18 @@ export const departMajorApi = {
     },
     createSubComment: (body) =>
       api.post("board/departmajor/subcomment/create", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
+    reportSubComment: (body) =>
+      api.post("board/departmajor/comment/report", body, {
+        headers: {
+          Authorization: getBearer(),
+        },
+      }),
+    deleteSubComment: (body) =>
+      api.post("board/departmajor/subcomment/delete", body, {
         headers: {
           Authorization: getBearer(),
         },

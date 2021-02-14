@@ -132,26 +132,36 @@ const NotificationsPage = () => {
                 if (docLoading) return;
                 setDocLoading(true);
                 message.loading("불러오는 중..");
-                let docData = await globalApi.getSingleDoc({
-                  boardName: boardNameDict[item.boardName].dbName,
-                  docId: item.docId,
-                });
+                try {
+                  let docData = await globalApi.getSingleDoc({
+                    boardName: boardNameDict[item.boardName].dbName,
+                    docId: item.docId,
+                  });
+                  message.destroy();
+                  history.push({
+                    pathname: `/board/${
+                      boardNameDict[item.boardName].addressName
+                    }`,
+                    state: {
+                      pageName: "read",
+                      docItem: docData,
+                    },
+                  });
+                } catch (err) {
+                  if (
+                    err.message ===
+                    "Cannot read property 'timestamp' of undefined"
+                  ) {
+                    message.destroy();
+                    message.error("삭제된 글입니다.");
+                  }
+                }
                 globalApi.checkNotification({
                   notificationId: item.notificationId,
                   uid: user.uid,
                 });
-                message.destroy();
-                history.push({
-                  pathname: `/board/${
-                    boardNameDict[item.boardName].addressName
-                  }`,
-                  state: {
-                    pageName: "read",
-                    docItem: docData,
-                  },
-                });
-              }}
-            >
+                setDocLoading(false);
+              }}>
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}
@@ -185,20 +195,32 @@ const NotificationsPage = () => {
                 if (docLoading) return;
                 setDocLoading(true);
                 message.loading("불러오는 중..");
-                let docData = await globalApi.getSingleDoc({
-                  boardName: boardNameDict[item.boardName].dbName,
-                  docId: item.docId,
-                });
-                message.destroy();
-                history.push({
-                  pathname: `/board/${boardNameDict[item.boardName].dbName}`,
-                  state: {
-                    pageName: "read",
-                    docItem: docData,
-                  },
-                });
-              }}
-            >
+                try {
+                  let docData = await globalApi.getSingleDoc({
+                    boardName: boardNameDict[item.boardName].dbName,
+                    docId: item.docId,
+                  });
+                  message.destroy();
+                  history.push({
+                    pathname: `/board/${
+                      boardNameDict[item.boardName].addressName
+                    }`,
+                    state: {
+                      pageName: "read",
+                      docItem: docData,
+                    },
+                  });
+                } catch (err) {
+                  if (
+                    err.message ===
+                    "Cannot read property 'timestamp' of undefined"
+                  ) {
+                    message.destroy();
+                    message.error("삭제된 글입니다.");
+                  }
+                }
+                setDocLoading(false);
+              }}>
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}

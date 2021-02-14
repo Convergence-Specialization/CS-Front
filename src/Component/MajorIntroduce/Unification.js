@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import NavBot from "../SmallComponents/NavBot";
 import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
 
@@ -71,7 +70,6 @@ const Image = styled.img`
 `;
 
 const Unification = () => {
-  const history = useHistory();
   return (
     <Container id="KOREA_DIV">
       <NavBot Icon={mainPageIcons.Unification} Name="통일외교 및 개발협력" />

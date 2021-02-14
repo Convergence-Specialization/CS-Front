@@ -2,7 +2,6 @@ import message from "antd/lib/message";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { departMajorApi } from "../../api";
 import { horseIcons } from "../../assets/Resources";
 
 const Container = styled.div`
@@ -139,8 +138,7 @@ const Suggestions = () => {
                 pathname: `suggestions`,
                 state: { pageName: "suggested" },
               });
-            }}
-          >
+            }}>
             작성하기
           </Button>
         </ButtonWrapper>

@@ -1,6 +1,7 @@
 import heart_empty from "../assets/icons/heart_empty.png";
 import heart_fill from "../assets/icons/heart_fill.png";
 import speech_bubble from "../assets/icons/speech_bubble.png";
+import three_dots from "../assets/icons/three_dots.png";
 
 export const Images = {
   Background:
@@ -105,6 +106,7 @@ export const readDoc = {
   heart_empty,
   speech_bubble,
   heart_fill,
+  three_dots,
 };
 
 export const majorIntroduce = {

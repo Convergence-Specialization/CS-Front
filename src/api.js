@@ -152,6 +152,7 @@ export const departMajorApi = {
               docId: doc.id,
               title: data.title,
               content: data.content,
+              nickname: data.nickname,
               timestampDistance: distanceText,
               timestampMillis: data.timestamp.toMillis(),
               commentCount: data.comments_count,
@@ -183,6 +184,7 @@ export const departMajorApi = {
               docId: doc.id,
               title: data.title,
               content: data.content,
+              nickname: data.nickname,
               timestampDistance: distanceText,
               timestampMillis: data.timestamp.toMillis(),
               commentCount: data.comments_count,
@@ -411,6 +413,7 @@ export const globalApi = {
     return {
       docId: doc.id,
       title: data.title,
+      nickname: data.nickname,
       content: data.content,
       timestampDistance: distanceText,
       timestampMillis: data.timestamp.toMillis(),

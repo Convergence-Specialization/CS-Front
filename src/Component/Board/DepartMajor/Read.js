@@ -292,7 +292,9 @@ const Read = () => {
       {content.title !== undefined && (
         <WhiteContainer>
           <Title>{content.title}</Title>
-          <SubText>배고픈 슝슝이 | {`${content.timestampDistance} 전`}</SubText>
+          <SubText>
+            {content.nickname} | {`${content.timestampDistance} 전`}
+          </SubText>
           <ContentText>{content.content}</ContentText>
           {myEncryptedUid !== "" && (
             <DocDeleteButton
@@ -393,9 +395,14 @@ const Read = () => {
                     );
                   }}
                 />
-                <CommentChildTitle>
+                <CommentChildTitle
+                  style={
+                    content.encryptedUid === item.encryptedUid
+                      ? { color: "#5ac6b9" }
+                      : {}
+                  }>
                   {content.encryptedUid === item.encryptedUid
-                    ? "작성자"
+                    ? content.nickname
                     : `익명의 슝슝이 ${item.uidIndex}`}
                 </CommentChildTitle>
                 <CommentChildTime>
@@ -483,9 +490,14 @@ const Read = () => {
                           );
                         }}
                       />
-                      <CommentChildTitle>
+                      <CommentChildTitle
+                        style={
+                          content.encryptedUid === subItem.encryptedUid
+                            ? { color: "#5ac6b9" }
+                            : {}
+                        }>
                         {content.encryptedUid === subItem.encryptedUid
-                          ? "작성자"
+                          ? content.nickname
                           : `익명의 슝슝이 ${subItem.uidIndex}`}
                       </CommentChildTitle>
                       <CommentChildTime>

@@ -26,7 +26,10 @@ const TextWrapper = styled.div`
     margin: 10px 25px 0 0;
   }
 `;
-
+const HorseIcon = styled.img`
+  width: 30%;
+  align-self: flex-start;
+`;
 const Text = styled.div`
   display: flex;
   margin: 0px 3px 0px 10px;
@@ -94,11 +97,7 @@ const Ko = () => {
   return (
     <InfoContainer>
       <InfoWrapper>
-        <img
-          src={horseIcons.newhorse}
-          alt="프로필"
-          style={{ width: "30%", height: "30%" }}
-        ></img>
+        <HorseIcon src={horseIcons.newhorse} alt={"프로필"} />
         <TextWrapper>
           <Text1>
             {!!user

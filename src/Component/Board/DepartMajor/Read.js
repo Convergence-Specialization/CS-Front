@@ -62,7 +62,8 @@ const ExtraContentWrapper = styled.div`
 
 const CommentImg = styled.img`
   width: 12px;
-  height: 12px;
+  align-self: flex-start;
+  /* height: 12px; */
   margin-right: 5px;
 `;
 const CommentUpperWrapper = styled.div`
@@ -78,11 +79,11 @@ const CommentChildWrapper = styled.div`
   padding-top: 5px;
   padding-bottom: 5px;
   position: relative;
-  border-radius:10px;
+  border-radius: 10px;
 `;
 const CommentEndLineWrapper = styled.div`
   margin-top: 5px;
-  border-bottom: 1px solid #DCDCDC;
+  border-bottom: 1px solid #dcdcdc;
 `;
 const CommentChildTitle = styled.span`
   font-weight: bold;
@@ -478,7 +479,7 @@ const Read = () => {
                     </CommentChildLikeCount>
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
-                </CommentChildWrapper>
+              </CommentChildWrapper>
               {item.subComments.map((subItem, subIdx) => (
                 <Box key={`${subIdx}SubComment${idx}`}>
                   <CommentArrow src={Icons.commentarrow} alt="대댓글 화살표" />
@@ -572,7 +573,7 @@ const Read = () => {
                   </CommentChildWrapper>
                 </Box>
               ))}
-              <CommentEndLineWrapper/>
+              <CommentEndLineWrapper />
             </React.Fragment>
           ))
         )}

@@ -28,7 +28,7 @@ const Title = styled.div`
 `;
 const SubText = styled.div`
   padding: 8px 0px;
-  border-bottom: 2px solid #aca9a9;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   font-size: 13px;
   line-height: 1.15;
@@ -81,11 +81,11 @@ const CommentChildWrapper = styled.div`
   padding-top: 5px;
   padding-bottom: 5px;
   position: relative;
-  border-radius:10px;
+  border-radius: 10px;
 `;
 const CommentEndLineWrapper = styled.div`
   margin-top: 5px;
-  border-bottom: 1px solid #DCDCDC;
+  border-bottom: 1px solid #dcdcdc;
 `;
 const CommentChildTitle = styled.span`
   font-weight: bold;
@@ -204,11 +204,12 @@ const SubjectSelectArea = styled.div`
 `;
 const SubjectSelectImg = styled.img`
   width: 26px;
-  margin-right: 9px;
+  margin-right: 4px;
 `;
 const SubjectSelectText = styled.div`
-  color: #646464;
-  margin-Left: "10px";
+  color: #000000;
+  margin-left : 5px;
+  font-weight : bold;
 `;
 const Read = () => {
   const history = useHistory();
@@ -224,7 +225,6 @@ const Read = () => {
   const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
-  const [subjectSelected, setSubjectSelected] = useState("");
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   const [isCommentWarning, setIsCommentWarning] = useState(false);
 
@@ -314,16 +314,6 @@ const Read = () => {
         onClose={() => setSubjectModalVisible(false)}
         isCommentWarning={isCommentWarning}
       />
-      {subjectSelected !== "NONE" && (
-        <SubjectSelectArea>
-          <SubjectSelectImg
-                  style={{ marginLeft: "10px" }}
-                  src={subjectDicts[content.subject].img}
-                  alt="말머리아이콘"
-          />
-          <SubjectSelectText>{subjectDicts[content.subject].name}</SubjectSelectText>
-        </SubjectSelectArea>
-      )}
       <ReportOrDelete
         visible={reportOrDeleteModalVisible}
         onClose={() => setReportOrDeleteModalVisible(false)}
@@ -334,77 +324,89 @@ const Read = () => {
         reloadComments={reloadComments}
       />
       {content.title !== undefined && (
-        <WhiteContainer>
-          <Title>{content.title}</Title>
-          <SubText>
-            {content.nickname} | {`${content.timestampDistance} 전`}
-          </SubText>
-          <ContentText>{content.content}</ContentText>
-          {myEncryptedUid !== "" && (
-            <DocDeleteButton
-              src={readDoc.three_dots}
-              onClick={() => {
-                setReportOrDeleteModalVisible(true);
-                setReportOrDeleteModalDocId({ docId: content.docId });
-                setReportOrDeleteModalType(Modal_Type.DOC);
-                setReportOrDeleteModalDeleteState(
-                  myEncryptedUid === content.encryptedUid
-                );
-              }}
+        <>
+          <SubjectSelectArea>
+            <SubjectSelectImg
+              style={{ marginLeft: "3px" }}
+              src={subjectDicts[content.subject].img}
+              alt="말머리아이콘"
             />
-          )}
-          <ExtraContentWrapper>
-            <LikeCountText>
-              <img
-                src={mainPageIcons.heart}
-                alt="하트 아이콘"
-                style={{ width: "13px", marginRight: " 4px" }}
-              />
-              <div>{content.likeCount}</div>
-              <div style={{ margin: " 0px 2px 0px 4px", fontSize: "13px" }}>
-                |
-              </div>
-              <img
-                src={readDoc.speech_bubble}
-                alt="말풍선 아이콘"
-                style={{ width: "14px", margin: "0px 4px" }}
-              />
-              <div>{content.commentCount}</div>
-            </LikeCountText>
-            {didILikedThisDoc !== null && (
-              <CommentButton
+            <SubjectSelectText>
+              {subjectDicts[content.subject].name}
+            </SubjectSelectText>
+          </SubjectSelectArea>
+          <WhiteContainer>
+            <Title>{content.title}</Title>
+            <SubText>
+              {content.nickname} | {`${content.timestampDistance} 전`}
+            </SubText>
+            <ContentText>{content.content}</ContentText>
+            {myEncryptedUid !== "" && (
+              <DocDeleteButton
+                src={readDoc.three_dots}
                 onClick={() => {
-                  if (uploading) return;
-                  if (didILikedThisDoc) {
-                    setSubjectModalVisible(true);
-                    setIsCommentWarning(false);
-                    return;
-                  }
-                  message.loading("좋아요 누르는 중..", 10);
-                  setUploading(true);
-                  departMajorApi
-                    .like({ docId: content.docId, like: "LIKE" })
-                    .then(() => {
-                      message.destroy();
-                      setDidILikedThisDoc(true);
-                    })
-                    .catch(() => {
-                      message.destroy();
-                    })
-                    .finally(() => {
-                      setUploading(false);
-                    });
+                  setReportOrDeleteModalVisible(true);
+                  setReportOrDeleteModalDocId({ docId: content.docId });
+                  setReportOrDeleteModalType(Modal_Type.DOC);
+                  setReportOrDeleteModalDeleteState(
+                    myEncryptedUid === content.encryptedUid
+                  );
                 }}
-              >
-                <CommentImg
-                  src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
-                  alt={"공감 이미지"}
-                />
-                <CommentButtonText>공감</CommentButtonText>
-              </CommentButton>
+              />
             )}
-          </ExtraContentWrapper>
-        </WhiteContainer>
+            <ExtraContentWrapper>
+              <LikeCountText>
+                <img
+                  src={mainPageIcons.heart}
+                  alt="하트 아이콘"
+                  style={{ width: "13px", marginRight: " 4px" }}
+                />
+                <div>{content.likeCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px", fontSize: "13px" }}>
+                  |
+                </div>
+                <img
+                  src={readDoc.speech_bubble}
+                  alt="말풍선 아이콘"
+                  style={{ width: "14px", margin: "0px 4px" }}
+                />
+                <div>{content.commentCount}</div>
+              </LikeCountText>
+              {didILikedThisDoc !== null && (
+                <CommentButton
+                  onClick={() => {
+                    if (uploading) return;
+                    if (didILikedThisDoc) {
+                      setSubjectModalVisible(true);
+                      setIsCommentWarning(false);
+                      return;
+                    }
+                    message.loading("좋아요 누르는 중..", 10);
+                    setUploading(true);
+                    departMajorApi
+                      .like({ docId: content.docId, like: "LIKE" })
+                      .then(() => {
+                        message.destroy();
+                        setDidILikedThisDoc(true);
+                      })
+                      .catch(() => {
+                        message.destroy();
+                      })
+                      .finally(() => {
+                        setUploading(false);
+                      });
+                  }}
+                >
+                  <CommentImg
+                    src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
+                    alt={"공감 이미지"}
+                  />
+                  <CommentButtonText>공감</CommentButtonText>
+                </CommentButton>
+              )}
+            </ExtraContentWrapper>
+          </WhiteContainer>
+        </>
       )}
       <WhiteContainer>
         <CommentUpperWrapper>
@@ -512,7 +514,7 @@ const Read = () => {
                     </CommentChildLikeCount>
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
-                </CommentChildWrapper>
+              </CommentChildWrapper>
               {item.subComments.map((subItem, subIdx) => (
                 <Box key={`${subIdx}SubComment${idx}`}>
                   <CommentArrow src={Icons.commentarrow} alt="대댓글 화살표" />
@@ -606,7 +608,7 @@ const Read = () => {
                   </CommentChildWrapper>
                 </Box>
               ))}
-              <CommentEndLineWrapper/>
+              <CommentEndLineWrapper />
             </React.Fragment>
           ))
         )}

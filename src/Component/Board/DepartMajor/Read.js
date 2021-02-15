@@ -65,7 +65,8 @@ const ExtraContentWrapper = styled.div`
 
 const CommentImg = styled.img`
   width: 12px;
-  height: 12px;
+  align-self: flex-start;
+  /* height: 12px; */
   margin-right: 5px;
 `;
 const CommentUpperWrapper = styled.div`
@@ -184,7 +185,7 @@ const CommentDeleteButton = styled.img`
   height: 12px;
 `;
 const BlankPost = styled.div`
-  padding: 70px 10px;
+  padding: 60px 10px;
   margin: 10px auto;
   font-weight: 300;
   font-size: 14px;
@@ -414,7 +415,10 @@ const Read = () => {
         {commentLoading ? (
           <LoadingComponent />
         ) : content.commentCount === 0 ? (
-          <BlankPost>※ 작성된 댓글이 없습니다. 댓글을 작성해 주세요.</BlankPost>
+          <BlankPost style={{ lineHeight: "1.3" }}>
+            ※ 작성된 댓글이 없습니다. ※ <br />
+            댓글을 작성해 주세요.
+          </BlankPost>
         ) : (
           comments.map((item, idx) => (
             <React.Fragment key={`${idx}Child`}>
@@ -505,7 +509,8 @@ const Read = () => {
                     }}
                   >
                     <CommentChildLikeImg
-                      src={item.didILiked ? mainPageIcons.heart : Icons.heart}
+                      src={item.didILiked ? readDoc.heart_fill
+                        : readDoc.heart_empty}
                       alt="하트 아이콘"
                     />
                     <CommentChildLikeCount>
@@ -594,8 +599,8 @@ const Read = () => {
                         <CommentChildLikeImg
                           src={
                             subItem.didILiked
-                              ? mainPageIcons.heart
-                              : Icons.heart
+                            ? readDoc.heart_fill
+                            : readDoc.heart_empty
                           }
                           alt="하트 아이콘"
                         />

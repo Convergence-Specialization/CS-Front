@@ -48,13 +48,13 @@ export const userApi = {
             }
             return {
               docId: doc.id,
-              title: data.title,
+              title: data.title, // not required
               content: data.content,
               timestampDistance: distanceText,
               timestampMillis: data.timestamp.toMillis(),
               commentCount: data.comments_count,
               likeCount: data.likes_count,
-              subject: data.subject,
+              subject: data.subject, // not required
               nickname: data.nickname,
             };
           })

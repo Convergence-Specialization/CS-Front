@@ -182,7 +182,7 @@ const CommentDeleteButton = styled.img`
   height: 12px;
 `;
 const BlankPost = styled.div`
-  padding: 70px 10px;
+  padding: 60px 10px;
   margin: 10px auto;
   font-weight: 300;
   font-size: 14px;
@@ -380,7 +380,10 @@ const Read = () => {
         {commentLoading ? (
           <LoadingComponent />
         ) : content.commentCount === 0 ? (
-          <BlankPost>※ 작성된 댓글이 없습니다. 댓글을 작성해 주세요.</BlankPost>
+          <BlankPost style={{ lineHeight: "1.3" }}>
+            ※ 작성된 댓글이 없습니다. ※ <br />
+            댓글을 작성해 주세요.
+          </BlankPost>
         ) : (
           comments.map((item, idx) => (
             <React.Fragment key={`${idx}Child`}>

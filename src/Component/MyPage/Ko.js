@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Icons, horseIcons } from "../../assets/Resources";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Watchers";
+import { userApi } from "../../api";
+import LoadingComponent from "../SmallComponents/Loading";
 
 const InfoContainer = styled.div`
   margin: 30px;
@@ -26,7 +28,10 @@ const TextWrapper = styled.div`
     margin: 10px 25px 0 0;
   }
 `;
-
+const HorseIcon = styled.img`
+  width: 30%;
+  align-self: flex-start;
+`;
 const Text = styled.div`
   display: flex;
   margin: 0px 3px 0px 10px;
@@ -91,35 +96,54 @@ const EditBox = styled.div`
 const Ko = () => {
   const history = useHistory();
   const user = useAuth();
+  const [myInfo, setMyInfo] = useState(null);
+  useEffect(() => {
+    userApi
+      .getMyInfo({ uid: user.uid })
+      .then((info) => setMyInfo(info))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
-    <InfoContainer>
-      <InfoWrapper>
-        <img
-          src={horseIcons.newhorse}
-          alt="프로필"
-          style={{ width: "30%", height: "30%" }}
-        ></img>
-        <TextWrapper>
-          <Text1>
-            {!!user
-              ? (!!user.displayName ? user.displayName : "융슝이").concat()
-              : ""}
-          </Text1>
-          <Text>20201884</Text>
-          <Text>
-            {!!user ? (!!user.email ? user.email : "융슝이").concat() : ""}
-          </Text>
-        </TextWrapper>
-      </InfoWrapper>
-      <EditBoxWrapper>
-        <EditBox onClick={() => history.push("/mypage/changeinformation")}>
-          <EditWrapper>
-            정보수정
-            <EditIconImg src={Icons.infoEdit} alt={"정보수정"} />
-          </EditWrapper>
-        </EditBox>
-      </EditBoxWrapper>
-    </InfoContainer>
+    <>
+      <InfoContainer>
+        {!myInfo ? (
+          <LoadingComponent />
+        ) : (
+          <>
+            <InfoWrapper>
+              <HorseIcon src={horseIcons.newhorse} alt={"프로필"} />
+              <TextWrapper>
+                <Text1>
+                  {!!user
+                    ? (!!user.displayName
+                        ? user.displayName
+                        : "융슝이"
+                      ).concat()
+                    : ""}
+                </Text1>
+                <Text>{myInfo.student_id}</Text>
+                <Text>
+                  {!!user
+                    ? (!!user.email ? user.email : "융슝이").concat()
+                    : ""}
+                </Text>
+              </TextWrapper>
+            </InfoWrapper>
+            <EditBoxWrapper>
+              <EditBox
+                onClick={() => history.push("/mypage/changeinformation")}
+              >
+                <EditWrapper>
+                  정보수정
+                  <EditIconImg src={Icons.infoEdit} alt={"정보수정"} />
+                </EditWrapper>
+              </EditBox>
+            </EditBoxWrapper>
+          </>
+        )}
+      </InfoContainer>
+    </>
   );
 };
 export default Ko;

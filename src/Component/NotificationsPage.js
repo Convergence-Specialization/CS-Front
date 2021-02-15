@@ -9,6 +9,7 @@ import message from "antd/lib/message";
 
 const Container = styled.div`
   width: 100%;
+  padding-bottom: 20px;
 `;
 const SubjectSelectImg = styled.img`
   width: 26px;
@@ -69,7 +70,7 @@ const BoardChildContent = styled.div`
   }
 `;
 
-export const ZeroNotification = styled.div`
+export const NotificationAlarm = styled.div`
   color: gray;
   padding: 110px 0;
   font-size: 15px;
@@ -121,7 +122,7 @@ const NotificationsPage = () => {
         {unreadLoading ? (
           <LoadingComponent />
         ) : unreadNotifications.length === 0 ? (
-          <ZeroNotification>※ 읽지 않은 알림이 없습니다 ※</ZeroNotification>
+          <NotificationAlarm>※ 읽지 않은 알림이 없습니다 ※</NotificationAlarm>
         ) : (
           unreadNotifications.map((item, idx) => (
             <BoardChildWrapper
@@ -159,7 +160,8 @@ const NotificationsPage = () => {
                   uid: user.uid,
                 });
                 setDocLoading(false);
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}
@@ -184,7 +186,7 @@ const NotificationsPage = () => {
         {readLoading ? (
           <LoadingComponent />
         ) : readNotifications.length === 0 ? (
-          <div>읽은 알림이 없습니다. css 수정 필요</div>
+          <NotificationAlarm>※ 읽은 알림이 없습니다 ※</NotificationAlarm>
         ) : (
           readNotifications.map((item, idx) => (
             <BoardChildWrapper
@@ -218,7 +220,8 @@ const NotificationsPage = () => {
                   }
                 }
                 setDocLoading(false);
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}

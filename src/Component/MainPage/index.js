@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainPageIcons, navbotIcons } from "../../assets/Resources";
+import { mainPageIcons, navbotIcons, readDoc } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
@@ -298,7 +298,7 @@ const MainPage = () => {
               <DepartmentSubWrapper>
                 <img
                   style={{ width: "15px", margin: "0 7px" }}
-                  src={mainPageIcons.heart}
+                  src={readDoc.heart_fill}
                   alt="heart"
                 />
                 <span>{item.likeCount}</span>

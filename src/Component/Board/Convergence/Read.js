@@ -267,7 +267,7 @@ const Read = () => {
           <ExtraContentWrapper>
             <LikeCountText>
               <img
-                src={mainPageIcons.heart}
+                src={readDoc.heart_fill}
                 alt="하트 아이콘"
                 style={{ width: "13px", marginRight: " 4px" }}
               />

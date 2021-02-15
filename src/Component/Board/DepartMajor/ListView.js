@@ -179,7 +179,7 @@ const ChangedBoard = () => {
                 </BoardChildTimeText>
                 <BoardChildMetaText>
                   <img
-                    src={mainPageIcons.heart}
+                    src={readDoc.heart_fill}
                     alt="하트 아이콘"
                     style={{ width: "18px", marginRight: " 4px" }}
                   />

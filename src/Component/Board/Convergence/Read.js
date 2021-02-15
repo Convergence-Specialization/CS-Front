@@ -2,7 +2,7 @@ import message from "antd/lib/message";
 import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
-import { departMajorApi } from "../../../api";
+import { convergenceApi } from "../../../api";
 import {
   mainPageIcons,
   readDoc,
@@ -200,7 +200,7 @@ const Read = () => {
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   const [name, setName] = useState(false);
   const getComments = useCallback((myEncryptedUid, docItem) => {
-    return departMajorApi.comment
+    return convergenceApi.comment
       .getLists({
         docId: docItem.docId,
         myEncryptedUid,
@@ -215,7 +215,7 @@ const Read = () => {
   }, []);
 
   const getMyEncryptedUid = useCallback((docItem) => {
-    return departMajorApi
+    return convergenceApi
       .myEncryptedUid({
         docId: docItem.docId,
       })
@@ -257,10 +257,10 @@ const Read = () => {
         onClose={() => setSubjectModalVisible(false)}
         name={name}
       />
-      {content.title !== undefined && (
+      {content.content !== undefined && (
         <WhiteContainer>
           <TitleElement
-            titleRandomname={"배고픈 슝슝이"}
+            titleRandomname={content.nickname}
             titleTime={`${content.timestampDistance} 전`}
           />
           <ContentText>{content.content}</ContentText>
@@ -288,7 +288,7 @@ const Read = () => {
                   if (uploading) return;
                   setUploading(true);
                   message.loading("좋아요 누르는 중..", 10);
-                  departMajorApi
+                  convergenceApi
                     .like({ docId: content.docId, like: "LIKE" })
                     .then(() => {
                       message.destroy();
@@ -313,7 +313,6 @@ const Read = () => {
           </ExtraContentWrapper>
         </WhiteContainer>
       )}
-      {/* TODO: {content.commentCount} ===0일때 보이는 댓글 창 */}
       <WhiteContainer>
         <CommentUpperWrapper>
           <CommentUpperText>댓글</CommentUpperText>
@@ -330,7 +329,16 @@ const Read = () => {
                     ? { backgroundColor: "#f6fafe" }
                     : {}
                 }>
-                <CommentChildTitle>익명의 슝슝이 1</CommentChildTitle>
+                <CommentChildTitle
+                  style={
+                    content.encryptedUid === item.encryptedUid
+                      ? { color: "#5ac6b9" }
+                      : {}
+                  }>
+                  {content.encryptedUid === item.encryptedUid
+                    ? content.nickname
+                    : `익명의 슝슝이 ${item.uidIndex}`}
+                </CommentChildTitle>
                 <CommentChildTime>
                   {item.timestampDistance + " 전"}
                 </CommentChildTime>
@@ -357,7 +365,7 @@ const Read = () => {
                       if (uploading) return;
                       setUploading(true);
                       message.loading("좋아요 누르는 중..", 10);
-                      departMajorApi.comment
+                      convergenceApi.comment
                         .like({
                           originalDocId: content.docId,
                           commentId: item.commentId,
@@ -388,17 +396,25 @@ const Read = () => {
                   </CommentChildLikeWrapper>
                 </CommentButtonWrapper>
                 {item.subComments.map((subItem, subIdx) => (
-                  <Box>
+                  <Box key={`${subIdx}subComment`}>
                     <CommentArrow src={Icons.commentarrow} />
                     <CommentChildWrapper
-                      key={`${subIdx}SubComment${idx}`}
                       style={{
                         backgroundColor: "#f9f9f9",
                         padding: "5px ",
                         margin: "0px",
                         width: "90%",
                       }}>
-                      <CommentChildTitle>대댓글 슝슝이</CommentChildTitle>
+                      <CommentChildTitle
+                        style={
+                          content.encryptedUid === subItem.encryptedUid
+                            ? { color: "#5ac6b9" }
+                            : {}
+                        }>
+                        {content.encryptedUid === subItem.encryptedUid
+                          ? content.nickname
+                          : `익명의 슝슝이 ${subItem.uidIndex}`}
+                      </CommentChildTitle>
                       <CommentChildTime>
                         {subItem.timestampDistance + " 전"}
                       </CommentChildTime>
@@ -409,7 +425,7 @@ const Read = () => {
                             if (uploading) return;
                             setUploading(true);
                             message.loading("좋아요 누르는 중..", 10);
-                            departMajorApi.comment
+                            convergenceApi.comment
                               .likeSubComment({
                                 originalDocId: content.docId,
                                 commentId: item.commentId,
@@ -478,7 +494,7 @@ const Read = () => {
             setUploading(true);
             message.loading("댓글 작성중입니다..");
             if (subCommentFocusedId === "") {
-              departMajorApi.comment
+              convergenceApi.comment
                 .create({
                   docId: content.docId,
                   content: commentContent,
@@ -498,7 +514,7 @@ const Read = () => {
                 })
                 .finally(() => setUploading(false));
             } else {
-              departMajorApi.comment
+              convergenceApi.comment
                 .createSubComment({
                   originalDocId: content.docId,
                   commentId: subCommentFocusedId,

@@ -1,10 +1,7 @@
-//import React from "react";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { departMajorApi } from "../../../api";
-// TODO: convergenceApi생성 후 : departMajarApi -> convergenceApi로 수정
-//import { convergenceApi } from "../../../api";
+import { convergenceApi } from "../../../api";
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import message from "antd/lib/message";
@@ -76,8 +73,7 @@ const ConvergenceListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    // TODO: API에서 더보기 구현.
-    departMajorApi
+    convergenceApi
       .getLists({ size: 10 })
       .then((docsArray) => setPosts(docsArray))
       .catch((error) => message.error(error.message));
@@ -100,16 +96,14 @@ const ConvergenceListView = () => {
                       docItem: item,
                     },
                   })
-                }
-              >
-                  <BoardChildTitle style={{ width: "80%" }}>
-                    <img
-                      src={horseIcons.newhorse}
-                      alt="융슝이"
-                      style={{ width: "25px", marginRight: "5px" }}
-                    ></img>
-                    {nameList[Math.floor(Math.random() * nameListLength)]}
-                  </BoardChildTitle>
+                }>
+                <BoardChildTitle style={{ width: "80%" }}>
+                  <img
+                    src={horseIcons.newhorse}
+                    alt="융슝이"
+                    style={{ width: "25px", marginRight: "5px" }}></img>
+                  {nameList[Math.floor(Math.random() * nameListLength)]}
+                </BoardChildTitle>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
                   {item.timestampDistance} 전
@@ -135,13 +129,12 @@ const ConvergenceListView = () => {
         </BoardContainer>
         <MoreButton
           onClick={() => {
-            departMajorApi
+            convergenceApi
               .getLists({ size: 10 + a })
               .then((docsArray) => setPosts(docsArray))
               .catch((error) => message.error(error.message));
             a = a + 5;
-          }}
-        >
+          }}>
           더보기
         </MoreButton>
         <GoUp />
@@ -150,4 +143,3 @@ const ConvergenceListView = () => {
   );
 };
 export default ConvergenceListView;
-// TODO: 미만이 들어가있는 것들은 모두 방금으로 표기.

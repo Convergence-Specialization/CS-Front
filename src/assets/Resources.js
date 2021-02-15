@@ -17,30 +17,14 @@ import newhorse from "../assets/horseIcons/newhorse.png";
 import face from "../assets/horseIcons/face.png";
 import announce from "../assets/navbotIcons/announce.png";
 import airplane from "../assets/navbotIcons/airplane.png";
-
+import check from "../assets/navbotIcons/check.png";
 export const Icons = {
-  LOGO:
-    "https://user-images.githubusercontent.com/62606632/104090284-1f26dc80-52b9-11eb-99fe-49ffbf539e68.png",
   UpArrow:
     "https://user-images.githubusercontent.com/74090222/104585329-31cd5700-56a7-11eb-913d-0daddf15de16.png",
   Home:
     "https://user-images.githubusercontent.com/74090222/106783350-8d7b7680-668e-11eb-881e-4a78ff36388c.png",
-  menu:
-    "https://user-images.githubusercontent.com/74090222/104832900-26ad3d80-58d8-11eb-9b6b-f60818b59f7b.png",
-  화살표:
-    "https://user-images.githubusercontent.com/74090222/104942683-1c826080-59f8-11eb-8a09-4b1c9ac155a1.png",
-  프로필:
-    "https://user-images.githubusercontent.com/74090222/104627770-cac99580-56da-11eb-8d07-549c8ce0cafe.png",
-  person:
-    "https://user-images.githubusercontent.com/74090222/104939221-7df40080-59f3-11eb-824d-75e160c46a94.png",
   commentarrow:
     "https://user-images.githubusercontent.com/74090222/107540133-0f2c5080-6c09-11eb-96d3-522d35a8d2ce.png",
-  verticalmenu:
-    "https://user-images.githubusercontent.com/74090222/105375009-a9712800-5c4b-11eb-8bfd-45753729f92c.png",
-  horse:
-    "https://user-images.githubusercontent.com/74090222/105382734-bdb92300-5c53-11eb-8ec0-bdb7a3dfdbb3.png",
-  check:
-    "https://user-images.githubusercontent.com/76280160/106360557-65250c80-635c-11eb-9457-3e4df46a9a9e.png",
   heart:
     "https://user-images.githubusercontent.com/74090222/107526609-5dd2ee00-6bfb-11eb-8c04-9e86ab8a973b.png",
   github:
@@ -53,10 +37,6 @@ export const mainPageIcons = {
     "https://user-images.githubusercontent.com/62606632/104839596-7e15d280-5905-11eb-8fcd-f41f493df3a8.png",
   notification:
     "https://user-images.githubusercontent.com/62606632/104839597-7eae6900-5905-11eb-9093-0fe8074f89f9.png",
-  announce:
-    "https://user-images.githubusercontent.com/62606632/104840157-fa5de500-5908-11eb-8b36-56ccba340e03.png",
-  airplane:
-    "https://user-images.githubusercontent.com/62606632/104843043-f97a8280-590b-11eb-9ff6-95dcd26563be.png",
   heart:
     "https://user-images.githubusercontent.com/62606632/104843874-35afe200-5910-11eb-99da-1876bb594c6f.png",
   comment:
@@ -114,7 +94,9 @@ export const sideBarIcons = {
   upButton,
   downButton,
 };
-
+export const navIcons = {
+  
+};
 export const horseIcons = {
   newhorse,
   face,
@@ -122,4 +104,5 @@ export const horseIcons = {
 export const navbotIcons = {
   announce,
   airplane,
+  check
 };

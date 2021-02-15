@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "asset-manifest.json",
-    "revision": "1495bbda30826693eee7f68c46bd6240"
+    "revision": "a91f03d0973dd9e293fb3f81dedddc05"
   },
   {
     "url": "favicon.ico",
@@ -60,12 +60,20 @@ self.__precacheManifest = [
     "revision": "0dc04204e9b507a7e6aea2320b51283f"
   },
   {
-    "url": "static/js/main.7b9d65d7.chunk.js",
-    "revision": "04c9be8951bc9334b920b86ddb77ca1f"
+    "url": "static/js/main.a8dbcf98.chunk.js",
+    "revision": "cf717301893bc4b2070cc281528faaac"
   },
   {
     "url": "static/js/runtime-main.aab4bf4c.js",
     "revision": "c688dd8b6bee20987c53754da81ce217"
+  },
+  {
+    "url": "static/media/airplane.2fb5431a.png",
+    "revision": "2b688d4e51339c723bb870403ceca19b"
+  },
+  {
+    "url": "static/media/announce.92d2b127.png",
+    "revision": "7812bb77349cd44163201d3ccec47fc8"
   },
   {
     "url": "static/media/Background3.620463b3.png",

@@ -9,6 +9,9 @@ import LoadingComponent from "../../SmallComponents/Loading";
 import SelectSubjectModal from "./Modal/Read";
 import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
+
+import { subjectDicts } from "../../../assets/Dicts";
+
 const WhiteContainer = styled.div`
   width: 90%;
   padding: 12px 15px;
@@ -25,7 +28,7 @@ const Title = styled.div`
 `;
 const SubText = styled.div`
   padding: 8px 0px;
-  border-bottom: 2px solid #aca9a9;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   font-size: 13px;
   line-height: 1.15;
@@ -189,7 +192,26 @@ const BlankPost = styled.div`
   text-align: center;
   color: #848484;
 `;
-
+const SubjectSelectArea = styled.div`
+  width: 90%;
+  background-color: white;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+`;
+const SubjectSelectImg = styled.img`
+  width: 26px;
+  margin-right: 4px;
+`;
+const SubjectSelectText = styled.div`
+  color: #000000;
+  margin-left : 5px;
+  font-weight : bold;
+`;
 const Read = () => {
   const history = useHistory();
   const location = useLocation();
@@ -284,6 +306,8 @@ const Read = () => {
       }
     });
   }, [getComments, location.state, didILikedDoc, getMyEncryptedUid]);
+  console.log(subjectDicts);
+  console.log(content.subject);
   return (
     <>
       <SelectSubjectModal
@@ -301,78 +325,89 @@ const Read = () => {
         reloadComments={reloadComments}
       />
       {content.title !== undefined && (
-        <WhiteContainer>
-          <Title>{content.title}</Title>
-          <SubText>
-            {content.nickname} | {`${content.timestampDistance} 전`}
-          </SubText>
-          <ContentText>{content.content}</ContentText>
-          {myEncryptedUid !== "" && (
-            <DocDeleteButton
-              src={readDoc.three_dots}
-              onClick={() => {
-                setReportOrDeleteModalVisible(true);
-                setReportOrDeleteModalDocId({ docId: content.docId });
-                setReportOrDeleteModalType(Modal_Type.DOC);
-                setReportOrDeleteModalDeleteState(
-                  myEncryptedUid === content.encryptedUid
-                );
-              }}
+        <>
+          <SubjectSelectArea>
+            <SubjectSelectImg
+              style={{ marginLeft: "3px" }}
+              src={subjectDicts[content.subject].img}
+              alt="말머리아이콘"
             />
-          )}
-          <ExtraContentWrapper>
-            <LikeCountText>
-              <img
-                src={readDoc.heart_fill}
-                alt="하트 아이콘"
-                style={{ width: "13px", marginRight: " 4px" }}
-              />
-              <div>{content.likeCount}</div>
-              <div style={{ margin: " 0px 2px 0px 4px", fontSize: "13px" }}>
-                |
-              </div>
-              <img
-                src={readDoc.speech_bubble}
-                alt="말풍선 아이콘"
-                style={{ width: "14px", margin: "0px 4px" }}
-              />
-              <div>{content.commentCount}</div>
-            </LikeCountText>
-            {didILikedThisDoc !== null && (
-              <CommentButton
+            <SubjectSelectText>
+              {subjectDicts[content.subject].name}
+            </SubjectSelectText>
+          </SubjectSelectArea>
+          <WhiteContainer>
+            <Title>{content.title}</Title>
+            <SubText>
+              {content.nickname} | {`${content.timestampDistance} 전`}
+            </SubText>
+            <ContentText>{content.content}</ContentText>
+            {myEncryptedUid !== "" && (
+              <DocDeleteButton
+                src={readDoc.three_dots}
                 onClick={() => {
-                  if (uploading) return;
-                  if (didILikedThisDoc) {
-                    setSubjectModalVisible(true);
-                    setIsCommentWarning(false);
-                    return;
-                  }
-                  message.loading("좋아요 누르는 중..", 10);
-                  setUploading(true);
-                  departMajorApi
-                    .like({ docId: content.docId, like: "LIKE" })
-                    .then(() => {
-                      message.destroy();
-                      setDidILikedThisDoc(true);
-                    })
-                    .catch(() => {
-                      message.destroy();
-                    })
-                    .finally(() => {
-                      setUploading(false);
-                    });
+                  setReportOrDeleteModalVisible(true);
+                  setReportOrDeleteModalDocId({ docId: content.docId });
+                  setReportOrDeleteModalType(Modal_Type.DOC);
+                  setReportOrDeleteModalDeleteState(
+                    myEncryptedUid === content.encryptedUid
+                  );
                 }}
-              >
-                <CommentImg
-                  src={didILikedThisDoc ? readDoc.heart_fill
-                    : readDoc.heart_empty}
-                  alt={"공감 이미지"}
-                />
-                <CommentButtonText>공감</CommentButtonText>
-              </CommentButton>
+              />
             )}
-          </ExtraContentWrapper>
-        </WhiteContainer>
+            <ExtraContentWrapper>
+              <LikeCountText>
+                <img
+                  src={mainPageIcons.heart}
+                  alt="하트 아이콘"
+                  style={{ width: "13px", marginRight: " 4px" }}
+                />
+                <div>{content.likeCount}</div>
+                <div style={{ margin: " 0px 2px 0px 4px", fontSize: "13px" }}>
+                  |
+                </div>
+                <img
+                  src={readDoc.speech_bubble}
+                  alt="말풍선 아이콘"
+                  style={{ width: "14px", margin: "0px 4px" }}
+                />
+                <div>{content.commentCount}</div>
+              </LikeCountText>
+              {didILikedThisDoc !== null && (
+                <CommentButton
+                  onClick={() => {
+                    if (uploading) return;
+                    if (didILikedThisDoc) {
+                      setSubjectModalVisible(true);
+                      setIsCommentWarning(false);
+                      return;
+                    }
+                    message.loading("좋아요 누르는 중..", 10);
+                    setUploading(true);
+                    departMajorApi
+                      .like({ docId: content.docId, like: "LIKE" })
+                      .then(() => {
+                        message.destroy();
+                        setDidILikedThisDoc(true);
+                      })
+                      .catch(() => {
+                        message.destroy();
+                      })
+                      .finally(() => {
+                        setUploading(false);
+                      });
+                  }}
+                >
+                  <CommentImg
+                    src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
+                    alt={"공감 이미지"}
+                  />
+                  <CommentButtonText>공감</CommentButtonText>
+                </CommentButton>
+              )}
+            </ExtraContentWrapper>
+          </WhiteContainer>
+        </>
       )}
       <WhiteContainer>
         <CommentUpperWrapper>

@@ -305,8 +305,6 @@ const Read = () => {
       }
     });
   }, [getComments, location.state, didILikedDoc, getMyEncryptedUid]);
-  console.log(subjectDicts);
-  console.log(content.subject);
   return (
     <>
       <SelectSubjectModal
@@ -325,6 +323,7 @@ const Read = () => {
       />
       {content.title !== undefined && (
         <>
+        {/* TODO : 말머리가 선택안되었을때 */}
           <SubjectSelectArea>
             <SubjectSelectImg
               style={{ marginLeft: "3px" }}

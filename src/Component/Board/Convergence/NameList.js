@@ -52,4 +52,3 @@ export var nameList = [
   "선배미 뿜뿜 융슝이",
 ];
 export let nameListLength = nameList.length;
-//const selected = Math.floor(Math.random() * nameList.length);

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { convergenceApi } from "../../../api";
+import message from "antd/lib/message";
 
 const Container = styled.div`
   padding-top: 15px;
@@ -40,7 +42,7 @@ const Button = styled.div`
 
 const Create = () => {
   const [content, setContent] = useState("");
-
+  const [uploading, setUploading] = useState(false);
   const history = useHistory();
   return (
     <>
@@ -67,19 +69,18 @@ const Create = () => {
         <ButtonWrapper>
           <Button onClick={() => history.goBack()}>취소</Button>
           <Button
-          /*onClick={() => {
+            onClick={() => {
               if (uploading) return;
               if (content === "") {
                 message.error("글 내용을 작성해주세요.");
                 return;
               }
-              // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.
               setUploading(true);
-              message.loading("업로드 중...");
+              message.loading("업로드 중...", 10);
               const requestBody = {
                 content,
               };
-              departMajorApi
+              convergenceApi
                 .create(requestBody)
                 .then(() => {
                   message.destroy();
@@ -90,8 +91,7 @@ const Create = () => {
                   message.error(err.message);
                   setUploading(false);
                 });
-            }}*/
-          >
+            }}>
             완료
           </Button>
         </ButtonWrapper>

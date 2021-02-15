@@ -33,7 +33,7 @@ const ModalInnerTop = styled.div`
   position: relative;
   border-radius: 10px;
   width: ${(props) => props.width || "360px"};
-  top: 80%;
+  top: 85%;
   outline: none;
   margin: 0 auto;
 `;
@@ -199,10 +199,13 @@ export const ReportOrDelete = ({
               isDeleteState
                 ? actionByTypes[modalType].delete
                 : actionByTypes[modalType].report
-            }>
+            }
+          >
             {isDeleteState ? "삭제" : "신고"}
           </WhiteArea>
-          <WhiteArea onClick={onClose}>취소</WhiteArea>
+          <WhiteArea style={{ fontWeight: "bold" }} onClick={onClose}>
+            취소
+          </WhiteArea>
         </ModalInnerTop>
       </ModalWrapper>
     </>

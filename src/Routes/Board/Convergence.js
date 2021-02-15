@@ -7,7 +7,7 @@ import ListView from "../../Component/Board/Convergence/ListView";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
 import NavBot from "../../Component/SmallComponents/NavBot";
-import { mainPageIcons } from "../../assets/Resources";
+import { navbotIcons } from "../../assets/Resources";
 
 const DepartPresenter = () => {
   const location = useLocation();
@@ -18,7 +18,7 @@ const DepartPresenter = () => {
       case "read":
         setRenderElement(
           <>
-            <NavBot Name="융특 게시판" Icon={mainPageIcons.airplane} />
+            <NavBot Name="융특 게시판" Icon={navbotIcons.airplane} />
             <Read />
           </>
         );
@@ -26,7 +26,7 @@ const DepartPresenter = () => {
       case "create":
         setRenderElement(
           <>
-            <NavBot Name="융특 게시판" Icon={mainPageIcons.airplane} />
+            <NavBot Name="융특 게시판" Icon={navbotIcons.airplane} />
             <Create />
           </>
         );
@@ -38,7 +38,7 @@ const DepartPresenter = () => {
           <>
             <NavBot
               Name="융특 게시판"
-              Icon={mainPageIcons.airplane}
+              Icon={navbotIcons.airplane}
               postButtonRef={"convergence"}
             />
             <ListView />

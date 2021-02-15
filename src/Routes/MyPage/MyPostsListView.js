@@ -3,7 +3,7 @@ import MyPosts from "../../Component/MyPage/MyPosts/ListView";
 import ConvergenceListView from "../../Component/MyPage/MyPosts/ConvergenceListView";
 import DepartMajorListView from "../../Component/MyPage/MyPosts/DepartMajorListView";
 import NavBot from "../../Component/SmallComponents/NavBot";
-import { Icons } from "../../assets/Resources";
+import { navbotIcons, Icons } from "../../assets/Resources";
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 const MyPostsListView = () => {
@@ -30,7 +30,7 @@ const MyPostsListView = () => {
         History
         IconRight2={Icons.Home}
       />
-      <NavBot Name="내가 쓴 글" Icon={Icons.check} />
+      <NavBot Name="내가 쓴 글" Icon={navbotIcons.check} />
       {renderElement}
     </>
   );

@@ -182,7 +182,7 @@ const AddInformation = () => {
       <Basic>{authService.currentUser.email}</Basic>
       <Basic>{authService.currentUser.displayName}</Basic>
       <Title>추가 정보</Title>
-      <InputBox id="studentNumber" placeholder="학번" />
+      <InputBox id={"studentId"} placeholder="학번" />
       <InputBoxAndAlarmWrapper>
         <Wrap>융합특성화자유전공학부 학생입니다.(선택)</Wrap>
         <CheckBox id="isConvergence" type="checkbox" />
@@ -199,7 +199,7 @@ const AddInformation = () => {
             alert("약관에 동의해주세요");
             return;
           }
-          if (document.getElementById("studentNumber").value === "") {
+          if (document.getElementById("studentId").value === "") {
             alert("학번을 입력해주세요");
             return;
           }

@@ -127,6 +127,14 @@ export const userApi = {
     });
     return notificationsArray;
   },
+  getMyInfo: async (body) => {
+    let { uid } = body;
+    return await db
+      .collection("users")
+      .doc(uid)
+      .get()
+      .then((doc) => doc.data());
+  },
 };
 
 export const convergenceApi = {

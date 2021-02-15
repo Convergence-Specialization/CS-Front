@@ -9,6 +9,9 @@ import LoadingComponent from "../../SmallComponents/Loading";
 import SelectSubjectModal from "./Modal/Read";
 import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
+
+import { subjectDicts } from "../../../assets/Dicts";
+
 const WhiteContainer = styled.div`
   width: 90%;
   padding: 12px 15px;
@@ -188,7 +191,25 @@ const BlankPost = styled.div`
   text-align: center;
   color: #848484;
 `;
-
+const SubjectSelectArea = styled.div`
+  width: 90%;
+  background-color: white;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+`;
+const SubjectSelectImg = styled.img`
+  width: 26px;
+  margin-right: 9px;
+`;
+const SubjectSelectText = styled.div`
+  color: #646464;
+  margin-Left: "10px";
+`;
 const Read = () => {
   const history = useHistory();
   const location = useLocation();
@@ -203,6 +224,7 @@ const Read = () => {
   const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
+  const [subjectSelected, setSubjectSelected] = useState("");
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
   const [isCommentWarning, setIsCommentWarning] = useState(false);
 
@@ -283,6 +305,8 @@ const Read = () => {
       }
     });
   }, [getComments, location.state, didILikedDoc, getMyEncryptedUid]);
+  console.log(subjectDicts);
+  console.log(content.subject);
   return (
     <>
       <SelectSubjectModal
@@ -290,6 +314,16 @@ const Read = () => {
         onClose={() => setSubjectModalVisible(false)}
         isCommentWarning={isCommentWarning}
       />
+      {subjectSelected !== "NONE" && (
+        <SubjectSelectArea>
+          <SubjectSelectImg
+                  style={{ marginLeft: "10px" }}
+                  src={subjectDicts[content.subject].img}
+                  alt="말머리아이콘"
+          />
+          <SubjectSelectText>{subjectDicts[content.subject].name}</SubjectSelectText>
+        </SubjectSelectArea>
+      )}
       <ReportOrDelete
         visible={reportOrDeleteModalVisible}
         onClose={() => setReportOrDeleteModalVisible(false)}

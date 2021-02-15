@@ -15,16 +15,14 @@ import downButton from "../assets/sideBarIcons/downButton.png";
 import upButton from "../assets/sideBarIcons/upButton.png";
 import newhorse from "../assets/horseIcons/newhorse.png";
 import face from "../assets/horseIcons/face.png";
+import announce from "../assets/navbotIcons/announce.png";
+import airplane from "../assets/navbotIcons/airplane.png";
 
 export const Icons = {
   LOGO:
     "https://user-images.githubusercontent.com/62606632/104090284-1f26dc80-52b9-11eb-99fe-49ffbf539e68.png",
-  공지:
-    "https://user-images.githubusercontent.com/74090222/104570579-7b14ab00-5695-11eb-8947-26260ef97545.png",
   UpArrow:
     "https://user-images.githubusercontent.com/74090222/104585329-31cd5700-56a7-11eb-913d-0daddf15de16.png",
-  숭실:
-    "https://user-images.githubusercontent.com/71367047/107774976-14150f80-6d83-11eb-91ca-e15bb9de74ee.png",
   Home:
     "https://user-images.githubusercontent.com/74090222/106783350-8d7b7680-668e-11eb-881e-4a78ff36388c.png",
   menu:
@@ -120,4 +118,8 @@ export const sideBarIcons = {
 export const horseIcons = {
   newhorse,
   face,
+};
+export const navbotIcons = {
+  announce,
+  airplane,
 };

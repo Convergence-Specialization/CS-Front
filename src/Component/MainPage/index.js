@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainPageIcons } from "../../assets/Resources";
+import { mainPageIcons, navbotIcons } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
@@ -167,7 +167,7 @@ const MainPage = () => {
   return (
     <Container>
       <TitleAndButtonWrapper>
-        <TitleElement src={mainPageIcons.announce} name={"공지사항"} />
+        <TitleElement src={navbotIcons.announce} name={"공지사항"} />
         <Button onClick={() => history.push("/board/announcement")}>
           더보기
         </Button>
@@ -182,7 +182,7 @@ const MainPage = () => {
           <BoardAnnounceSubText>22.10.24~22.42.12</BoardAnnounceSubText>
         </BoardChildWrapper>
       </BoardContainer>
-      <TitleElement src={mainPageIcons.airplane} name={"융합전공 소개"} />
+      <TitleElement src={navbotIcons.airplane} name={"융합전공 소개"} />
       <Slick>
         <SlickBox1>
           <Slider {...settings}>
@@ -262,7 +262,7 @@ const MainPage = () => {
         </SlickBox1>
       </Slick>
       <TitleAndButtonWrapper>
-        <TitleElement src={mainPageIcons.airplane} name={"융특 게시판"} />
+        <TitleElement src={navbotIcons.airplane} name={"융특 게시판"} />
         <Button onClick={() => history.push("/board/convergence")}>
           더보기
         </Button>
@@ -275,7 +275,7 @@ const MainPage = () => {
         <BoardChildWrapper>5시간 취침</BoardChildWrapper>
       </BoardContainer>
       <TitleAndButtonWrapper>
-        <TitleElement src={mainPageIcons.airplane} name={"전과 게시판"} />
+        <TitleElement src={navbotIcons.airplane} name={"전과 게시판"} />
         <Button onClick={() => history.push("/board/departmajor")}>
           더보기
         </Button>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Icons, horseIcons } from "../../assets/Resources";
+import { horseIcons, etc } from "../../assets/Resources";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Watchers";
@@ -136,7 +136,7 @@ const Ko = () => {
               >
                 <EditWrapper>
                   정보수정
-                  <EditIconImg src={Icons.infoEdit} alt={"정보수정"} />
+                  <EditIconImg src={etc.infoEdit} alt={"정보수정"} />
                 </EditWrapper>
               </EditBox>
             </EditBoxWrapper>

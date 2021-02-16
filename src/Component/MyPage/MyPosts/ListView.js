@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { mainPageIcons, readDoc } from "../../../assets/Resources";
+import { readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
 import { userApi } from "../../../api";

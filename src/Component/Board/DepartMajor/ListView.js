@@ -7,7 +7,7 @@ import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import message from "antd/lib/message";
 import SelectSubjectModal from "./Modal";
-import { mainPageIcons, horseIcons, readDoc } from "../../../assets/Resources";
+import { horseIcons, readDoc } from "../../../assets/Resources";
 import { subjectDicts } from "../../../assets/Dicts";
 
 let a = 5;

@@ -4,9 +4,7 @@ import { useLocation } from "react-router";
 import styled from "styled-components";
 import { convergenceApi } from "../../../api";
 import {
-  mainPageIcons,
   readDoc,
-  Icons,
   horseIcons,
 } from "../../../assets/Resources";
 import { db } from "../../../firebase";

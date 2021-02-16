@@ -1,28 +1,28 @@
-import { mainPageIcons, readDoc } from "./Resources";
+import { major, readDoc } from "./Resources";
 
 export const subjectDicts = {
   SMART_CAR: {
-    img: mainPageIcons.Car,
+    img: major.Car,
     name: "스마트 자동차",
   },
   ENERGY_SCIENCE: {
-    img: mainPageIcons.Energy,
+    img: major.Energy,
     name: "에너지 공학",
   },
   SECURITY: {
-    img: mainPageIcons.Security,
+    img: major.Security,
     name: "정보보안",
   },
   BIGDATA: {
-    img: mainPageIcons.BigData,
+    img: major.BigData,
     name: "빅데이터",
   },
   ICT: {
-    img: mainPageIcons.Ict,
+    img: major.Ict,
     name: "ICT 유통물류",
   },
   KOREA: {
-    img: mainPageIcons.Unification,
+    img: major.Unification,
     name: "통일 외교 및 개발 협력",
   },
   NONE: {

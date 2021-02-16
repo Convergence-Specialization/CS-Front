@@ -10,7 +10,7 @@ import {
 } from "./NavbarElements";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../Watchers";
-import { mainPageIcons, navIcons } from "../../assets/Resources";
+import { navIcons } from "../../assets/Resources";
 import SelectSubjectModal from "./Modal";
 const Navbar = ({
   Navname,
@@ -51,7 +51,7 @@ const Navbar = ({
                 history.push("/login");
               }
             }}
-              src={IconRight1 || mainPageIcons.notification}
+              src={IconRight1 || navIcons.notification}
               alt={IconNameRight1 || "아이콘2"}
             />
           )}

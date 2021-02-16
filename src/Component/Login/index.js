@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { Images, mainPageIcons } from "../../assets/Resources";
+import { Images, navIcons } from "../../assets/Resources";
 import message from "antd/lib/message";
 import { authService, firebaseInstance } from "../../firebase";
 import { userApi } from "../../api";
@@ -106,7 +106,7 @@ const Login = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Img src={mainPageIcons.profile} />
+      <Img src={navIcons.profile} />
       <InputBox
         type="id"
         placeholder="아이디"

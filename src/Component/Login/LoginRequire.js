@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { Images, mainPageIcons } from "../../assets/Resources";
+import { Images, navIcons } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -79,7 +79,7 @@ const LoginRequir = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Img src={mainPageIcons.profile} />
+      <Img src={navIcons.profile} />
       <TextBox>
         <Text>이 페이지는 회원 전용이므로</Text>
         <Text>로그인 후 이용하여 주십시오.</Text>

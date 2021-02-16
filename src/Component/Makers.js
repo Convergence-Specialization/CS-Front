@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { horseIcons, Icons, navIcons, etc } from "../assets/Resources";
+import { horseIcons, navIcons, etc } from "../assets/Resources";
 import Navbar from "../Component/Navbar";
 
 const GithubAndHelperContainer = styled.div`
@@ -252,7 +252,7 @@ const Makers = () => {
       </GithubAndHelperContainer>
       <FooterContainer>
         <GithubWrapper>
-          <SoongsilImg src={Icons.숭실} />
+          <SoongsilImg src={etc.ssu} />
         </GithubWrapper>
         <FooterTextWrapper>
           <FooterText style={{ fontSize: "17px" }}>

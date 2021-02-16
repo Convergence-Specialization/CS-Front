@@ -23,9 +23,9 @@ import Home from "../assets/navIcons/Home.png";
 import UpArrow from "../assets/etc/UpArrow.png";
 import github from "../assets/etc/github.png";
 import infoEdit from "../assets/etc/infoEdit.png";
-export const Icons = {
-  
-};
+import ssu from "../assets/etc/ssu.png";
+import profile from "../assets/navIcons/profile.png";
+
 export const mainPageIcons = {
   profile:
     "https://user-images.githubusercontent.com/62606632/104839596-7e15d280-5905-11eb-8fcd-f41f493df3a8.png",
@@ -76,6 +76,7 @@ export const etc = {
   UpArrow,
   github,
   infoEdit,
+  ssu,
 };
 
 export const majorIntroduce = {
@@ -94,7 +95,8 @@ export const sideBarIcons = {
   downButton,
 };
 export const navIcons = {
-  Home
+  Home,
+  profile,
 };
 export const horseIcons = {
   newhorse,

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { Images, mainPageIcons } from "../../assets/Resources";
+import { Images, navIcons } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -79,7 +79,7 @@ const NoInformation = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Img src={mainPageIcons.profile} />
+      <Img src={navIcons.profile} />
       <TextBox>
         <Text>회원정보가 없습니다!</Text>
         <Text>입력된 정보가 맞는지 확인해주시기 바랍니다.</Text>

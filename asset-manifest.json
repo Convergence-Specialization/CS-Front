@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CS-Front/static/css/main.e2e7ede3.chunk.css",
-    "main.js": "/CS-Front/static/js/main.65c39b56.chunk.js",
-    "main.js.map": "/CS-Front/static/js/main.65c39b56.chunk.js.map",
+    "main.js": "/CS-Front/static/js/main.1fbf9c34.chunk.js",
+    "main.js.map": "/CS-Front/static/js/main.1fbf9c34.chunk.js.map",
     "runtime-main.js": "/CS-Front/static/js/runtime-main.aab4bf4c.js",
     "runtime-main.js.map": "/CS-Front/static/js/runtime-main.aab4bf4c.js.map",
     "static/css/2.48571724.chunk.css": "/CS-Front/static/css/2.48571724.chunk.css",
@@ -14,27 +14,27 @@
     "static/css/2.48571724.chunk.css.map": "/CS-Front/static/css/2.48571724.chunk.css.map",
     "static/css/main.e2e7ede3.chunk.css.map": "/CS-Front/static/css/main.e2e7ede3.chunk.css.map",
     "static/js/2.55f86c05.chunk.js.LICENSE.txt": "/CS-Front/static/js/2.55f86c05.chunk.js.LICENSE.txt",
-    "static/media/BIGDATA.52977fe0.png": "/CS-Front/static/media/BIGDATA.52977fe0.png",
-    "static/media/Background3.620463b3.png": "/CS-Front/static/media/Background3.620463b3.png",
-    "static/media/ENERGY_SCIENCE.21315476.png": "/CS-Front/static/media/ENERGY_SCIENCE.21315476.png",
-    "static/media/ICT.b545ca1b.png": "/CS-Front/static/media/ICT.b545ca1b.png",
-    "static/media/KOREA.c06c3066.png": "/CS-Front/static/media/KOREA.c06c3066.png",
-    "static/media/SECURITY.fc9888e9.png": "/CS-Front/static/media/SECURITY.fc9888e9.png",
-    "static/media/SMART_CAR.f74b2250.png": "/CS-Front/static/media/SMART_CAR.f74b2250.png",
-    "static/media/airplane.2fb5431a.png": "/CS-Front/static/media/airplane.2fb5431a.png",
-    "static/media/announce.92d2b127.png": "/CS-Front/static/media/announce.92d2b127.png",
-    "static/media/face.b39f43d7.png": "/CS-Front/static/media/face.b39f43d7.png",
-    "static/media/heart_empty.1b65a37a.png": "/CS-Front/static/media/heart_empty.1b65a37a.png",
-    "static/media/heart_fill.10d77658.png": "/CS-Front/static/media/heart_fill.10d77658.png",
-    "static/media/newhorse.1a723361.png": "/CS-Front/static/media/newhorse.1a723361.png",
+    "static/media/BIGDATA.019a0697.png": "/CS-Front/static/media/BIGDATA.019a0697.png",
+    "static/media/Background3.597937c6.png": "/CS-Front/static/media/Background3.597937c6.png",
+    "static/media/ENERGY_SCIENCE.3300f0d6.png": "/CS-Front/static/media/ENERGY_SCIENCE.3300f0d6.png",
+    "static/media/ICT.3ec7e59d.png": "/CS-Front/static/media/ICT.3ec7e59d.png",
+    "static/media/KOREA.d59524ea.png": "/CS-Front/static/media/KOREA.d59524ea.png",
+    "static/media/SECURITY.2a5e7f0c.png": "/CS-Front/static/media/SECURITY.2a5e7f0c.png",
+    "static/media/SMART_CAR.13ad901d.png": "/CS-Front/static/media/SMART_CAR.13ad901d.png",
+    "static/media/esports.182d14b5.png": "/CS-Front/static/media/esports.182d14b5.png",
+    "static/media/face.3c0c23c3.png": "/CS-Front/static/media/face.3c0c23c3.png",
+    "static/media/friday.f434b5c3.jpg": "/CS-Front/static/media/friday.f434b5c3.jpg",
+    "static/media/graduate.69e447e0.jpg": "/CS-Front/static/media/graduate.69e447e0.jpg",
+    "static/media/mentor.3b7b066d.jpg": "/CS-Front/static/media/mentor.3b7b066d.jpg",
+    "static/media/newhorse.c44cd526.png": "/CS-Front/static/media/newhorse.c44cd526.png",
     "static/media/slick-theme.css": "/CS-Front/static/media/slick.c94f7671.ttf",
-    "static/media/speech_bubble.a7384eca.png": "/CS-Front/static/media/speech_bubble.a7384eca.png"
+    "static/media/ssu.c055e003.jpg": "/CS-Front/static/media/ssu.c055e003.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.aab4bf4c.js",
     "static/css/2.48571724.chunk.css",
     "static/js/2.55f86c05.chunk.js",
     "static/css/main.e2e7ede3.chunk.css",
-    "static/js/main.65c39b56.chunk.js"
+    "static/js/main.1fbf9c34.chunk.js"
   ]
 }

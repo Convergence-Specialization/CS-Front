@@ -25,14 +25,9 @@ import github from "../assets/etc/github.png";
 import infoEdit from "../assets/etc/infoEdit.png";
 import ssu from "../assets/etc/ssu.png";
 import profile from "../assets/navIcons/profile.png";
+import notification from "../assets/navIcons/notification.png";
 
 export const mainPageIcons = {
-  profile:
-    "https://user-images.githubusercontent.com/62606632/104839596-7e15d280-5905-11eb-8fcd-f41f493df3a8.png",
-  notification:
-    "https://user-images.githubusercontent.com/62606632/104839597-7eae6900-5905-11eb-9093-0fe8074f89f9.png",
-  comment:
-    "https://user-images.githubusercontent.com/62606632/104843765-a9052400-590f-11eb-9db3-098d1adae658.png",
   Car:
     "https://user-images.githubusercontent.com/74090222/104556053-39c6d000-5682-11eb-8f21-fefdc72bf7d6.png",
   BigData:
@@ -72,6 +67,10 @@ export const Images = {
   Background3,
 };
 
+export const major = {
+  Background3,
+};
+
 export const etc = {
   UpArrow,
   github,
@@ -97,6 +96,7 @@ export const sideBarIcons = {
 export const navIcons = {
   Home,
   profile,
+  notification,
 };
 export const horseIcons = {
   newhorse,

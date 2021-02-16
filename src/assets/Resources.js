@@ -32,18 +32,18 @@ import Security from "../assets/major/Security.png";
 import Unification from "../assets/major/Unification.png";
 import Ict from "../assets/major/Ict.png";
 import Energy from "../assets/major/Energy.png";
+import esports from "../assets/events/esports.png";
+import graduate from "../assets/events/graduate.jpg";
+import ssuevent from "../assets/events/ssu.jpg";
+import friday from "../assets/events/friday.jpg";
+import mentor from "../assets/events/mentor.jpg";
 
 export const events = {
-  graduate:
-    "https://user-images.githubusercontent.com/71367047/106647389-34e6a380-65d2-11eb-858b-97f0fb8a2d46.jpg",
-  esports:
-    "https://user-images.githubusercontent.com/71367047/106648234-55fbc400-65d3-11eb-9d43-b65cda234ce2.png",
-  ssu:
-    "https://user-images.githubusercontent.com/71367047/106648200-4da38900-65d3-11eb-882a-601d352b6a60.jpg",
-  friday:
-    "https://user-images.githubusercontent.com/71367047/106778440-535ba600-6689-11eb-96b2-03b524aa3fed.jpg",
-  mentor:
-    "https://user-images.githubusercontent.com/71367047/106778557-7423fb80-6689-11eb-86e5-cd1f6fa67710.jpg",
+  graduate,
+  esports,
+  ssuevent,
+  friday,
+  mentor,
 };
 
 export const readDoc = {
@@ -101,5 +101,5 @@ export const horseIcons = {
 export const navbotIcons = {
   announce,
   airplane,
-  check
+  check,
 };

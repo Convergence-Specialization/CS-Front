@@ -22,7 +22,7 @@ const BoardContainer = styled.div`
   background-color: white;
 `;
 const BoardChildWrapper = styled.div`
-  padding: 12px;
+  padding: 8px 12px;
   font-size: 15px;
   border-bottom: 2.5px solid #f1f1f1;
   position: relative;
@@ -68,16 +68,15 @@ const MoreButton = styled.div`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
 `;
-
 const ConvergenceListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    convergenceApi
-      .getLists({ size: 10 })
-      .then((docsArray) => setPosts(docsArray))
-      .catch((error) => message.error(error.message));
-  }, []);
+        convergenceApi
+          .getLists({ size: 10 })
+          .then((docsArray) => setPosts(docsArray))
+          .catch((error) => message.error(error.message));
+      }, []);
   return (
     <>
       <Container>
@@ -98,11 +97,11 @@ const ConvergenceListView = () => {
                   })
                 }>
                 <BoardChildTitle style={{ width: "80%" }}>
-                  <img
-                    src={horseIcons.newhorse}
-                    alt="융슝이"
-                    style={{ width: "25px", marginRight: "5px" }}></img>
-                  {nameList[Math.floor(Math.random() * nameListLength)]}
+                   <img
+                     src={horseIcons.newhorse}
+                     alt="융슝이"
+                     style={{ width: "25px", marginRight: "5px" }}></img>
+                   {nameList[Math.floor(Math.random() * nameListLength)]}
                 </BoardChildTitle>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>

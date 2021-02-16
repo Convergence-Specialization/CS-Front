@@ -153,6 +153,57 @@ const IconsSource = () => {
           www.flaticon.com
         </a>
       </div>
+      대댓글 화살표 :{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/pixel-perfect"
+          title="Pixel perfect"
+        >
+          Pixel perfect
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      댓글 새로고침버튼택1:{" "}
+      <div>
+        Icons made by{" "}
+        <a href="" title="Gregor Cresnar">
+          Gregor Cresnar
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      댓글 새로고침버튼택2:{" "}
+      <div>
+        Icons made by{" "}
+        <a href="https://creativemarket.com/Becris" title="Becris">
+          Becris
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      색상: #8D8D8D<br/>
+      새로고침 :{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/vitaly-gorbachev"
+          title="Vitaly Gorbachev"
+        >
+          Vitaly Gorbachev
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
     </Container>
   );
 };

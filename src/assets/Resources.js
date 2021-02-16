@@ -22,12 +22,9 @@ import check from "../assets/navbotIcons/check.png";
 import Home from "../assets/navIcons/Home.png";
 import UpArrow from "../assets/etc/UpArrow.png";
 import github from "../assets/etc/github.png";
-
+import infoEdit from "../assets/etc/infoEdit.png";
 export const Icons = {
-  github:
-    "https://user-images.githubusercontent.com/71367047/107678883-466d3100-6cdf-11eb-8d68-165ac638840c.png",
-  infoEdit:
-    "https://user-images.githubusercontent.com/71367047/107805681-0ecabb80-6da9-11eb-9b07-e7bf6fed2714.png",
+  
 };
 export const mainPageIcons = {
   profile:
@@ -78,6 +75,7 @@ export const Images = {
 export const etc = {
   UpArrow,
   github,
+  infoEdit,
 };
 
 export const majorIntroduce = {

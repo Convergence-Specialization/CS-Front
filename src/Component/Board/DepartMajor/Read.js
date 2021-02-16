@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { departMajorApi, globalApi } from "../../../api";
-import { mainPageIcons, readDoc, Icons } from "../../../assets/Resources";
+import { readDoc } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import SelectSubjectModal from "./Modal/Read";
@@ -357,7 +357,7 @@ const Read = () => {
             <ExtraContentWrapper>
               <LikeCountText>
                 <img
-                  src={mainPageIcons.heart}
+                  src={readDoc.heart_fill}
                   alt="하트 아이콘"
                   style={{ width: "13px", marginRight: " 4px" }}
                 />
@@ -398,7 +398,8 @@ const Read = () => {
                   }}
                 >
                   <CommentImg
-                    src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
+                    src={didILikedThisDoc ? readDoc.heart_fill
+                      : readDoc.heart_empty}
                     alt={"공감 이미지"}
                   />
                   <CommentButtonText>공감</CommentButtonText>
@@ -521,7 +522,7 @@ const Read = () => {
               </CommentChildWrapper>
               {item.subComments.map((subItem, subIdx) => (
                 <Box key={`${subIdx}SubComment${idx}`}>
-                  <CommentArrow src={Icons.commentarrow} alt="대댓글 화살표" />
+                  <CommentArrow src={readDoc.commentarrow} alt="대댓글 화살표" />
                   <CommentChildWrapper
                     style={{
                       backgroundColor: "#f9f9f9",

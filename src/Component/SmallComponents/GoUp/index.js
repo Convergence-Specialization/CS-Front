@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Icons } from "../../../assets/Resources";
+import { etc } from "../../../assets/Resources";
 
 const GoUpButton = styled.div`
   width: 35px;
@@ -22,7 +22,7 @@ const IconImg = styled.img`
 const GoUpComponent = () => (
   <GoUpButton>
     <IconImg
-      src={Icons.UpArrow}
+      src={etc.UpArrow}
       alt={"위쪽 화살표"}
       onClick={() => window.scrollTo(0, 0)}
     />

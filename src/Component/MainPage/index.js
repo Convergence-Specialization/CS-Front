@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainPageIcons, navbotIcons, readDoc } from "../../assets/Resources";
+import { major, navbotIcons, readDoc, } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
@@ -188,7 +188,7 @@ const MainPage = () => {
           <Slider {...settings}>
             <SlickBox>
               <IntroduceImage
-                src={mainPageIcons.Car}
+                src={major.Car}
                 onClick={() =>
                   history.push({
                     pathname: "/board/majorintroduce",
@@ -200,7 +200,7 @@ const MainPage = () => {
             </SlickBox>
             <SlickBox>
               <IntroduceImage
-                src={mainPageIcons.Energy}
+                src={major.Energy}
                 onClick={() =>
                   history.push({
                     pathname: "/board/majorintroduce",
@@ -212,7 +212,7 @@ const MainPage = () => {
             </SlickBox>
             <SlickBox>
               <IntroduceImage
-                src={mainPageIcons.Security}
+                src={major.Security}
                 onClick={() =>
                   history.push({
                     pathname: "/board/majorintroduce",
@@ -224,7 +224,7 @@ const MainPage = () => {
             </SlickBox>
             <SlickBox>
               <IntroduceImage
-                src={mainPageIcons.BigData}
+                src={major.BigData}
                 onClick={() =>
                   history.push({
                     pathname: "/board/majorintroduce",
@@ -236,7 +236,7 @@ const MainPage = () => {
             </SlickBox>
             <SlickBox>
               <IntroduceImage
-                src={mainPageIcons.Ict}
+                src={major.Ict}
                 onClick={() =>
                   history.push({
                     pathname: "/board/majorintroduce",
@@ -248,7 +248,7 @@ const MainPage = () => {
             </SlickBox>
             <SlickBox>
               <IntroduceImage
-                src={mainPageIcons.Unification}
+                src={major.Unification}
                 onClick={() =>
                   history.push({
                     pathname: "/board/majorintroduce",
@@ -304,7 +304,7 @@ const MainPage = () => {
                 <span>{item.likeCount}</span>
                 <img
                   style={{ width: "15px", margin: "0 7px" }}
-                  src={mainPageIcons.comment}
+                  src={readDoc.speech_bubble}
                   alt="comment"
                 />
                 <span>{item.commentCount}</span>

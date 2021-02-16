@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
+import { major, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -74,7 +74,7 @@ const Image = styled.img`
 const ICT = () => {
   return (
     <Container id="ICT_DIV">
-      <NavBot Icon={mainPageIcons.Ict} Name="ICT 유통물류" />
+      <NavBot Icon={major.Ict} Name="ICT 유통물류" />
       <BoardContainer>
         <BoardWrapper>
           <BoardTitle>- 융합전공 소개</BoardTitle>

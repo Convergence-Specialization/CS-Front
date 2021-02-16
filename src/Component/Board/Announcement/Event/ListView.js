@@ -188,7 +188,7 @@ const Event = () => {
                 <SlickDate>20.02.03~ 20.02.04</SlickDate>
               </SlickBox>
               <SlickBox>
-                <EventImage src={events.ssu} />
+                <EventImage src={events.ssuevent} />
                 <SlickText>SSU 캐슬</SlickText>
                 <SlickDate>20.02.03~ 20.02.04</SlickDate>
               </SlickBox>
@@ -212,7 +212,7 @@ const Event = () => {
                 <SlickDate>21.02.03~ 21.03.04</SlickDate>
               </SlickBox>
               <SlickBox>
-                <EventImage src={events.ssu} />
+                <EventImage src={events.ssuevent} />
                 <SlickText>SSU 캐슬</SlickText>
                 <SlickDate>21.02.03~ 21.02.04</SlickDate>
               </SlickBox>

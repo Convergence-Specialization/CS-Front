@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavBot from "../SmallComponents/NavBot";
-import { mainPageIcons, majorIntroduce } from "../../assets/Resources";
+import { major, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -72,7 +72,7 @@ const Image = styled.img`
 const BigData = () => {
   return (
     <Container id="BIG_DATA_DIV">
-      <NavBot Icon={mainPageIcons.BigData} Name="빅데이터" />
+      <NavBot Icon={major.BigData} Name="빅데이터" />
       <BoardContainer>
         <BoardWrapper>
           <BoardTitle>- 융합전공 소개</BoardTitle>

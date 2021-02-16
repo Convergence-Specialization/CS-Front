@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { horseIcons, Icons } from "../assets/Resources";
+import { horseIcons, navIcons, etc } from "../assets/Resources";
 import Navbar from "../Component/Navbar";
 
 const GithubAndHelperContainer = styled.div`
@@ -130,13 +130,13 @@ const FooterTextWrapper = styled.div`
 const Makers = () => {
   return (
     <>
-      <Navbar isRight1Disabled History IconRight2={Icons.Home} />
+      <Navbar isRight1Disabled History IconRight2={navIcons.Home} />
       <GithubAndHelperContainer>
         <Title>github(깃허브)</Title>
         <GithubAndMakersTotalWrapper>
           <GithubWrapper>
             <GithubImage
-              src={Icons.github}
+              src={etc.github}
               onClick={() =>
                 window.open(
                   "https://github.com/Convergence-Specialization/CS-Front"
@@ -148,7 +148,7 @@ const Makers = () => {
           <Line1 />
           <GithubWrapper>
             <GithubImage
-              src={Icons.github}
+              src={etc.github}
               onClick={() =>
                 window.open(
                   "https://github.com/Convergence-Specialization/CS-Backend"
@@ -252,7 +252,7 @@ const Makers = () => {
       </GithubAndHelperContainer>
       <FooterContainer>
         <GithubWrapper>
-          <SoongsilImg src={Icons.숭실} />
+          <SoongsilImg src={etc.ssu} />
         </GithubWrapper>
         <FooterTextWrapper>
           <FooterText style={{ fontSize: "17px" }}>

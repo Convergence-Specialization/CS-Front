@@ -399,7 +399,7 @@ const Read = () => {
                 </CommentButtonWrapper>
                 {item.subComments.map((subItem, subIdx) => (
                   <Box key={`${subIdx}subComment`}>
-                    <CommentArrow src={Icons.commentarrow} />
+                    <CommentArrow src={readDoc.commentarrow} />
                     <CommentChildWrapper
                       style={{
                         backgroundColor: "#f9f9f9",

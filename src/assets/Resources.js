@@ -1,6 +1,7 @@
 import heart_empty from "../assets/icons/heart_empty.png";
 import heart_fill from "../assets/icons/heart_fill.png";
 import speech_bubble from "../assets/icons/speech_bubble.png";
+import commentarrow from "../assets/icons/commentarrow.png";
 import three_dots from "../assets/icons/three_dots.png";
 import Background3 from "../assets/Images/Background3.png";
 import ICT from "../assets/MajorIntroduce/ICT.png";
@@ -19,12 +20,10 @@ import announce from "../assets/navbotIcons/announce.png";
 import airplane from "../assets/navbotIcons/airplane.png";
 import check from "../assets/navbotIcons/check.png";
 import Home from "../assets/navIcons/Home.png";
+import UpArrow from "../assets/etc/UpArrow.png";
+import github from "../assets/etc/github.png";
 
 export const Icons = {
-  UpArrow:
-    "https://user-images.githubusercontent.com/74090222/104585329-31cd5700-56a7-11eb-913d-0daddf15de16.png",
-  commentarrow:
-    "https://user-images.githubusercontent.com/74090222/107540133-0f2c5080-6c09-11eb-96d3-522d35a8d2ce.png",
   github:
     "https://user-images.githubusercontent.com/71367047/107678883-466d3100-6cdf-11eb-8d68-165ac638840c.png",
   infoEdit:
@@ -69,10 +68,16 @@ export const readDoc = {
   speech_bubble,
   heart_fill,
   three_dots,
+  commentarrow,
 };
 
 export const Images = {
   Background3,
+};
+
+export const etc = {
+  UpArrow,
+  github,
 };
 
 export const majorIntroduce = {

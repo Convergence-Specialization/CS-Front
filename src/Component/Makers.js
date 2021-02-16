@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { horseIcons, Icons, navIcons } from "../assets/Resources";
+import { horseIcons, Icons, navIcons, etc } from "../assets/Resources";
 import Navbar from "../Component/Navbar";
 
 const GithubAndHelperContainer = styled.div`
@@ -136,7 +136,7 @@ const Makers = () => {
         <GithubAndMakersTotalWrapper>
           <GithubWrapper>
             <GithubImage
-              src={Icons.github}
+              src={etc.github}
               onClick={() =>
                 window.open(
                   "https://github.com/Convergence-Specialization/CS-Front"
@@ -148,7 +148,7 @@ const Makers = () => {
           <Line1 />
           <GithubWrapper>
             <GithubImage
-              src={Icons.github}
+              src={etc.github}
               onClick={() =>
                 window.open(
                   "https://github.com/Convergence-Specialization/CS-Backend"

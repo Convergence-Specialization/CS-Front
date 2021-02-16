@@ -304,7 +304,8 @@ const Read = () => {
                     });
                 }}>
                 <CommentImg
-                  src={didILikedThisDoc ? mainPageIcons.heart : Icons.heart}
+                  src={didILikedThisDoc ? readDoc.heart_fill
+                    : readDoc.heart_empty}
                   alt={"공감 이미지"}
                 />
                 <CommentButtonText>공감</CommentButtonText>
@@ -387,7 +388,8 @@ const Read = () => {
                         });
                     }}>
                     <CommentChildLikeImg
-                      src={item.didILiked ? mainPageIcons.heart : Icons.heart}
+                      src={item.didILiked ? readDoc.heart_fill
+                        : readDoc.heart_empty}
                       alt="하트 아이콘"
                     />
                     <CommentChildLikeCount>
@@ -454,8 +456,8 @@ const Read = () => {
                           <CommentChildLikeImg
                             src={
                               subItem.didILiked
-                                ? mainPageIcons.heart
-                                : Icons.heart
+                              ? readDoc.heart_fill
+                              : readDoc.heart_empty
                             }
                             alt="하트 아이콘"
                           />

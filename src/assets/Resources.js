@@ -25,8 +25,6 @@ export const Icons = {
     "https://user-images.githubusercontent.com/74090222/106783350-8d7b7680-668e-11eb-881e-4a78ff36388c.png",
   commentarrow:
     "https://user-images.githubusercontent.com/74090222/107540133-0f2c5080-6c09-11eb-96d3-522d35a8d2ce.png",
-  heart:
-    "https://user-images.githubusercontent.com/74090222/107526609-5dd2ee00-6bfb-11eb-8c04-9e86ab8a973b.png",
   github:
     "https://user-images.githubusercontent.com/71367047/107678883-466d3100-6cdf-11eb-8d68-165ac638840c.png",
   infoEdit:
@@ -37,8 +35,6 @@ export const mainPageIcons = {
     "https://user-images.githubusercontent.com/62606632/104839596-7e15d280-5905-11eb-8fcd-f41f493df3a8.png",
   notification:
     "https://user-images.githubusercontent.com/62606632/104839597-7eae6900-5905-11eb-9093-0fe8074f89f9.png",
-  heart:
-    "https://user-images.githubusercontent.com/62606632/104843874-35afe200-5910-11eb-99da-1876bb594c6f.png",
   comment:
     "https://user-images.githubusercontent.com/62606632/104843765-a9052400-590f-11eb-9db3-098d1adae658.png",
   Car:

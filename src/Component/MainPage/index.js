@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainPageIcons, navbotIcons, readDoc } from "../../assets/Resources";
+import { mainPageIcons, navbotIcons, readDoc, } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";

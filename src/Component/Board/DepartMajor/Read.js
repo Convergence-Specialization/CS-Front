@@ -324,7 +324,6 @@ const Read = () => {
       />
       {content.title !== undefined && (
         <>
-        {/* TODO : 말머리가 선택안되었을때 */}
         {content.subject !== "NONE" && (
           <SubjectSelectArea>
             <SubjectSelectImg

@@ -101,7 +101,7 @@ const ConvergenceListView = () => {
                      src={horseIcons.newhorse}
                      alt="융슝이"
                      style={{ width: "25px", marginRight: "5px" }}></img>
-                   {nameList[Math.floor(Math.random() * nameListLength)]}
+                   {item.nickname}
                 </BoardChildTitle>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>

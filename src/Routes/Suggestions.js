@@ -3,7 +3,7 @@ import Create from "../Component/Suggestions/Create";
 import Suggested from "../Component/Suggestions/Suggested";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Component/Navbar";
-import { Icons } from "../assets/Resources";
+import { navIcons } from "../assets/Resources";
 const SuggestionsPresenter = () => {
   const location = useLocation();
   const [renderElement, setRenderElement] = useState(<div />);
@@ -22,7 +22,7 @@ const SuggestionsPresenter = () => {
   return (
     <>
         <Navbar Navname="건의사항" 
-      isRight1Disabled History IconRight2= {Icons.Home}
+      isRight1Disabled History IconRight2= {navIcons.Home}
        />
       {renderElement}
     </>

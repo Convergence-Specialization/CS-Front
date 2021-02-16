@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { horseIcons, Icons } from "../assets/Resources";
+import { horseIcons, Icons, navIcons } from "../assets/Resources";
 import Navbar from "../Component/Navbar";
 
 const GithubAndHelperContainer = styled.div`
@@ -130,7 +130,7 @@ const FooterTextWrapper = styled.div`
 const Makers = () => {
   return (
     <>
-      <Navbar isRight1Disabled History IconRight2={Icons.Home} />
+      <Navbar isRight1Disabled History IconRight2={navIcons.Home} />
       <GithubAndHelperContainer>
         <Title>github(깃허브)</Title>
         <GithubAndMakersTotalWrapper>

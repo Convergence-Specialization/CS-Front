@@ -18,11 +18,11 @@ import face from "../assets/horseIcons/face.png";
 import announce from "../assets/navbotIcons/announce.png";
 import airplane from "../assets/navbotIcons/airplane.png";
 import check from "../assets/navbotIcons/check.png";
+import Home from "../assets/navIcons/Home.png";
+
 export const Icons = {
   UpArrow:
     "https://user-images.githubusercontent.com/74090222/104585329-31cd5700-56a7-11eb-913d-0daddf15de16.png",
-  Home:
-    "https://user-images.githubusercontent.com/74090222/106783350-8d7b7680-668e-11eb-881e-4a78ff36388c.png",
   commentarrow:
     "https://user-images.githubusercontent.com/74090222/107540133-0f2c5080-6c09-11eb-96d3-522d35a8d2ce.png",
   github:
@@ -91,7 +91,7 @@ export const sideBarIcons = {
   downButton,
 };
 export const navIcons = {
-  
+  Home
 };
 export const horseIcons = {
   newhorse,

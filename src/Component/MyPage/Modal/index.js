@@ -67,7 +67,7 @@ export const SelectSubjectModal = ({
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInner tabIndex="0" className="modal-inner">
-          <Title>{!!name ? name : "비밀번호가 변경되었습니다."}</Title>
+          <Title onClick={onMaskClick}>{!!name ? name : "비밀번호가 변경되었습니다."}</Title>
         </ModalInner>
       </ModalWrapper>
     </>

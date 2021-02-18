@@ -32,14 +32,19 @@ export const userApi = {
         docId: doc.id,
       });
     });
+    let BOARDNAME = "convergence";
+    if (boardName === "departmajor") {
+      BOARDNAME = "departMajor";
+    }
     return await Promise.all(
       docsArray.map((item, _idx) =>
         db
-          .collection("departMajor")
+          .collection(BOARDNAME)
           .doc(item.docId)
           .get()
           .then((doc) => {
             let data = doc.data();
+            console.log(data);
             let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
               locale: ko,
             }).replace("약 ", "");

@@ -425,7 +425,7 @@ const Read = () => {
                 >
                   {content.encryptedUid === item.encryptedUid
                     ? content.nickname
-                    : `익명의 슝슝이 ${item.uidIndex}`}
+                    : `익명의 융슝이 ${item.uidIndex}`}
                 </CommentChildTitle>
                 <CommentChildTime>
                   {item.timestampDistance + " 전"}
@@ -532,7 +532,7 @@ const Read = () => {
                     >
                       {content.encryptedUid === subItem.encryptedUid
                         ? content.nickname
-                        : `익명의 슝슝이 ${subItem.uidIndex}`}
+                        : `익명의 융슝이 ${subItem.uidIndex}`}
                     </CommentChildTitle>
                     <CommentChildTime>
                       {subItem.timestampDistance + " 전"}

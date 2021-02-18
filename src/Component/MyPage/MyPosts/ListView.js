@@ -45,7 +45,7 @@ const SubjectSelectImg = styled.img`
   margin-right: 9px;
 `;
 const BoardContainer = styled.div`
-  width: 95%;
+  width: 93%;
   border-radius: 15px;
   margin: 20px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -143,7 +143,8 @@ const MyPost = () => {
                 pathname: `myposts`,
                 state: { pageName: "convergencelistview" },
               });
-            }}>
+            }}
+          >
             더보기
           </Button>
         </Box>
@@ -163,7 +164,8 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitleWrapper>
                 <BoardChildTitle style={{ width: "80%" }}>
                   {item.content}
@@ -201,7 +203,8 @@ const MyPost = () => {
                 pathname: `myposts`,
                 state: { pageName: "departmajorlistview" },
               });
-            }}>
+            }}
+          >
             더보기
           </Button>
         </Box>
@@ -221,7 +224,8 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitleWrapper>
                 {item.subject !== "NONE" && (
                   <SubjectSelectImg

@@ -49,7 +49,7 @@ const BoardContainer = styled.div`
 const BoardChildWrapper = styled.div`
   margin-top: 13px;
   padding: 10px;
-  width: 90%;
+  width: 93%;
   height: 250px;
   border-radius: 15px;
   justify-content: space-between;

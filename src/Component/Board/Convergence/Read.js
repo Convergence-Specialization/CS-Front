@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
 
 const WhiteContainer = styled.div`
-  width: 90%;
+  width: 93%;
   padding: 12px 15px;
   margin: 10px auto;
   border-radius: 15px;
@@ -362,7 +362,8 @@ const Read = () => {
                       .finally(() => {
                         setUploading(false);
                       });
-                  }}>
+                  }}
+                >
                   <CommentImg
                     src={
                       didILikedThisDoc
@@ -398,7 +399,8 @@ const Read = () => {
                   subCommentFocusedId === item.commentId
                     ? { backgroundColor: "#f6fafe" }
                     : {}
-                }>
+                }
+              >
                 <CommentDeleteButton
                   src={readDoc.three_dots}
                   alt="더 보기"
@@ -419,7 +421,8 @@ const Read = () => {
                     content.encryptedUid === item.encryptedUid
                       ? { color: "#5ac6b9" }
                       : {}
-                  }>
+                  }
+                >
                   {content.encryptedUid === item.encryptedUid
                     ? content.nickname
                     : `익명의 슝슝이 ${item.uidIndex}`}
@@ -439,7 +442,8 @@ const Read = () => {
                       } else {
                         setSubCommentFocusedId("");
                       }
-                    }}>
+                    }}
+                  >
                     <CommentChildNewSubButton
                       src={readDoc.speech_bubble}
                       alt="말풍선 아이콘"
@@ -473,7 +477,8 @@ const Read = () => {
                         .finally(() => {
                           setUploading(false);
                         });
-                    }}>
+                    }}
+                  >
                     <CommentChildLikeImg
                       src={
                         item.didILiked
@@ -500,7 +505,8 @@ const Read = () => {
                       padding: "7px ",
                       marginTT: "5px",
                       width: "95%",
-                    }}>
+                    }}
+                  >
                     <CommentDeleteButton
                       src={readDoc.three_dots}
                       alt="더 보기"
@@ -522,7 +528,8 @@ const Read = () => {
                         content.encryptedUid === subItem.encryptedUid
                           ? { color: "#5ac6b9" }
                           : {}
-                      }>
+                      }
+                    >
                       {content.encryptedUid === subItem.encryptedUid
                         ? content.nickname
                         : `익명의 슝슝이 ${subItem.uidIndex}`}
@@ -564,7 +571,8 @@ const Read = () => {
                             .finally(() => {
                               setUploading(false);
                             });
-                        }}>
+                        }}
+                      >
                         <CommentChildLikeImg
                           src={
                             subItem.didILiked
@@ -593,7 +601,8 @@ const Read = () => {
           style={{ width: "80%" }}
           onKeyDown={(e) => {
             if (e.key === "Enter") e.preventDefault();
-          }}>
+          }}
+        >
           <CommentInputBox
             placeholder={
               subCommentFocusedId === ""
@@ -655,7 +664,8 @@ const Read = () => {
                 })
                 .finally(() => setUploading(false));
             }
-          }}>
+          }}
+        >
           작성하기
         </CommentInputSubmitButton>
       </CommentInputContainer>

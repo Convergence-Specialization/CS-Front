@@ -26,7 +26,7 @@ const BoardContainer = styled.div`
 const BoardWrapper = styled.div`
   margin-top: 13px;
   padding: 10px;
-  width: 90%;
+  width: 93%;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +60,7 @@ const BoardDate = styled.div`
 
 const BoardLine = styled.div`
   border: solid 1px #a5a5a5;
-  margin: 5px 10px 0px 10px;
+  margin-top: 5px;
 `;
 
 const ImageBox = styled.div`
@@ -88,7 +88,7 @@ const BoardText = styled.div`
 `;
 
 const BoardButton = styled.div`
-  margin: 15px 10px 0px 290px;
+  margin: 15px 0px 0px 290px;
   padding: 5px;
   width: 15%;
   height: 30px;

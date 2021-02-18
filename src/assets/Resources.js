@@ -15,6 +15,7 @@ import home from "../assets/sideBarIcons/home.png";
 import downButton from "../assets/sideBarIcons/downButton.png";
 import upButton from "../assets/sideBarIcons/upButton.png";
 import newhorse from "../assets/horseIcons/newhorse.png";
+import horse from "../assets/horseIcons/horse.png";
 import face from "../assets/horseIcons/face.png";
 import announce from "../assets/navbotIcons/announce.png";
 import airplane from "../assets/navbotIcons/airplane.png";
@@ -97,6 +98,7 @@ export const navIcons = {
 export const horseIcons = {
   newhorse,
   face,
+  horse,
 };
 export const navbotIcons = {
   announce,

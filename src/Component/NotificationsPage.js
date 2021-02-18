@@ -16,7 +16,7 @@ const SubjectSelectImg = styled.img`
   margin-right: 9px;
 `;
 const BoardContainer = styled.div`
-  width: 95%;
+  width: 93%;
   min-height: 30vh;
   border-radius: 15px;
   margin: 0px auto 20px;

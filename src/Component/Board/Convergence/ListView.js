@@ -14,7 +14,7 @@ const Container = styled.div`
   padding-top: 0;
 `;
 const BoardContainer = styled.div`
-  width: 95%;
+  width: 93%;
   min-height: 80vh;
   border-radius: 15px;
   margin: 20px auto;
@@ -59,7 +59,7 @@ const BoardChildMetaText = styled.div`
   align-items: center;
 `;
 const MoreButton = styled.div`
-  width: 95%;
+  width: 93%;
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
@@ -72,11 +72,11 @@ const ConvergenceListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-        convergenceApi
-          .getLists({ size: 10 })
-          .then((docsArray) => setPosts(docsArray))
-          .catch((error) => message.error(error.message));
-      }, []);
+    convergenceApi
+      .getLists({ size: 10 })
+      .then((docsArray) => setPosts(docsArray))
+      .catch((error) => message.error(error.message));
+  }, []);
   return (
     <>
       <Container>
@@ -95,13 +95,15 @@ const ConvergenceListView = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitle style={{ width: "80%" }}>
-                   <img
-                     src={horseIcons.newhorse}
-                     alt="융슝이"
-                     style={{ width: "25px", marginRight: "5px" }}></img>
-                   {item.nickname}
+                  <img
+                    src={horseIcons.newhorse}
+                    alt="융슝이"
+                    style={{ width: "25px", marginRight: "5px" }}
+                  ></img>
+                  {item.nickname}
                 </BoardChildTitle>
                 <BoardChildContent>{item.content}</BoardChildContent>
                 <BoardChildTimeText>
@@ -133,7 +135,8 @@ const ConvergenceListView = () => {
               .then((docsArray) => setPosts(docsArray))
               .catch((error) => message.error(error.message));
             a = a + 5;
-          }}>
+          }}
+        >
           더보기
         </MoreButton>
         <GoUp />

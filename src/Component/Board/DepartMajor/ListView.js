@@ -16,7 +16,7 @@ const Container = styled.div`
   padding: 20px 0;
 `;
 const SubjectSelectArea = styled.div`
-  width: 95%;
+  width: 93%;
   background-color: white;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   border-radius: 10px;
@@ -33,7 +33,7 @@ const SubjectSelectText = styled.div`
   color: #646464;
 `;
 const BoardContainer = styled.div`
-  width: 95%;
+  width: 93%;
   min-height: 80vh;
   border-radius: 15px;
   margin: 20px auto;
@@ -80,7 +80,7 @@ const BoardChildMetaText = styled.div`
   align-items: center;
 `;
 const MoreButton = styled.div`
-  width: 95%;
+  width: 93%;
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
@@ -130,9 +130,8 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={
-                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
-                }>
+                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
+              >
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -153,7 +152,8 @@ const ChangedBoard = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -203,7 +203,8 @@ const ChangedBoard = () => {
               .then((docsArray) => setPosts(docsArray))
               .catch((error) => message.error(error.message));
             a = a + 5;
-          }}>
+          }}
+        >
           더보기
         </MoreButton>
         <GoUp />

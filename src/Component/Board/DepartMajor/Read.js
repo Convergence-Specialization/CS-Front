@@ -13,7 +13,7 @@ import ReportOrDelete from "./Modal/ReportOrDelete";
 import { subjectDicts } from "../../../assets/Dicts";
 
 const WhiteContainer = styled.div`
-  width: 90%;
+  width: 93%;
   padding: 12px 15px;
   margin: 10px auto;
   border-radius: 15px;
@@ -22,6 +22,7 @@ const WhiteContainer = styled.div`
   position: relative;
 `;
 const Title = styled.div`
+  line-height: 1.3;
   font-size: 18px;
   font-weight: bold;
   padding-right: 25px;
@@ -193,7 +194,7 @@ const BlankPost = styled.div`
   color: #848484;
 `;
 const SubjectSelectArea = styled.div`
-  width: 90%;
+  width: 93%;
   background-color: white;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   border-radius: 10px;
@@ -209,8 +210,8 @@ const SubjectSelectImg = styled.img`
 `;
 const SubjectSelectText = styled.div`
   color: #000000;
-  margin-left : 5px;
-  font-weight : bold;
+  margin-left: 5px;
+  font-weight: bold;
 `;
 const Read = () => {
   const history = useHistory();
@@ -324,17 +325,17 @@ const Read = () => {
       />
       {content.title !== undefined && (
         <>
-        {content.subject !== "NONE" && (
-          <SubjectSelectArea>
-            <SubjectSelectImg
-              style={{ marginLeft: "3px" }}
-              src={subjectDicts[content.subject].img}
-              alt="말머리아이콘"
-            />
-            <SubjectSelectText>
-              {subjectDicts[content.subject].name}
-            </SubjectSelectText>
-          </SubjectSelectArea>
+          {content.subject !== "NONE" && (
+            <SubjectSelectArea>
+              <SubjectSelectImg
+                style={{ marginLeft: "3px" }}
+                src={subjectDicts[content.subject].img}
+                alt="말머리아이콘"
+              />
+              <SubjectSelectText>
+                {subjectDicts[content.subject].name}
+              </SubjectSelectText>
+            </SubjectSelectArea>
           )}
           <WhiteContainer>
             <Title>{content.title}</Title>
@@ -399,8 +400,11 @@ const Read = () => {
                   }}
                 >
                   <CommentImg
-                    src={didILikedThisDoc ? readDoc.heart_fill
-                      : readDoc.heart_empty}
+                    src={
+                      didILikedThisDoc
+                        ? readDoc.heart_fill
+                        : readDoc.heart_empty
+                    }
                     alt={"공감 이미지"}
                   />
                   <CommentButtonText>공감</CommentButtonText>
@@ -511,8 +515,11 @@ const Read = () => {
                     }}
                   >
                     <CommentChildLikeImg
-                      src={item.didILiked ? readDoc.heart_fill
-                        : readDoc.heart_empty}
+                      src={
+                        item.didILiked
+                          ? readDoc.heart_fill
+                          : readDoc.heart_empty
+                      }
                       alt="하트 아이콘"
                     />
                     <CommentChildLikeCount>
@@ -523,7 +530,10 @@ const Read = () => {
               </CommentChildWrapper>
               {item.subComments.map((subItem, subIdx) => (
                 <Box key={`${subIdx}SubComment${idx}`}>
-                  <CommentArrow src={readDoc.commentarrow} alt="대댓글 화살표" />
+                  <CommentArrow
+                    src={readDoc.commentarrow}
+                    alt="대댓글 화살표"
+                  />
                   <CommentChildWrapper
                     style={{
                       backgroundColor: "#f9f9f9",
@@ -601,8 +611,8 @@ const Read = () => {
                         <CommentChildLikeImg
                           src={
                             subItem.didILiked
-                            ? readDoc.heart_fill
-                            : readDoc.heart_empty
+                              ? readDoc.heart_fill
+                              : readDoc.heart_empty
                           }
                           alt="하트 아이콘"
                         />

@@ -1,13 +1,11 @@
 import React from "react";
 import Board from "./Board";
-import Ko from "./Ko";
-
+import MyInfoBox from "./MyInfoBox";
 
 export default function MainPage() {
-  // const classes = useStyles();
   return (
     <div>
-      <Ko />
+      <MyInfoBox />
       <Board />
     </div>
   );

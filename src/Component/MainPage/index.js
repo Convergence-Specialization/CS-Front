@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { major, navbotIcons, readDoc, } from "../../assets/Resources";
+import { major, navbotIcons, readDoc } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { departMajorApi } from "../../api";
+import { convergenceApi, departMajorApi } from "../../api";
+import LoadingSmall from "../SmallComponents/LoadingSmall";
+import LoadingComponent from "../SmallComponents/Loading";
 
 const Container = styled.div`
   width: 100%;
@@ -123,15 +125,12 @@ const SlickBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (max-width: 430px) {
-  }
 `;
 const SlickBox1 = styled.div`
   padding: 10px;
+  position: relative;
   background-color: white;
   border-radius: 10px;
-  @media (max-width: 430px) {
-  }
 `;
 const SlickText = styled.div`
   font-size: 13px;
@@ -139,6 +138,20 @@ const SlickText = styled.div`
   margin-top: 8px;
   @media (max-width: 430px) {
   }
+`;
+const SlickCustomLeftButton = styled.div`
+  position: absolute;
+  top: 40%;
+  left: 5px;
+  font-size: 14px;
+  z-index: 99;
+`;
+const SlickCustomRightButton = styled.div`
+  position: absolute;
+  top: 40%;
+  right: 5px;
+  font-size: 14px;
+  z-index: 99;
 `;
 const IntroduceImage = styled.img`
   margin: 0 auto;
@@ -157,13 +170,21 @@ const MainPage = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
-  const [posts, setPosts] = useState([]);
+  const [departmajorPosts, setDepartmajorPosts] = useState([]);
+  const [convergencePosts, setConvergencePosts] = useState([]);
   useEffect(() => {
+    convergenceApi
+      .getLists({ size: 5 })
+      .then((docsArray) => setConvergencePosts(docsArray))
+      .catch((error) => console.log(error.message));
     departMajorApi
       .getLists({ size: 5 })
-      .then((docsArray) => setPosts(docsArray))
+      .then((docsArray) => setDepartmajorPosts(docsArray))
       .catch((error) => console.log(error.message));
   }, []);
+
+  const SlickRef = React.createRef();
+
   return (
     <Container>
       <TitleAndButtonWrapper>
@@ -185,7 +206,13 @@ const MainPage = () => {
       <TitleElement src={navbotIcons.airplane} name={"융합전공 소개"} />
       <Slick>
         <SlickBox1>
-          <Slider {...settings}>
+          <SlickCustomLeftButton onClick={() => SlickRef.current.slickPrev()}>
+            {"<"}
+          </SlickCustomLeftButton>
+          <SlickCustomRightButton onClick={() => SlickRef.current.slickNext()}>
+            {">"}
+          </SlickCustomRightButton>
+          <Slider {...settings} ref={SlickRef}>
             <SlickBox>
               <IntroduceImage
                 src={major.Car}
@@ -268,11 +295,39 @@ const MainPage = () => {
         </Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        <BoardChildWrapper>12시 기상</BoardChildWrapper>
-        <BoardChildWrapper>6시간 코딩</BoardChildWrapper>
-        <BoardChildWrapper>30분 치킨</BoardChildWrapper>
-        <BoardChildWrapper>4시간 코딩</BoardChildWrapper>
-        <BoardChildWrapper>5시간 취침</BoardChildWrapper>
+        {convergencePosts.length === 0 ? (
+          <LoadingSmall />
+        ) : (
+          convergencePosts.map((item, idx) => (
+            <BoardChildWrapper
+              key={`${idx}CONVERGENCE_PREVIEW`}
+              onClick={() =>
+                history.push({
+                  pathname: `/board/convergence`,
+                  state: {
+                    pageName: "read",
+                    docItem: item,
+                  },
+                })
+              }>
+              <BoardChildTitle>{item.content}</BoardChildTitle>
+              <DepartmentSubWrapper>
+                <img
+                  style={{ width: "15px", margin: "0 7px" }}
+                  src={readDoc.heart_fill}
+                  alt="heart"
+                />
+                <span>{item.likeCount}</span>
+                <img
+                  style={{ width: "15px", margin: "0 7px" }}
+                  src={readDoc.speech_bubble}
+                  alt="comment"
+                />
+                <span>{item.commentCount}</span>
+              </DepartmentSubWrapper>
+            </BoardChildWrapper>
+          ))
+        )}
       </BoardContainer>
       <TitleAndButtonWrapper>
         <TitleElement src={navbotIcons.airplane} name={"전과 게시판"} />
@@ -281,8 +336,10 @@ const MainPage = () => {
         </Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        {posts.length !== 0 &&
-          posts.map((item, idx) => (
+        {convergencePosts.length === 0 ? (
+          <LoadingSmall />
+        ) : (
+          departmajorPosts.map((item, idx) => (
             <BoardChildWrapper
               key={`${idx}DEPARTMAJOR_PREVIEW`}
               onClick={() =>
@@ -310,7 +367,8 @@ const MainPage = () => {
                 <span>{item.commentCount}</span>
               </DepartmentSubWrapper>
             </BoardChildWrapper>
-          ))}
+          ))
+        )}
       </BoardContainer>
     </Container>
   );

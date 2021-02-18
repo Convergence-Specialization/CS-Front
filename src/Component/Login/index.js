@@ -5,6 +5,7 @@ import { Images, navIcons } from "../../assets/Resources";
 import message from "antd/lib/message";
 import { authService, firebaseInstance } from "../../firebase";
 import { userApi } from "../../api";
+import { loginFunctions } from "../Watchers";
 
 const Container = styled.div`
   width: 100%;
@@ -136,6 +137,10 @@ const Login = () => {
             localStorage.setItem("idToken", idToken);
             message.destroy();
             message.success("로그인 성공");
+
+            // localstorage 이용 상태 저장.
+            loginFunctions.onSuccess(authService.currentUser);
+
             history.push("/");
           } catch (err) {
             message.destroy();
@@ -149,6 +154,7 @@ const Login = () => {
         onClick={async () => {
           if (loading) return;
           try {
+            message.loading("구글 로그인 중..");
             let provider = new firebaseInstance.auth.GoogleAuthProvider();
             await authService.signInWithPopup(provider);
             let { status } = await userApi.checkGoogleSignUped({
@@ -159,7 +165,12 @@ const Login = () => {
             } else if (status === 201) {
               const idToken = await authService.currentUser.getIdToken();
               localStorage.setItem("idToken", idToken);
+              message.destroy();
               message.success("구글 로그인 성공");
+
+              // localstorage 이용 상태 저장.
+              loginFunctions.onSuccess(authService.currentUser);
+
               history.push("/");
             }
           } catch (error) {

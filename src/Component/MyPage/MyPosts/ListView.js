@@ -7,6 +7,7 @@ import { userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
 import { authService } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
+import { loginFunctions } from "../../Watchers";
 
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
@@ -90,8 +91,12 @@ const BoardChildMetaText = styled.div`
   align-items: center;
 `;
 const BlankPost = styled.div`
-  padding: 70px 10px 10px 10px;
+  padding: 10px;
+  height: 60px;
   margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 600;
   font-size: 14px;
   text-align: center;
@@ -99,24 +104,31 @@ const BlankPost = styled.div`
 `;
 const MyPost = () => {
   const history = useHistory();
-  const [posts, setPosts] = useState([]);
+  const [convergencePosts, setConvergencePosts] = useState([]);
+  const [departmajorPosts, setDepartmajorPosts] = useState([]);
+
   const [loadingConvergence, setLoadingConvergence] = useState(true);
   const [loadingDepartMajor, setLoadingDepartMajor] = useState(true);
 
   useEffect(() => {
-    // TODO: API에서 더보기 구현.
-    // departMajorApi
-    //   .getLists({ size: 3 })
-    //   .then((docsArray) => setPosts(docsArray))
-    //   .catch((error) => message.error(error.message));
-
+    const userInfo = loginFunctions.getUserInfo();
+    if (!userInfo) return;
+    userApi
+      .getMyPosts({
+        boardName: "convergence",
+        size: 4,
+        uid: userInfo.uid,
+      })
+      .then((docsArray) => setConvergencePosts(docsArray))
+      .catch((error) => message.error(error.message))
+      .finally(() => setLoadingConvergence(false));
     userApi
       .getMyPosts({
         boardName: "departmajor",
         size: 4,
-        uid: authService.currentUser.uid,
+        uid: userInfo.uid,
       })
-      .then((docsArray) => setPosts(docsArray))
+      .then((docsArray) => setDepartmajorPosts(docsArray))
       .catch((error) => message.error(error.message))
       .finally(() => setLoadingDepartMajor(false));
   }, []);
@@ -137,15 +149,15 @@ const MyPost = () => {
         </Box>
         {loadingConvergence ? (
           <LoadingComponent />
-        ) : posts.length === 0 ? (
-          <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
+        ) : convergencePosts.length === 0 ? (
+          <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
         ) : (
-          posts.map((item, idx) => (
+          convergencePosts.map((item, idx) => (
             <BoardChildWrapper
               key={idx}
               onClick={() =>
                 history.push({
-                  pathname: `/board/departmajor`,
+                  pathname: `/board/convergence`,
                   state: {
                     pageName: "read",
                     docItem: item,
@@ -153,23 +165,9 @@ const MyPost = () => {
                 })
               }>
               <BoardChildTitleWrapper>
-                {item.subject !== "NONE" && (
-                  <SubjectSelectImg
-                    style={{ width: "23px", marginTop: "-5px" }}
-                    src={subjectDicts[item.subject].img}
-                    alt={"asdf"}
-                  />
-                )}
-                {item.subject === "NONE" && (
-                  <BoardChildTitle style={{ width: "80%" }}>
-                    {item.title}
-                  </BoardChildTitle>
-                )}
-                {item.subject !== "NONE" && (
-                  <BoardChildTitle style={{ width: "72%" }}>
-                    {item.title}
-                  </BoardChildTitle>
-                )}
+                <BoardChildTitle style={{ width: "80%" }}>
+                  {item.content}
+                </BoardChildTitle>
               </BoardChildTitleWrapper>
               <BoardChildContent>{item.content}</BoardChildContent>
               <BoardChildTimeText>
@@ -209,10 +207,10 @@ const MyPost = () => {
         </Box>
         {loadingDepartMajor ? (
           <LoadingComponent />
-        ) : posts.length === 0 ? (
-          <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
+        ) : departmajorPosts.length === 0 ? (
+          <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
         ) : (
-          posts.map((item, idx) => (
+          departmajorPosts.map((item, idx) => (
             <BoardChildWrapper
               key={idx}
               onClick={() =>

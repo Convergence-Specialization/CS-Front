@@ -69,11 +69,12 @@ const Board = () => {
         <Text
           style={{ cursor: "pointer", padding: "18px 10px" }}
           onClick={() => {
-            authService.signOut();
-            message.success("로그아웃 완료");
-            history.push("/");
-          }}
-        >
+            authService.signOut().then(() => {
+              localStorage.setItem("logined", "NO");
+              message.success("로그아웃 완료");
+              history.push("/");
+            });
+          }}>
           로그아웃
         </Text>
       </Container2>

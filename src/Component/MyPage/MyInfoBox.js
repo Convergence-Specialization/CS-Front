@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { horseIcons, etc } from "../../assets/Resources";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../Watchers";
+import { loginFunctions, useAuth } from "../Watchers";
 import { userApi } from "../../api";
 import LoadingComponent from "../SmallComponents/Loading";
 
@@ -93,57 +93,60 @@ const EditBox = styled.div`
   }
 `;
 
-const Ko = () => {
+const MyInfoBox = () => {
   const history = useHistory();
   const user = useAuth();
   const [myInfo, setMyInfo] = useState(null);
   useEffect(() => {
+    const userInfo = loginFunctions.getUserInfo();
+    if (!userInfo) return;
     userApi
-      .getMyInfo({ uid: user.uid })
+      .getMyInfo({ uid: userInfo.uid })
       .then((info) => setMyInfo(info))
       .catch((error) => console.log(error));
   }, []);
 
   return (
     <>
-      <InfoContainer>
-        {!myInfo ? (
-          <LoadingComponent />
-        ) : (
-          <>
-            <InfoWrapper>
-              <HorseIcon src={horseIcons.newhorse} alt={"프로필"} />
-              <TextWrapper>
-                <Text1>
-                  {!!user
-                    ? (!!user.displayName
-                        ? user.displayName
-                        : "융슝이"
-                      ).concat()
-                    : ""}
-                </Text1>
-                <Text>{myInfo.student_id}</Text>
-                <Text>
-                  {!!user
-                    ? (!!user.email ? user.email : "융슝이").concat()
-                    : ""}
-                </Text>
-              </TextWrapper>
-            </InfoWrapper>
-            <EditBoxWrapper>
-              <EditBox
-                onClick={() => history.push("/mypage/changeinformation")}
-              >
-                <EditWrapper>
-                  정보수정
-                  <EditIconImg src={etc.infoEdit} alt={"정보수정"} />
-                </EditWrapper>
-              </EditBox>
-            </EditBoxWrapper>
-          </>
-        )}
-      </InfoContainer>
+      {!!loginFunctions.getUserInfo() && (
+        <InfoContainer>
+          {!myInfo ? (
+            <LoadingComponent />
+          ) : (
+            <>
+              <InfoWrapper>
+                <HorseIcon src={horseIcons.newhorse} alt={"프로필"} />
+                <TextWrapper>
+                  <Text1>
+                    {!!user
+                      ? (!!user.displayName
+                          ? user.displayName
+                          : "융슝이"
+                        ).concat()
+                      : ""}
+                  </Text1>
+                  <Text>{myInfo.student_id}</Text>
+                  <Text>
+                    {!!user
+                      ? (!!user.email ? user.email : "융슝이").concat()
+                      : ""}
+                  </Text>
+                </TextWrapper>
+              </InfoWrapper>
+              <EditBoxWrapper>
+                <EditBox
+                  onClick={() => history.push("/mypage/changeinformation")}>
+                  <EditWrapper>
+                    정보수정
+                    <EditIconImg src={etc.infoEdit} alt={"정보수정"} />
+                  </EditWrapper>
+                </EditBox>
+              </EditBoxWrapper>
+            </>
+          )}
+        </InfoContainer>
+      )}
     </>
   );
 };
-export default Ko;
+export default MyInfoBox;

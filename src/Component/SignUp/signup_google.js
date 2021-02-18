@@ -65,13 +65,13 @@ const Wrap = styled.div`
     font-size: 11px;
   }
 `;
-const Basic= styled.div`
+const Basic = styled.div`
   width: 60%;
   background-color: rgba(0, 0, 0, 0);
   border-bottom: 2px solid white;
   padding: 10px;
   color: white;
-  margin:10px;
+  margin: 10px;
   font-size: 20px;
   @media (max-width: 430px) {
     font-size: 15px;
@@ -86,7 +86,7 @@ const InputBoxAndAlarmWrapper1 = styled.div`
   position: relative;
   width: 60%;
   top: 50px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   @media (max-width: 430px) {
     top: 40px;
     width: 60%;
@@ -101,7 +101,7 @@ const InputBox = styled.input`
   border-bottom: 2px solid white;
   padding: 10px;
   font-size: 20px;
-  margin:10px;
+  margin: 10px;
   ::placeholder {
     color: #ffffff;
   }
@@ -173,7 +173,6 @@ const AddInformation = () => {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   return (
-  
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
@@ -218,7 +217,9 @@ const AddInformation = () => {
               const idToken = await authService.currentUser.getIdToken();
               localStorage.setItem("idToken", idToken);
               message.destroy();
-              message.success("구글 추가 정보 입력 완료. 즐기십쇼");
+              message.success("구글 회원가입 성공.");
+              // 상태 저장을 위해 로그인 정보 저장.
+              localStorage.setItem("logined", "YES");
               history.push("/");
             })
             .catch((err) => {
@@ -226,12 +227,10 @@ const AddInformation = () => {
               message.error(err.message);
               setLoading(false);
             });
-        }}
-      >
+        }}>
         회원가입 하기
       </Button>
     </Container>
   );
 };
 export default AddInformation;
-

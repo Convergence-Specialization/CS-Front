@@ -13,7 +13,7 @@ import { subjectDicts } from "../../../assets/Dicts";
 let a = 5;
 const Container = styled.div`
   width: 100%;
-  padding: 20px 0;
+  padding: 60px 0;
 `;
 const SubjectSelectArea = styled.div`
   width: 93%;

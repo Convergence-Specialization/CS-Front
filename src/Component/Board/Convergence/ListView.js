@@ -10,8 +10,7 @@ import { horseIcons, readDoc } from "../../../assets/Resources";
 let a = 5;
 const Container = styled.div`
   width: 100%;
-  padding: 20px 0;
-  padding-top: 0;
+  padding-top: 40px;
 `;
 const BoardContainer = styled.div`
   width: 93%;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { Images, navIcons } from "../../assets/Resources";
+import { Images, navIcons, horseIcons } from "../../assets/Resources";
 import message from "antd/lib/message";
 import { authService, firebaseInstance } from "../../firebase";
 import { userApi } from "../../api";
@@ -70,12 +70,10 @@ const InputBox = styled.input`
   }
 `;
 const Img = styled.img`
-  width: 15%;
+  width: 40%;
   margin-bottom: 50px;
   @media (max-width: 430px) {
-    font-size: 12px;
-    padding-top: 30px;
-    margin: 30px 0px;
+    margin-bottom: 20px;
   }
 `;
 const TextBox = styled.div`
@@ -107,7 +105,7 @@ const Login = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Img src={navIcons.profile} />
+      <Img src={horseIcons.horse} />
       <InputBox
         type="id"
         placeholder="아이디"
@@ -147,7 +145,8 @@ const Login = () => {
             message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
           }
           setLoading(false);
-        }}>
+        }}
+      >
         로그인
       </Button>
       <Button
@@ -178,7 +177,8 @@ const Login = () => {
             message.error("로그인 실패");
           }
         }}
-        name="google">
+        name="google"
+      >
         구글 로그인
       </Button>
 

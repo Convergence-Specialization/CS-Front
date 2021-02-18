@@ -104,6 +104,7 @@ const Button = styled.div`
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 13px;
+  font-weight: bold;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #d4e6fb;
   cursor: pointer;
@@ -309,7 +310,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -350,7 +352,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img

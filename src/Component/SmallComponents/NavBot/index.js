@@ -9,7 +9,11 @@ const Container = styled.div`
   align-items: center;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
-  position: relative;
+  /* position: relative; */
+  width: 100%;
+  max-width: 768px;
+  position: fixed;
+  z-index: 99;
 `;
 export const IconImg = styled.img`
   width: 23px;
@@ -46,7 +50,8 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
           } else if (Name === "융특 게시판") {
             history.push("/board/convergence");
           }
-        }}>
+        }}
+      >
         {Name}
       </Text>
       {!!postButtonRef && (
@@ -56,7 +61,8 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
               pathname: `/board/${postButtonRef}`,
               state: { pageName: "create" },
             });
-          }}>
+          }}
+        >
           글 작성
         </PostButton>
       )}

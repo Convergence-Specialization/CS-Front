@@ -34,7 +34,7 @@ export const UseGoogleAnalytics = () => {
   useEffect(() => {
     // 로그인 해야하는 페이지 접근할 때
     if (isPageInLoginRequired(location.pathname) && !user) {
-      history.push("/login/loginrequire");
+      history.replace("/login/loginrequire");
     }
 
     // GA 페이지 트레킹

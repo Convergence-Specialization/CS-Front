@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { authService } from "../firebase";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import ReactGA from "react-ga";
 import jwtDecode from "jwt-decode";
 import message from "antd/lib/message";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const NEED_PERMISSION_PATHS = [
   "/board/departmajor",
@@ -33,7 +32,11 @@ export const UseGoogleAnalytics = () => {
 
   useEffect(() => {
     // 로그인 해야하는 페이지 접근할 때
-    if (isPageInLoginRequired(location.pathname) && !user) {
+    if (
+      isPageInLoginRequired(location.pathname) &&
+      !user &&
+      !localStorage.getItem("userInfo")
+    ) {
       history.replace("/login/loginrequire");
     }
 
@@ -42,7 +45,7 @@ export const UseGoogleAnalytics = () => {
     ReactGA.set({ page: currentPath });
     ReactGA.pageview(currentPath);
 
-    // idToken 만료 확인 후 재발급.
+    // idToken 만료 확인 후 재발급.'
     const idToken = localStorage.getItem("idToken");
     if (idToken !== null && idToken !== "") {
       if (jwtDecode(idToken).exp * 1000 < new Date().getTime()) {
@@ -73,4 +76,13 @@ export const useAuth = () => {
     };
   });
   return user;
+};
+
+export const loginFunctions = {
+  onSuccess: (user) => {
+    localStorage.setItem("userInfo", JSON.stringify(user));
+  },
+  onLogout: () => {
+    localStorage.clear();
+  },
 };

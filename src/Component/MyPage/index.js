@@ -4,7 +4,6 @@ import Ko from "./Ko";
 
 
 export default function MainPage() {
-  // const classes = useStyles();
   return (
     <div>
       <Ko />

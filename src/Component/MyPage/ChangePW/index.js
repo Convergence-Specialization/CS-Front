@@ -4,7 +4,6 @@ import Board from "./Board";
 export default function Change() {
   return (
     <div>
-
       <Board />
     </div>
   );

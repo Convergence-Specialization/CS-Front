@@ -1,64 +1,33 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useAuth } from "../../Watchers";
 import message from "antd/lib/message";
 import SelectSubjectModal from "../Modal";
 
-const Con = styled.div`
-  margin: 0px auto 0px auto;
+const Container = styled.div`
   padding: 20px;
-  width: 82%;
-  background-color: white;
+  width: 85%;
   border-radius: 30px;
-  box-shadow: 1px 2px 20px 10px rgba(0, 0, 0, 0.1),
-    0 2px 4px 1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
   margin: 0px auto 30px auto;
   @media (max-width: 430px) {
-    padding: 15px 0px 15px 0px;
+    padding: 15px;
   }
+`;
+const Title = styled.div`
+  margin-left: 40px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
 `;
 
-const Wrap = styled.div``;
-const Oon = styled.div`
-  margin: 50px 0px 15px 90px;
-  display: flex;
-  justify-content: start;
-  @media (max-width: 430px) {
-    margin: 50px 0px 10px 50px;
-  }
-`;
-const Jon = styled.div`
-  margin: 0px 0px 15px 90px;
-  display: flex;
-  justify-content: start;
-  @media (max-width: 430px) {
-    margin: 0px 0px 10px 50px;
-  }
-`;
 const Text = styled.div`
-  font-size: 20px;
-  line-height: 1.13;
-  @media (max-width: 430px) {
-    font-size: 15px;
-  }
+  font-size: 15px;
 `;
-const Kon = styled.div`
-  text-align: center;
-  padding: 20px 10px 20px 10px;
-  margin: 40px auto;
-  border-radius: 25px;
-  width: 82%;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #ccd3dc;
-  font-size: 20px;
-  line-height: 1.14;
-  cursor: pointer;
-  @media (max-width: 430px) {
-    font-size: 15px;
-    padding: 15px 0px;
-  }
-`;
+
 const InputBox = styled.input`
-  padding: 0px 20px;
+  padding-left: 5px;
   font-size: 20px;
   line-height: 1.13;
   color: #8e8e8e;
@@ -66,22 +35,12 @@ const InputBox = styled.input`
   border: none;
   font-size: 15px;
   @media (max-width: 430px) {
-    font-size: 15px;
-    padding: 0px 20px;
+    font-size: 16px;
   }
   ::placeholder {
   }
 `;
-const Qrap = styled.div`
-  padding: 0px 20px;
-  font-size: 20px;
-  line-height: 1.13;
-  color: #8e8e8e;
-  @media (max-width: 430px) {
-    font-size: 15px;
-    padding: 0px 20px;
-  }
-`;
+
 const Board = () => {
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
@@ -91,40 +50,31 @@ const Board = () => {
       <SelectSubjectModal
         visible={subjectModalVisible}
         onClose={() => setSubjectModalVisible(false)}
+        name="회원 정보가 수정되었습니다."
       />
-      <Oon>
-        <Text>계정 비밀번호</Text>
-      </Oon>
-      <Con>
-        <Qrap>kdkdkdk</Qrap>
-      </Con>
-      <Jon>
-        <Text>새 계정 비밀번호</Text>
-      </Jon>
-      <Con>
-        <Wrap>
-          <InputBox
-            type="password"
-            placeholder="비밀번호"
-            value={pw}
-            onChange={({ target: { value } }) => setPw(value)}
-          />
-        </Wrap>
-      </Con>
-      <Jon>
-        <Text>새 계정 비밀번호 확인</Text>
-      </Jon>
-      <Con>
-        <Wrap>
-          <InputBox
-            type="password"
-            placeholder="비밀번호 확인"
-            value={pwCheck}
-            onChange={({ target: { value } }) => setPwCheck(value)}
-          />
-        </Wrap>
-      </Con>
-      <Kon
+      <Title style={{ marginTop: "40px" }}>계정 비밀번호</Title>
+      <Container>
+        <InputBox type="password" placeholder="계정 비밀번호" />
+      </Container>
+      <Title>새 계정 비밀번호</Title>
+      <Container>
+        <InputBox
+          type="password"
+          placeholder="비밀번호"
+          value={pw}
+          onChange={({ target: { value } }) => setPw(value)}
+        />
+      </Container>
+      <Title>새 계정 비밀번호 확인</Title>
+      <Container style={{ marginBottom: "0px" }}>
+        <InputBox
+          type="password"
+          placeholder="비밀번호 확인"
+          value={pwCheck}
+          onChange={({ target: { value } }) => setPwCheck(value)}
+        />
+      </Container>
+      <Container
         onClick={() => {
           if (pw !== pwCheck) {
             alert("비밀번호가 일치하지 않습니다.");
@@ -133,9 +83,15 @@ const Board = () => {
             message.success("비밀번호가 변경되었습니다.");
             setSubjectModalVisible(true);
           }
-        }}>
-        비밀번호 변경
-      </Kon>
+        }}
+        style={{ backgroundColor: "lightgray", marginTop: "35px" }}
+      >
+        <Text
+          style={{ textAlign: "center", fontSize: "16px", fontWeight: "bold" }}
+        >
+          비밀번호 변경
+        </Text>
+      </Container>
     </>
   );
 };

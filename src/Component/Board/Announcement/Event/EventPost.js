@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
+  padding-top: 45px;
   max-width: 768px;
   margin: 0 auto;
 `;

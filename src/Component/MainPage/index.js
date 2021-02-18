@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { convergenceApi, departMajorApi } from "../../api";
+import LoadingSmall from "../SmallComponents/LoadingSmall";
+import LoadingComponent from "../SmallComponents/Loading";
 
 const Container = styled.div`
   width: 100%;
@@ -293,7 +295,9 @@ const MainPage = () => {
         </Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        {convergencePosts.length !== 0 &&
+        {convergencePosts.length === 0 ? (
+          <LoadingSmall />
+        ) : (
           convergencePosts.map((item, idx) => (
             <BoardChildWrapper
               key={`${idx}CONVERGENCE_PREVIEW`}
@@ -322,7 +326,8 @@ const MainPage = () => {
                 <span>{item.commentCount}</span>
               </DepartmentSubWrapper>
             </BoardChildWrapper>
-          ))}
+          ))
+        )}
       </BoardContainer>
       <TitleAndButtonWrapper>
         <TitleElement src={navbotIcons.airplane} name={"전과 게시판"} />
@@ -331,7 +336,9 @@ const MainPage = () => {
         </Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        {departmajorPosts.length !== 0 &&
+        {convergencePosts.length === 0 ? (
+          <LoadingSmall />
+        ) : (
           departmajorPosts.map((item, idx) => (
             <BoardChildWrapper
               key={`${idx}DEPARTMAJOR_PREVIEW`}
@@ -360,7 +367,8 @@ const MainPage = () => {
                 <span>{item.commentCount}</span>
               </DepartmentSubWrapper>
             </BoardChildWrapper>
-          ))}
+          ))
+        )}
       </BoardContainer>
     </Container>
   );

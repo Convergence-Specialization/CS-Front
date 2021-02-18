@@ -82,7 +82,6 @@ export const loginFunctions = {
   onSuccess: (user) => {
     localStorage.setItem("userInfo", JSON.stringify(user));
   },
-  onLogout: () => {
-    localStorage.clear();
-  },
+  onLogout: () => localStorage.clear(),
+  getUserInfo: () => JSON.parse(localStorage.getItem("userInfo")),
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import NavBot from "../SmallComponents/NavBot";
+import NavBot from "./NavBot";
 import { major, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
@@ -14,7 +14,7 @@ const BoardContainer = styled.div`
   border-radius: 0px;
   background-color: #f1f1f1;
   padding: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 110px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ const BoardWrapper = styled.div`
   margin-top: 13px;
   padding: 10px;
   width: 90%;
-min-height: 700px;
+  min-height: 700px;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
@@ -72,7 +72,11 @@ const Image = styled.img`
 const Unification = () => {
   return (
     <Container id="KOREA_DIV">
-      <NavBot Icon={major.Unification} Name="통일외교 및 개발협력" />
+      <NavBot
+        Icon={major.Unification}
+        Name="통일외교 및 개발협력"
+        style={{ position: "relative" }}
+      />
       <BoardContainer>
         <BoardWrapper>
           <BoardTitle>- 융합전공 소개</BoardTitle>

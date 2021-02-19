@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import NavBot from "../SmallComponents/NavBot";
+import NavBot from "./NavBot";
 import { major, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`
@@ -27,7 +27,7 @@ const BoardWrapper = styled.div`
   margin-top: 13px;
   padding: 10px;
   width: 90%;
-min-height: 700px;
+  min-height: 700px;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;

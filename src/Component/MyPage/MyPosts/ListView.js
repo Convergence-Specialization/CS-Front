@@ -8,7 +8,9 @@ import { subjectDicts } from "../../../assets/Dicts";
 import { authService } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { loginFunctions } from "../../Watchers";
-
+const Container = styled.div`
+  padding-top: 45px;
+`;
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
   display: flex;
@@ -134,140 +136,142 @@ const MyPost = () => {
   }, []);
   return (
     <>
-      <BoardContainer>
-        <Box>
-          <Text>융특 게시판</Text>
-          <Button
-            onClick={() => {
-              history.push({
-                pathname: `myposts`,
-                state: { pageName: "convergencelistview" },
-              });
-            }}
-          >
-            더보기
-          </Button>
-        </Box>
-        {loadingConvergence ? (
-          <LoadingComponent />
-        ) : convergencePosts.length === 0 ? (
-          <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
-        ) : (
-          convergencePosts.map((item, idx) => (
-            <BoardChildWrapper
-              key={idx}
-              onClick={() =>
+      <Container>
+        <BoardContainer>
+          <Box>
+            <Text>융특 게시판</Text>
+            <Button
+              onClick={() => {
                 history.push({
-                  pathname: `/board/convergence`,
-                  state: {
-                    pageName: "read",
-                    docItem: item,
-                  },
-                })
-              }
+                  pathname: `myposts`,
+                  state: { pageName: "convergencelistview" },
+                });
+              }}
             >
-              <BoardChildTitleWrapper>
-                <BoardChildTitle style={{ width: "80%" }}>
-                  {item.content}
-                </BoardChildTitle>
-              </BoardChildTitleWrapper>
-              <BoardChildContent>{item.content}</BoardChildContent>
-              <BoardChildTimeText>
-                {item.timestampDistance} 전
-              </BoardChildTimeText>
-              <BoardChildMetaText>
-                <img
-                  src={readDoc.heart_fill}
-                  alt="하트 아이콘"
-                  style={{ width: "18px", marginRight: " 4px" }}
-                />
-                <div>{item.likeCount}</div>
-                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
-                <img
-                  src={readDoc.speech_bubble}
-                  alt="말풍선 아이콘"
-                  style={{ width: "18px", margin: "0px 4px" }}
-                />
-                <div>{item.commentCount}</div>
-              </BoardChildMetaText>
-            </BoardChildWrapper>
-          ))
-        )}
-      </BoardContainer>
-      <BoardContainer>
-        <Box>
-          <Text>전과 게시판</Text>
-          <Button
-            onClick={() => {
-              history.push({
-                pathname: `myposts`,
-                state: { pageName: "departmajorlistview" },
-              });
-            }}
-          >
-            더보기
-          </Button>
-        </Box>
-        {loadingDepartMajor ? (
-          <LoadingComponent />
-        ) : departmajorPosts.length === 0 ? (
-          <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
-        ) : (
-          departmajorPosts.map((item, idx) => (
-            <BoardChildWrapper
-              key={idx}
-              onClick={() =>
-                history.push({
-                  pathname: `/board/departmajor`,
-                  state: {
-                    pageName: "read",
-                    docItem: item,
-                  },
-                })
-              }
-            >
-              <BoardChildTitleWrapper>
-                {item.subject !== "NONE" && (
-                  <SubjectSelectImg
-                    style={{ width: "23px", marginTop: "-5px" }}
-                    src={subjectDicts[item.subject].img}
-                    alt={"asdf"}
-                  />
-                )}
-                {item.subject === "NONE" && (
+              더보기
+            </Button>
+          </Box>
+          {loadingConvergence ? (
+            <LoadingComponent />
+          ) : convergencePosts.length === 0 ? (
+            <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
+          ) : (
+            convergencePosts.map((item, idx) => (
+              <BoardChildWrapper
+                key={idx}
+                onClick={() =>
+                  history.push({
+                    pathname: `/board/convergence`,
+                    state: {
+                      pageName: "read",
+                      docItem: item,
+                    },
+                  })
+                }
+              >
+                <BoardChildTitleWrapper>
                   <BoardChildTitle style={{ width: "80%" }}>
-                    {item.title}
+                    {item.content}
                   </BoardChildTitle>
-                )}
-                {item.subject !== "NONE" && (
-                  <BoardChildTitle style={{ width: "72%" }}>
-                    {item.title}
-                  </BoardChildTitle>
-                )}
-              </BoardChildTitleWrapper>
-              <BoardChildContent>{item.content}</BoardChildContent>
-              <BoardChildTimeText>
-                {item.timestampDistance} 전
-              </BoardChildTimeText>
-              <BoardChildMetaText>
-                <img
-                  src={readDoc.heart_fill}
-                  alt="하트 아이콘"
-                  style={{ width: "18px", marginRight: " 4px" }}
-                />
-                <div>{item.likeCount}</div>
-                <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
-                <img
-                  src={readDoc.speech_bubble}
-                  alt="말풍선 아이콘"
-                  style={{ width: "18px", margin: "0px 4px" }}
-                />
-                <div>{item.commentCount}</div>
-              </BoardChildMetaText>
-            </BoardChildWrapper>
-          ))
-        )}
-      </BoardContainer>
+                </BoardChildTitleWrapper>
+                <BoardChildContent>{item.content}</BoardChildContent>
+                <BoardChildTimeText>
+                  {item.timestampDistance} 전
+                </BoardChildTimeText>
+                <BoardChildMetaText>
+                  <img
+                    src={readDoc.heart_fill}
+                    alt="하트 아이콘"
+                    style={{ width: "18px", marginRight: " 4px" }}
+                  />
+                  <div>{item.likeCount}</div>
+                  <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                  <img
+                    src={readDoc.speech_bubble}
+                    alt="말풍선 아이콘"
+                    style={{ width: "18px", margin: "0px 4px" }}
+                  />
+                  <div>{item.commentCount}</div>
+                </BoardChildMetaText>
+              </BoardChildWrapper>
+            ))
+          )}
+        </BoardContainer>
+        <BoardContainer>
+          <Box>
+            <Text>전과 게시판</Text>
+            <Button
+              onClick={() => {
+                history.push({
+                  pathname: `myposts`,
+                  state: { pageName: "departmajorlistview" },
+                });
+              }}
+            >
+              더보기
+            </Button>
+          </Box>
+          {loadingDepartMajor ? (
+            <LoadingComponent />
+          ) : departmajorPosts.length === 0 ? (
+            <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
+          ) : (
+            departmajorPosts.map((item, idx) => (
+              <BoardChildWrapper
+                key={idx}
+                onClick={() =>
+                  history.push({
+                    pathname: `/board/departmajor`,
+                    state: {
+                      pageName: "read",
+                      docItem: item,
+                    },
+                  })
+                }
+              >
+                <BoardChildTitleWrapper>
+                  {item.subject !== "NONE" && (
+                    <SubjectSelectImg
+                      style={{ width: "23px", marginTop: "-5px" }}
+                      src={subjectDicts[item.subject].img}
+                      alt={"asdf"}
+                    />
+                  )}
+                  {item.subject === "NONE" && (
+                    <BoardChildTitle style={{ width: "80%" }}>
+                      {item.title}
+                    </BoardChildTitle>
+                  )}
+                  {item.subject !== "NONE" && (
+                    <BoardChildTitle style={{ width: "72%" }}>
+                      {item.title}
+                    </BoardChildTitle>
+                  )}
+                </BoardChildTitleWrapper>
+                <BoardChildContent>{item.content}</BoardChildContent>
+                <BoardChildTimeText>
+                  {item.timestampDistance} 전
+                </BoardChildTimeText>
+                <BoardChildMetaText>
+                  <img
+                    src={readDoc.heart_fill}
+                    alt="하트 아이콘"
+                    style={{ width: "18px", marginRight: " 4px" }}
+                  />
+                  <div>{item.likeCount}</div>
+                  <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                  <img
+                    src={readDoc.speech_bubble}
+                    alt="말풍선 아이콘"
+                    style={{ width: "18px", margin: "0px 4px" }}
+                  />
+                  <div>{item.commentCount}</div>
+                </BoardChildMetaText>
+              </BoardChildWrapper>
+            ))
+          )}
+        </BoardContainer>
+      </Container>
     </>
   );
 };

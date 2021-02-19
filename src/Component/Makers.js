@@ -34,7 +34,7 @@ const Line1 = styled.div`
 `;
 
 const GithubText = styled.div`
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
@@ -72,7 +72,7 @@ const MakersTitle = styled.div`
   font-family: "양진체";
   line-height: 1.3;
   margin-top: 8px;
-  font-size: 19px;
+  font-size: 17px;
 `;
 const MakersWrapper = styled.div`
   display: flex;

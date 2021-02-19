@@ -193,7 +193,7 @@ const MyPost = () => {
             ))
           )}
         </BoardContainer>
-        <BoardContainer>
+        <BoardContainer style={{ marginBottom: "40px" }}>
           <Box>
             <Text>전과 게시판</Text>
             <Button

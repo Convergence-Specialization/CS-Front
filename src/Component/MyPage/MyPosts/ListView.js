@@ -93,16 +93,12 @@ const BoardChildMetaText = styled.div`
   align-items: center;
 `;
 const BlankPost = styled.div`
-  padding: 10px;
-  height: 60px;
+  padding: 60px 10px;
   margin: 10px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
+  font-weight: 300;
   font-size: 14px;
   text-align: center;
-  color: #c8c8c8;
+  color: #848484;
 `;
 const MyPost = () => {
   const history = useHistory();
@@ -154,7 +150,7 @@ const MyPost = () => {
           {loadingConvergence ? (
             <LoadingComponent />
           ) : convergencePosts.length === 0 ? (
-            <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
+            <BlankPost>※ 작성한 글이 없습니다 ※</BlankPost>
           ) : (
             convergencePosts.map((item, idx) => (
               <BoardChildWrapper
@@ -214,7 +210,7 @@ const MyPost = () => {
           {loadingDepartMajor ? (
             <LoadingComponent />
           ) : departmajorPosts.length === 0 ? (
-            <BlankPost>⁕작성한 글이 없습니다⁕</BlankPost>
+            <BlankPost>※ 작성한 글이 없습니다 ※</BlankPost>
           ) : (
             departmajorPosts.map((item, idx) => (
               <BoardChildWrapper

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { horseIcons, etc } from "../../assets/Resources";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import { loginFunctions, useAuth } from "../Watchers";
 import { userApi } from "../../api";
 import message from "antd/lib/message";

@@ -54,7 +54,6 @@ const Text1 = styled.div`
 
 const Board = () => {
   const history = useHistory();
-  console.log(loginFunctions.getUserInfo());
   return (
     <>
       <Container1>

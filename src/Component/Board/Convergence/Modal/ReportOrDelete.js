@@ -106,7 +106,6 @@ export const ReportOrDelete = ({
         setUploading(true);
         message.loading("댓글 삭제중..", 10);
         try {
-          console.log(docId);
           await convergenceApi.comment.delete({
             originalDocId: docId.docId,
             commentId: docId.commentId,

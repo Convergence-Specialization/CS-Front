@@ -95,7 +95,6 @@ const EditBox = styled.div`
 `;
 
 const MyInfoBox = () => {
-  const history = useHistory();
   const user = useAuth();
   const [myInfo, setMyInfo] = useState(null);
   useEffect(() => {
@@ -120,18 +119,13 @@ const MyInfoBox = () => {
                 <TextWrapper>
                   <Text1>
                     {!!user
-                      ? (!!user.displayName
-                          ? user.displayName
-                          : "융슝이"
-                        ).concat()
+                      ? !!user.displayName
+                        ? user.displayName
+                        : "융슝이"
                       : ""}
                   </Text1>
                   <Text>{myInfo.student_id}</Text>
-                  <Text>
-                    {!!user
-                      ? (!!user.email ? user.email : "융슝이").concat()
-                      : ""}
-                  </Text>
+                  <Text>{!!user ? user.email : ""}</Text>
                 </TextWrapper>
               </InfoWrapper>
               <EditBoxWrapper>

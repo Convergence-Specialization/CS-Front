@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useAuth } from "../../Watchers";
 import message from "antd/lib/message";
 import SelectSubjectModal from "../Modal";
 
@@ -30,7 +29,6 @@ const InputBox = styled.input`
   padding-left: 5px;
   font-size: 20px;
   line-height: 1.13;
-  color: #8e8e8e;
   outline: none;
   border: none;
   font-size: 15px;

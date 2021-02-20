@@ -51,7 +51,7 @@ const TextBox = styled.div`
   border: 2px dashed white;
   padding: 20px 0px;
   width: 50%;
-  margin-bottom:70px;
+  margin-bottom: 70px;
   text-align: center;
   color: white;
   font-size: 18px;
@@ -59,7 +59,7 @@ const TextBox = styled.div`
   @media (max-width: 430px) {
     font-size: 13px;
     width: 70%;
-    margin-bottom:50px;
+    margin-bottom: 50px;
   }
 `;
 const Text = styled.div``;
@@ -85,7 +85,6 @@ const LoginRequir = () => {
         <Text>로그인 후 이용하여 주십시오.</Text>
       </TextBox>
       <Button onClick={() => history.push("/login")}>로그인</Button>
-      <Button onClick={() => history.push("/signup")}>회원가입</Button>
     </Container>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import NavBot from "../SmallComponents/NavBot";
+import NavBot from "./NavBot";
 import { major, majorIntroduce } from "../../assets/Resources";
 
 const Container = styled.div`

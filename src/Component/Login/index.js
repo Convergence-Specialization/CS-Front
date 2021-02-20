@@ -154,13 +154,14 @@ const Login = () => {
         onClick={async () => {
           if (loading) return;
           try {
-            message.loading("구글 로그인 중..");
+            message.loading("구글 로그인 중..", 20);
             let provider = new firebaseInstance.auth.GoogleAuthProvider();
             await authService.signInWithPopup(provider);
             let { status } = await userApi.checkGoogleSignUped({
               uid: authService.currentUser.uid,
             });
             if (status === 200) {
+              message.destroy();
               history.push("/signup/google");
             } else if (status === 201) {
               const idToken = await authService.currentUser.getIdToken();
@@ -174,6 +175,7 @@ const Login = () => {
               history.push("/");
             }
           } catch (error) {
+            message.destroy();
             message.error(error.message);
             message.error("로그인 실패");
           }

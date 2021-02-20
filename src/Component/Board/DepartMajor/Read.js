@@ -83,7 +83,7 @@ const CommentUpperWrapper = styled.div`
 `;
 const CommentUpperText = styled.div`
   font-weight: bold;
-  text-align:center;
+  text-align: center;
 `;
 const CommentChildWrapper = styled.div`
   margin-top: 5px;
@@ -405,8 +405,7 @@ const Read = () => {
                         .finally(() => {
                           setUploading(false);
                         });
-                    }}
-                  >
+                    }}>
                     <CommentImg
                       src={
                         didILikedThisDoc
@@ -425,7 +424,12 @@ const Read = () => {
         <WhiteContainer>
           <CommentUpperWrapper>
             <CommentUpperText>댓글</CommentUpperText>
-            <img src={etc.resetButton} alt="융슝이" style={{ width: "25px", marginBottom: "5px" }} />
+            <img
+              src={etc.resetButton}
+              alt="댓글 새로고침 버튼"
+              style={{ width: "25px", marginBottom: "5px" }}
+              onClick={() => reloadComments()}
+            />
           </CommentUpperWrapper>
           {commentLoading ? (
             <LoadingComponent />
@@ -443,8 +447,7 @@ const Read = () => {
                     subCommentFocusedId === item.commentId
                       ? { backgroundColor: "#f6fafe" }
                       : {}
-                  }
-                >
+                  }>
                   <CommentDeleteButton
                     src={readDoc.three_dots}
                     alt="더 보기"
@@ -465,8 +468,7 @@ const Read = () => {
                       content.encryptedUid === item.encryptedUid
                         ? { color: "#5ac6b9" }
                         : {}
-                    }
-                  >
+                    }>
                     {content.encryptedUid === item.encryptedUid
                       ? content.nickname
                       : `익명의 융슝이 ${item.uidIndex}`}
@@ -486,8 +488,7 @@ const Read = () => {
                         } else {
                           setSubCommentFocusedId("");
                         }
-                      }}
-                    >
+                      }}>
                       <CommentChildNewSubButton
                         src={readDoc.speech_bubble}
                         alt="말풍선 아이콘"
@@ -521,8 +522,7 @@ const Read = () => {
                           .finally(() => {
                             setUploading(false);
                           });
-                      }}
-                    >
+                      }}>
                       <CommentChildLikeImg
                         src={
                           item.didILiked
@@ -549,8 +549,7 @@ const Read = () => {
                         padding: "7px ",
                         marginTT: "5px",
                         width: "95%",
-                      }}
-                    >
+                      }}>
                       <CommentDeleteButton
                         src={readDoc.three_dots}
                         alt="더 보기"
@@ -572,8 +571,7 @@ const Read = () => {
                           content.encryptedUid === subItem.encryptedUid
                             ? { color: "#5ac6b9" }
                             : {}
-                        }
-                      >
+                        }>
                         {content.encryptedUid === subItem.encryptedUid
                           ? content.nickname
                           : `익명의 융슝이 ${subItem.uidIndex}`}
@@ -616,8 +614,7 @@ const Read = () => {
                               .finally(() => {
                                 setUploading(false);
                               });
-                          }}
-                        >
+                          }}>
                           <CommentChildLikeImg
                             src={
                               subItem.didILiked
@@ -646,8 +643,7 @@ const Read = () => {
             style={{ width: "80%" }}
             onKeyDown={(e) => {
               if (e.key === "Enter") e.preventDefault();
-            }}
-          >
+            }}>
             <CommentInputBox
               placeholder={
                 subCommentFocusedId === ""
@@ -709,8 +705,7 @@ const Read = () => {
                   })
                   .finally(() => setUploading(false));
               }
-            }}
-          >
+            }}>
             작성하기
           </CommentInputSubmitButton>
         </CommentInputContainer>

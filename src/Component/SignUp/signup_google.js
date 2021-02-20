@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { userApi } from "../../api";
 import { authService } from "../../firebase";
+import { loginFunctions } from "../Watchers";
 
 const Container = styled.div`
   width: 100%;
@@ -218,8 +219,10 @@ const AddInformation = () => {
               localStorage.setItem("idToken", idToken);
               message.destroy();
               message.success("구글 회원가입 성공.");
-              // 상태 저장을 위해 로그인 정보 저장.
-              localStorage.setItem("logined", "YES");
+
+              // localstorage 이용 상태 저장.
+              loginFunctions.onSuccess(authService.currentUser, true);
+
               history.push("/");
             })
             .catch((err) => {

@@ -1,13 +1,12 @@
 import axios from "axios";
 import { db } from "./firebase";
-// TODO: Firestore 속성에서 50 이상 요청은 못하게.
 import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { NOTIFICATION_TYPES } from "./assets/Dicts";
 
 const api = axios.create({
-  baseURL: "https://convergence-ssu.herokuapp.com/",
-  // baseURL: "http://localhost:5000",
+  // baseURL: "https://convergence-ssu.herokuapp.com/",
+  baseURL: "http://localhost:5000",
 });
 
 const getBearer = () => `Bearer ${localStorage.getItem("idToken")}`;
@@ -686,4 +685,5 @@ export const globalApi = {
       console.log(err.message);
     }
   },
+  sendSuggestion: async (body) => api.post("suggestions", body),
 };

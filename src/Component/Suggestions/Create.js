@@ -2,6 +2,7 @@ import message from "antd/lib/message";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { globalApi } from "../../api";
 import { horseIcons } from "../../assets/Resources";
 
 const Container = styled.div`
@@ -126,14 +127,22 @@ const Suggestions = () => {
         />
         <ButtonWrapper>
           <Button
-            onClick={() => {
+            onClick={async () => {
               if (uploading) return;
               if (title === "" || content === "") {
                 message.error("제목 또는 글 내용을 작성해주세요.");
                 return;
               }
-              // TODO: login 상태에서 새로운 토큰을 가져오는게 가능하다!! 이거로 하자.
               setUploading(true);
+              message.destroy();
+              message.loading("건의사항을 보내는 중입니다..", 10);
+              await globalApi
+                .sendSuggestion({ title, content })
+                .catch((err) => {
+                  message.destroy();
+                  message.error(err.message);
+                });
+              message.destroy();
               history.push({
                 pathname: `suggestions`,
                 state: { pageName: "suggested" },

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { loginFunctions, useAuth } from "../Watchers";
 import { userApi } from "../../api";
+import message from "antd/lib/message";
 import LoadingComponent from "../SmallComponents/Loading";
 
 const InfoContainer = styled.div`
@@ -135,10 +136,15 @@ const MyInfoBox = () => {
               </InfoWrapper>
               <EditBoxWrapper>
                 <EditBox
-                  onClick={() => history.push("/mypage/changeinformation")}>
+                  onClick={() => {
+                    message.destroy();
+                    message.info(
+                      "정보 변경은 사이드 바의 건의하기를 사용해주시기 바랍니다."
+                    );
+                  }}>
                   <EditWrapper>
                     정보수정
-                    <EditIconImg src={etc.infoEdit} alt={"정보수정"} />
+                    <EditIconImg src={etc.infoEdit} alt={"정보 수정 사진"} />
                   </EditWrapper>
                 </EditBox>
               </EditBoxWrapper>

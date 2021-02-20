@@ -8,14 +8,14 @@ import { horseIcons } from "../../../assets/Resources";
 import SelectSubjectModal from "./Modal";
 
 const Container = styled.div`
-  padding-top: 15px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f1f1f1;
 `;
 const TitleInput = styled.input`
-  width: 90%;
+  width: 93%;
   padding: 14px 15px;
   border-radius: 10px;
   outline: none;
@@ -25,7 +25,7 @@ const TitleInput = styled.input`
 `;
 
 const SubjectSelectArea = styled.div`
-  width: 90%;
+  width: 93%;
   background-color: white;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   border-radius: 10px;
@@ -43,7 +43,7 @@ const SubjectSelectText = styled.div`
 `;
 const ContentTextArea = styled.textarea`
   padding: 10px 15px;
-  width: 90%;
+  width: 93%;
   min-height: 60vh;
   border: none;
   outline: none;

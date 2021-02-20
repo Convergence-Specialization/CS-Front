@@ -5,7 +5,7 @@ import { convergenceApi } from "../../../api";
 import message from "antd/lib/message";
 
 const Container = styled.div`
-  padding-top: 15px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 const ContentTextArea = styled.textarea`
   padding: 10px 15px;
-  width: 90%;
+  width: 93%;
   min-height: 60vh;
   border: none;
   outline: none;
@@ -90,7 +90,8 @@ const Create = () => {
                   message.error(err.message);
                   setUploading(false);
                 });
-            }}>
+            }}
+          >
             완료
           </Button>
         </ButtonWrapper>

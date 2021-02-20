@@ -10,7 +10,6 @@ import MainPage from "../Routes/MainPage";
 import MyPage from "../Routes/MyPage";
 import LoginPage from "../Routes/Login/Login";
 import MyPosts from "../Routes/MyPage/MyPostsListView";
-import ChangeInformation from "../Routes/MyPage/ChangeInformation";
 import ChangePW from "../Routes/MyPage/ChangePW";
 import Event from "../Routes/Event";
 import Notification from "../Routes/Notification";
@@ -28,7 +27,6 @@ import Suggestions from "../Routes/Suggestions";
 
 import NoInformation from "../Routes/Login/NoInformation";
 import LoginRequire from "../Routes/Login/LoginRequire";
-// 임시로 해놓음 ***********
 import SignUpGoogle from "../Component/SignUp/signup_google";
 import { UseGoogleAnalytics } from "./Watchers";
 
@@ -48,7 +46,7 @@ const RouterComponent = () => {
       <Route path="/login/noinformation">
         <NoInformation />
       </Route>
- 
+
       <Route path="/login/loginrequire">
         <LoginRequire />
       </Route>
@@ -88,10 +86,6 @@ const RouterComponent = () => {
       <Route path="/mypage/myposts">
         <MyPosts />
       </Route>
-      <Route path="/mypage/changeinformation" exact>
-        <ChangeInformation />
-      </Route>
-      {/* TODO: 얘네는 글쓰는 페이지라서 위에 라우트 연결 하면 됨! */}
       <Route path="/mypage/changepw" exact>
         <ChangePW />
       </Route>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { authService } from "../../firebase";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
+import { loginFunctions } from "../Watchers";
 
 const Container1 = styled.div`
   padding: 20px;
@@ -53,16 +54,19 @@ const Text1 = styled.div`
 
 const Board = () => {
   const history = useHistory();
+  console.log(loginFunctions.getUserInfo());
   return (
     <>
       <Container1>
         <Text onClick={() => history.push("/mypage/myposts")}>내가 쓴 글</Text>
       </Container1>
-      <Container1>
-        <Text onClick={() => history.push("/mypage/changepw")}>
-          비밀번호 변경
-        </Text>
-      </Container1>
+      {!loginFunctions.getUserInfo().isGoogle && (
+        <Container1>
+          <Text onClick={() => history.push("/mypage/changepw")}>
+            비밀번호 변경
+          </Text>
+        </Container1>
+      )}
       <Container2>
         <Text1>서비스 이용약관</Text1>
         <Text1>회원 탈퇴</Text1>
@@ -70,7 +74,7 @@ const Board = () => {
           style={{ cursor: "pointer", padding: "18px 10px" }}
           onClick={() => {
             authService.signOut().then(() => {
-              localStorage.setItem("logined", "NO");
+              loginFunctions.onLogout();
               message.success("로그아웃 완료");
               history.push("/");
             });

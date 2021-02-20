@@ -15,7 +15,7 @@ import {
 import { sideBarIcons } from "../../../assets/Resources";
 import message from "antd/lib/message";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../../Watchers";
+import { loginFunctions, useAuth } from "../../Watchers";
 import { authService } from "../../../firebase";
 
 const ModalWrapper = styled.div`
@@ -77,6 +77,7 @@ export const SelectSubjectModal = ({ onClose, visible, navClicked }) => {
                         authService
                           .signOut()
                           .then(() => {
+                            loginFunctions.onLogout();
                             message.success("로그아웃 완료");
                             history.push("/");
                           })

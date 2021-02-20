@@ -145,8 +145,7 @@ const Login = () => {
             message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
           }
           setLoading(false);
-        }}
-      >
+        }}>
         로그인
       </Button>
       <Button
@@ -168,7 +167,7 @@ const Login = () => {
               message.success("구글 로그인 성공");
 
               // localstorage 이용 상태 저장.
-              loginFunctions.onSuccess(authService.currentUser);
+              loginFunctions.onSuccess(authService.currentUser, true);
 
               history.push("/");
             }
@@ -177,8 +176,7 @@ const Login = () => {
             message.error("로그인 실패");
           }
         }}
-        name="google"
-      >
+        name="google">
         구글 로그인
       </Button>
 

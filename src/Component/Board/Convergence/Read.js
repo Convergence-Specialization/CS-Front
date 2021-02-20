@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { convergenceApi, globalApi } from "../../../api";
-import { readDoc } from "../../../assets/Resources";
+import { readDoc, horseIcons, etc } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import AlreadyLikedModal from "./Modal/AlreadyLiked";
@@ -13,7 +13,10 @@ import ReportOrDelete from "./Modal/ReportOrDelete";
 const Container = styled.div`
   padding-top: 50px;
 `;
-
+const TitleBox = styled.div`
+  display:flex;
+  align-items: center;
+`;
 const WhiteContainer = styled.div`
   width: 93%;
   padding: 12px 15px;
@@ -26,18 +29,18 @@ const WhiteContainer = styled.div`
 const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
-  padding-right: 25px;
+  margin-top: 2px;
+  padding-right: 10px;
 `;
 const SubText = styled.div`
-  padding: 8px 0px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
   font-size: 13px;
+  margin-top: 2px;
   line-height: 1.15;
 `;
 const ContentText = styled.div`
   line-height: 1.5;
   min-height: 90px;
+  margin-top: 7px;
   white-space: pre-wrap;
 `;
 const LikeCountText = styled.div`
@@ -72,9 +75,12 @@ const CommentImg = styled.img`
   margin-right: 5px;
 `;
 const CommentUpperWrapper = styled.div`
-  width: 100%;
+   width: 100%;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  padding: 5px 0 10px 3px;
+  padding: 0px 0 3px 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 const CommentUpperText = styled.div`
   font-weight: bold;
@@ -310,9 +316,17 @@ const Read = () => {
         {content.content !== undefined && (
           <>
             <WhiteContainer>
-              <Title> {content.nickname} </Title>
-              <SubText>{`${content.timestampDistance} 전`}</SubText>
+              <TitleBox>
+                <img
+                  src={horseIcons.horse_2}
+                  alt="융슝이"
+                  style={{ width: "38px", marginRight: "10px" }}
+                />
+                <Title> {content.nickname} </Title>
+                <SubText>{`${content.timestampDistance} 전`}</SubText>
+              </TitleBox>
               <ContentText>{content.content}</ContentText>
+
               {myEncryptedUid !== "" && (
                 <DocDeleteButton
                   src={readDoc.three_dots}
@@ -387,6 +401,7 @@ const Read = () => {
         <WhiteContainer>
           <CommentUpperWrapper>
             <CommentUpperText>댓글</CommentUpperText>
+            <img src={etc.resetButton} alt="융슝이" style={{ width: "25px", marginBottom: "5px" }} />
           </CommentUpperWrapper>
           {commentLoading ? (
             <LoadingComponent />

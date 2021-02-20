@@ -15,6 +15,7 @@ import home from "../assets/sideBarIcons/home.png";
 import downButton from "../assets/sideBarIcons/downButton.png";
 import upButton from "../assets/sideBarIcons/upButton.png";
 import newhorse from "../assets/horseIcons/newhorse.png";
+import horse_2 from "../assets/horseIcons/horse_2.png";
 import horse from "../assets/horseIcons/horse.png";
 import face from "../assets/horseIcons/face.png";
 import announce from "../assets/navbotIcons/announce.png";
@@ -22,6 +23,7 @@ import airplane from "../assets/navbotIcons/airplane.png";
 import check from "../assets/navbotIcons/check.png";
 import Home from "../assets/navIcons/Home.png";
 import UpArrow from "../assets/etc/UpArrow.png";
+import resetButton from "../assets/etc/resetButton.png";
 import github from "../assets/etc/github.png";
 import infoEdit from "../assets/etc/infoEdit.png";
 import ssu from "../assets/etc/ssu.png";
@@ -73,6 +75,7 @@ export const etc = {
   github,
   infoEdit,
   ssu,
+  resetButton,
 };
 
 export const majorIntroduce = {
@@ -99,6 +102,7 @@ export const horseIcons = {
   newhorse,
   face,
   horse,
+  horse_2,
 };
 export const navbotIcons = {
   announce,

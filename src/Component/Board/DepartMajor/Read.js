@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { departMajorApi, globalApi } from "../../../api";
-import { readDoc } from "../../../assets/Resources";
+import { readDoc, etc } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import SelectSubjectModal from "./Modal/Read";
@@ -76,10 +76,14 @@ const CommentImg = styled.img`
 const CommentUpperWrapper = styled.div`
   width: 100%;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  padding: 5px 0 10px 3px;
+  padding: 0px 0 3px 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 const CommentUpperText = styled.div`
   font-weight: bold;
+  text-align:center;
 `;
 const CommentChildWrapper = styled.div`
   margin-top: 5px;
@@ -421,6 +425,7 @@ const Read = () => {
         <WhiteContainer>
           <CommentUpperWrapper>
             <CommentUpperText>댓글</CommentUpperText>
+            <img src={etc.resetButton} alt="융슝이" style={{ width: "25px", marginBottom: "5px" }} />
           </CommentUpperWrapper>
           {commentLoading ? (
             <LoadingComponent />

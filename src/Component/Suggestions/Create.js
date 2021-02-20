@@ -82,6 +82,7 @@ const Button = styled.div`
 const Text = styled.div`
   font-size: 23px;
   font-weight: bold;
+  line-height: 1.5;
   margin: 100px 0px 10px 40px;
   @media (max-width: 430px) {
     font-size: 14px;
@@ -111,7 +112,9 @@ const Suggestions = () => {
   const history = useHistory();
   return (
     <>
-      <Text>수정할 점과 건의사항을 자유롭게 적어주세요!</Text>
+      <Text>수정할 점과 건의사항을 자유롭게 적어주세요!
+      
+      </Text>
       <Img src={horseIcons.newhorse} />
       <Container>
         <TitleInput
@@ -120,7 +123,8 @@ const Suggestions = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <ContentTextArea
-          placeholder="건의사항을 입력해주세요"
+          placeholder="건의사항을 입력해주세요.
+모든 건의사항은 익명으로 처리됩니다."
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />

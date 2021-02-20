@@ -79,8 +79,15 @@ export const useAuth = () => {
 };
 
 export const loginFunctions = {
-  onSuccess: (user) => {
-    localStorage.setItem("userInfo", JSON.stringify(user));
+  onSuccess: (user, isGoogle) => {
+    const stringifiedUserInfo = JSON.stringify(user);
+    const userInfoObject = JSON.parse(stringifiedUserInfo);
+
+    if (isGoogle) {
+      userInfoObject.isGoogle = true;
+    }
+
+    localStorage.setItem("userInfo", JSON.stringify(userInfoObject));
   },
   onLogout: () => localStorage.clear(),
   getUserInfo: () => JSON.parse(localStorage.getItem("userInfo")),

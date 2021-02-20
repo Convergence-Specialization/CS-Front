@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { Images, navIcons, horseIcons } from "../../assets/Resources";
+import { Images, horseIcons } from "../../assets/Resources";
 import message from "antd/lib/message";
 import { authService, firebaseInstance } from "../../firebase";
 import { userApi } from "../../api";

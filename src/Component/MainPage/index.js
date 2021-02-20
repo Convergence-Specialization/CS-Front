@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { convergenceApi, departMajorApi } from "../../api";
 import LoadingSmall from "../SmallComponents/LoadingSmall";
-import LoadingComponent from "../SmallComponents/Loading";
 
 const Container = styled.div`
   width: 100%;

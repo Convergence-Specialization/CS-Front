@@ -23,6 +23,7 @@ import airplane from "../assets/navbotIcons/airplane.png";
 import check from "../assets/navbotIcons/check.png";
 import Home from "../assets/navIcons/Home.png";
 import UpArrow from "../assets/etc/UpArrow.png";
+import resetButton from "../assets/etc/resetButton.png";
 import github from "../assets/etc/github.png";
 import infoEdit from "../assets/etc/infoEdit.png";
 import ssu from "../assets/etc/ssu.png";
@@ -74,6 +75,7 @@ export const etc = {
   github,
   infoEdit,
   ssu,
+  resetButton,
 };
 
 export const majorIntroduce = {

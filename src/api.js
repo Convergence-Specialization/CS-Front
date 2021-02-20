@@ -43,7 +43,6 @@ export const userApi = {
           .get()
           .then((doc) => {
             let data = doc.data();
-            console.log(data);
             let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
               locale: ko,
             }).replace("약 ", "");

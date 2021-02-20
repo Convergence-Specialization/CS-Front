@@ -5,8 +5,8 @@ import { convergenceApi } from "../../../api";
 import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import message from "antd/lib/message";
-import { nameList, nameListLength } from "../Convergence/NameList";
 import { horseIcons, readDoc } from "../../../assets/Resources";
+
 let a = 5;
 const Container = styled.div`
   width: 100%;

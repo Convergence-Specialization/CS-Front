@@ -40,6 +40,7 @@ import graduate from "../assets/events/graduate.jpg";
 import ssuevent from "../assets/events/ssu.jpg";
 import friday from "../assets/events/friday.jpg";
 import mentor from "../assets/events/mentor.jpg";
+import notificationOn from "../assets/navIcons/notificationOn.png";
 
 export const events = {
   graduate,
@@ -97,6 +98,7 @@ export const navIcons = {
   Home,
   profile,
   notification,
+  notificationOn,
 };
 export const horseIcons = {
   newhorse,

@@ -40,7 +40,6 @@ const BoardContainer = styled.div`
 const BoardChildWrapper = styled.div`
   padding: 12px;
   font-size: 15px;
-  border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
 const BoardChildTitleWrapper = styled.div`
@@ -149,6 +148,7 @@ const ChangedBoard = () => {
           ) : (
             posts.map((item, idx) => (
               <BoardChildWrapper
+              style={posts.length-1 === idx ? {}: {borderBottom:'2.5px solid #f1f1f1'}}
                 key={idx}
                 onClick={() =>
                   history.push({

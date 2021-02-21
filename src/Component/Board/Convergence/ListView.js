@@ -21,7 +21,6 @@ const BoardContainer = styled.div`
 const BoardChildWrapper = styled.div`
   padding: 8px 12px;
   font-size: 15px;
-  border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
 const BoardChildTitle = styled.div`
@@ -70,6 +69,7 @@ const ConvergenceListView = () => {
   const [posts, setPosts] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [noMoreDocs, setNoMoreDocs] = useState(false);
+
   useEffect(() => {
     convergenceApi
       .getLists({ size: 10 })
@@ -90,6 +90,7 @@ const ConvergenceListView = () => {
           ) : (
             posts.map((item, idx) => (
               <BoardChildWrapper
+                style={posts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
                 key={idx}
                 onClick={() =>
                   history.push({
@@ -100,6 +101,7 @@ const ConvergenceListView = () => {
                     },
                   })
                 }>
+              
                 <BoardChildTitle style={{ width: "80%" }}>
                   <img
                     src={horseIcons.newhorse}

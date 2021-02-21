@@ -144,14 +144,14 @@ const SlickCustomLeftButton = styled.div`
   top: 40%;
   left: 5px;
   font-size: 14px;
-  z-index: 99;
+  z-index: 98;
 `;
 const SlickCustomRightButton = styled.div`
   position: absolute;
   top: 40%;
   right: 5px;
   font-size: 14px;
-  z-index: 99;
+  z-index: 98;
 `;
 const IntroduceImage = styled.img`
   margin: 0 auto;

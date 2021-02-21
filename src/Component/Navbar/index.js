@@ -30,27 +30,29 @@ const Navbar = ({
 
   return (
     <>
-     <SelectSubjectModal
+      <SelectSubjectModal
         visible={subjectModalVisible}
         onClose={() => setSubjectModalVisible(false)}
       />
       <NavContainer>
         <Nav style={isTransparent ? { backgroundColor: "rgba(0,0,0,0)" } : {}}>
           {!Iconleft && <Bars onClick={() => setSubjectModalVisible(true)} />}
-          <NavLink to="/">{!!Navname ? Navname : "융특 커뮤니티 슝"}</NavLink>
+          <NavLink onClick={() => history.push("/")}>
+            {Navname || "융특 커뮤니티 슝"}
+          </NavLink>
           <NavLeftMargin />
           {!isRight1Disabled && (
             <IconImg
-            onClick={() => {
-              if (user) {
-                history.push("/");
-                if (!History) {
-                  history.push("/notification");
+              onClick={() => {
+                if (user) {
+                  history.push("/");
+                  if (!History) {
+                    history.push("/notification");
+                  }
+                } else {
+                  history.push("/login");
                 }
-              } else {
-                history.push("/login");
-              }
-            }}
+              }}
               src={IconRight1 || navIcons.notification}
               alt={IconNameRight1 || "아이콘2"}
             />

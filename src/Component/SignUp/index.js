@@ -96,6 +96,7 @@ const InputBox = styled.input`
   border-bottom: 2px solid white;
   padding: 10px;
   font-size: 20px;
+  -webkit-border-radius: 0;
   ::placeholder {
     color: #a1a1a1;
   }

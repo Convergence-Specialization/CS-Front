@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { departMajorApi } from "../../../api";
-
-import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import message from "antd/lib/message";
 import SelectSubjectModal from "./Modal";
@@ -229,7 +227,6 @@ const ChangedBoard = () => {
             더보기
           </MoreButton>
         )}
-        <GoUp />
       </Container>
     </>
   );

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { convergenceApi } from "../../../api";
-import GoUp from "../../SmallComponents/GoUp";
 import LoadingComponent from "../../SmallComponents/Loading";
 import message from "antd/lib/message";
 import { horseIcons, readDoc } from "../../../assets/Resources";
@@ -156,7 +155,6 @@ const ConvergenceListView = () => {
             더보기
           </MoreButton>
         )}
-        <GoUp />
       </Container>
     </>
   );

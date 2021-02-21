@@ -15,6 +15,7 @@ const Container = styled.div`
   flex-direction: row;
   background-color: white;
   border-radius: 15px;
+  align-items: center;
   padding: 10px 0px 10px 20px;
   @media (max-width: 430px) {
     padding: 10px;
@@ -56,7 +57,7 @@ const Text = styled.div`
   }
 `;
 const Img = styled.img`
-  width: 20%;
+  width: 20px;
   @media (max-width: 430px) {
     width: 20%;
   }

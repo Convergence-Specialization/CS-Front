@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Nav,
   NavLink,
@@ -9,9 +9,10 @@ import {
   NavUpperMargin,
 } from "./NavbarElements";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../Watchers";
+import { loginFunctions, useAuth } from "../Watchers";
 import { navIcons } from "../../assets/Resources";
 import SelectSubjectModal from "./Modal";
+import { userApi } from "../../api";
 const Navbar = ({
   Navname,
   isTransparent,
@@ -27,6 +28,25 @@ const Navbar = ({
   const user = useAuth();
   const history = useHistory();
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
+  const [unreadNotificationExist, setUnreadNotificationsExist] = useState(
+    false
+  );
+
+  useEffect(() => {
+    const userInfo = loginFunctions.getUserInfo();
+    if (!userInfo) return;
+
+    // 아직 안읽은 알림들 가져오기
+    userApi
+      .getUnreadNotifications({
+        uid: userInfo.uid,
+        size: 1,
+      })
+      .then((notificationArray) => {
+        setUnreadNotificationsExist(notificationArray.length === 1);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
 
   return (
     <>
@@ -53,8 +73,12 @@ const Navbar = ({
                   history.push("/login");
                 }
               }}
-              src={IconRight1 || navIcons.notification}
-              alt={IconNameRight1 || "아이콘2"}
+              src={
+                unreadNotificationExist
+                  ? navIcons.notificationOn
+                  : navIcons.notification
+              }
+              alt={"알림 아이콘"}
             />
           )}
           {!isRight2Disabled && (

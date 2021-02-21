@@ -6,7 +6,6 @@ import { convergenceApi, globalApi } from "../../../api";
 import { readDoc, horseIcons, etc } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
-import AlreadyLikedModal from "./Modal/AlreadyLiked";
 import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
 
@@ -214,11 +213,6 @@ const Read = () => {
   const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
-  const [alreadyLikedModalVisible, setAlreadyLikedModalVisible] = useState(
-    false
-  );
-  const [isCommentWarning, setIsCommentWarning] = useState(false);
-
   const [reportOrDeleteModalVisible, setReportOrDeleteModalVisible] = useState(
     false
   );
@@ -299,11 +293,6 @@ const Read = () => {
   return (
     <>
       <Container>
-        <AlreadyLikedModal
-          visible={alreadyLikedModalVisible}
-          onClose={() => setAlreadyLikedModalVisible(false)}
-          isCommentWarning={isCommentWarning}
-        />
         <ReportOrDelete
           visible={reportOrDeleteModalVisible}
           onClose={() => setReportOrDeleteModalVisible(false)}
@@ -363,8 +352,7 @@ const Read = () => {
                     onClick={() => {
                       if (uploading) return;
                       if (didILikedThisDoc) {
-                        setAlreadyLikedModalVisible(true);
-                        setIsCommentWarning(false);
+                        message.error("이미 공감한 글입니다.");
                         return;
                       }
                       message.loading("좋아요 누르는 중..", 10);
@@ -474,8 +462,7 @@ const Read = () => {
                       onClick={() => {
                         if (uploading) return;
                         if (item.didILiked) {
-                          setAlreadyLikedModalVisible(true);
-                          setIsCommentWarning(true);
+                          message.error("이미 공감한 댓글입니다.");
                           return;
                         }
                         message.loading("좋아요 누르는 중..", 10);
@@ -561,8 +548,7 @@ const Read = () => {
                           onClick={() => {
                             if (uploading) return;
                             if (subItem.didILiked) {
-                              setAlreadyLikedModalVisible(true);
-                              setIsCommentWarning(true);
+                              message.error("이미 공감한 글입니다.");
                               return;
                             }
                             message.loading("좋아요 누르는 중..", 10);

@@ -40,7 +40,16 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
   const history = useHistory();
   return (
     <Container>
-      <IconImg src={Icon} />
+      <IconImg src={Icon} 
+       onClick={() => {
+        if (Name === "내가 쓴 글") {
+          history.push("/mypage/myposts");
+        } else if (Name === "전과 게시판") {
+          history.push("/board/departmajor");
+        } else if (Name === "융특 게시판") {
+          history.push("/board/convergence");
+        }
+      }}/>
       <Text
         onClick={() => {
           if (Name === "내가 쓴 글") {

@@ -5,10 +5,10 @@ import { convergenceApi } from "../../../api";
 import message from "antd/lib/message";
 
 const Container = styled.div`
-  padding-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 20px;
   background-color: #f1f1f1;
 `;
 const ContentTextArea = styled.textarea`

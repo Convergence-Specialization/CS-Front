@@ -8,7 +8,7 @@ import { horseIcons, readDoc } from "../../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
-  padding: 40px 0;
+  padding-bottom: 25px;
 `;
 const BoardContainer = styled.div`
   width: 93%;

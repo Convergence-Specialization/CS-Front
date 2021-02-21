@@ -8,11 +8,10 @@ import { horseIcons } from "../../../assets/Resources";
 import SelectSubjectModal from "./Modal";
 
 const Container = styled.div`
-  padding-top: 60px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f1f1f1;
 `;
 const TitleInput = styled.input`
   width: 93%;

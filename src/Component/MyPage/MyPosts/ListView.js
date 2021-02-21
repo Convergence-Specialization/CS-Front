@@ -7,9 +7,7 @@ import { userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { loginFunctions } from "../../Watchers";
-const Container = styled.div`
-  padding-top: 45px;
-`;
+
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
   display: flex;
@@ -131,7 +129,6 @@ const MyPost = () => {
   }, []);
   return (
     <>
-      <Container>
         <BoardContainer>
           <Box>
             <Text>융특 게시판</Text>
@@ -266,7 +263,6 @@ const MyPost = () => {
             ))
           )}
         </BoardContainer>
-      </Container>
     </>
   );
 };

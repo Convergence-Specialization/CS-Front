@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { horseIcons } from "../../../../assets/Resources";
+import { events } from "../../../../assets/Resources";
 import message from "antd/lib/message";
 import { useHistory } from "react-router-dom";
+
 const Container = styled.div`
-  padding-top: 15px;
+  padding: 15px 0 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,7 +57,7 @@ const ContentTextArea = styled.textarea`
 `;
 const Img = styled.img`
   width: 18%;
-  margin:10px 10px 0px 10px;
+  margin: 10px 10px 0px 10px;
 `;
 const ButtonWrapper = styled.div`
   width: 80%;
@@ -68,6 +69,7 @@ const ImgText = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 const Button = styled.div`
   padding: 10px 40px;
   border-radius: 15px;
@@ -95,10 +97,10 @@ const Create = () => {
             <div>첨부할 사진을 선택하세요</div>
             <div style={{ cursor: "pointer" }}>추가</div>
           </ImgText>
-          <Img src={horseIcons.normal} alt="말머리" />
-          <Img src={horseIcons.normal} alt="말머리" />
-          <Img src={horseIcons.normal} alt="말머리" />
-          <Img src={horseIcons.normal} alt="말머리" />
+          <Img src={events.friday} alt="말머리" />
+          <Img src={events.friday} alt="말머리" />
+          <Img src={events.friday} alt="말머리" />
+          <Img src={events.friday} alt="말머리" />
         </InputImg>
         <ContentTextArea placeholder="내용을 입력하세요" />
         <ButtonWrapper>

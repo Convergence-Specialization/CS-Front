@@ -25,7 +25,7 @@ const AnnouncePresenter = () => {
         setRenderElement(<EventPost />);
         break;
       default:
-        setRenderElement(<ListView />);
+        setRenderElement(<Create />);
     }
   }, [location]);
   return (

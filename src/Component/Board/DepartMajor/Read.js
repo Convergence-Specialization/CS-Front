@@ -8,12 +8,8 @@ import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
 import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
-
 import { subjectDicts } from "../../../assets/Dicts";
 
-const Container = styled.div`
-  padding-top: 45px;
-`;
 const WhiteContainer = styled.div`
   width: 93%;
   padding: 12px 15px;
@@ -312,7 +308,6 @@ const Read = () => {
   }, [getComments, location.state, didILikedDoc, getMyEncryptedUid]);
   return (
     <>
-      <Container>
         <ReportOrDelete
           visible={reportOrDeleteModalVisible}
           onClose={() => setReportOrDeleteModalVisible(false)}
@@ -697,7 +692,6 @@ const Read = () => {
             작성하기
           </CommentInputSubmitButton>
         </CommentInputContainer>
-      </Container>
     </>
   );
 };

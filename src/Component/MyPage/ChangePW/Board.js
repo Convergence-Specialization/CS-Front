@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import message from "antd/lib/message";
-import SelectSubjectModal from "../Modal";
+
 
 const Container = styled.div`
   padding: 20px;
@@ -42,14 +42,10 @@ const InputBox = styled.input`
 const Board = () => {
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
-  const [subjectModalVisible, setSubjectModalVisible] = useState(false);
+ 
   return (
     <>
-      <SelectSubjectModal
-        visible={subjectModalVisible}
-        onClose={() => setSubjectModalVisible(false)}
-        name="회원 정보가 수정되었습니다."
-      />
+      
       <Title style={{ marginTop: "40px" }}>계정 비밀번호</Title>
       <Container>
         <InputBox type="password" placeholder="계정 비밀번호" />
@@ -79,7 +75,6 @@ const Board = () => {
             return;
           } else {
             message.success("비밀번호가 변경되었습니다.");
-            setSubjectModalVisible(true);
           }
         }}
         style={{ backgroundColor: "lightgray", marginTop: "35px" }}

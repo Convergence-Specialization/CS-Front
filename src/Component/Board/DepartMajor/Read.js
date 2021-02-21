@@ -6,7 +6,6 @@ import { departMajorApi, globalApi } from "../../../api";
 import { readDoc, etc } from "../../../assets/Resources";
 import { db } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
-import SelectSubjectModal from "./Modal/Read";
 import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
 
@@ -234,9 +233,6 @@ const Read = () => {
   const [comments, setComments] = useState([]);
   const [uploading, setUploading] = useState(false);
 
-  const [subjectModalVisible, setSubjectModalVisible] = useState(false);
-  const [isCommentWarning, setIsCommentWarning] = useState(false);
-
   const [reportOrDeleteModalVisible, setReportOrDeleteModalVisible] = useState(
     false
   );
@@ -317,11 +313,6 @@ const Read = () => {
   return (
     <>
       <Container>
-        <SelectSubjectModal
-          visible={subjectModalVisible}
-          onClose={() => setSubjectModalVisible(false)}
-          isCommentWarning={isCommentWarning}
-        />
         <ReportOrDelete
           visible={reportOrDeleteModalVisible}
           onClose={() => setReportOrDeleteModalVisible(false)}
@@ -387,8 +378,7 @@ const Read = () => {
                     onClick={() => {
                       if (uploading) return;
                       if (didILikedThisDoc) {
-                        setSubjectModalVisible(true);
-                        setIsCommentWarning(false);
+                        message.error("이미 공감한 글입니다.");
                         return;
                       }
                       message.loading("좋아요 누르는 중..", 10);
@@ -498,8 +488,7 @@ const Read = () => {
                       onClick={() => {
                         if (uploading) return;
                         if (item.didILiked) {
-                          setSubjectModalVisible(true);
-                          setIsCommentWarning(true);
+                          message.error("이미 공감한 댓글입니다.");
                           return;
                         }
                         message.loading("좋아요 누르는 중..", 10);
@@ -585,8 +574,7 @@ const Read = () => {
                           onClick={() => {
                             if (uploading) return;
                             if (subItem.didILiked) {
-                              setSubjectModalVisible(true);
-                              setIsCommentWarning(true);
+                              message.error("이미 공감한 댓글입니다.");
                               return;
                             }
                             message.loading("좋아요 누르는 중..", 10);

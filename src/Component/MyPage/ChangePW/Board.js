@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import message from "antd/lib/message";
-
+import { authInstance, authService } from "../../../firebase";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   padding: 20px;
@@ -40,15 +41,16 @@ const InputBox = styled.input`
 `;
 
 const Board = () => {
+  const history = useHistory();
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
- 
+  const [uploading, setUploading] = useState(false);
+
   return (
     <>
-      
       <Title style={{ marginTop: "40px" }}>계정 비밀번호</Title>
       <Container>
-        <InputBox type="password" placeholder="계정 비밀번호" />
+        <InputBox type="password" placeholder="계정 비밀번호" id="previousPw" />
       </Container>
       <Title>새 계정 비밀번호</Title>
       <Container>
@@ -69,19 +71,38 @@ const Board = () => {
         />
       </Container>
       <Container
-        onClick={() => {
+        onClick={async () => {
+          if (uploading) return;
           if (pw !== pwCheck) {
-            alert("비밀번호가 일치하지 않습니다.");
+            message.destroy();
+            message.error("새 비밀번호 확인이 일치하지 않습니다.");
             return;
-          } else {
+          }
+          setUploading(true);
+          message.destroy();
+          message.loading("비밀번호 변경 중..");
+          try {
+            let user = authService.currentUser;
+            let credential = authInstance.EmailAuthProvider.credential(
+              user.email,
+              document.getElementById("previousPw").value
+            );
+            await user.reauthenticateWithCredential(credential);
+            await user.updatePassword(pw);
+            message.destroy();
             message.success("비밀번호가 변경되었습니다.");
+            history.goBack();
+          } catch (err) {
+            console.log(err);
+            message.destroy();
+            message.error("기존 비밀번호가 일치하지 않습니다.");
+          } finally {
+            setUploading(false);
           }
         }}
-        style={{ backgroundColor: "lightgray", marginTop: "35px" }}
-      >
+        style={{ backgroundColor: "lightgray", marginTop: "35px" }}>
         <Text
-          style={{ textAlign: "center", fontSize: "16px", fontWeight: "bold" }}
-        >
+          style={{ textAlign: "center", fontSize: "16px", fontWeight: "bold" }}>
           비밀번호 변경
         </Text>
       </Container>

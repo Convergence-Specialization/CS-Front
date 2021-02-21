@@ -6,7 +6,6 @@ import LoadingComponent from "../../SmallComponents/Loading";
 import message from "antd/lib/message";
 import { horseIcons, readDoc } from "../../../assets/Resources";
 
-let a = 5;
 const Container = styled.div`
   width: 100%;
   padding: 40px 0;
@@ -69,10 +68,17 @@ const MoreButton = styled.div`
 const ConvergenceListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
+  const [uploading, setUploading] = useState(false);
+  const [noMoreDocs, setNoMoreDocs] = useState(false);
   useEffect(() => {
     convergenceApi
       .getLists({ size: 10 })
-      .then((docsArray) => setPosts(docsArray))
+      .then((docsArray) => {
+        setPosts(docsArray);
+        if (docsArray.length < 10) {
+          setNoMoreDocs(true);
+        }
+      })
       .catch((error) => message.error(error.message));
   }, []);
   return (
@@ -93,14 +99,12 @@ const ConvergenceListView = () => {
                       docItem: item,
                     },
                   })
-                }
-              >
+                }>
                 <BoardChildTitle style={{ width: "80%" }}>
                   <img
                     src={horseIcons.newhorse}
                     alt="융슝이"
-                    style={{ width: "25px", marginRight: "5px" }}
-                  ></img>
+                    style={{ width: "25px", marginRight: "5px" }}></img>
                   {item.nickname}
                 </BoardChildTitle>
                 <BoardChildContent>{item.content}</BoardChildContent>
@@ -126,17 +130,31 @@ const ConvergenceListView = () => {
             ))
           )}
         </BoardContainer>
-        <MoreButton
-          onClick={() => {
-            convergenceApi
-              .getLists({ size: 10 + a })
-              .then((docsArray) => setPosts(docsArray))
-              .catch((error) => message.error(error.message));
-            a = a + 5;
-          }}
-        >
-          더보기
-        </MoreButton>
+        {!noMoreDocs && (
+          <MoreButton
+            onClick={async () => {
+              try {
+                if (uploading) return;
+                setUploading(true);
+                message.loading("더 불러오는 중..");
+                let additionalDocsArray = await convergenceApi.getLists({
+                  size: 10,
+                  startAfterDocId: posts[posts.length - 1].docId,
+                });
+                if (additionalDocsArray.length < 10) {
+                  setNoMoreDocs(true);
+                }
+                setPosts([...posts, ...additionalDocsArray]);
+                message.destroy();
+              } catch (err) {
+                message.error(err.message);
+              } finally {
+                setUploading(false);
+              }
+            }}>
+            더보기
+          </MoreButton>
+        )}
       </Container>
     </>
   );

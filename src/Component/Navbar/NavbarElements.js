@@ -32,7 +32,7 @@ export const NavLeftMargin = styled.div`
   flex: 1;
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled.div`
   font-family: "Jal_Onuel";
   position: absolute;
   color: white;

@@ -141,37 +141,70 @@ export const userApi = {
 };
 
 export const convergenceApi = {
-  getLists: (body) => {
+  getLists: async (body) => {
     const { size, startAfterDocId } = body;
-    // TODO: if startAfterDocId가 있으면..
-    return db
-      .collection("convergence")
-      .orderBy("timestamp", "desc")
-      .limit(size)
-      .get()
-      .then((querySnapshot) => {
-        let docsArray = [];
-        querySnapshot.forEach((doc) => {
-          let data = doc.data();
-          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
-            locale: ko,
-          }).replace("약 ", "");
-          if (distanceText.includes("미만")) {
-            distanceText = "방금";
-          }
-          docsArray.push({
-            docId: doc.id,
-            content: data.content,
-            nickname: data.nickname,
-            timestampDistance: distanceText,
-            timestampMillis: data.timestamp.toMillis(),
-            commentCount: data.comments_count,
-            likeCount: data.likes_count,
-            encryptedUid: data.encryptedUid,
-          });
+    if (!startAfterDocId) {
+      const querySnapshot = await db
+        .collection("convergence")
+        .orderBy("timestamp", "desc")
+        .limit(size)
+        .get();
+      let docsArray = [];
+      querySnapshot.forEach((doc) => {
+        let data = doc.data();
+        let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+          locale: ko,
+        }).replace("약 ", "");
+        if (distanceText.includes("미만")) {
+          distanceText = "방금";
+        }
+        docsArray.push({
+          docId: doc.id,
+          content: data.content,
+          nickname: data.nickname,
+          timestampDistance: distanceText,
+          timestampMillis: data.timestamp.toMillis(),
+          commentCount: data.comments_count,
+          likeCount: data.likes_count,
+          encryptedUid: data.encryptedUid,
         });
-        return docsArray;
       });
+      return docsArray;
+    } else {
+      // 더 보기를 누른 상태이면.
+      const startAfterDoc = await db
+        .collection("convergence")
+        .doc(startAfterDocId)
+        .get();
+
+      const querySnapshot_3 = await db
+        .collection("convergence")
+        .orderBy("timestamp", "desc")
+        .startAfter(startAfterDoc)
+        .limit(size)
+        .get();
+      let docsArray_3 = [];
+      querySnapshot_3.forEach((doc_3) => {
+        let data_3 = doc_3.data();
+        let distanceText_3 = formatDistanceToNow(data_3.timestamp.toMillis(), {
+          locale: ko,
+        }).replace("약 ", "");
+        if (distanceText_3.includes("미만")) {
+          distanceText_3 = "방금";
+        }
+        docsArray_3.push({
+          docId: doc_3.id,
+          content: data_3.content,
+          nickname: data_3.nickname,
+          timestampDistance: distanceText_3,
+          timestampMillis: data_3.timestamp.toMillis(),
+          commentCount: data_3.comments_count,
+          likeCount: data_3.likes_count,
+          encryptedUid: data_3.encryptedUid,
+        });
+      });
+      return docsArray_3;
+    }
   },
   myEncryptedUid: (body) =>
     api.post("board/convergence/myencrypteduid", body, {
@@ -376,73 +409,148 @@ export const convergenceApi = {
 };
 
 export const departMajorApi = {
-  getLists: (body) => {
+  getLists: async (body) => {
     const { size, startAfterDocId, subject } = body;
-    // TODO: if startAfterDocId가 있으면..
-    if (subject !== undefined && subject !== "" && subject !== "NONE") {
-      return db
-        .collection("departMajor")
-        .where("subject", "==", subject)
-        .orderBy("timestamp", "desc")
-        .limit(size)
-        .get()
-        .then((querySnapshot) => {
-          let docsArray = [];
-          querySnapshot.forEach((doc) => {
-            let data = doc.data();
-            let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
-              locale: ko,
-            }).replace("약 ", "");
-            if (distanceText.includes("미만")) {
-              distanceText = "방금";
-            }
-            docsArray.push({
-              docId: doc.id,
-              title: data.title,
-              content: data.content,
-              nickname: data.nickname,
-              timestampDistance: distanceText,
-              timestampMillis: data.timestamp.toMillis(),
-              commentCount: data.comments_count,
-              likeCount: data.likes_count,
-              subject: data.subject,
-              encryptedUid: data.encryptedUid,
-            });
+    if (!startAfterDocId) {
+      if (subject !== undefined && subject !== "" && subject !== "NONE") {
+        const querySnapshot = await db
+          .collection("departMajor")
+          .where("subject", "==", subject)
+          .orderBy("timestamp", "desc")
+          .limit(size)
+          .get();
+        let docsArray = [];
+        querySnapshot.forEach((doc) => {
+          let data = doc.data();
+          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+            locale: ko,
+          }).replace("약 ", "");
+          if (distanceText.includes("미만")) {
+            distanceText = "방금";
+          }
+          docsArray.push({
+            docId: doc.id,
+            title: data.title,
+            content: data.content,
+            nickname: data.nickname,
+            timestampDistance: distanceText,
+            timestampMillis: data.timestamp.toMillis(),
+            commentCount: data.comments_count,
+            likeCount: data.likes_count,
+            subject: data.subject,
+            encryptedUid: data.encryptedUid,
           });
-          return docsArray;
         });
-    } else {
-      return db
-        .collection("departMajor")
-        .orderBy("timestamp", "desc")
-        .limit(size)
-        .get()
-        .then((querySnapshot) => {
-          let docsArray = [];
-          querySnapshot.forEach((doc) => {
-            let data = doc.data();
+        return docsArray;
+      } else {
+        const querySnapshot_1 = await db
+          .collection("departMajor")
+          .orderBy("timestamp", "desc")
+          .limit(size)
+          .get();
+        let docsArray_1 = [];
+        querySnapshot_1.forEach((doc_1) => {
+          let data_1 = doc_1.data();
 
-            let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+          let distanceText_1 = formatDistanceToNow(
+            data_1.timestamp.toMillis(),
+            {
               locale: ko,
-            }).replace("약 ", "");
-            if (distanceText.includes("미만")) {
-              distanceText = "방금";
             }
-            docsArray.push({
-              docId: doc.id,
-              title: data.title,
-              content: data.content,
-              nickname: data.nickname,
-              timestampDistance: distanceText,
-              timestampMillis: data.timestamp.toMillis(),
-              commentCount: data.comments_count,
-              likeCount: data.likes_count,
-              subject: data.subject,
-              encryptedUid: data.encryptedUid,
-            });
+          ).replace("약 ", "");
+          if (distanceText_1.includes("미만")) {
+            distanceText_1 = "방금";
+          }
+          docsArray_1.push({
+            docId: doc_1.id,
+            title: data_1.title,
+            content: data_1.content,
+            nickname: data_1.nickname,
+            timestampDistance: distanceText_1,
+            timestampMillis: data_1.timestamp.toMillis(),
+            commentCount: data_1.comments_count,
+            likeCount: data_1.likes_count,
+            subject: data_1.subject,
+            encryptedUid: data_1.encryptedUid,
           });
-          return docsArray;
         });
+        return docsArray_1;
+      }
+    } else {
+      // 더 보기를 누른 상태이면.
+      const startAfterDoc = await db
+        .collection("departMajor")
+        .doc(startAfterDocId)
+        .get();
+      if (subject !== undefined && subject !== "" && subject !== "NONE") {
+        const querySnapshot_2 = await db
+          .collection("departMajor")
+          .where("subject", "==", subject)
+          .orderBy("timestamp", "desc")
+          .startAfter(startAfterDoc)
+          .limit(size)
+          .get();
+        let docsArray_2 = [];
+        querySnapshot_2.forEach((doc_2) => {
+          let data_2 = doc_2.data();
+          let distanceText_2 = formatDistanceToNow(
+            data_2.timestamp.toMillis(),
+            {
+              locale: ko,
+            }
+          ).replace("약 ", "");
+          if (distanceText_2.includes("미만")) {
+            distanceText_2 = "방금";
+          }
+          docsArray_2.push({
+            docId: doc_2.id,
+            title: data_2.title,
+            content: data_2.content,
+            nickname: data_2.nickname,
+            timestampDistance: distanceText_2,
+            timestampMillis: data_2.timestamp.toMillis(),
+            commentCount: data_2.comments_count,
+            likeCount: data_2.likes_count,
+            subject: data_2.subject,
+            encryptedUid: data_2.encryptedUid,
+          });
+        });
+        return docsArray_2;
+      } else {
+        const querySnapshot_3 = await db
+          .collection("departMajor")
+          .orderBy("timestamp", "desc")
+          .startAfter(startAfterDoc)
+          .limit(size)
+          .get();
+        let docsArray_3 = [];
+        querySnapshot_3.forEach((doc_3) => {
+          let data_3 = doc_3.data();
+
+          let distanceText_3 = formatDistanceToNow(
+            data_3.timestamp.toMillis(),
+            {
+              locale: ko,
+            }
+          ).replace("약 ", "");
+          if (distanceText_3.includes("미만")) {
+            distanceText_3 = "방금";
+          }
+          docsArray_3.push({
+            docId: doc_3.id,
+            title: data_3.title,
+            content: data_3.content,
+            nickname: data_3.nickname,
+            timestampDistance: distanceText_3,
+            timestampMillis: data_3.timestamp.toMillis(),
+            commentCount: data_3.comments_count,
+            likeCount: data_3.likes_count,
+            subject: data_3.subject,
+            encryptedUid: data_3.encryptedUid,
+          });
+        });
+        return docsArray_3;
+      }
     }
   },
   myEncryptedUid: (body) =>

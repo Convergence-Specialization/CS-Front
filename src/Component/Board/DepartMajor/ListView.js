@@ -10,8 +10,6 @@ import SelectSubjectModal from "./Modal";
 import { horseIcons, readDoc } from "../../../assets/Resources";
 import { subjectDicts } from "../../../assets/Dicts";
 
-let a = 5;
-
 const Container = styled.div`
   width: 100%;
   padding: 60px 0;
@@ -95,12 +93,20 @@ const ChangedBoard = () => {
   const [posts, setPosts] = useState([]);
   const [subjectSelected, setSubjectSelected] = useState("");
   const [subjectModalVisible, setSubjectModalVisible] = useState(false);
+
+  const [uploading, setUploading] = useState(false);
+
+  const [noMoreDocs, setNoMoreDocs] = useState(false);
   useEffect(() => {
-    // TODO: API에서 더보기 구현.
     setPosts([]);
     departMajorApi
       .getLists({ size: 10, subject: subjectSelected })
-      .then((docsArray) => setPosts(docsArray))
+      .then((docsArray) => {
+        setPosts(docsArray);
+        if (docsArray.length < 10) {
+          setNoMoreDocs(true);
+        }
+      })
       .catch((error) => console.log(error.message));
   }, [subjectSelected]);
   return (
@@ -131,8 +137,9 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
-              >
+                style={
+                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
+                }>
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -153,8 +160,7 @@ const ChangedBoard = () => {
                       docItem: item,
                     },
                   })
-                }
-              >
+                }>
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -197,17 +203,32 @@ const ChangedBoard = () => {
             ))
           )}
         </BoardContainer>
-        <MoreButton
-          onClick={() => {
-            departMajorApi
-              .getLists({ size: 10 + a })
-              .then((docsArray) => setPosts(docsArray))
-              .catch((error) => message.error(error.message));
-            a = a + 5;
-          }}
-        >
-          더보기
-        </MoreButton>
+        {!noMoreDocs && (
+          <MoreButton
+            onClick={async () => {
+              try {
+                if (uploading) return;
+                setUploading(true);
+                message.loading("더 불러오는 중..");
+                let additionalDocsArray = await departMajorApi.getLists({
+                  size: 10,
+                  startAfterDocId: posts[posts.length - 1].docId,
+                  subject: subjectSelected,
+                });
+                if (additionalDocsArray.length < 10) {
+                  setNoMoreDocs(true);
+                }
+                setPosts([...posts, ...additionalDocsArray]);
+                message.destroy();
+              } catch (err) {
+                message.error(err.message);
+              } finally {
+                setUploading(false);
+              }
+            }}>
+            더보기
+          </MoreButton>
+        )}
         <GoUp />
       </Container>
     </>

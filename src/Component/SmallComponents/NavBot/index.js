@@ -36,9 +36,16 @@ const PostButton = styled.div`
   font-weight: bold;
 `;
 
+const MarginBox = styled.div`
+  width: 1px;
+  height: 45px;
+  background-color: #f1f1f1;
+`;
+
 const NavBot = ({ Name, Icon, postButtonRef }) => {
   const history = useHistory();
   return (
+    <>
     <Container>
       <IconImg src={Icon} 
        onClick={() => {
@@ -76,6 +83,8 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
         </PostButton>
       )}
     </Container>
+    <MarginBox/>
+    </>
   );
 };
 

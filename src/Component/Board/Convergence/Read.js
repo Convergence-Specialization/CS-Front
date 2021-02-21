@@ -9,9 +9,6 @@ import LoadingComponent from "../../SmallComponents/Loading";
 import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
 
-const Container = styled.div`
-  padding-top: 50px;
-`;
 const TitleBox = styled.div`
   display: flex;
   align-items: center;
@@ -292,7 +289,6 @@ const Read = () => {
   }, [getComments, location.state, didILikedDoc, getMyEncryptedUid]);
   return (
     <>
-      <Container>
         <ReportOrDelete
           visible={reportOrDeleteModalVisible}
           onClose={() => setReportOrDeleteModalVisible(false)}
@@ -671,7 +667,6 @@ const Read = () => {
             작성하기
           </CommentInputSubmitButton>
         </CommentInputContainer>
-      </Container>
     </>
   );
 };

@@ -7,6 +7,7 @@ import { storageService } from "../../../../firebase";
 import uuid from "uuid-random";
 import { loginFunctions } from "../../../Watchers";
 import LoadingSmall from "../../../SmallComponents/LoadingSmall";
+import { announcementApi } from "../../../../api";
 
 const Container = styled.div`
   padding: 15px 0 20px;
@@ -23,6 +24,7 @@ const InputTitle = styled.input`
   outline: none;
   border: none;
   font-size: 20px;
+  margin-bottom: 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   @media (max-width: 430px) {
     font-size: 15px;
@@ -34,10 +36,9 @@ const InputImg = styled.div`
   width: 95%;
   padding: 13px 15px;
   border-radius: 20px;
-  margin: 10px;
   background-color: white;
   color: #757575;
-
+  margin-bottom: 15px;
   font-size: 17px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   @media (max-width: 430px) {
@@ -54,7 +55,7 @@ const ContentTextArea = styled.textarea`
   border-radius: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   line-height: 1.5;
-  margin: 15px 0;
+  margin-bottom: 15px;
   ::placeholder {
     font-size: 13px;
   }
@@ -149,6 +150,12 @@ const Create = () => {
         <InputTitle placeholder="제목" id="titleInput" />
       )}
       {uploadingStatus === "" && (
+        <InputTitle
+          placeholder="기간을 입력하세요. 2020.10.20 ~ 2020.11.01"
+          id="periodInput"
+        />
+      )}
+      {uploadingStatus === "" && (
         <InputImg>
           <ImgText>
             <div>첨부할 사진을 선택하세요</div>
@@ -171,12 +178,6 @@ const Create = () => {
             ))}
           </ImgWrapper>
         </InputImg>
-      )}
-      {uploadingStatus === "" && (
-        <InputTitle
-          placeholder="기간을 입력하세요. 2020.10.20 ~ 2020.11.01"
-          id="periodInput"
-        />
       )}
       {uploadingStatus === "" ? (
         <ContentTextArea placeholder="내용을 입력하세요" id="contentTextarea" />
@@ -236,7 +237,17 @@ const Create = () => {
             );
             setUploadingStatus("공지사항을 등록하는 중..");
             reqBody.imgArray = targetImgUrlArray;
-            alert(reqBody.toString());
+            try {
+              await announcementApi.create(reqBody);
+              message.success("공지가 등록되었습니다");
+              history.goBack();
+            } catch (err) {
+              setUploadingStatus(
+                `공지사항을 등록하는 중에 오류가 났습니다.\n${err.message}`
+              );
+            }
+
+            console.log(reqBody);
           }}>
           완료
         </Button>

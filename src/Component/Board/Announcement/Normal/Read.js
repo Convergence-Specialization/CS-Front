@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { timeConverter } from "../../../../assets/Dicts";
 import { horseIcons } from "../../../../assets/Resources";
 
 const Container = styled.div`
@@ -26,7 +28,7 @@ const BoardWrapper = styled.div`
   margin-top: 13px;
   padding: 10px;
   width: 90%;
-  height: 450px;
+  min-height: 450px;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
@@ -72,12 +74,24 @@ const BoardWritterWrapper = styled.div`
   justify-content: left;
   width: 94%;
 `;
+const BoardImgWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+const BoardImg = styled.img`
+  width: 85%;
+  margin: 10px 0;
+`;
 
 const BoardText = styled.div`
   margin: 5px;
   font-size: 14px;
   line-height: 2;
   word-break: keep-all;
+  white-space: pre-wrap;
 `;
 
 const BoardButton = styled.div`
@@ -104,7 +118,7 @@ const BoardButtonText = styled.div`
 `;
 
 const HorseImg = styled.img`
-  width: 8%;
+  width: 50px;
 `;
 const SubBox = styled.div`
   font-size: 14px;
@@ -125,45 +139,50 @@ const SubFor = styled.div`
 `;
 
 const Announcement = () => {
+  const location = useLocation();
+  const [docItem, setDocItem] = useState();
+
+  useEffect(() => {
+    if (location.state === undefined) return;
+    setDocItem(location.state.docItem);
+  }, []);
+
   return (
     <Container>
-      <BoardContainer>
-        <BoardWrapper>
-          <BoardTitleWrapper>
-            <BoardTitle>전과 신청 결과는 1월 18일에 발표됩니다.</BoardTitle>
-            <BoardWritterWrapper>
-              <HorseImg src={horseIcons.normal} alt="말머리" />
-              <WritterAndDate>관리자 융슝이 | 21.02.04</WritterAndDate>
-            </BoardWritterWrapper>
-          </BoardTitleWrapper>
-          <BoardLine />
-          <BoardText>
-            뭐하지...?
-            <br />
-            상당히 심심하구만
-            <br />
-            사실 원래 공지사항은 관리자가 글써야하는데 그거 기획도 안 했고 맨
-            마지막에 만들어도 된다고 해서 걍 어떻게 보일지 만들고 있어여
-            <br />
-            뭐하지.... 심심해
-            <br />
-            지금 아이스크림 먹고 싶다
-            <br />
-            서울가면 또 할 거 없는데 울 은소가 다음주에나 서울
-            온대여ㅠㅠㅠㅠㅠㅠㅠㅠ
-            <br />
-            은소씌.... 나랑 놀아줭
-          </BoardText>
-        </BoardWrapper>
-        <SubBox>
-          <SubPre>이전 | '온라인학습법특강' 참여</SubPre>
-          <BoardLine />
-          <SubFor>이후 | 뭐라고 해야하지</SubFor>
-        </SubBox>
-        <BoardButton>
-          <BoardButtonText>목록</BoardButtonText>
-        </BoardButton>
-      </BoardContainer>
+      {!!docItem && (
+        <BoardContainer>
+          <BoardWrapper>
+            <BoardTitleWrapper>
+              <BoardTitle>{docItem.title}</BoardTitle>
+              <BoardWritterWrapper>
+                <HorseImg src={horseIcons.horse} alt="말머리" />
+                <WritterAndDate>
+                  작성일: {timeConverter(docItem.timestampMillis)}
+                </WritterAndDate>
+              </BoardWritterWrapper>
+            </BoardTitleWrapper>
+            <BoardLine />
+            <BoardImgWrapper>
+              {docItem.imgArray.map((item, idx) => (
+                <BoardImg
+                  key={`${idx}IMAGE_ANNOUNCE`}
+                  src={item}
+                  alt={`${idx}IMAGE_ANNOUNCE`}
+                />
+              ))}
+            </BoardImgWrapper>
+            <BoardText>{docItem.content}</BoardText>
+          </BoardWrapper>
+          <SubBox>
+            <SubPre>이전 | '온라인학습법특강' 참여</SubPre>
+            <BoardLine />
+            <SubFor>이후 | 뭐라고 해야하지</SubFor>
+          </SubBox>
+          <BoardButton>
+            <BoardButtonText>목록</BoardButtonText>
+          </BoardButton>
+        </BoardContainer>
+      )}
     </Container>
   );
 };

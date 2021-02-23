@@ -7,6 +7,7 @@ import { navbotIcons } from "../../assets/Resources";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
 import NavBot from "../../Component/SmallComponents/NavBot";
+
 const AnnouncePresenter = () => {
   const location = useLocation();
   const [renderElement, setRenderElement] = useState(<div />);
@@ -19,13 +20,11 @@ const AnnouncePresenter = () => {
       case "create":
         setRenderElement(<Create />);
         break;
-      case "update":
-        break;
       case "eventpost":
         setRenderElement(<EventPost />);
         break;
       default:
-        setRenderElement(<Create />);
+        setRenderElement(<ListView />);
     }
   }, [location]);
   return (

@@ -140,6 +140,15 @@ export const userApi = {
   },
 };
 
+export const announcementApi = {
+  create: (body) =>
+    api.post("/announcement/create", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
+};
+
 export const convergenceApi = {
   getLists: async (body) => {
     const { size, startAfterDocId } = body;

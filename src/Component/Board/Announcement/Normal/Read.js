@@ -27,7 +27,7 @@ const BoardContainer = styled.div`
 const BoardWrapper = styled.div`
   margin-top: 13px;
   padding: 10px;
-  width: 90%;
+  width: 93%;
   min-height: 450px;
   border-radius: 15px;
   justify-content: space-between;
@@ -47,16 +47,17 @@ const BoardTitle = styled.div`
   font-size: 15px;
   font-weight: bold;
   color: #000000;
+  margin-left: 8px;
   @media (max-width: 430px) {
     font-size: 16px;
   }
 `;
 
 const WritterAndDate = styled.div`
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   margin-left: 8px;
-  padding-top: 5px;
+  padding-top: 10px;
 
   @media (max-width: 430px) {
   }
@@ -67,6 +68,13 @@ const BoardLine = styled.div`
   margin: 5px 10px 0px 10px;
 `;
 
+const EventTermContainer = styled.div`
+  background: #f1f1f1;
+  margin: 0 -10px 8px;
+  font-size: 13px;
+  /* height: 35px; */
+  padding: 10px 20px;
+`;
 const BoardWritterWrapper = styled.div`
   display: flex;
   align-items: left;
@@ -118,11 +126,14 @@ const BoardButtonText = styled.div`
 `;
 
 const HorseImg = styled.img`
-  width: 50px;
+  width: 45px;
+  margin: 0 5px;
+  align-self: flex-start;
 `;
+
 const SubBox = styled.div`
   font-size: 14px;
-  width: 90%;
+  width: 93%;
   margin: 15px auto;
   background-color: #ffffff;
   border-radius: 20px;
@@ -137,6 +148,12 @@ const SubFor = styled.div`
   display: flex;
   margin: 10px 20px;
 `;
+
+const TitleAndTime = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const TitleAndTimeWrapper = styled.div``;
 
 const Announcement = () => {
   const location = useLocation();
@@ -153,15 +170,21 @@ const Announcement = () => {
         <BoardContainer>
           <BoardWrapper>
             <BoardTitleWrapper>
-              <BoardTitle>{docItem.title}</BoardTitle>
-              <BoardWritterWrapper>
-                <HorseImg src={horseIcons.horse} alt="말머리" />
-                <WritterAndDate>
-                  작성일: {timeConverter(docItem.timestampMillis)}
-                </WritterAndDate>
-              </BoardWritterWrapper>
+              <TitleAndTime>
+                <BoardWritterWrapper>
+                  <HorseImg src={horseIcons.horse} alt="말머리" />
+                  <TitleAndTimeWrapper>
+                    <BoardTitle>{docItem.title}</BoardTitle>
+                    <WritterAndDate>
+                      작성일: {timeConverter(docItem.timestampMillis)}
+                    </WritterAndDate>
+                  </TitleAndTimeWrapper>
+                </BoardWritterWrapper>
+              </TitleAndTime>
             </BoardTitleWrapper>
-            <BoardLine />
+            <EventTermContainer>
+              이벤트 기간 : {docItem.eventPeriod}
+            </EventTermContainer>
             <BoardImgWrapper>
               {docItem.imgArray.map((item, idx) => (
                 <BoardImg

@@ -28,6 +28,9 @@ import github from "../assets/etc/github.png";
 import infoEdit from "../assets/etc/infoEdit.png";
 import ssu from "../assets/etc/ssu.png";
 import profile from "../assets/navIcons/profile.png";
+import myPage from "../assets/navIcons/myPage.png";
+import suggestions from "../assets/navIcons/suggestions.png";
+import team from "../assets/navIcons/team.png";
 import notification from "../assets/navIcons/notification.png";
 import Car from "../assets/major/Car.png";
 import BigData from "../assets/major/BigData.png";
@@ -99,6 +102,9 @@ export const navIcons = {
   profile,
   notification,
   notificationOn,
+  myPage,
+  suggestions,
+  team,
 };
 export const horseIcons = {
   newhorse,

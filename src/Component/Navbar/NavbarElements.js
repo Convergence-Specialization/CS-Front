@@ -6,7 +6,7 @@ export const NavContainer = styled.div`
   width: 100%;
   max-width: 768px;
   position: fixed;
-  z-index: 99;
+  z-index: 999;
 `;
 export const NavUpperMargin = styled.div`
   width: 100%;
@@ -52,22 +52,17 @@ export const NavOpen = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
-  height: 100vh;
+  width: 70%;
   position: absolute;
-  top: 60px;
-  border-right: 1px solid grey;
+  border-right: 1px solid #dedede;
   background: white;
   z-index: 1;
   opacity: 1;
   transition: all 0.2s ease;
-  @media (max-width: 430px) {
-    top: 45px;
-  }
 `;
 export const NavLinkOpen = styled(Link)`
   color: black;
-  border-bottom: 1px solid#7AB8F3;
+  border-bottom: 1px solid #7AB8F3;
   font-size: 25px;
   text-align: center;
   margin: 20px 0;
@@ -87,36 +82,72 @@ export const NavOpenUpperButtonWrapper = styled.div`
   width: 90%;
   padding-top: 15px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 export const NavOpenUpperButton = styled.div`
-  border-radius: 10px;
   color: black;
-  cursor: pointer;
-  width: 48%;
-  padding: 10px;
   font-size: 12px;
   text-align: center;
+`;
+export const NavBotBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+ position:relative;
+  margin-top: 195px;
+  font-size: 12px;
+  width: 40%;
   background-color: white;
+  text-align: center;
+  flex-direction: column;
+`;
+export const NavBotText = styled.div`
+  display: flex; 
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;
+export const NavOpenUpperButtonBox = styled.div`
+  display:flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0px;
 `;
 export const NavOpenUpperDescWrapper = styled.div`
-  font-size: 12px;
-  margin-top: 15px;
-  width: 90%;
+  font-size: 18px;
   color: white;
+  margin-bottom: 15px;
+  font-weight: bold;
+  display: flex;
+`;
+export const InformationWrapper = styled.div`
   border: 1px solid white;
-  padding: 10px;
+  border-radius : 10px;
+  padding: 15px 20px;
+  width: 100%;
+  background-color: white;
+`;
+export const InformationText = styled.div`
+  font-size: 15px;
 `;
 export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;
-  padding: 10px;
+  padding: 15px 10px;
   cursor: pointer;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #dedede;
   display: flex;
   align-items: center;
   position: relative;
   background-color: ${(props) => (props.isChild ? "#EFEFEF" : "white")};
+  font-weight: ${(props) => (props.isChild ? "normal" : "bold")};
+`;
+export const NavOpenSingleChildItemBox = styled.div`
+  align-self: stretch;
+  padding: 13px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: ${(props) => (props.isChild ? "#f1f1f1" : "white")};
   font-weight: ${(props) => (props.isChild ? "normal" : "bold")};
 `;
 export const NavSingleMarginBetween = styled.div`
@@ -135,12 +166,43 @@ export const NavOpenItemMargin = styled.div`
   width: 22px;
   height: 10px;
 `;
+export const Margin = styled.div`
+  width: 100%;
+  height: 5px;
+  background-color: #ececec
+`;
 export const NavOpenItemImg = styled.img`
   width: 16px;
   margin-right: 6px;
 `;
+export const NavImg = styled.img`
+  width: 40px;
+`;
+export const NavImgBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 10px 0px;
+`;
+export const NavImgTextBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  align-items: center;
+  text-align: center;
+`;
+export const NavText = styled.div`
+  font-size: 14px;
+  margin-top: 10px;
+`;
 export const NavOpenItemText = styled.div`
+  font-size: 15px;
+  margin-left: 10px;
+`;
+export const NavOpenchildItemText = styled.div`
   font-size: 13px;
+  margin-left: 10px;
 `;
 export const NavOpenItemArrowButton = styled.img`
   position: absolute;

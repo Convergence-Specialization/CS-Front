@@ -11,7 +11,7 @@ import {
 import { useHistory } from "react-router-dom";
 import { loginFunctions, useAuth } from "../Watchers";
 import { navIcons } from "../../assets/Resources";
-import SelectSubjectModal from "./Modal";
+import NavModal from "./Modal";
 import { userApi } from "../../api";
 const Navbar = ({
   Navname,
@@ -50,7 +50,7 @@ const Navbar = ({
 
   return (
     <>
-      <SelectSubjectModal
+      <NavModal
         visible={subjectModalVisible}
         onClose={() => setSubjectModalVisible(false)}
       />

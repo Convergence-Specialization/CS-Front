@@ -15,6 +15,7 @@ const Container = styled.div`
     padding: 15px;
   }
 `;
+
 const Title = styled.div`
   margin-left: 40px;
   margin-bottom: 10px;

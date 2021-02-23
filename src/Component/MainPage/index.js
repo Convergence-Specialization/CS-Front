@@ -3,7 +3,7 @@ import { major, navbotIcons, readDoc } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { convergenceApi, departMajorApi } from "../../api";
+import { announcementApi, convergenceApi, departMajorApi } from "../../api";
 import LoadingSmall from "../SmallComponents/LoadingSmall";
 
 const Container = styled.div`
@@ -170,9 +170,16 @@ const MainPage = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
+
+  const [announcementPosts, setAnnouncementPosts] = useState([]);
   const [departmajorPosts, setDepartmajorPosts] = useState([]);
   const [convergencePosts, setConvergencePosts] = useState([]);
+
   useEffect(() => {
+    announcementApi
+      .getLists({ size: 2 })
+      .then((docsArray) => setAnnouncementPosts(docsArray))
+      .catch((error) => console.log(error.message));
     convergenceApi
       .getLists({ size: 5 })
       .then((docsArray) => setConvergencePosts(docsArray))
@@ -194,14 +201,27 @@ const MainPage = () => {
         </Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        <BoardChildWrapper>
-          <BoardChildTitle>추석맞이 융병호 게임</BoardChildTitle>
-          <BoardAnnounceSubText>22.10.24~22.42.12</BoardAnnounceSubText>
-        </BoardChildWrapper>
-        <BoardChildWrapper>
-          <BoardChildTitle>추석맞이 융병호 게임</BoardChildTitle>
-          <BoardAnnounceSubText>22.10.24~22.42.12</BoardAnnounceSubText>
-        </BoardChildWrapper>
+        {announcementPosts.length === 0 ? (
+          <LoadingSmall />
+        ) : (
+          <>
+            {announcementPosts.map((item, idx) => (
+              <BoardChildWrapper
+                key={`${idx}ANNOUNCEMENT_PREVIEW`}
+                onClick={() =>
+                  history.push({
+                    pathname: `/board/announcement`,
+                    state: {
+                      pageName: "read",
+                      docItem: item,
+                    },
+                  })
+                }>
+                <BoardChildTitle>{item.title}</BoardChildTitle>
+              </BoardChildWrapper>
+            ))}
+          </>
+        )}
       </BoardContainer>
       <TitleElement src={navbotIcons.airplane} name={"융합전공 소개"} />
       <Slick>
@@ -309,8 +329,7 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -351,8 +370,7 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img

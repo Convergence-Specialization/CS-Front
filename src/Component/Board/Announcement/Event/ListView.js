@@ -169,6 +169,17 @@ const Event = () => {
 
   return (
     <Container>
+      <button
+        onClick={() =>
+          history.push({
+            pathname: `/board/announcement`,
+            state: {
+              pageName: "create",
+            },
+          })
+        }>
+        글 작성
+      </button>
       <BoardContainer>
         <BoardChildWrapper>
           <BoardChildTitle>진행 중인 행사</BoardChildTitle>

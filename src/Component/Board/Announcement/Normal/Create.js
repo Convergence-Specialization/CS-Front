@@ -66,6 +66,7 @@ const ImgWrapper = styled.div`
   flex-wrap: wrap;
 `;
 const PreviewImg = styled.img`
+  align-self: flex-start;
   width: 18%;
   margin: 10px 10px 0px 10px;
 `;
@@ -248,7 +249,8 @@ const Create = () => {
             }
 
             console.log(reqBody);
-          }}>
+          }}
+        >
           완료
         </Button>
       </ButtonWrapper>

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { horseIcons, navIcons, etc } from "../assets/Resources";
+import { horseIcons, navIcons, etc, navbotIcons } from "../assets/Resources";
 import Navbar from "../Component/Navbar";
+import NavBot from "../Component/SmallComponents/NavBot";
 
 const GithubAndHelperContainer = styled.div`
   background-color: white;
@@ -88,12 +89,24 @@ const GithubAndMakersTotalWrapper = styled.div`
   display: flex;
 `;
 const HorseImg = styled.img`
-  /* width: 23%;
-  border-radius: 55%;
-  margin: 19px; */
   margin: 0 auto;
   width: 100px;
   border-radius: 55%;
+`;
+
+const IntroduceImg1 = styled.img`
+  width: 130px;
+  margin: 0 20px;
+  padding: 20px 0;
+  display: flex;
+  align-self: flex-start;
+`;
+
+const IntroduceImg2 = styled.img`
+  width: 220px;
+  margin: 30px auto;
+  padding-bottom: 50px;
+  display: flex;
 `;
 const Line = styled.div`
   width: 30px;
@@ -124,13 +137,58 @@ const FooterText = styled.div`
   }
 `;
 
-const FooterTextWrapper = styled.div`
+const IntroduceAndFooterTextWrapper = styled.div`
   margin: 20px 10px 0 0;
+`;
+
+const Introduce1Wrapper = styled.div`
+  display: flex;
+`;
+
+const IntroduceWrapper = styled.div`
+  padding-top: 20px;
+`;
+
+const IntroduceText = styled.div`
+  font-size: 16px;
+  word-break: keep-all;
+  text-align: center;
+  line-height: 1.3;
+  @media (max-width: 430px) {
+  }
 `;
 const Makers = () => {
   return (
     <>
       <Navbar isRight1Disabled History IconRight2={navIcons.Home} />
+      <NavBot Name="SSYUNG 소개" Icon={navbotIcons.check} />
+      <IntroduceWrapper>
+        <Title style={{ marginBottom: "40px" }}>
+          융특 커뮤니티 슝이 추구하는 가치
+        </Title>
+        <Title style={{ color: "#7AB8F3", marginBottom: "0px" }}>'시작'</Title>
+        <Introduce1Wrapper>
+          <IntroduceImg1 src={etc.introduce2} />
+          <IntroduceAndFooterTextWrapper style={{ marginBottom: "50px" }}>
+            <IntroduceText
+              style={{
+                textAlign: "left",
+                marginLeft: "5px",
+              }}
+            >
+              슝은 숭실대학교 융특 출신 컴퓨터학부 20학번 학생들이 학교 생활을
+              하면서 융특에서의 정보 전달이 부족함을 느껴 시작하게 된
+              프로젝트입니다.
+            </IntroduceText>
+          </IntroduceAndFooterTextWrapper>
+        </Introduce1Wrapper>
+        <Title style={{ color: "#7AB8F3" }}>'목표'</Title>
+        <IntroduceText style={{ margin: "10px" }}>
+          융특 커뮤니티 슝(SSYUNG)은 학생들끼리 올바른 정보를 공유하고 원활하게
+          소통하며 즐거움을 드리는 것을 목표로 삼고 있습니다.
+        </IntroduceText>
+        <IntroduceImg2 src={etc.introduce1} />
+      </IntroduceWrapper>
       <GithubAndHelperContainer>
         <Title>github(깃허브)</Title>
         <GithubAndMakersTotalWrapper>
@@ -254,7 +312,7 @@ const Makers = () => {
         <GithubWrapper>
           <SoongsilImg src={etc.ssu} />
         </GithubWrapper>
-        <FooterTextWrapper>
+        <IntroduceAndFooterTextWrapper>
           <FooterText style={{ fontSize: "17px" }}>
             융합특성화자유전공학부
           </FooterText>
@@ -265,7 +323,7 @@ const Makers = () => {
             <br />
             TEL) 02-829-8220
           </FooterText>
-        </FooterTextWrapper>
+        </IntroduceAndFooterTextWrapper>
       </FooterContainer>
     </>
   );

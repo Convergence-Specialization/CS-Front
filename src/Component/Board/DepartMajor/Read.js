@@ -461,7 +461,7 @@ const Read = () => {
                   <CommentChildTime>
                     {item.timestampDistance + " 전"}
                   </CommentChildTime>
-                  <CommentChildText style={{ width: "72%" }}>
+                  <CommentChildText style={{ width: "90%" }}>
                     {item.content}
                   </CommentChildText>
                   <CommentButtonWrapper>

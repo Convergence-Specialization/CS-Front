@@ -53,6 +53,7 @@ export const NavOpen = styled.div`
   flex-direction: column;
   align-items: center;
   width: 70%;
+  height: 100vh;
   position: absolute;
   border-right: 1px solid #dedede;
   background: white;
@@ -62,7 +63,7 @@ export const NavOpen = styled.div`
 `;
 export const NavLinkOpen = styled(Link)`
   color: black;
-  border-bottom: 1px solid #7AB8F3;
+  border-bottom: 1px solid #7ab8f3;
   font-size: 25px;
   text-align: center;
   margin: 20px 0;
@@ -83,34 +84,52 @@ export const NavOpenUpperButtonWrapper = styled.div`
   padding-top: 15px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 `;
 export const NavOpenUpperButton = styled.div`
   color: black;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
+  width: 45%;
+  padding: 15px 0px;
+  border-radius: 10px;
+  background-color: white;
 `;
 export const NavBotBox = styled.div`
   display: flex;
   justify-content: space-between;
- position:relative;
-  margin-top: 195px;
   font-size: 12px;
-  width: 40%;
+  position: fixed;
+  bottom: 10px;
+  width: 70%;
   background-color: white;
   text-align: center;
   flex-direction: column;
+  align-items: center;
 `;
-export const NavBotText = styled.div`
-  display: flex; 
+export const NavBotTextBox = styled.div`
+  display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  width:45%;
+`;
+export const NavBotText = styled.div`
+  font-size: 15px;
+
+`;
+export const NavTopText = styled.div`
+  font-size: 12px;
+  margin-top: 20px;
 `;
 export const NavOpenUpperButtonBox = styled.div`
-  display:flex;
+  display: flex;
   justify-content: space-between;
   width: 100%;
   margin: 10px 0px;
+`;
+export const NavOpenUpperButtonBoxs = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 export const NavOpenUpperDescWrapper = styled.div`
   font-size: 18px;
@@ -121,7 +140,7 @@ export const NavOpenUpperDescWrapper = styled.div`
 `;
 export const InformationWrapper = styled.div`
   border: 1px solid white;
-  border-radius : 10px;
+  border-radius: 10px;
   padding: 15px 20px;
   width: 100%;
   background-color: white;
@@ -169,7 +188,7 @@ export const NavOpenItemMargin = styled.div`
 export const Margin = styled.div`
   width: 100%;
   height: 5px;
-  background-color: #ececec
+  background-color: #ececec;
 `;
 export const NavOpenItemImg = styled.img`
   width: 16px;

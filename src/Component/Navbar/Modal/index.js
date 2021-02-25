@@ -8,7 +8,6 @@ import {
   NavOpenUpperDescWrapper,
   NavOpenSingleItemBox,
   NavOpenItemText,
-  NavOpenItemImg,
   NavOpenItemMargin,
   NavOpenItemArrowButton,
   InformationWrapper,
@@ -22,6 +21,9 @@ import {
   Margin,
   NavBotBox,
   NavBotText,
+  NavBotTextBox,
+  NavTopText,
+
 } from "../../Navbar/NavbarElements";
 import { sideBarIcons, navIcons } from "../../../assets/Resources";
 import message from "antd/lib/message";
@@ -45,11 +47,17 @@ const ModalWrapper = styled.div`
 const ModalOverlay = styled.div`
   box-sizing: border-box;
   display: ${(props) => (props.visible ? "block" : "none")};
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
 `;
 const ModalInner = styled.div`
   box-sizing: border-box;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
-  background-color: #fff;
   border-radius: 10px;
   width: ${(props) => props.width || "375px"};
 `;
@@ -139,7 +147,10 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
             </NavOpenSingleItemBox>
             <Margin />
             <NavOpenSingleItemBox
-              onClick={() => setAnnounceOpened(!announceOpened)}
+              onClick={() =>{ setAnnounceOpened(!announceOpened)
+                setBoardOpened(false)
+                setReferSiteOpened(false)
+              }}
             >
               <NavOpenItemText>공지사항</NavOpenItemText>
               <NavOpenItemArrowButton
@@ -177,7 +188,11 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                 </NavOpenSingleChildItemBox>
               </>
             )}
-            <NavOpenSingleItemBox onClick={() => setBoardOpened(!boardOpened)}>
+            <NavOpenSingleItemBox onClick={() => {setBoardOpened(!boardOpened)
+            setAnnounceOpened(false)
+            setReferSiteOpened(false)
+          }}
+            >
               <NavOpenItemText>게시판</NavOpenItemText>
               <NavOpenItemArrowButton
                 src={
@@ -215,7 +230,9 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
               </>
             )}
             <NavOpenSingleItemBox
-              onClick={() => setReferSiteOpened(!referSiteOpened)}
+              onClick={() => {setReferSiteOpened(!referSiteOpened)
+                setBoardOpened(false)
+                setAnnounceOpened(false)}}
             >
               <NavOpenItemText>관련 사이트</NavOpenItemText>
               <NavOpenItemArrowButton
@@ -287,29 +304,35 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                 </NavOpenSingleChildItemBox>
               </>
             )}
-            <Margin style={{ marginBottom: "20px" }} />
             <NavBotBox>
-              <NavBotText>
-                <NavOpenUpperButton
-                  onClick={() => {
-                    authService
-                      .signOut()
-                      .then(() => {
-                        loginFunctions.onLogout();
-                        message.success("로그아웃 완료");
-                        history.push("/");
-                      })
-                      .catch((error) => {
-                        message.error(error.message);
-                      });
-                  }}
-                >
-                  로그아웃
-                </NavOpenUpperButton>
-                <NavOpenUpperButton>|</NavOpenUpperButton>
-                <NavOpenUpperButton>사용약관</NavOpenUpperButton>
-              </NavBotText>
-              <NavOpenUpperButton>SSYUNG</NavOpenUpperButton>
+              <Margin/>
+              <NavBotTextBox>
+                {!!user ? (
+                  <NavTopText
+                    onClick={() => {
+                      authService
+                        .signOut()
+                        .then(() => {
+                          loginFunctions.onLogout();
+                          message.success("로그아웃 완료");
+                          history.push("/");
+                        })
+                        .catch((error) => {
+                          message.error(error.message);
+                        });
+                    }}
+                  >
+                    로그아웃
+                  </NavTopText>
+                ) : (
+                  <NavTopText onClick={() => history.push("/login")}>
+                    로그인
+                  </NavTopText>
+                )}
+                <NavTopText>|</NavTopText>
+                <NavTopText>사용약관</NavTopText>
+              </NavBotTextBox>
+              <NavBotText>SSYUNG</NavBotText>
             </NavBotBox>
           </NavOpen>
         </ModalInner>

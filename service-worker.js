@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "asset-manifest.json",
-    "revision": "cfad216977e97ba704620e3e52f22f2d"
+    "revision": "6e8d677bed798511e16e80cc348059cb"
   },
   {
     "url": "favicon.ico",
@@ -52,16 +52,16 @@ self.__precacheManifest = [
     "revision": "d1f3abb51e5edc1ec05d44b2ba932f27"
   },
   {
-    "url": "static/js/2.e4519ff1.chunk.js",
-    "revision": "9348caab45d6ebbd79f835f045c01506"
+    "url": "static/js/2.d423d022.chunk.js",
+    "revision": "62b482e3efb5b91f5b697358ec556a7e"
   },
   {
-    "url": "static/js/2.e4519ff1.chunk.js.LICENSE.txt",
+    "url": "static/js/2.d423d022.chunk.js.LICENSE.txt",
     "revision": "0dc04204e9b507a7e6aea2320b51283f"
   },
   {
-    "url": "static/js/main.4c4f104f.chunk.js",
-    "revision": "3ea7f26c7409a3ea2027ceb95407b3fa"
+    "url": "static/js/main.078977aa.chunk.js",
+    "revision": "7000fab94e89739cb561654d4aaa9398"
   },
   {
     "url": "static/js/runtime-main.aab4bf4c.js",
@@ -112,6 +112,10 @@ self.__precacheManifest = [
     "revision": "b6661dcab63d19555a6ab04b03dd54ad"
   },
   {
+    "url": "static/media/myPage.7d6c73c8.png",
+    "revision": "5db7d294a77fbe0fbfca4eb233afc01b"
+  },
+  {
     "url": "static/media/newhorse.c44cd526.png",
     "revision": "e7eff13ffc0f704fa32b451496925aef"
   },
@@ -138,6 +142,14 @@ self.__precacheManifest = [
   {
     "url": "static/media/SMART_CAR.13ad901d.png",
     "revision": "e27eb36e3ccf6072df8136d6385f5d6c"
+  },
+  {
+    "url": "static/media/suggestions.bc0d2a7e.png",
+    "revision": "4d7ab4722c677514536f1be7a93836ce"
+  },
+  {
+    "url": "static/media/team.9b0c33ce.png",
+    "revision": "7cc4e920df01c81a1109ee19734250e2"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

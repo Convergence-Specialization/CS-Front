@@ -30,6 +30,9 @@ import introduce1 from "../assets/etc/introduce1.png";
 import introduce2 from "../assets/etc/introduce2.png";
 import ssu from "../assets/etc/ssu.png";
 import profile from "../assets/navIcons/profile.png";
+import myPage from "../assets/navIcons/myPage.png";
+import suggestions from "../assets/navIcons/suggestions.png";
+import team from "../assets/navIcons/team.png";
 import notification from "../assets/navIcons/notification.png";
 import Car from "../assets/major/Car.png";
 import BigData from "../assets/major/BigData.png";
@@ -103,6 +106,9 @@ export const navIcons = {
   profile,
   notification,
   notificationOn,
+  myPage,
+  suggestions,
+  team,
 };
 export const horseIcons = {
   newhorse,

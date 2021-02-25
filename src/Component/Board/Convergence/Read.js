@@ -94,6 +94,7 @@ const CommentEndLineWrapper = styled.div`
 `;
 const CommentChildTitle = styled.span`
   font-weight: bold;
+
 `;
 const CommentChildTime = styled.span`
   margin-left: 10px;
@@ -436,7 +437,7 @@ const Read = () => {
                   <CommentChildTime>
                     {item.timestampDistance + " 전"}
                   </CommentChildTime>
-                  <CommentChildText style={{ width: "72%" }}>
+                  <CommentChildText style={{ width: "90%" }}>
                     {item.content}
                   </CommentChildText>
                   <CommentButtonWrapper>

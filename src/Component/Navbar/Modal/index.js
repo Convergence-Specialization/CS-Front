@@ -92,8 +92,8 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
             <NavOpenUpperContainer>
               <NavOpenUpperButtonWrapper>
                 <NavOpenUpperDescWrapper>
-                  {!!user
-                    ? (!!user.displayName ? user.displayName : "융슝이").concat(
+                {!!user
+                    ? (user.displayName || "융슝이").concat(
                         " 님"
                       )
                     : "로그인 후 이용해주세요!"}

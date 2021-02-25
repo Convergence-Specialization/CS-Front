@@ -140,6 +140,36 @@ export const userApi = {
   },
 };
 
+export const announcementApi = {
+  create: (body) =>
+    api.post("board/announcement/create", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
+  getLists: async (body) => {
+    let { size } = body;
+    const querySnapshot = await db
+      .collection("announcement")
+      .orderBy("timestamp", "desc")
+      .limit(size)
+      .get();
+    let docsArray = [];
+    querySnapshot.forEach((doc) => {
+      let data = doc.data();
+      docsArray.push({
+        docId: doc.id,
+        title: data.title,
+        content: data.content,
+        timestampMillis: data.timestamp.toMillis(),
+        eventPeriod: data.eventPeriod,
+        imgArray: data.imgArray,
+      });
+    });
+    return docsArray;
+  },
+};
+
 export const convergenceApi = {
   getLists: async (body) => {
     const { size, startAfterDocId } = body;

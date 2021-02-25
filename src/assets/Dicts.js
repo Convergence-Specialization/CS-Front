@@ -70,3 +70,17 @@ export const boardNameDict = {
     addressName: "departmajor",
   },
 };
+
+export const timeConverter = (UNIX_timestamp) => {
+  var a = new Date(UNIX_timestamp * 1000);
+  var year = a.getYear();
+  var month = a.getMonth();
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var time =
+    date + "일 " + month + "월 " + year + "년 " + hour + ":" + min + ":" + sec;
+  return time;
+};
+console.log(timeConverter(0));

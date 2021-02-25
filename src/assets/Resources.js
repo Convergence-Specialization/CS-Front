@@ -26,6 +26,8 @@ import UpArrow from "../assets/etc/UpArrow.png";
 import resetButton from "../assets/etc/resetButton.png";
 import github from "../assets/etc/github.png";
 import infoEdit from "../assets/etc/infoEdit.png";
+import introduce1 from "../assets/etc/introduce1.png";
+import introduce2 from "../assets/etc/introduce2.png";
 import ssu from "../assets/etc/ssu.png";
 import profile from "../assets/navIcons/profile.png";
 import myPage from "../assets/navIcons/myPage.png";
@@ -80,6 +82,8 @@ export const etc = {
   infoEdit,
   ssu,
   resetButton,
+  introduce1,
+  introduce2,
 };
 
 export const majorIntroduce = {

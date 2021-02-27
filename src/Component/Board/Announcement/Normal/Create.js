@@ -246,8 +246,6 @@ const Create = () => {
                 `공지사항을 등록하는 중에 오류가 났습니다.\n${err.message}`
               );
             }
-
-            console.log(reqBody);
           }}
         >
           완료

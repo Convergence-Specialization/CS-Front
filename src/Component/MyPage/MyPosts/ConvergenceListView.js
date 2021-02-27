@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
-import {  userApi } from "../../../api";
+import { userApi } from "../../../api";
 import { loginFunctions } from "../../Watchers";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 
@@ -40,20 +40,7 @@ const BoardChildWrapper = styled.div`
   border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
-const BoardChildTitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const BoardChildTitle = styled.div`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-right: 90px;
-  font-weight: bold;
-  width: 72%;
-  font-size: 16px;
-  margin-bottom: 10px;
-`;
+
 const BoardChildContent = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;

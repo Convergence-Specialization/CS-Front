@@ -72,7 +72,6 @@ const EventTermContainer = styled.div`
   background: #f1f1f1;
   margin: 0 -10px 8px;
   font-size: 13px;
-  /* height: 35px; */
   padding: 10px 20px;
 `;
 const BoardWritterWrapper = styled.div`
@@ -162,7 +161,7 @@ const Announcement = () => {
   useEffect(() => {
     if (location.state === undefined) return;
     setDocItem(location.state.docItem);
-  }, []);
+  }, [location.state]);
 
   return (
     <Container>

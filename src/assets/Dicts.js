@@ -80,7 +80,7 @@ export const timeConverter = (UNIX_timestamp) => {
   var min = a.getMinutes();
   var sec = a.getSeconds();
   var time =
-    date + "일 " + month + "월 " + year + "년 " + hour + ":" + min + ":" + sec;
+   year + ". " +date + ". " + month + ". "  + hour + ":" + min + ":" + sec;
   return time;
 };
 console.log(timeConverter(0));

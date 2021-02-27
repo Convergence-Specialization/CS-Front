@@ -46,44 +46,50 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
   const history = useHistory();
   return (
     <>
-    <Container>
-      <IconImg src={Icon} 
-       onClick={() => {
-        if (Name === "내가 쓴 글") {
-          history.push("/mypage/myposts");
-        } else if (Name === "전과 게시판") {
-          history.push("/board/departmajor");
-        } else if (Name === "융특 게시판") {
-          history.push("/board/convergence");
-        }
-      }}/>
-      <Text
-        onClick={() => {
-          if (Name === "내가 쓴 글") {
-            history.push("/mypage/myposts");
-          } else if (Name === "전과 게시판") {
-            history.push("/board/departmajor");
-          } else if (Name === "융특 게시판") {
-            history.push("/board/convergence");
-          }
-        }}
-      >
-        {Name}
-      </Text>
-      {!!postButtonRef && (
-        <PostButton
+      <Container>
+        <IconImg
+          src={Icon}
           onClick={() => {
-            history.push({
-              pathname: `/board/${postButtonRef}`,
-              state: { pageName: "create" },
-            });
+            if (Name === "내가 쓴 글") {
+              history.push("/mypage/myposts");
+            } else if (Name === "전과 게시판") {
+              history.push("/board/departmajor");
+            } else if (Name === "융특 게시판") {
+              history.push("/board/convergence");
+            } else if (Name === "공지 사항") {
+              history.push("/board/announcement");
+            }
+          }}
+        />
+        <Text
+          onClick={() => {
+            if (Name === "내가 쓴 글") {
+              history.push("/mypage/myposts");
+            } else if (Name === "전과 게시판") {
+              history.push("/board/departmajor");
+            } else if (Name === "융특 게시판") {
+              history.push("/board/convergence");
+            } else if (Name === "공지 사항") {
+              history.push("/board/announcement");
+            }
           }}
         >
-          글 작성
-        </PostButton>
-      )}
-    </Container>
-    <MarginBox/>
+          {Name}
+        </Text>
+        {!!postButtonRef && (
+          <PostButton
+            onClick={() => {
+              history.push({
+                pathname: `/board/${postButtonRef}`,
+                state: { pageName: "create" },
+              });
+            }}
+          >
+            글 작성
+          </PostButton>
+        )}
+      </Container>
+      <MarginBox />
     </>
   );
 };

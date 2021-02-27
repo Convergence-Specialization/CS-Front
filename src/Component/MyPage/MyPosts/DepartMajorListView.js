@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
 import { userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
-import { authService } from "../../../firebase";
 import LoadingComponent from "../../SmallComponents/Loading";
+import { loginFunctions } from "../../Watchers";
 
 const Box = styled.div`
   border-bottom: 2px solid #aca9a9;
@@ -102,16 +102,13 @@ const DepartMajorListView = () => {
   const [showMoreButtonVisible, setShowMoreButtonVisible] = useState(true);
   const [numToGetList, setNumToGetList] = useState(5);
   useEffect(() => {
-    // TODO: API에서 더보기 구현.
-    // departMajorApi
-    //   .getLists({ size: 7 })
-    //   .then((docsArray) => setPosts(docsArray))
-    //   .catch((error) => message.error(error.message));
+    const userInfo = loginFunctions.getUserInfo();
+    if (!userInfo) return;
     userApi
       .getMyPosts({
         boardName: "departmajor",
         size: numToGetList,
-        uid: authService.currentUser.uid,
+        uid: userInfo.uid,
       })
       .then((docsArray) => {
         if (docsArray.length < numToGetList) {

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { loginFunctions, useAuth } from "../Watchers";
 import { userApi } from "../../api";
 import message from "antd/lib/message";
-import LoadingComponent from "../SmallComponents/Loading";
+import LoadingSmall from "../SmallComponents/LoadingSmall";
 
 const InfoContainer = styled.div`
   margin: 30px;
@@ -110,7 +110,7 @@ const MyInfoBox = () => {
       {!!loginFunctions.getUserInfo() && (
         <InfoContainer>
           {!myInfo ? (
-            <LoadingComponent />
+             <LoadingSmall />
           ) : (
             <>
               <InfoWrapper>

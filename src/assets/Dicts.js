@@ -83,4 +83,3 @@ export const timeConverter = (UNIX_timestamp) => {
    year + ". " +date + ". " + month + ". "  + hour + ":" + min + ":" + sec;
   return time;
 };
-console.log(timeConverter(0));

@@ -26,7 +26,6 @@ jobs:
         run: CI=false yarn run build
         env:
           NODE_ENV: production
-        with:
           REACT_APP_TEST: ${{ secrets.REACT_APP_TEST }}
 
       - name: Workbox

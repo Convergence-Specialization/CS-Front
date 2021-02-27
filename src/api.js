@@ -59,6 +59,7 @@ export const userApi = {
               likeCount: data.likes_count,
               subject: data.subject, // not required
               nickname: data.nickname,
+              encryptedUid: data.encryptedUid,
             };
           })
       )

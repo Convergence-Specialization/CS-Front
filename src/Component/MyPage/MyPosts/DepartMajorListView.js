@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
 import { userApi } from "../../../api";
 import { subjectDicts } from "../../../assets/Dicts";
-import LoadingComponent from "../../SmallComponents/Loading";
+import LoadingSmall from "../../SmallComponents/LoadingSmall";
 import { loginFunctions } from "../../Watchers";
 
 const Box = styled.div`
@@ -126,7 +126,7 @@ const DepartMajorListView = () => {
           <Text>전과 게시판</Text>
         </Box>
         {loading ? (
-          <LoadingComponent />
+          <LoadingSmall />
         ) : posts.length === 0 ? (
           <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
         ) : (

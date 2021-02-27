@@ -3,21 +3,23 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { announcementApi } from "../../../../api";
 import LoadingSmall from "../../../SmallComponents/LoadingSmall";
+import { useLocation } from "react-router-dom";
 import { timeConverter } from "../../../../assets/Dicts";
 
 const Container = styled.div`
   background-color: white;
   margin: 20px 0px;
   width: 93%;
+
   display: flex;
   flex-direction: column;
   border-radius: 15px;
 `;
 const Con = styled.div`
-    width: 100%;
-    justify-content: center;
-    display: flex;
-  `;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+`;
 const BoardText = styled.div`
   font-size: 15px;
   overflow: hidden;
@@ -58,7 +60,7 @@ const BoardImg = styled.img`
   border-radius: 10px;
 `;
 
-const ListView = () => {
+const PreView = () => {
   const history = useHistory();
 
   const [announcementPosts, setAnnouncementPosts] = useState([]);
@@ -72,20 +74,19 @@ const ListView = () => {
 
   return (
     <Con>
-      
-    
       <Container>
-      <button
-        onClick={() =>
-          history.push({
-            pathname: `/board/announcement`,
-            state: {
-              pageName: "create",
-            },
-          })
-        }>
-        글 작성
-      </button>
+        <button
+          onClick={() =>
+            history.push({
+              pathname: `/board/announcement`,
+              state: {
+                pageName: "create",
+              },
+            })
+          }
+        >
+          글 작성
+        </button>
         <BoardContainer>
           {announcementPosts.length === 0 ? (
             <LoadingSmall />
@@ -124,4 +125,4 @@ const ListView = () => {
     </Con>
   );
 };
-export default ListView;
+export default PreView;

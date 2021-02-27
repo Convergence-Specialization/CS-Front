@@ -86,7 +86,6 @@ const BoardChildTitle = styled.div`
     font-size: 13px;
   }
 `;
-const BoardAnnounceSubText = styled.div``;
 const DepartmentSubWrapper = styled.div`
   display: flex;
   align-items: center;

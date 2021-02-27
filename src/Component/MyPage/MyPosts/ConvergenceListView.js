@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { readDoc } from "../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
-import { departMajorApi, userApi } from "../../../api";
+import {  userApi } from "../../../api";
 import { loginFunctions } from "../../Watchers";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 

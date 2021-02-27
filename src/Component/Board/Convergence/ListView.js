@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { convergenceApi } from "../../../api";
-import LoadingComponent from "../../SmallComponents/Loading";
+import LoadingSmall from "../../SmallComponents/LoadingSmall";
 import message from "antd/lib/message";
 import { horseIcons, readDoc } from "../../../assets/Resources";
 
@@ -86,7 +86,7 @@ const ConvergenceListView = () => {
       <Container>
         <BoardContainer>
           {posts.length === 0 ? (
-            <LoadingComponent />
+            <LoadingSmall />
           ) : (
             posts.map((item, idx) => (
               <BoardChildWrapper

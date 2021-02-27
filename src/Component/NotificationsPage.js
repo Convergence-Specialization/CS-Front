@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { globalApi, userApi } from "../api";
-import LoadingComponent from "./SmallComponents/Loading";
 import { boardNameDict, NOTIFICATION_TYPES } from "../assets/Dicts";
 import { useAuth } from "./Watchers";
 import message from "antd/lib/message";
+import LoadingSmall from "./SmallComponents/LoadingSmall";
 
 const Container = styled.div`
   width: 100%;
@@ -120,7 +120,7 @@ const NotificationsPage = () => {
       <Text>읽지 않음</Text>
       <BoardContainer>
         {unreadLoading ? (
-          <LoadingComponent />
+          <LoadingSmall />
         ) : unreadNotifications.length === 0 ? (
           <NotificationAlarm>※ 읽지 않은 알림이 없습니다 ※</NotificationAlarm>
         ) : (
@@ -184,7 +184,7 @@ const NotificationsPage = () => {
       <Text>읽음</Text>
       <BoardContainer>
         {readLoading ? (
-          <LoadingComponent />
+          <LoadingSmall />
         ) : readNotifications.length === 0 ? (
           <NotificationAlarm>※ 읽은 알림이 없습니다 ※</NotificationAlarm>
         ) : (

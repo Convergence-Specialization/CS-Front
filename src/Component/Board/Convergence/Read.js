@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { convergenceApi, globalApi } from "../../../api";
 import { readDoc, horseIcons, etc } from "../../../assets/Resources";
 import { db } from "../../../firebase";
-import LoadingComponent from "../../SmallComponents/Loading";
+import LoadingSmall from "../../SmallComponents/LoadingSmall";
 import { useHistory } from "react-router-dom";
 import ReportOrDelete from "./Modal/ReportOrDelete";
 
@@ -393,7 +393,7 @@ const Read = () => {
             />
           </CommentUpperWrapper>
           {commentLoading ? (
-            <LoadingComponent />
+            <LoadingSmall />
           ) : content.commentCount === 0 ? (
             <BlankPost style={{ lineHeight: "1.3" }}>
               ※ 작성된 댓글이 없습니다. ※ <br />

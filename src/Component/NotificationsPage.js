@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { globalApi, userApi } from "../api";
 import { boardNameDict, NOTIFICATION_TYPES } from "../assets/Dicts";
-import { useAuth } from "./Watchers";
+import { loginFunctions } from "./Watchers";
 import message from "antd/lib/message";
 import LoadingSmall from "./SmallComponents/LoadingSmall";
 
@@ -79,7 +79,6 @@ export const NotificationAlarm = styled.div`
 
 const NotificationsPage = () => {
   const history = useHistory();
-  const user = useAuth();
 
   const [unreadNotifications, setUnreadNotifications] = useState([]);
   const [readNotifications, setReadNotifications] = useState([]);
@@ -90,11 +89,12 @@ const NotificationsPage = () => {
   const [docLoading, setDocLoading] = useState(false);
 
   useEffect(() => {
-    if (user === null || user.uid === undefined) return;
+    const userInfo = loginFunctions.getUserInfo();
+    if (!userInfo) return;
     // 아직 안읽은 알림들 가져오기
     userApi
       .getUnreadNotifications({
-        uid: user.uid,
+        uid: userInfo.uid,
         size: 10,
       })
       .then((notificationArray) => {
@@ -106,7 +106,7 @@ const NotificationsPage = () => {
     // 이미 읽은 알림들 가져오기
     userApi
       .getReadNotifications({
-        uid: user.uid,
+        uid: userInfo.uid,
         size: 10,
       })
       .then((notificationArray) => {
@@ -114,7 +114,7 @@ const NotificationsPage = () => {
         setReadLoading(false);
       })
       .catch((err) => console.log(err.message));
-  }, [user]);
+  }, []);
   return (
     <Container>
       <Text>읽지 않음</Text>
@@ -153,15 +153,16 @@ const NotificationsPage = () => {
                   ) {
                     message.destroy();
                     message.error("삭제된 글입니다.");
+                  } else {
+                    message.error("아이폰에러" + err.message);
                   }
                 }
                 globalApi.checkNotification({
                   notificationId: item.notificationId,
-                  uid: user.uid,
+                  uid: loginFunctions.getUserInfo().uid,
                 });
                 setDocLoading(false);
-              }}
-            >
+              }}>
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}
@@ -220,8 +221,7 @@ const NotificationsPage = () => {
                   }
                 }
                 setDocLoading(false);
-              }}
-            >
+              }}>
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}

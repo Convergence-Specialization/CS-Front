@@ -3,7 +3,7 @@ import Read from "../../Component/Board/Announcement/Normal/Read";
 import Create from "../../Component/Board/Announcement/Normal/Create";
 import ListView from "../../Component/Board/Announcement/Event/ListView";
 import PreView from "../../Component/Board/Announcement/Event/PreView";
-import EventPost from "../../Component/Board/Announcement/Event/EventPost";
+// import EventPost from "../../Component/Board/Announcement/Event/EventPost";
 import { navbotIcons } from "../../assets/Resources";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
@@ -21,9 +21,9 @@ const AnnouncePresenter = () => {
       case "create":
         setRenderElement(<Create />);
         break;
-      case "eventpost":
-        setRenderElement(<EventPost />);
-        break;
+      // case "eventpost":
+      //   setRenderElement(<EventPost />);
+      //   break;
       case "listview":
         setRenderElement(<ListView />);
         break;

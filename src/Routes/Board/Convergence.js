@@ -7,7 +7,7 @@ import ListView from "../../Component/Board/Convergence/ListView";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
 import NavBot from "../../Component/SmallComponents/NavBot";
-import { navbotIcons } from "../../assets/Resources";
+import { navbotIcons, navIcons } from "../../assets/Resources";
 
 const DepartPresenter = () => {
   const location = useLocation();
@@ -48,7 +48,7 @@ const DepartPresenter = () => {
   }, [location]);
   return (
     <>
-      <Navbar />
+      <Navbar isRight1Disabled History IconRight2= {navIcons.Home}/>
       {renderElement}
     </>
   );

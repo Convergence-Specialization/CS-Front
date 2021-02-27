@@ -10,8 +10,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Set up Node.js
         uses: actions/setup-node@master
-        env:
-          REACT_APP_TEST: ${{secrets.REACT_APP_TEST}}
         with:
           node-version: 12.x
       - name: Cache node_modules
@@ -28,6 +26,8 @@ jobs:
         run: CI=false yarn run build
         env:
           NODE_ENV: production
+        with:
+          REACT_APP_TEST: ${{ secrets.REACT_APP_TEST }}
 
       - name: Workbox
         run: CI=false yarn run workbox

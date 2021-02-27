@@ -176,7 +176,7 @@ const MainPage = () => {
 
   useEffect(() => {
     // TEST
-    alert(process.env.REACT_APP_TEST || '실패');
+    console.log("테스트", process.env.REACT_APP_TEST);
 
     announcementApi
       .getLists({ size: 2 })

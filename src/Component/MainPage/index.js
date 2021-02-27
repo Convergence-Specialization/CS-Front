@@ -175,6 +175,9 @@ const MainPage = () => {
   const [convergencePosts, setConvergencePosts] = useState([]);
 
   useEffect(() => {
+    // TEST
+    alert(process.env.REACT_APP_TEST || '실패');
+
     announcementApi
       .getLists({ size: 2 })
       .then((docsArray) => setAnnouncementPosts(docsArray))

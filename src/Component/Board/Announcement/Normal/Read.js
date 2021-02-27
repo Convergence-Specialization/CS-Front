@@ -189,7 +189,7 @@ const Announcement = () => {
                 <BoardImg
                   key={`${idx}IMAGE_ANNOUNCE`}
                   src={item}
-                  alt={`${idx}IMAGE_ANNOUNCE`}
+                  alt={`${idx}번째 공지 이미지`}
                 />
               ))}
             </BoardImgWrapper>

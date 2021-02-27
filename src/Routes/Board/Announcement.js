@@ -24,7 +24,7 @@ const AnnouncePresenter = () => {
       case "eventpost":
         setRenderElement(<EventPost />);
         break;
-      case "preview":
+      case "listview":
         setRenderElement(<ListView />);
         break;
       default:

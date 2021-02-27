@@ -159,11 +159,6 @@ const MyPost = () => {
                   },
                 })
               }>
-              <BoardChildTitleWrapper>
-                <BoardChildTitle style={{ width: "80%" }}>
-                  {item.content}
-                </BoardChildTitle>
-              </BoardChildTitleWrapper>
               <BoardChildContent>{item.content}</BoardChildContent>
               <BoardChildTimeText>
                 {item.timestampDistance} 전

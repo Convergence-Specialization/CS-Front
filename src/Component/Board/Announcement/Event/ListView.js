@@ -14,10 +14,10 @@ const Container = styled.div`
   border-radius: 15px;
 `;
 const Con = styled.div`
-    width: 100%;
-    justify-content: center;
-    display: flex;
-  `;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+`;
 const BoardText = styled.div`
   font-size: 15px;
   overflow: hidden;
@@ -72,20 +72,18 @@ const ListView = () => {
 
   return (
     <Con>
-      
-    
       <Container>
-      <button
-        onClick={() =>
-          history.push({
-            pathname: `/board/announcement`,
-            state: {
-              pageName: "create",
-            },
-          })
-        }>
-        글 작성
-      </button>
+        <button
+          onClick={() =>
+            history.push({
+              pathname: `/board/announcement`,
+              state: {
+                pageName: "create",
+              },
+            })
+          }>
+          글 작성
+        </button>
         <BoardContainer>
           {announcementPosts.length === 0 ? (
             <LoadingSmall />
@@ -102,8 +100,7 @@ const ListView = () => {
                         docItem: item,
                       },
                     })
-                  }
-                >
+                  }>
                   <TitleTextBox>
                     <BoardChildTitle>{item.title}</BoardChildTitle>
                     <BoardText>{item.content}</BoardText>

@@ -5,7 +5,6 @@ import { announcementApi } from "../../../../api";
 import LoadingSmall from "../../../SmallComponents/LoadingSmall";
 import { timeConverter } from "../../../../assets/Dicts";
 import Slider from "react-slick";
-import { events } from "../../../../assets/Resources";
 
 const Container = styled.div`
   background-color: white;
@@ -13,6 +12,7 @@ const Container = styled.div`
   width: 93%;
   display: flex;
   flex-direction: column;
+  position: relative;
   border-radius: 15px;
 `;
 const Con = styled.div`
@@ -125,20 +125,22 @@ const SlickDate = styled.div`
   }
 `;
 const EventImage = styled.img`
-  margin-left: 20px;
+  margin: 0 auto;
   width: 130px;
+  height: 130px;
+  background-color: #7ab8f3;
 `;
 const SlickCustomLeftButton = styled.div`
   position: absolute;
-  top: 32%;
-  left: 20px;
+  top: 50%;
+  left: 10px;
   font-size: 14px;
   z-index: 98;
 `;
 const SlickCustomRightButton = styled.div`
   position: absolute;
-  top: 32%;
-  right: 20px;
+  top: 50%;
+  right: 10px;
   font-size: 14px;
   z-index: 98;
 `;
@@ -154,12 +156,14 @@ const PreView = () => {
   };
   const SlickRef = React.createRef();
   const [announcementPosts, setAnnouncementPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     announcementApi
       .getLists({ size: 4 })
       .then((docsArray) => setAnnouncementPosts(docsArray))
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log(error.message))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
@@ -171,38 +175,45 @@ const PreView = () => {
             더보기
           </Button>
         </BoardTitleContainer>
-        {announcementPosts.length === 0 ? (
-          <BlankPost>※ 작성한 글이 없습니다 ※</BlankPost>
+        {loading ? (
+          <LoadingSmall />
+        ) : announcementPosts.length === 0 ? (
+          <BlankPost>※ 진행 중인 행사가 없습니다 ※</BlankPost>
         ) : (
           <>
             <SlickCustomLeftButton onClick={() => SlickRef.current.slickPrev()}>
               {"<"}
             </SlickCustomLeftButton>
             <SlickCustomRightButton
-              onClick={() => SlickRef.current.slickNext()}
-            >
+              onClick={() => SlickRef.current.slickNext()}>
               {">"}
             </SlickCustomRightButton>
             <SlickBox1>
               <Slider {...settings} ref={SlickRef}>
-                <SlickBox>
-                  <EventImage
-                    src={events.esports}
-                    onClick={() => history.push("/board/event/eventpost")}
-                  />
-                  <SlickText>융특 E-Sports</SlickText>
-                  <SlickDate>20.02.03~ 20.02.04</SlickDate>
-                </SlickBox>
-                <SlickBox>
-                  <EventImage src={events.graduate} />
-                  <SlickText>융퀴즈 온 더 전과</SlickText>
-                  <SlickDate>20.02.03~ 20.02.04</SlickDate>
-                </SlickBox>
-                <SlickBox>
-                  <EventImage src={events.ssuevent} />
-                  <SlickText>SSU 캐슬</SlickText>
-                  <SlickDate>20.02.03~ 20.02.04</SlickDate>
-                </SlickBox>
+                {announcementPosts.map(
+                  (item, idx) =>
+                    item.imgArray[0] && (
+                      <SlickBox key={idx}>
+                        <EventImage
+                          src={item.imgArray[0]}
+                          alt={`이벤트 이미지 ${idx}`}
+                          onClick={() =>
+                            history.push({
+                              pathname: `/board/announcement`,
+                              state: {
+                                pageName: "read",
+                                docItem: item,
+                              },
+                            })
+                          }
+                        />
+                        <SlickText>{item.title}</SlickText>
+                        <SlickDate>
+                          {timeConverter(item.timestampMillis)}
+                        </SlickDate>
+                      </SlickBox>
+                    )
+                )}
               </Slider>
             </SlickBox1>
           </>
@@ -219,8 +230,7 @@ const PreView = () => {
                   pageName: "listview",
                 },
               })
-            }
-          >
+            }>
             더보기
           </Button>
         </BoardTitleContainer>
@@ -240,8 +250,7 @@ const PreView = () => {
                         docItem: item,
                       },
                     })
-                  }
-                >
+                  }>
                   <TitleTextBox>
                     <BoardChildTitle>{item.title}</BoardChildTitle>
                     <BoardText>{item.content}</BoardText>

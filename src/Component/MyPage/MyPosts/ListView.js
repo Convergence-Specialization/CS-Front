@@ -9,31 +9,33 @@ import { loginFunctions } from "../../Watchers";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 
 const Box = styled.div`
-  border-bottom: 2px solid #aca9a9;
   display: flex;
-  padding: 15px 0px;
+  padding: 10px 0px;
   width: 95%;
   margin: 0 auto;
   font-size: 15px;
   position: relative;
   align-items: center;
   justify-content: space-between;
+  margin-top:10px;
   @media (max-width: 430px) {
-    padding: 10px 0px;
-    width: 93%;
+    padding: 10px 0px 5px 0px;
+    width: 90%;
   }
 `;
 const Text = styled.div`
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
+  padding-left:10px;
 `;
 const Button = styled.div`
   text-align: center;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 13px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #d4e6fb;
+  font-weight: bold;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.13);
+  background-color: #D4E6FB;
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 12px;
@@ -46,7 +48,7 @@ const SubjectSelectImg = styled.img`
 const BoardContainer = styled.div`
   width: 93%;
   border-radius: 15px;
-  margin: 20px auto;
+  margin: 5px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
   min-height: 20vh;
@@ -54,7 +56,6 @@ const BoardContainer = styled.div`
 const BoardChildWrapper = styled.div`
   padding: 12px 12px;
   font-size: 15px;
-  border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
 const BoardChildTitleWrapper = styled.div`
@@ -129,19 +130,19 @@ const MyPost = () => {
   }, []);
   return (
     <>
-      <BoardContainer>
-        <Box>
-          <Text>융특 게시판</Text>
-          <Button
-            onClick={() => {
+      <Box>
+        <Text>융특 게시판</Text>
+        <Button
+          onClick={() => {
               history.push({
-                pathname: `myposts`,
-                state: { pageName: "convergencelistview" },
-              });
-            }}>
-            더보기
-          </Button>
-        </Box>
+              pathname: `myposts`,
+              state: { pageName: "convergencelistview" },
+             });
+          }}>
+          더보기
+        </Button>
+      </Box>
+      <BoardContainer>
         {loadingConvergence ? (
           <LoadingSmall />
         ) : convergencePosts.length === 0 ? (
@@ -149,6 +150,7 @@ const MyPost = () => {
         ) : (
           convergencePosts.map((item, idx) => (
             <BoardChildWrapper
+              style={ convergencePosts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
               key={idx}
               onClick={() =>
                 history.push({
@@ -182,19 +184,19 @@ const MyPost = () => {
           ))
         )}
       </BoardContainer>
-      <BoardContainer style={{ marginBottom: "40px" }}>
-        <Box>
-          <Text>전과 게시판</Text>
-          <Button
+      <Box style={{ marginTop: "10px", paddingTop : "18px" }}>
+        <Text>전과 게시판</Text>
+        <Button
             onClick={() => {
               history.push({
-                pathname: `myposts`,
-                state: { pageName: "departmajorlistview" },
-              });
-            }}>
-            더보기
-          </Button>
-        </Box>
+              pathname: `myposts`,
+              state: { pageName: "departmajorlistview" },
+            });
+          }}>
+          더보기
+        </Button>
+      </Box>
+      <BoardContainer style={{ marginBottom: "40px" }}>
         {loadingDepartMajor ? (
           <LoadingSmall />
         ) : departmajorPosts.length === 0 ? (
@@ -202,6 +204,7 @@ const MyPost = () => {
         ) : (
           departmajorPosts.map((item, idx) => (
             <BoardChildWrapper
+              style={ departmajorPosts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
               key={idx}
               onClick={() =>
                 history.push({
@@ -254,6 +257,7 @@ const MyPost = () => {
           ))
         )}
       </BoardContainer>
+      <Box/>
     </>
   );
 };

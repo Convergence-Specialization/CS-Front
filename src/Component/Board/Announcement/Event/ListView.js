@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { announcementApi } from "../../../../api";
 import LoadingSmall from "../../../SmallComponents/LoadingSmall";
 import { timeConverter } from "../../../../assets/Dicts";
+import message from "antd/lib/message";
+import { loginFunctions } from "../../../Watchers";
 
 const Container = styled.div`
   background-color: white;
@@ -15,8 +17,9 @@ const Container = styled.div`
 `;
 const Con = styled.div`
   width: 100%;
-  justify-content: center;
+  align-items: center;
   display: flex;
+  flex-direction: column;
 `;
 const BoardText = styled.div`
   font-size: 15px;
@@ -52,7 +55,16 @@ const BoardChildTitle = styled.div`
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
-
+const MoreButton = styled.div`
+  width: 93%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 10px 0;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
+`;
 const BoardImg = styled.img`
   width: 20%;
   border-radius: 10px;
@@ -60,20 +72,27 @@ const BoardImg = styled.img`
 
 const ListView = () => {
   const history = useHistory();
-
   const [announcementPosts, setAnnouncementPosts] = useState([]);
+  const [showMoreButtonVisible, setShowMoreButtonVisible] = useState(true);
+  const [numToGetList, setNumToGetList] = useState(10);
 
   useEffect(() => {
+    const userInfo = loginFunctions.getUserInfo();
+    if (!userInfo) return;
     announcementApi
-      .getLists({ size: 10 })
-      .then((docsArray) => setAnnouncementPosts(docsArray))
-      .catch((error) => console.log(error.message));
-  }, []);
+      .getLists({ size: numToGetList })
+      .then((docsArray) => {
+        if (docsArray.length < numToGetList) {
+          setShowMoreButtonVisible(false);
+        }
+        setAnnouncementPosts(docsArray);
+      })
+      .catch((error) => message.error(error.message));
+  }, [numToGetList]);
 
   return (
     <Con>
-      <Container>
-        <button
+      <button
           onClick={() =>
             history.push({
               pathname: `/board/announcement`,
@@ -81,9 +100,11 @@ const ListView = () => {
                 pageName: "create",
               },
             })
-          }>
+          }
+        >
           글 작성
         </button>
+      <Container>
         <BoardContainer>
           {announcementPosts.length === 0 ? (
             <LoadingSmall />
@@ -100,7 +121,8 @@ const ListView = () => {
                         docItem: item,
                       },
                     })
-                  }>
+                  }
+                >
                   <TitleTextBox>
                     <BoardChildTitle>{item.title}</BoardChildTitle>
                     <BoardText>{item.content}</BoardText>
@@ -118,6 +140,11 @@ const ListView = () => {
           )}
         </BoardContainer>
       </Container>
+      {showMoreButtonVisible && (
+        <MoreButton onClick={() => setNumToGetList((num) => num + 5)}>
+          더보기
+        </MoreButton>
+      )}
     </Con>
   );
 };

@@ -159,6 +159,7 @@ const CommentInputContainer = styled.div`
 const CommentInputBox = styled.textarea`
   width: 100%;
   height: 35px;
+  line-height: 1.3;
   outline: none;
   border: none;
   border-radius: 12px;
@@ -220,6 +221,8 @@ const Read = () => {
     reportOrDeleteModalDeleteState,
     setReportOrDeleteModalDeleteState,
   ] = useState(true);
+
+  const [commentBoxDoubleHeight, setCommentBoxDoubleHeight] = useState(false);
 
   const Modal_Type = {
     DOC: "DOC",
@@ -598,10 +601,14 @@ const Read = () => {
       <CommentInputContainer>
         <form autoComplete="off" style={{ width: "80%" }}>
           <CommentInputBox
+            style={commentBoxDoubleHeight ? { height: "45px" } : {}}
             placeholder={
               subCommentFocusedId === ""
                 ? "댓글을 작성하세요"
                 : "대댓글을 작성하세요"
+            }
+            onChange={(e) =>
+              setCommentBoxDoubleHeight(e.target.value.includes("\n"))
             }
             id="commentInputBox"
           />

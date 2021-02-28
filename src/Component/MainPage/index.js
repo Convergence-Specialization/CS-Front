@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { announcementApi, convergenceApi, departMajorApi } from "../../api";
 import LoadingSmall from "../SmallComponents/LoadingSmall";
+import { getUA, isMobile } from "react-device-detect";
 
 const Container = styled.div`
   width: 100%;
@@ -175,6 +176,13 @@ const MainPage = () => {
   const [convergencePosts, setConvergencePosts] = useState([]);
 
   useEffect(() => {
+    if (!isMobile) {
+      alert("현재 융슝은 모바일이 아닌 환경에서 사용이 어려울 수 있습니다.");
+    }
+    if (getUA.includes("KAKAOTALK")) {
+      alert("구글 정책상 카카오톡 모바일 브라우저로는 구글 로그인이 불가능합니다.");
+    }
+
     announcementApi
       .getLists({ size: 2 })
       .then((docsArray) => setAnnouncementPosts(docsArray))

@@ -224,7 +224,23 @@ const NotificationsPage = () => {
       </BoardContainer>
       <ButtonBox>
         <Text>읽은 알림</Text>
-        <Button onClick={() => history.push("/board/announcement")}>
+        <Button
+          onClick={async () => {
+            if (readNotifications.length === 0) {
+              return;
+            }
+            setUnreadLoading(true);
+            setReadLoading(true);
+            await Promise.all(
+              readNotifications.map(async (item) => {
+                return await userApi.deleteNotification({
+                  notificationId: item.notificationId,
+                  uid: loginFunctions.getUserInfo().uid,
+                });
+              })
+            );
+            getNotifications();
+          }}>
           모두 삭제
         </Button>
       </ButtonBox>

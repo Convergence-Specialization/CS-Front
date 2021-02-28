@@ -131,6 +131,15 @@ export const userApi = {
     });
     return notificationsArray;
   },
+  deleteNotification: async (body) => {
+    const { uid, notificationId } = body;
+    return await db
+      .collection("users")
+      .doc(uid)
+      .collection("notifications")
+      .doc(notificationId)
+      .delete();
+  },
   getMyInfo: async (body) => {
     let { uid } = body;
     return await db

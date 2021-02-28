@@ -72,14 +72,14 @@ export const boardNameDict = {
 };
 
 export const timeConverter = (UNIX_timestamp) => {
-  var a = new Date(UNIX_timestamp);
-  var year = a.getFullYear();
-  var month = a.getMonth();
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-  var time =
+  let a = new Date(UNIX_timestamp);
+  let year = a.getFullYear();
+  let month = a.getMonth();
+  let date = a.getDate();
+  let hour = a.getHours();
+  let min = a.getMinutes();
+  let sec = a.getSeconds();
+  let time =
     year + ". " + date + ". " + month + ". " + hour + ":" + min + ":" + sec;
   return time;
 };

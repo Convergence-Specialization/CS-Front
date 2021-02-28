@@ -17,7 +17,6 @@ const SubjectSelectImg = styled.img`
 `;
 const BoardContainer = styled.div`
   width: 93%;
-  min-height: 30vh;
   border-radius: 15px;
   margin: 0px auto 20px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -28,7 +27,6 @@ const BoardChildWrapper = styled.div`
   width: 90%;
   font-size: 15px;
   margin: 0 auto;
-  border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
 const BoardChildTitleWrapper = styled.div`
@@ -36,13 +34,8 @@ const BoardChildTitleWrapper = styled.div`
   align-items: center;
 `;
 const Text = styled.div`
-  margin: 50px 0px 10px 40px;
   font-weight: bold;
-  font-size: 20px;
-  @media (max-width: 430px) {
-    margin: 30px 0px 10px 30px;
-    font-size: 18px;
-  }
+  font-size: 18px;
 `;
 const BoardChildTitle = styled.div`
   overflow: hidden;
@@ -76,7 +69,24 @@ export const NotificationAlarm = styled.div`
   font-size: 15px;
   text-align: center;
 `;
-
+const Button = styled.div`
+  text-align: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #d4e6fb;
+  cursor: pointer;
+`;
+const ButtonBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 94%;
+  padding: 20px 5px 10px 25px;
+`;
 const NotificationsPage = () => {
   const history = useHistory();
 
@@ -117,7 +127,12 @@ const NotificationsPage = () => {
   }, []);
   return (
     <Container>
-      <Text>읽지 않음</Text>
+      <ButtonBox style={{ marginTop: "15px" }}>
+        <Text>읽지 않은 알림</Text>
+        <Button onClick={() => history.push("/board/announcement")}>
+          모두 읽기
+        </Button>
+      </ButtonBox>
       <BoardContainer>
         {unreadLoading ? (
           <LoadingSmall />
@@ -127,6 +142,11 @@ const NotificationsPage = () => {
           unreadNotifications.map((item, idx) => (
             <BoardChildWrapper
               key={`${idx}UNREAD`}
+              style={
+                unreadNotifications.length - 1 === idx
+                  ? {}
+                  : { borderBottom: "2.5px solid #f1f1f1" }
+              }
               onClick={async () => {
                 if (docLoading) return;
                 setDocLoading(true);
@@ -162,7 +182,8 @@ const NotificationsPage = () => {
                   uid: loginFunctions.getUserInfo().uid,
                 });
                 setDocLoading(false);
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}
@@ -182,7 +203,12 @@ const NotificationsPage = () => {
           ))
         )}
       </BoardContainer>
-      <Text>읽음</Text>
+      <ButtonBox>
+        <Text>읽은 알림</Text>
+        <Button onClick={() => history.push("/board/announcement")}>
+          모두 삭제
+        </Button>
+      </ButtonBox>
       <BoardContainer>
         {readLoading ? (
           <LoadingSmall />
@@ -191,6 +217,11 @@ const NotificationsPage = () => {
         ) : (
           readNotifications.map((item, idx) => (
             <BoardChildWrapper
+              style={
+                readNotifications.length - 1 === idx
+                  ? {}
+                  : { borderBottom: "2.5px solid #f1f1f1" }
+              }
               key={`${idx}READ`}
               onClick={async () => {
                 if (docLoading) return;
@@ -221,7 +252,8 @@ const NotificationsPage = () => {
                   }
                 }
                 setDocLoading(false);
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}

@@ -78,6 +78,7 @@ const Button = styled.div`
   font-weight: bold;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #d4e6fb;
+  margin-top: -6px;
   cursor: pointer;
 `;
 const Text = styled.div`
@@ -171,9 +172,6 @@ const PreView = () => {
       <Container>
         <BoardTitleContainer>
           <Text>진행 중인 행사</Text>
-          <Button onClick={() => history.push("/board/announcement")}>
-            더보기
-          </Button>
         </BoardTitleContainer>
         {loading ? (
           <LoadingSmall />

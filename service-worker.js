@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "asset-manifest.json",
-    "revision": "b8b1a63b620bbe04a5f1c5658dffba2f"
+    "revision": "ba8e25427ac2f0229eac1d386a5c31d5"
   },
   {
     "url": "favicon.ico",
@@ -52,16 +52,16 @@ self.__precacheManifest = [
     "revision": "965d560450f8c01f5b9287f19415c9aa"
   },
   {
-    "url": "static/js/2.ef550f0a.chunk.js",
-    "revision": "edbd0a8f78f49dcd48de16de21c0b223"
+    "url": "static/js/2.73042408.chunk.js",
+    "revision": "f6e6474cb84dc1f3f8193821a42b3162"
   },
   {
-    "url": "static/js/2.ef550f0a.chunk.js.LICENSE.txt",
+    "url": "static/js/2.73042408.chunk.js.LICENSE.txt",
     "revision": "744e1605270ce0f20ba5f3ea8ae6a094"
   },
   {
-    "url": "static/js/main.f63ff1f8.chunk.js",
-    "revision": "38ca7f2e15ec6bf9bd1c6e5a54781fe9"
+    "url": "static/js/main.179c6bed.chunk.js",
+    "revision": "2dc3b06678876ea67aff5c04c5174848"
   },
   {
     "url": "static/js/runtime-main.aab4bf4c.js",
@@ -74,6 +74,10 @@ self.__precacheManifest = [
   {
     "url": "static/media/BIGDATA.019a0697.png",
     "revision": "e1fcb1051125d94d4afe4530d7d05a2e"
+  },
+  {
+    "url": "static/media/book.6aa7bc7c.png",
+    "revision": "3259b4f8646cfba993e70b1738f9b5e3"
   },
   {
     "url": "static/media/ENERGY_SCIENCE.3300f0d6.png",
@@ -94,6 +98,10 @@ self.__precacheManifest = [
   {
     "url": "static/media/horse.e9f651f1.png",
     "revision": "3accdcde5bcd86d5fa4a34b21689caad"
+  },
+  {
+    "url": "static/media/hot.9537d73d.png",
+    "revision": "fa71707813c6ba3ecc0af5cc841592c8"
   },
   {
     "url": "static/media/ICT.3ec7e59d.png",

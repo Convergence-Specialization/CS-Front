@@ -145,7 +145,7 @@ const NotificationsPage = () => {
               style={
                 unreadNotifications.length - 1 === idx
                   ? {}
-                  : { borderBottom: "2.5px solid #f1f1f1" }
+                  : { borderBottom: "2.0px solid #f1f1f1" }
               }
               onClick={async () => {
                 if (docLoading) return;
@@ -220,7 +220,7 @@ const NotificationsPage = () => {
               style={
                 readNotifications.length - 1 === idx
                   ? {}
-                  : { borderBottom: "2.5px solid #f1f1f1" }
+                  : { borderBottom: "2.0px solid #f1f1f1" }
               }
               key={`${idx}READ`}
               onClick={async () => {

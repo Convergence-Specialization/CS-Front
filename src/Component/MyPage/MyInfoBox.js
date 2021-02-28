@@ -110,7 +110,7 @@ const MyInfoBox = () => {
       {!!loginFunctions.getUserInfo() && (
         <InfoContainer>
           {!myInfo ? (
-             <LoadingSmall />
+            <LoadingSmall />
           ) : (
             <>
               <InfoWrapper>
@@ -134,7 +134,8 @@ const MyInfoBox = () => {
                     message.info(
                       "정보 변경은 사이드 바의 건의하기를 사용해주시기 바랍니다."
                     );
-                  }}>
+                  }}
+                >
                   <EditWrapper>
                     정보수정
                     <EditIconImg src={etc.infoEdit} alt={"정보 수정 사진"} />

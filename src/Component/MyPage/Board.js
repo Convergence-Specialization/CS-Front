@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { authService } from "../../firebase";
 import { useHistory } from "react-router-dom";
 import message from "antd/lib/message";
 import { loginFunctions } from "../Watchers";
+import Secession from "./Modal/Secession";
 
 const Container1 = styled.div`
   padding: 20px;
@@ -54,8 +55,10 @@ const Text1 = styled.div`
 
 const Board = () => {
   const history = useHistory();
+  const [ModalVisible, setModalVisible] = useState(false);
   return (
     <>
+      <Secession visible={ModalVisible} />
       <Container1>
         <Text onClick={() => history.push("/mypage/myposts")}>내가 쓴 글</Text>
       </Container1>
@@ -68,7 +71,13 @@ const Board = () => {
       )}
       <Container2>
         <Text1>서비스 이용약관</Text1>
-        <Text1>회원 탈퇴</Text1>
+        <Text1
+          onClick={() => {
+            setModalVisible(true);
+          }}
+        >
+          회원 탈퇴
+        </Text1>
         <Text
           style={{ cursor: "pointer", padding: "18px 10px" }}
           onClick={() => {
@@ -77,7 +86,8 @@ const Board = () => {
               message.success("로그아웃 완료");
               history.push("/");
             });
-          }}>
+          }}
+        >
           로그아웃
         </Text>
       </Container2>

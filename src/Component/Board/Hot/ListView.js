@@ -64,11 +64,41 @@ const MoreButton = styled.div`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
 `;
+const BoardText = styled.div`
+  font-size: 10px;
+`;
+const IconTextBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 const ConvergenceListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [noMoreDocs, setNoMoreDocs] = useState(false);
+
+  const DUMMY = [
+    {
+      boardName: "DEPARTMAJOR",
+      nickname: "숭늉먹는 숭늉이",
+      likes_count: 7,
+      comments_count: 7,
+      content: "더미더미",
+      title: "ㅁㄴㅇㄹ",
+      time: "2분",
+      board: "전과 게시판",
+    },
+    {
+      boardName: "CONVERGENCE",
+      nickname: "숭늉먹는 융슝이",
+      likes_count: 10,
+      comments_count: 10,
+      content: "더미",
+      time: "1분 ",
+      board: "융특 게시판",
+    },
+  ];
 
   useEffect(() => {
     convergenceApi
@@ -85,51 +115,110 @@ const ConvergenceListView = () => {
     <>
       <Container>
         <BoardContainer>
-          {posts.length === 0 ? (
+          {DUMMY.length === 0 ? (
             <LoadingSmall />
           ) : (
-            posts.map((item, idx) => (
-              <BoardChildWrapper
-                style={posts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
-                key={idx}
-                onClick={() =>
-                  history.push({
-                    pathname: `/board/convergence`,
-                    state: {
-                      pageName: "read",
-                      docItem: item,
-                    },
-                  })
-                }>
-              
-                <BoardChildTitle style={{ width: "80%" }}>
-                  <img
-                    src={horseIcons.newhorse}
-                    alt="융슝이"
-                    style={{ width: "25px", marginRight: "5px" }}></img>
-                  {item.nickname}
-                </BoardChildTitle>
-                <BoardChildContent>{item.content}</BoardChildContent>
-                <BoardChildTimeText>
-                  {item.timestampDistance} 전
-                </BoardChildTimeText>
-                <BoardChildMetaText>
-                  <img
-                    src={readDoc.heart_fill}
-                    alt="하트 아이콘"
-                    style={{ width: "13px", marginRight: " 4px" }}
-                  />
-                  <div style={{fontSize:'13px'}}>{item.likeCount}</div>
-                  <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
-                  <img
-                    src={readDoc.speech_bubble}
-                    alt="말풍선 아이콘"
-                    style={{ width: "13px", margin: "0px 4px" }}
-                  />
-                  <div style={{fontSize:'13px'}}>{item.commentCount}</div>
-                </BoardChildMetaText>
-              </BoardChildWrapper>
-            ))
+            DUMMY.map((item, idx) =>
+              item.boardName === "CONVERGENCE" ? (
+                <BoardChildWrapper
+                  style={
+                    DUMMY.length - 1 === idx
+                      ? {}
+                      : { borderBottom: "2.5px solid #f1f1f1" }
+                  }
+                  key={idx}
+                  onClick={() =>
+                    history.push({
+                      pathname: `/board/convergence`,
+                      state: {
+                        pageName: "read",
+                        docItem: item,
+                      },
+                    })
+                  }
+                >
+                  <BoardChildTitle style={{ width: "80%" }}>
+                    <img
+                      src={horseIcons.newhorse}
+                      alt="융슝이"
+                      style={{ width: "25px", marginRight: "5px" }}
+                    ></img>
+                    {item.nickname}
+                  </BoardChildTitle>
+                  <BoardChildContent>{item.content}</BoardChildContent>
+                  <BoardChildTimeText>{item.time} 전</BoardChildTimeText>
+                  <IconTextBox>
+                    <BoardText>{item.board}</BoardText>
+                    <BoardChildMetaText>
+                      <img
+                        src={readDoc.heart_fill}
+                        alt="하트 아이콘"
+                        style={{ width: "13px", marginRight: " 4px" }}
+                      />
+                      <div style={{ fontSize: "13px" }}>{item.likes_count}</div>
+                      <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                      <img
+                        src={readDoc.speech_bubble}
+                        alt="말풍선 아이콘"
+                        style={{ width: "13px", margin: "0px 4px" }}
+                      />
+                      <div style={{ fontSize: "13px" }}>
+                        {item.comments_count}
+                      </div>
+                    </BoardChildMetaText>
+                  </IconTextBox>
+                </BoardChildWrapper>
+              ) : (
+                <BoardChildWrapper
+                  style={
+                    DUMMY.length - 1 === idx
+                      ? {}
+                      : { borderBottom: "2.5px solid #f1f1f1" }
+                  }
+                  key={idx}
+                  onClick={() =>
+                    history.push({
+                      pathname: `/board/convergence`,
+                      state: {
+                        pageName: "read",
+                        docItem: item,
+                      },
+                    })
+                  }
+                >
+                  <BoardChildTitle style={{ width: "80%" }}>
+                    <img
+                      src={horseIcons.newhorse}
+                      alt="융슝이"
+                      style={{ width: "25px", marginRight: "5px" }}
+                    ></img>
+                    {item.nickname}
+                  </BoardChildTitle>
+                  <BoardChildContent>{item.content}</BoardChildContent>
+                  <BoardChildTimeText>{item.time} 전</BoardChildTimeText>
+                  <IconTextBox>
+                    <BoardText>{item.board}</BoardText>
+                    <BoardChildMetaText>
+                      <img
+                        src={readDoc.heart_fill}
+                        alt="하트 아이콘"
+                        style={{ width: "13px", marginRight: " 4px" }}
+                      />
+                      <div style={{ fontSize: "13px" }}>{item.likes_count}</div>
+                      <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                      <img
+                        src={readDoc.speech_bubble}
+                        alt="말풍선 아이콘"
+                        style={{ width: "13px", margin: "0px 4px" }}
+                      />
+                      <div style={{ fontSize: "13px" }}>
+                        {item.comments_count}
+                      </div>
+                    </BoardChildMetaText>
+                  </IconTextBox>
+                </BoardChildWrapper>
+              )
+            )
           )}
         </BoardContainer>
         {!noMoreDocs && (
@@ -153,7 +242,8 @@ const ConvergenceListView = () => {
               } finally {
                 setUploading(false);
               }
-            }}>
+            }}
+          >
             더보기
           </MoreButton>
         )}

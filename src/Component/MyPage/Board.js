@@ -32,11 +32,9 @@ const Container2 = styled.div`
 const Text = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
-  @media (max-width: 430px) {
-    font-size: 15px;
-    padding: 3px 10px;
-  }
+  font-size: 15px;
+  padding: 18px 10px;
+  cursor: pointer;
 `;
 
 const Text1 = styled.div`
@@ -59,9 +57,12 @@ const Board = () => {
   return (
     <>
       <Secession visible={ModalVisible} />
-      <Container1>
-        <Text onClick={() => history.push("/mypage/myposts")}>내가 쓴 글</Text>
-      </Container1>
+      <Container2>
+        <Text1 onClick={() => history.push("/mypage/myposts")}>
+          내가 쓴 글
+        </Text1>
+        <Text onClick={() => history.push("/mypage/save")}>저장한 글</Text>
+      </Container2>
       {!loginFunctions.getUserInfo().isGoogle && (
         <Container1>
           <Text onClick={() => history.push("/mypage/changepw")}>
@@ -79,7 +80,6 @@ const Board = () => {
           회원 탈퇴
         </Text1>
         <Text
-          style={{ cursor: "pointer", padding: "18px 10px" }}
           onClick={() => {
             authService.signOut().then(() => {
               loginFunctions.onLogout();

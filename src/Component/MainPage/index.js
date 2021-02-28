@@ -223,7 +223,8 @@ const MainPage = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitle>{item.title}</BoardChildTitle>
               </BoardChildWrapper>
             ))}
@@ -316,6 +317,48 @@ const MainPage = () => {
         </SlickBox1>
       </Slick>
       <TitleAndButtonWrapper>
+        <TitleElement src={navbotIcons.airplane} name={"인기많은 융슝이들"} />
+        <Button onClick={() => history.push("/board/convergence")}>
+          더보기
+        </Button>
+      </TitleAndButtonWrapper>
+      <BoardContainer>
+        {convergencePosts.length === 0 ? (
+          <LoadingSmall />
+        ) : (
+          convergencePosts.map((item, idx) => (
+            <BoardChildWrapper
+              key={`${idx}CONVERGENCE_PREVIEW`}
+              onClick={() =>
+                history.push({
+                  pathname: `/board/convergence`,
+                  state: {
+                    pageName: "read",
+                    docItem: item,
+                  },
+                })
+              }
+            >
+              <BoardChildTitle>{item.content}</BoardChildTitle>
+              <DepartmentSubWrapper>
+                <img
+                  style={{ width: "15px", margin: "0 7px" }}
+                  src={readDoc.heart_fill}
+                  alt="heart"
+                />
+                <span>{item.likeCount}</span>
+                <img
+                  style={{ width: "15px", margin: "0 7px" }}
+                  src={readDoc.speech_bubble}
+                  alt="comment"
+                />
+                <span>{item.commentCount}</span>
+              </DepartmentSubWrapper>
+            </BoardChildWrapper>
+          ))
+        )}
+      </BoardContainer>
+      <TitleAndButtonWrapper>
         <TitleElement src={navbotIcons.airplane} name={"융특 게시판"} />
         <Button onClick={() => history.push("/board/convergence")}>
           더보기
@@ -336,7 +379,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -377,7 +421,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img

@@ -59,9 +59,6 @@ const WritterAndDate = styled.div`
   text-align: center;
   margin-left: 8px;
   padding-top: 10px;
-
-  @media (max-width: 430px) {
-  }
 `;
 
 

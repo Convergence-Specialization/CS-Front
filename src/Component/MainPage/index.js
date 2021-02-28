@@ -231,7 +231,7 @@ const MainPage = () => {
           </>
         )}
       </BoardContainer>
-      <TitleElement src={navbotIcons.airplane} name={"융합전공 소개"} />
+      <TitleElement src={navbotIcons.book} name={"융합전공 소개"} />
       <Slick>
         <SlickBox1>
           <SlickCustomLeftButton onClick={() => SlickRef.current.slickPrev()}>
@@ -317,8 +317,8 @@ const MainPage = () => {
         </SlickBox1>
       </Slick>
       <TitleAndButtonWrapper>
-        <TitleElement src={navbotIcons.airplane} name={"인기많은 융슝이들"} />
-        <Button onClick={() => history.push("/board/convergence")}>
+        <TitleElement src={navbotIcons.hot} name={"인기많은 융슝이들"} />
+        <Button onClick={() => history.push("/board/hot")}>
           더보기
         </Button>
       </TitleAndButtonWrapper>

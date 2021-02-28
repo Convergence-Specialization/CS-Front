@@ -18,6 +18,7 @@ import NormalCreate from "../Routes/NormalCreate";
 import SignUp from "../Routes/SignUp";
 import MajorIntroduce from "../Routes/MajorIntroduce";
 import DepartMajor from "../Routes/Board/DepartMajor";
+import Hot from "../Routes/Board/Hot";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Board/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
@@ -61,6 +62,9 @@ const RouterComponent = () => {
       </Route>
       <Route path="/board/convergence">
         <Convergence />
+      </Route>
+      <Route path="/board/hot">
+        <Hot />
       </Route>
       <Route path="/board/event/eventpost">
         <EventPost />

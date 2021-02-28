@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "asset-manifest.json",
-    "revision": "b7c13d45ccd5f717f75af311f64a5f7a"
+    "revision": "b8b1a63b620bbe04a5f1c5658dffba2f"
   },
   {
     "url": "favicon.ico",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "revision": "744e1605270ce0f20ba5f3ea8ae6a094"
   },
   {
-    "url": "static/js/main.24c21a4b.chunk.js",
-    "revision": "305695fe4c882bed624426c4972dbd97"
+    "url": "static/js/main.f63ff1f8.chunk.js",
+    "revision": "38ca7f2e15ec6bf9bd1c6e5a54781fe9"
   },
   {
     "url": "static/js/runtime-main.aab4bf4c.js",

@@ -186,16 +186,16 @@ const ChangedBoard = () => {
                   <img
                     src={readDoc.heart_fill}
                     alt="하트 아이콘"
-                    style={{ width: "18px", marginRight: " 4px" }}
+                    style={{ width: "13px", marginRight: " 4px" }}
                   />
-                  <div>{item.likeCount}</div>
+                  <div style={{fontSize:'13px'}}>{item.likeCount}</div>
                   <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                   <img
                     src={readDoc.speech_bubble}
                     alt="말풍선 아이콘"
-                    style={{ width: "18px", margin: "0px 4px" }}
+                    style={{ width: "13px", margin: "0px 4px" }}
                   />
-                  <div>{item.commentCount}</div>
+                  <div style={{fontSize:'13px'}}>{item.commentCount}</div>
                 </BoardChildMetaText>
               </BoardChildWrapper>
             ))

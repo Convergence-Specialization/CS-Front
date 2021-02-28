@@ -9,7 +9,7 @@ import Navbar from "../../Component/Navbar";
 import NavBot from "../../Component/SmallComponents/NavBot";
 import { navbotIcons, navIcons } from "../../assets/Resources";
 
-const DepartPresenter = () => {
+const ConvergencePresenter = () => {
   const location = useLocation();
   const [renderElement, setRenderElement] = useState(<div />);
 
@@ -53,4 +53,4 @@ const DepartPresenter = () => {
     </>
   );
 };
-export default DepartPresenter;
+export default ConvergencePresenter;

@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CS-Front/static/css/main.2eb0fdf9.chunk.css",
-    "main.js": "/CS-Front/static/js/main.2490fd4f.chunk.js",
-    "main.js.map": "/CS-Front/static/js/main.2490fd4f.chunk.js.map",
+    "main.js": "/CS-Front/static/js/main.878c6e0b.chunk.js",
+    "main.js.map": "/CS-Front/static/js/main.878c6e0b.chunk.js.map",
     "runtime-main.js": "/CS-Front/static/js/runtime-main.aab4bf4c.js",
     "runtime-main.js.map": "/CS-Front/static/js/runtime-main.aab4bf4c.js.map",
     "static/css/2.48571724.chunk.css": "/CS-Front/static/css/2.48571724.chunk.css",
@@ -25,7 +25,7 @@
     "static/media/face.3c0c23c3.png": "/CS-Front/static/media/face.3c0c23c3.png",
     "static/media/friday.f434b5c3.jpg": "/CS-Front/static/media/friday.f434b5c3.jpg",
     "static/media/graduate.69e447e0.jpg": "/CS-Front/static/media/graduate.69e447e0.jpg",
-    "static/media/horse.1af58d6e.png": "/CS-Front/static/media/horse.1af58d6e.png",
+    "static/media/horse.e9f651f1.png": "/CS-Front/static/media/horse.e9f651f1.png",
     "static/media/horse_2.7ba882ed.png": "/CS-Front/static/media/horse_2.7ba882ed.png",
     "static/media/introduce1.57690cf2.png": "/CS-Front/static/media/introduce1.57690cf2.png",
     "static/media/introduce2.699aa2a0.png": "/CS-Front/static/media/introduce2.699aa2a0.png",
@@ -42,6 +42,6 @@
     "static/css/2.48571724.chunk.css",
     "static/js/2.f425ab63.chunk.js",
     "static/css/main.2eb0fdf9.chunk.css",
-    "static/js/main.2490fd4f.chunk.js"
+    "static/js/main.878c6e0b.chunk.js"
   ]
 }

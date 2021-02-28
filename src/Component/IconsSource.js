@@ -189,7 +189,8 @@ const IconsSource = () => {
           www.flaticon.com
         </a>
       </div>
-      색상: #8D8D8D<br/>
+      색상: #8D8D8D
+      <br />
       새로고침 :{" "}
       <div>
         Icons made by{" "}
@@ -198,6 +199,73 @@ const IconsSource = () => {
           title="Vitaly Gorbachev"
         >
           Vitaly Gorbachev
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      삼단바 마이페이지 :{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/smashicons"
+          title="Smashicons"
+        >
+          Smashicons
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      삼단바 건의사항 :{" "}
+      <div>
+        Icons made by{" "}
+        <a href="https://www.freepik.com/" title="Freepik">
+          Freepik
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      삼단바 팀소개 :{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/prosymbols"
+          title="Prosymbols"
+        >
+          Prosymbols
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      삼단바 우측 상담 엑스표 :{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/roundicons"
+          title="Roundicons"
+        >
+          Roundicons
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
+      삼단바 내리는 거 :{" "}
+      <div>
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/pixel-perfect"
+          title="Pixel perfect"
+        >
+          Pixel perfect
         </a>{" "}
         from{" "}
         <a href="https://www.flaticon.com/" title="Flaticon">

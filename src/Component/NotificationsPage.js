@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { globalApi, userApi } from "../api";
@@ -98,7 +98,7 @@ const NotificationsPage = () => {
 
   const [docLoading, setDocLoading] = useState(false);
 
-  useEffect(() => {
+  const getNotifications = useCallback(() => {
     const userInfo = loginFunctions.getUserInfo();
     if (!userInfo) return;
     // 아직 안읽은 알림들 가져오기
@@ -125,11 +125,31 @@ const NotificationsPage = () => {
       })
       .catch((err) => console.log(err.message));
   }, []);
+
+  useEffect(() => {
+    getNotifications();
+  }, [getNotifications]);
   return (
     <Container>
       <ButtonBox style={{ marginTop: "15px" }}>
         <Text>읽지 않은 알림</Text>
-        <Button onClick={() => history.push("/board/announcement")}>
+        <Button
+          onClick={async () => {
+            if (unreadNotifications.length === 0) {
+              return;
+            }
+            setUnreadLoading(true);
+            setReadLoading(true);
+            await Promise.all(
+              unreadNotifications.map(async (item) => {
+                await globalApi.checkNotification({
+                  notificationId: item.notificationId,
+                  uid: loginFunctions.getUserInfo().uid,
+                });
+              })
+            );
+            getNotifications();
+          }}>
           모두 읽기
         </Button>
       </ButtonBox>
@@ -182,8 +202,7 @@ const NotificationsPage = () => {
                   uid: loginFunctions.getUserInfo().uid,
                 });
                 setDocLoading(false);
-              }}
-            >
+              }}>
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}
@@ -252,8 +271,7 @@ const NotificationsPage = () => {
                   }
                 }
                 setDocLoading(false);
-              }}
-            >
+              }}>
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}

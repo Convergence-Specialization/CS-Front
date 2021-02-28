@@ -109,14 +109,13 @@ const CommentChildText = styled.div`
   white-space: pre-wrap;
 `;
 const CommentButtonWrapper = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 `;
 const CommentChildNewSubButton = styled.img`
   width: 13px;
-  margin: 0 7px;
+  margin: 0px 7px;
 `;
 const CommentChildLikeWrapper = styled.div`
   padding: 3px 5px;
@@ -440,7 +439,7 @@ const Read = () => {
                   <CommentChildText style={{ width: "90%" }}>
                     {item.content}
                   </CommentChildText>
-                  <CommentButtonWrapper>
+                  <CommentButtonWrapper style={{marginRight: '6px'}}>
                     <CommentChildLikeWrapper
                       onClick={() => {
                         if (subCommentFocusedId !== item.commentId) {

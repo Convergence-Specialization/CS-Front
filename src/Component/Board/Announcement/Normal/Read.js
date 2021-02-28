@@ -64,10 +64,7 @@ const WritterAndDate = styled.div`
   }
 `;
 
-const BoardLine = styled.div`
-  border: solid 1px #a5a5a5;
-  margin: 5px 10px 0px 10px;
-`;
+
 
 const EventTermContainer = styled.div`
   background: #f1f1f1;
@@ -129,24 +126,6 @@ const HorseImg = styled.img`
   width: 45px;
   margin: 0 5px;
   align-self: flex-start;
-`;
-
-const SubBox = styled.div`
-  font-size: 14px;
-  width: 93%;
-  margin: 15px auto;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-`;
-
-const SubPre = styled.div`
-  display: flex;
-  margin: 10px 20px;
-`;
-const SubFor = styled.div`
-  display: flex;
-  margin: 10px 20px;
 `;
 
 const TitleAndTime = styled.div`

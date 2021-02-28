@@ -464,7 +464,7 @@ const Read = () => {
                   <CommentChildText style={{ width: "90%" }}>
                     {item.content}
                   </CommentChildText>
-                  <CommentButtonWrapper>
+                  <CommentButtonWrapper style={{marginRight: '6px'}}>
                     <CommentChildLikeWrapper
                       onClick={() => {
                         if (subCommentFocusedId !== item.commentId) {

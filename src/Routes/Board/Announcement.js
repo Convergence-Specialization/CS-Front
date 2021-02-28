@@ -4,7 +4,7 @@ import Create from "../../Component/Board/Announcement/Normal/Create";
 import ListView from "../../Component/Board/Announcement/Event/ListView";
 import PreView from "../../Component/Board/Announcement/Event/PreView";
 // import EventPost from "../../Component/Board/Announcement/Event/EventPost";
-import { navbotIcons } from "../../assets/Resources";
+import { navbotIcons, navIcons } from "../../assets/Resources";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../Component/Navbar";
 import NavBot from "../../Component/SmallComponents/NavBot";
@@ -33,8 +33,8 @@ const AnnouncePresenter = () => {
   }, [location]);
   return (
     <>
-      <Navbar />
-      <NavBot Icon={navbotIcons.announce} Name="공지 사항" />
+      <Navbar isRight1Disabled History IconRight2= {navIcons.Home}/>
+      <NavBot Icon={navbotIcons.announce} Name="공지 사항"  />
       {renderElement}
     </>
   );

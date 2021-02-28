@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { timeConverter } from "../../../../assets/Dicts";
 import { horseIcons } from "../../../../assets/Resources";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -102,7 +103,7 @@ const BoardText = styled.div`
 `;
 
 const BoardButton = styled.div`
-  margin: 0px 10px 0px 290px;
+  margin: 20px 10px 0px 290px;
   padding: 5px;
   width: 15%;
   height: 30px;
@@ -153,10 +154,10 @@ const TitleAndTime = styled.div`
   align-items: center;
 `;
 const TitleAndTimeWrapper = styled.div``;
-
 const Announcement = () => {
   const location = useLocation();
   const [docItem, setDocItem] = useState();
+  const history = useHistory();
 
   useEffect(() => {
     if (location.state === undefined) return;
@@ -195,13 +196,18 @@ const Announcement = () => {
             </BoardImgWrapper>
             <BoardText>{docItem.content}</BoardText>
           </BoardWrapper>
-          <SubBox>
-            <SubPre>이전 | '온라인학습법특강' 참여</SubPre>
-            <BoardLine />
-            <SubFor>이후 | 뭐라고 해야하지</SubFor>
-          </SubBox>
-          <BoardButton>
-            <BoardButtonText>목록</BoardButtonText>
+          <BoardButton  onClick={() =>
+                history.push({
+                  pathname: `/board/announcement`,
+                  state: {
+                    pageName: "listview"
+                  },
+                })
+              }>
+            <BoardButtonText
+            >
+              목록
+            </BoardButtonText>
           </BoardButton>
         </BoardContainer>
       )}

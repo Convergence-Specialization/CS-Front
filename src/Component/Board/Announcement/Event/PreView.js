@@ -128,7 +128,7 @@ const EventImage = styled.img`
   margin: 0 auto;
   width: 130px;
   height: 130px;
-  background-color: #7ab8f3;
+  background-color: black;
 `;
 const SlickCustomLeftButton = styled.div`
   position: absolute;

@@ -95,7 +95,7 @@ const NotificationsPage = () => {
     userApi
       .getUnreadNotifications({
         uid: userInfo.uid,
-        size: 10,
+        size: 20,
       })
       .then((notificationArray) => {
         setUnreadNotifications(notificationArray);

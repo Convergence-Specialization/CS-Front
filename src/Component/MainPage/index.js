@@ -3,7 +3,12 @@ import { major, navbotIcons, readDoc } from "../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { announcementApi, convergenceApi, departMajorApi } from "../../api";
+import {
+  announcementApi,
+  convergenceApi,
+  departMajorApi,
+  hotApi,
+} from "../../api";
 import LoadingSmall from "../SmallComponents/LoadingSmall";
 import { getUA, isMobile } from "react-device-detect";
 
@@ -180,9 +185,15 @@ const MainPage = () => {
       alert("현재 융슝은 모바일이 아닌 환경에서 사용이 어려울 수 있습니다.");
     }
     if (getUA.includes("KAKAOTALK")) {
-      alert("구글 정책상 카카오톡 모바일 브라우저로는 구글 로그인이 불가능합니다.");
+      alert(
+        "구글 정책상 카카오톡 모바일 브라우저로는 구글 로그인이 불가능합니다."
+      );
     }
 
+    hotApi
+      .getLists({ size: 2 })
+      .then((docsArray) => console.log(docsArray))
+      .catch((error) => console.log(error.message));
     announcementApi
       .getLists({ size: 2 })
       .then((docsArray) => setAnnouncementPosts(docsArray))
@@ -223,8 +234,7 @@ const MainPage = () => {
                       docItem: item,
                     },
                   })
-                }
-              >
+                }>
                 <BoardChildTitle>{item.title}</BoardChildTitle>
               </BoardChildWrapper>
             ))}
@@ -318,9 +328,7 @@ const MainPage = () => {
       </Slick>
       <TitleAndButtonWrapper>
         <TitleElement src={navbotIcons.hot} name={"인기많은 융슝이들"} />
-        <Button onClick={() => history.push("/board/hot")}>
-          더보기
-        </Button>
+        <Button onClick={() => history.push("/board/hot")}>더보기</Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
         {convergencePosts.length === 0 ? (
@@ -337,8 +345,7 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -379,8 +386,7 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -421,8 +427,7 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img

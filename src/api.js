@@ -2,7 +2,7 @@ import axios from "axios";
 import { db } from "./firebase";
 import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import { NOTIFICATION_TYPES } from "./assets/Dicts";
+import { boardNameDict, NOTIFICATION_TYPES } from "./assets/Dicts";
 
 const api = axios.create({
   baseURL: "https://convergence-ssu.herokuapp.com/",
@@ -177,6 +177,96 @@ export const announcementApi = {
       });
     });
     return docsArray;
+  },
+};
+
+export const hotApi = {
+  getLists: async (body) => {
+    let { size, startAfterDocId } = body;
+    if (!startAfterDocId) {
+      const querySnapshot = await db
+        .collection("hot")
+        .orderBy("timestamp", "desc")
+        .limit(size)
+        .get();
+      let docsList = [];
+
+      querySnapshot.forEach((doc) =>
+        docsList.push({ ...doc.data(), hotDocId: doc.id })
+      );
+      await Promise.all(
+        docsList.map(async (item, idx) => {
+          let data = await db
+            .collection(boardNameDict[item.boardName].dbName)
+            .doc(item.docId)
+            .get()
+            .then((doc) => doc.data());
+
+          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+            locale: ko,
+          }).replace("약 ", "");
+          if (distanceText.includes("미만")) {
+            distanceText = "방금";
+          }
+          docsList[idx].docItem = {
+            docId: item.docId,
+            content: data.content,
+            nickname: data.nickname,
+            timestampDistance: distanceText,
+            timestampMillis: data.timestamp.toMillis(),
+            commentCount: data.comments_count,
+            likeCount: data.likes_count,
+            encryptedUid: data.encryptedUid,
+          };
+          return;
+        })
+      );
+      return docsList;
+    } else {
+      // 더 보기를 누른 상태이면.
+      const startAfterDoc = await db
+        .collection("hot")
+        .doc(startAfterDocId)
+        .get();
+
+      const querySnapshot = await db
+        .collection("hot")
+        .orderBy("timestamp", "desc")
+        .startAfter(startAfterDoc)
+        .limit(size)
+        .get();
+      let docsList = [];
+
+      querySnapshot.forEach((doc) => docsList.push(doc.data()));
+      await Promise.all(
+        docsList.map(async (item, idx) => {
+          let data = await db
+            .collection(boardNameDict[item.boardName].dbName)
+            .doc(item.docId)
+            .get()
+            .then((doc) => doc.data());
+
+          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+            locale: ko,
+          }).replace("약 ", "");
+          if (distanceText.includes("미만")) {
+            distanceText = "방금";
+          }
+          docsList[idx].docItem = {
+            docId: item.docId,
+            content: data.content,
+            nickname: data.nickname,
+            timestampDistance: distanceText,
+            timestampMillis: data.timestamp.toMillis(),
+            commentCount: data.comments_count,
+            likeCount: data.likes_count,
+            encryptedUid: data.encryptedUid,
+          };
+          return;
+        })
+      );
+      return docsList;
+    }
   },
 };
 

@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/CS-Front/static/css/main.2eb0fdf9.chunk.css",
-    "main.js": "/CS-Front/static/js/main.01fe9ccf.chunk.js",
-    "main.js.map": "/CS-Front/static/js/main.01fe9ccf.chunk.js.map",
+    "main.js": "/CS-Front/static/js/main.139c0c37.chunk.js",
+    "main.js.map": "/CS-Front/static/js/main.139c0c37.chunk.js.map",
     "runtime-main.js": "/CS-Front/static/js/runtime-main.aab4bf4c.js",
     "runtime-main.js.map": "/CS-Front/static/js/runtime-main.aab4bf4c.js.map",
     "static/css/2.48571724.chunk.css": "/CS-Front/static/css/2.48571724.chunk.css",
-    "static/js/2.4c64a6f5.chunk.js": "/CS-Front/static/js/2.4c64a6f5.chunk.js",
-    "static/js/2.4c64a6f5.chunk.js.map": "/CS-Front/static/js/2.4c64a6f5.chunk.js.map",
+    "static/js/2.7f424d99.chunk.js": "/CS-Front/static/js/2.7f424d99.chunk.js",
+    "static/js/2.7f424d99.chunk.js.map": "/CS-Front/static/js/2.7f424d99.chunk.js.map",
     "index.html": "/CS-Front/index.html",
     "service-worker.js": "/CS-Front/service-worker.js",
     "service-worker.js.map": "/CS-Front/service-worker.js.map",
     "static/css/2.48571724.chunk.css.map": "/CS-Front/static/css/2.48571724.chunk.css.map",
     "static/css/main.2eb0fdf9.chunk.css.map": "/CS-Front/static/css/main.2eb0fdf9.chunk.css.map",
-    "static/js/2.4c64a6f5.chunk.js.LICENSE.txt": "/CS-Front/static/js/2.4c64a6f5.chunk.js.LICENSE.txt",
+    "static/js/2.7f424d99.chunk.js.LICENSE.txt": "/CS-Front/static/js/2.7f424d99.chunk.js.LICENSE.txt",
     "static/media/BIGDATA.019a0697.png": "/CS-Front/static/media/BIGDATA.019a0697.png",
     "static/media/Background3.597937c6.png": "/CS-Front/static/media/Background3.597937c6.png",
     "static/media/ENERGY_SCIENCE.3300f0d6.png": "/CS-Front/static/media/ENERGY_SCIENCE.3300f0d6.png",
@@ -34,6 +34,7 @@
     "static/media/mentor.3b7b066d.jpg": "/CS-Front/static/media/mentor.3b7b066d.jpg",
     "static/media/myPage.7d6c73c8.png": "/CS-Front/static/media/myPage.7d6c73c8.png",
     "static/media/newhorse.c44cd526.png": "/CS-Front/static/media/newhorse.c44cd526.png",
+    "static/media/save.4c8bbade.png": "/CS-Front/static/media/save.4c8bbade.png",
     "static/media/slick-theme.css": "/CS-Front/static/media/slick.c94f7671.ttf",
     "static/media/ssu.c055e003.jpg": "/CS-Front/static/media/ssu.c055e003.jpg",
     "static/media/suggestions.bc0d2a7e.png": "/CS-Front/static/media/suggestions.bc0d2a7e.png",
@@ -42,8 +43,8 @@
   "entrypoints": [
     "static/js/runtime-main.aab4bf4c.js",
     "static/css/2.48571724.chunk.css",
-    "static/js/2.4c64a6f5.chunk.js",
+    "static/js/2.7f424d99.chunk.js",
     "static/css/main.2eb0fdf9.chunk.css",
-    "static/js/main.01fe9ccf.chunk.js"
+    "static/js/main.139c0c37.chunk.js"
   ]
 }

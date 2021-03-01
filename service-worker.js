@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "asset-manifest.json",
-    "revision": "aca8c5f5ad6075a99087e3714906bc02"
+    "revision": "73bb8e8bce93dba176fad8cd7f16da19"
   },
   {
     "url": "favicon.ico",
@@ -52,16 +52,16 @@ self.__precacheManifest = [
     "revision": "965d560450f8c01f5b9287f19415c9aa"
   },
   {
-    "url": "static/js/2.4c64a6f5.chunk.js",
-    "revision": "11e934415db288efe19ae1e2fdf38fb0"
+    "url": "static/js/2.7f424d99.chunk.js",
+    "revision": "deed8540e93fb2b19a2b27bd7582073e"
   },
   {
-    "url": "static/js/2.4c64a6f5.chunk.js.LICENSE.txt",
+    "url": "static/js/2.7f424d99.chunk.js.LICENSE.txt",
     "revision": "744e1605270ce0f20ba5f3ea8ae6a094"
   },
   {
-    "url": "static/js/main.01fe9ccf.chunk.js",
-    "revision": "c9c7b5b9f96f9725acf1bf57caea8e6f"
+    "url": "static/js/main.139c0c37.chunk.js",
+    "revision": "a7e205d1c5f6726963c67c12c277bcb5"
   },
   {
     "url": "static/js/runtime-main.aab4bf4c.js",
@@ -126,6 +126,10 @@ self.__precacheManifest = [
   {
     "url": "static/media/newhorse.c44cd526.png",
     "revision": "e7eff13ffc0f704fa32b451496925aef"
+  },
+  {
+    "url": "static/media/save.4c8bbade.png",
+    "revision": "1fd24bdf6e8ff6f23acf349df9d78155"
   },
   {
     "url": "static/media/SECURITY.2a5e7f0c.png",

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { convergenceApi, hotApi } from "../../../api";
+import { hotApi } from "../../../api";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 import message from "antd/lib/message";
 import { horseIcons, readDoc } from "../../../assets/Resources";
@@ -89,29 +89,6 @@ const HotListView = () => {
   const [uploading, setUploading] = useState(false);
   const [noMoreDocs, setNoMoreDocs] = useState(false);
 
-  const DUMMY = [
-    {
-      boardName: "DEPARTMAJOR",
-      nickname: "숭늉먹는 숭늉이",
-      likes_count: 7,
-      comments_count: 7,
-      content:
-        "더미더미더미더미더미더미더미더미더미더미더미더미더미더미더미더미",
-      title: "ㅁㄴㅇㄹdwqdwdqwdqwdqwdqwdㅇㅈㅂㅇㅈㅂㅇㅂㅇ",
-      time: "2분",
-      board: "전과 게시판",
-    },
-    {
-      boardName: "CONVERGENCE",
-      nickname: "숭늉먹는 융슝이",
-      likes_count: 10,
-      comments_count: 10,
-      content: "더미",
-      time: "1분 ",
-      board: "융특 게시판",
-    },
-  ];
-
   useEffect(() => {
     hotApi
       .getLists({ size: 10 })
@@ -168,12 +145,12 @@ const HotListView = () => {
                       <img
                         src={readDoc.heart_fill}
                         alt="하트 아이콘"
-                        style={{ width: "13px", marginRight: " 4px" }}
+                        style={{ width: "13px", marginRight: "4px" }}
                       />
                       <div style={{ fontSize: "13px" }}>
                         {item.docItem.likeCount}
                       </div>
-                      <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
+                      <div style={{ margin: "0px 2px 0px 4px" }}>|</div>
                       <img
                         src={readDoc.speech_bubble}
                         alt="말풍선 아이콘"

@@ -9,7 +9,6 @@ const Container = styled.div`
   align-items: center;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
-  /* position: relative; */
   width: 100%;
   max-width: 768px;
   position: fixed;
@@ -72,8 +71,7 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
             } else if (Name === "공지 사항") {
               history.push("/board/announcement");
             }
-          }}
-        >
+          }}>
           {Name}
         </Text>
         {!!postButtonRef && (
@@ -83,8 +81,7 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
                 pathname: `/board/${postButtonRef}`,
                 state: { pageName: "create" },
               });
-            }}
-          >
+            }}>
             글 작성
           </PostButton>
         )}

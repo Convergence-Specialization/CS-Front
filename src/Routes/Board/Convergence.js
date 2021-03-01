@@ -48,7 +48,7 @@ const ConvergencePresenter = () => {
   }, [location]);
   return (
     <>
-      <Navbar isRight1Disabled History IconRight2= {navIcons.Home}/>
+      <Navbar isRight1Disabled History IconRight2={navIcons.Home} />
       {renderElement}
     </>
   );

@@ -41,7 +41,7 @@ const BoardChildContent = styled.div`
   white-space: nowrap;
   font-size: 15px;
   width: 93%;
-  margin-bottom: 8px;
+  margin: 0px 0px 8px 2px;
 `;
 const BoardChildTimeText = styled.div`
   position: absolute;
@@ -67,10 +67,19 @@ const MoreButton = styled.div`
 const BoardText = styled.div`
   font-size: 10px;
 `;
+const Title = styled.div`
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
 const IconTextBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 3px;
 `;
 const ConvergenceListView = () => {
   const history = useHistory();
@@ -84,8 +93,8 @@ const ConvergenceListView = () => {
       nickname: "숭늉먹는 숭늉이",
       likes_count: 7,
       comments_count: 7,
-      content: "더미더미",
-      title: "ㅁㄴㅇㄹ",
+      content: "더미더미더미더미더미더미더미더미더미더미더미더미더미더미더미더미",
+      title: "ㅁㄴㅇㄹdwqdwdqwdqwdqwdqwdㅇㅈㅂㅇㅈㅂㅇㅂㅇ",
       time: "2분",
       board: "전과 게시판",
     },
@@ -194,6 +203,7 @@ const ConvergenceListView = () => {
                     ></img>
                     {item.nickname}
                   </BoardChildTitle>
+                  <Title>{item.title}</Title>
                   <BoardChildContent>{item.content}</BoardChildContent>
                   <BoardChildTimeText>{item.time} 전</BoardChildTimeText>
                   <IconTextBox>

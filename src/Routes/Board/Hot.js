@@ -4,7 +4,7 @@ import Navbar from "../../Component/Navbar";
 import NavBot from "../../Component/SmallComponents/NavBot";
 import { navbotIcons, navIcons } from "../../assets/Resources";
 
-const DepartPresenter = () => {
+const HotPresenter = () => {
   return (
     <>
       <Navbar isRight1Disabled History IconRight2= {navIcons.Home}/>
@@ -13,4 +13,4 @@ const DepartPresenter = () => {
     </>
   );
 };
-export default DepartPresenter;
+export default HotPresenter;

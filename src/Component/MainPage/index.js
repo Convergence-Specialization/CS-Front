@@ -177,6 +177,7 @@ const MainPage = () => {
   };
 
   const [announcementPosts, setAnnouncementPosts] = useState([]);
+  const [hotPosts, setHotPosts] = useState([]);
   const [departmajorPosts, setDepartmajorPosts] = useState([]);
   const [convergencePosts, setConvergencePosts] = useState([]);
 
@@ -190,13 +191,13 @@ const MainPage = () => {
       );
     }
 
-    hotApi
-      .getLists({ size: 2 })
-      .then((docsArray) => console.log(docsArray))
-      .catch((error) => console.log(error.message));
     announcementApi
       .getLists({ size: 2 })
       .then((docsArray) => setAnnouncementPosts(docsArray))
+      .catch((error) => console.log(error.message));
+    hotApi
+      .getLists({ size: 3 })
+      .then((docsArray) => setHotPosts(docsArray))
       .catch((error) => console.log(error.message));
     convergenceApi
       .getLists({ size: 5 })
@@ -331,35 +332,35 @@ const MainPage = () => {
         <Button onClick={() => history.push("/board/hot")}>더보기</Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        {convergencePosts.length === 0 ? (
+        {hotPosts.length === 0 ? (
           <LoadingSmall />
         ) : (
-          convergencePosts.map((item, idx) => (
+          hotPosts.map((item, idx) => (
             <BoardChildWrapper
-              key={`${idx}CONVERGENCE_PREVIEW`}
+              key={`${idx}HOTITEM_PREVIEW`}
               onClick={() =>
                 history.push({
                   pathname: `/board/convergence`,
                   state: {
                     pageName: "read",
-                    docItem: item,
+                    docItem: item.docItem,
                   },
                 })
               }>
-              <BoardChildTitle>{item.content}</BoardChildTitle>
+              <BoardChildTitle>{item.docItem.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
                   style={{ width: "15px", margin: "0 7px" }}
                   src={readDoc.heart_fill}
                   alt="heart"
                 />
-                <span>{item.likeCount}</span>
+                <span>{item.docItem.likeCount}</span>
                 <img
                   style={{ width: "15px", margin: "0 7px" }}
                   src={readDoc.speech_bubble}
                   alt="comment"
                 />
-                <span>{item.commentCount}</span>
+                <span>{item.docItem.commentCount}</span>
               </DepartmentSubWrapper>
             </BoardChildWrapper>
           ))

@@ -1,6 +1,7 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { navbotIcons } from "../../../assets/Resources";
 
 const Container = styled.div`
   font-family: "NanumSquareRound";
@@ -43,37 +44,48 @@ const MarginBox = styled.div`
 
 const NavBot = ({ Name, Icon, postButtonRef }) => {
   const history = useHistory();
+  const location = useLocation();
+
+  const [realName, setRealName] = useState(null);
+  const [realIcon, setRealIcon] = useState(null);
+
+  const handleLinkClick = () => {
+    if (realName === "인기많은 융슝이들") {
+      history.push("/board/hot");
+      return;
+    } else if (realName === "저장한 글") {
+      history.push("/mypage/save");
+      return;
+    }
+
+    if (Name === "내가 쓴 글") {
+      history.push("/mypage/myposts");
+    } else if (Name === "전과 게시판") {
+      history.push("/board/departmajor");
+    } else if (Name === "융특 게시판") {
+      history.push("/board/convergence");
+    } else if (Name === "공지 사항") {
+      history.push("/board/announcement");
+    }
+  };
+
+  useEffect(() => {
+    if (!location.state) return;
+
+    if (!!location.state.isHot) {
+      setRealName("인기많은 융슝이들");
+      setRealIcon(navbotIcons.hot);
+    }
+    if (!!location.state.isSave) {
+      setRealName("저장한 글");
+      setRealIcon(navbotIcons.save);
+    }
+  }, [location]);
   return (
     <>
       <Container>
-        <IconImg
-          src={Icon}
-          onClick={() => {
-            if (Name === "내가 쓴 글") {
-              history.push("/mypage/myposts");
-            } else if (Name === "전과 게시판") {
-              history.push("/board/departmajor");
-            } else if (Name === "융특 게시판") {
-              history.push("/board/convergence");
-            } else if (Name === "공지 사항") {
-              history.push("/board/announcement");
-            }
-          }}
-        />
-        <Text
-          onClick={() => {
-            if (Name === "내가 쓴 글") {
-              history.push("/mypage/myposts");
-            } else if (Name === "전과 게시판") {
-              history.push("/board/departmajor");
-            } else if (Name === "융특 게시판") {
-              history.push("/board/convergence");
-            } else if (Name === "공지 사항") {
-              history.push("/board/announcement");
-            }
-          }}>
-          {Name}
-        </Text>
+        <IconImg src={realIcon || Icon} onClick={handleLinkClick} />
+        <Text onClick={handleLinkClick}>{realName || Name}</Text>
         {!!postButtonRef && (
           <PostButton
             onClick={() => {

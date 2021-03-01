@@ -11,6 +11,7 @@ import {
 } from "../../api";
 import LoadingSmall from "../SmallComponents/LoadingSmall";
 import { getUA, isMobile } from "react-device-detect";
+import { boardNameDict } from "../../assets/Dicts";
 
 const Container = styled.div`
   width: 100%;
@@ -340,10 +341,13 @@ const MainPage = () => {
               key={`${idx}HOTITEM_PREVIEW`}
               onClick={() =>
                 history.push({
-                  pathname: `/board/convergence`,
+                  pathname: `/board/${
+                    boardNameDict[item.boardName].addressName
+                  }`,
                   state: {
                     pageName: "read",
                     docItem: item.docItem,
+                    isHot: true,
                   },
                 })
               }>

@@ -147,6 +147,7 @@ const HotListView = () => {
                       state: {
                         pageName: "read",
                         docItem: item.docItem,
+                        isHot: true,
                       },
                     })
                   }>
@@ -191,7 +192,7 @@ const HotListView = () => {
                       ? {}
                       : { borderBottom: "2.5px solid #f1f1f1" }
                   }
-                  key={idx}
+                  key={`${idx}HOTITEM_PREVIEW`}
                   onClick={() =>
                     history.push({
                       pathname: `/board/${
@@ -200,6 +201,7 @@ const HotListView = () => {
                       state: {
                         pageName: "read",
                         docItem: item.docItem,
+                        isHot: true,
                       },
                     })
                   }>
@@ -242,7 +244,7 @@ const HotListView = () => {
             )
           )}
         </BoardContainer>
-        {!noMoreDocs && (
+        {posts.length !== 0 && !noMoreDocs && (
           <MoreButton
             onClick={async () => {
               try {

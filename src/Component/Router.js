@@ -19,6 +19,7 @@ import SignUp from "../Routes/SignUp";
 import MajorIntroduce from "../Routes/MajorIntroduce";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Hot from "../Routes/Board/Hot";
+import Save from "../Routes/MyPage/Save";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Board/Announcement";
 import ForgotPassword from "../Routes/Login/LostPw";
@@ -47,7 +48,6 @@ const RouterComponent = () => {
       <Route path="/login/noinformation">
         <NoInformation />
       </Route>
-
       <Route path="/login/loginrequire">
         <LoginRequire />
       </Route>
@@ -89,6 +89,9 @@ const RouterComponent = () => {
       </Route>
       <Route path="/mypage/myposts">
         <MyPosts />
+      </Route>
+      <Route path="/mypage/save">
+        <Save />
       </Route>
       <Route path="/mypage/changepw" exact>
         <ChangePW />

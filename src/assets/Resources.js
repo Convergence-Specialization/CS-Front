@@ -22,6 +22,7 @@ import announce from "../assets/navbotIcons/announce.png";
 import airplane from "../assets/navbotIcons/airplane.png";
 import book from "../assets/navbotIcons/book.png";
 import hot from "../assets/navbotIcons/hot.png";
+import save from "../assets/navbotIcons/save.png";
 import check from "../assets/navbotIcons/check.png";
 import Home from "../assets/navIcons/Home.png";
 import UpArrow from "../assets/etc/UpArrow.png";
@@ -123,5 +124,6 @@ export const navbotIcons = {
   airplane,
   check,
   hot,
-  book
+  book,
+  save,
 };

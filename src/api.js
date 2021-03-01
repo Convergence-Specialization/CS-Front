@@ -212,11 +212,13 @@ export const hotApi = {
             docId: item.docId,
             content: data.content,
             nickname: data.nickname,
+            title: data.title, // not required
             timestampDistance: distanceText,
             timestampMillis: data.timestamp.toMillis(),
             commentCount: data.comments_count,
             likeCount: data.likes_count,
             encryptedUid: data.encryptedUid,
+            subject: data.subject, // not required
           };
           return;
         })
@@ -256,11 +258,13 @@ export const hotApi = {
             docId: item.docId,
             content: data.content,
             nickname: data.nickname,
+            title: data.title, // not required
             timestampDistance: distanceText,
             timestampMillis: data.timestamp.toMillis(),
             commentCount: data.comments_count,
             likeCount: data.likes_count,
             encryptedUid: data.encryptedUid,
+            subject: data.subject, // not required
           };
           return;
         })

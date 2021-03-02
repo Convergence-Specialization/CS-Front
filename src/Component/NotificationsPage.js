@@ -187,14 +187,9 @@ const NotificationsPage = () => {
                     },
                   });
                 } catch (err) {
-                  if (
-                    err.message ===
-                    "Cannot read property 'timestamp' of undefined"
-                  ) {
+                  if (err instanceof TypeError){
                     message.destroy();
                     message.error("삭제된 글입니다.");
-                  } else {
-                    message.error("아이폰에러" + err.message);
                   }
                 }
                 globalApi.checkNotification({
@@ -278,10 +273,7 @@ const NotificationsPage = () => {
                     },
                   });
                 } catch (err) {
-                  if (
-                    err.message ===
-                    "Cannot read property 'timestamp' of undefined"
-                  ) {
+                  if (err instanceof TypeError){
                     message.destroy();
                     message.error("삭제된 글입니다.");
                   }

@@ -110,11 +110,12 @@ export const NavBotTextBox = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  width:45%;
+  width: 45%;
 `;
 export const NavBotText = styled.div`
-  font-size: 15px;
-
+  font-size: 12px;
+  font-family: "양진체";
+  color: #cccccc;
 `;
 export const NavTopText = styled.div`
   font-size: 12px;
@@ -195,7 +196,7 @@ export const NavOpenItemImg = styled.img`
   margin-right: 6px;
 `;
 export const NavImg = styled.img`
-  width: 40px;
+  width: 38px;
 `;
 export const NavImgBox = styled.div`
   display: flex;

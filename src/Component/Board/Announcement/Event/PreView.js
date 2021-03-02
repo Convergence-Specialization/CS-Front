@@ -116,7 +116,7 @@ const SlickText = styled.div`
   font-size: 13px;
   font-weight: bold;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 10px;
   @media (max-width: 430px) {
   }
 `;
@@ -124,7 +124,7 @@ const SlickText = styled.div`
 const SlickDate = styled.div`
   font-size: 12px;
   text-align: center;
-  margin-top: 2px;
+  margin-top: 5px;
   @media (max-width: 430px) {
   }
 `;

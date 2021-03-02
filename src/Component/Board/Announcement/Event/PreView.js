@@ -8,12 +8,13 @@ import Slider from "react-slick";
 
 const Container = styled.div`
   background-color: white;
-  margin: 20px 0px;
+  margin: 13px 0px;
   width: 93%;
   display: flex;
   flex-direction: column;
   position: relative;
   border-radius: 15px;
+  padding:3px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 const Con = styled.div`
@@ -43,13 +44,14 @@ const BoardContainer = styled.div`
 `;
 const BoardTitleContainer = styled.div`
   display: flex;
-  border-bottom: 1px solid;
-  justify-content: space-between;
-  margin: 0px 10px;
-  padding: 15px 10px 10px;
-  font-size: 18px;
-  align-items: center;
   font-weight: bold;
+  padding: 10px 0px 0px 0px;
+  width: 90%;
+  margin: 10px 3px 0px 3px;
+  font-size: 18px;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
 `;
 const BoardChildWrapper = styled.div`
   padding: 10px 15px 10px 15px;
@@ -83,6 +85,7 @@ const Button = styled.div`
 `;
 const Text = styled.div`
   margin-top: 3px;
+  margin-left: 5px;
 `;
 const BlankPost = styled.div`
   padding: 60px 10px;
@@ -102,7 +105,7 @@ const SlickBox = styled.div`
 `;
 
 const SlickBox1 = styled.div`
-  padding: 10px;
+  padding: 20px 10px;
   background-color: white;
   border-radius: 10px;
   @media (max-width: 430px) {
@@ -135,14 +138,14 @@ const SlickCustomLeftButton = styled.div`
   position: absolute;
   top: 50%;
   left: 10px;
-  font-size: 14px;
+  font-size: 20px;
   z-index: 98;
 `;
 const SlickCustomRightButton = styled.div`
   position: absolute;
   top: 50%;
   right: 10px;
-  font-size: 14px;
+  font-size: 20px;
   z-index: 98;
 `;
 const PreView = () => {
@@ -169,10 +172,10 @@ const PreView = () => {
 
   return (
     <Con>
+      <BoardTitleContainer>
+        <Text>진행 중인 행사</Text>
+      </BoardTitleContainer>
       <Container>
-        <BoardTitleContainer>
-          <Text>진행 중인 행사</Text>
-        </BoardTitleContainer>
         {loading ? (
           <LoadingSmall />
         ) : announcementPosts.length === 0 ? (
@@ -217,8 +220,7 @@ const PreView = () => {
           </>
         )}
       </Container>
-      <Container >
-        <BoardTitleContainer>
+      <BoardTitleContainer>
           <Text>공지 사항</Text>
           <Button
             onClick={() =>
@@ -232,6 +234,7 @@ const PreView = () => {
             더보기
           </Button>
         </BoardTitleContainer>
+      <Container >
         <BoardContainer >
           {announcementPosts.length === 0 ? (
             <LoadingSmall />

@@ -14,6 +14,7 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   border-radius: 15px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 const Con = styled.div`
   width: 100%;
@@ -51,7 +52,6 @@ const BoardTitleContainer = styled.div`
   font-weight: bold;
 `;
 const BoardChildWrapper = styled.div`
-  border-bottom: 2.5px solid #f1f1f1;
   padding: 10px 15px 10px 15px;
   justify-content: space-between;
   height: 12vh;
@@ -217,7 +217,7 @@ const PreView = () => {
           </>
         )}
       </Container>
-      <Container>
+      <Container >
         <BoardTitleContainer>
           <Text>공지 사항</Text>
           <Button
@@ -232,13 +232,14 @@ const PreView = () => {
             더보기
           </Button>
         </BoardTitleContainer>
-        <BoardContainer>
+        <BoardContainer >
           {announcementPosts.length === 0 ? (
             <LoadingSmall />
           ) : (
             <>
               {announcementPosts.map((item, idx) => (
                 <BoardChildWrapper
+                style={announcementPosts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
                   key={`${idx}ANNOUNCEMENT_PREVIEW`}
                   onClick={() =>
                     history.push({

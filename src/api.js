@@ -148,6 +148,12 @@ export const userApi = {
       .get()
       .then((doc) => doc.data());
   },
+  withdraw: (body) =>
+    api.post("/user/remove", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
 };
 
 export const announcementApi = {

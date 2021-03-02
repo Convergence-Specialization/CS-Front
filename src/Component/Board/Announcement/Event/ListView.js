@@ -28,7 +28,7 @@ const BoardText = styled.div`
   white-space: nowrap;
 `;
 const TitleTextBox = styled.div`
-  width: 100%;
+  width: 80%;
   font-size: 10px;
   display: flex;
   margin: 3px 0px;
@@ -39,6 +39,7 @@ const TitleTextBox = styled.div`
 const BoardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 const BoardChildWrapper = styled.div`
   border-bottom: 2.5px solid #f1f1f1;
@@ -93,17 +94,17 @@ const ListView = () => {
   return (
     <Con>
       <button
-          onClick={() =>
-            history.push({
-              pathname: `/board/announcement`,
-              state: {
-                pageName: "create",
-              },
-            })
-          }
-        >
-          글 작성
-        </button>
+        onClick={() =>
+          history.push({
+            pathname: `/board/announcement`,
+            state: {
+              pageName: "create",
+            },
+          })
+        }
+      >
+        글 작성
+      </button>
       <Container>
         <BoardContainer>
           {announcementPosts.length === 0 ? (

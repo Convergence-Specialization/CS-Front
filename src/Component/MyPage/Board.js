@@ -56,7 +56,10 @@ const Board = () => {
   const [ModalVisible, setModalVisible] = useState(false);
   return (
     <>
-      <Secession visible={ModalVisible} />
+      <Secession
+        visible={ModalVisible}
+        onClose={() => setModalVisible(false)}
+      />
       <Container2>
         <Text1 onClick={() => history.push("/mypage/myposts")}>
           내가 쓴 글
@@ -67,21 +70,14 @@ const Board = () => {
         <Container1>
           <Text
             onClick={() => history.push("/mypage/changepw")}
-            style={{ padding: "3px 10px" }}
-          >
+            style={{ padding: "3px 10px" }}>
             비밀번호 변경
           </Text>
         </Container1>
       )}
       <Container2>
         <Text1>서비스 이용약관</Text1>
-        <Text1
-          onClick={() => {
-            setModalVisible(true);
-          }}
-        >
-          회원 탈퇴
-        </Text1>
+        <Text1 onClick={() => setModalVisible(true)}>회원 탈퇴</Text1>
         <Text
           onClick={() => {
             authService.signOut().then(() => {
@@ -89,8 +85,7 @@ const Board = () => {
               message.success("로그아웃 완료");
               history.push("/");
             });
-          }}
-        >
+          }}>
           로그아웃
         </Text>
       </Container2>

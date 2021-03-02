@@ -286,6 +286,11 @@ export const convergenceApi = {
       let docsArray = [];
       querySnapshot.forEach((doc) => {
         let data = doc.data();
+
+        if (data.report_count >= 5) {
+          return;
+        }
+
         let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
           locale: ko,
         }).replace("약 ", "");
@@ -320,6 +325,11 @@ export const convergenceApi = {
       let docsArray_3 = [];
       querySnapshot_3.forEach((doc_3) => {
         let data_3 = doc_3.data();
+
+        if (data_3.report_count >= 5) {
+          return;
+        }
+
         let distanceText_3 = formatDistanceToNow(data_3.timestamp.toMillis(), {
           locale: ko,
         }).replace("약 ", "");
@@ -556,6 +566,11 @@ export const departMajorApi = {
         let docsArray = [];
         querySnapshot.forEach((doc) => {
           let data = doc.data();
+
+          if (data.report_count >= 5) {
+            return;
+          }
+
           let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
             locale: ko,
           }).replace("약 ", "");
@@ -585,6 +600,10 @@ export const departMajorApi = {
         let docsArray_1 = [];
         querySnapshot_1.forEach((doc_1) => {
           let data_1 = doc_1.data();
+
+          if (data_1.report_count >= 5) {
+            return;
+          }
 
           let distanceText_1 = formatDistanceToNow(
             data_1.timestamp.toMillis(),
@@ -625,8 +644,14 @@ export const departMajorApi = {
           .limit(size)
           .get();
         let docsArray_2 = [];
+
         querySnapshot_2.forEach((doc_2) => {
           let data_2 = doc_2.data();
+
+          if (data_2.report_count >= 5) {
+            return;
+          }
+
           let distanceText_2 = formatDistanceToNow(
             data_2.timestamp.toMillis(),
             {

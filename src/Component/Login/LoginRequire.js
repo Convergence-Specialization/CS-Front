@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { Images, navIcons } from "../../assets/Resources";
+import { Images, navIcons, horseIcons } from "../../assets/Resources";
 
 const Container = styled.div`
   width: 100%;
@@ -48,7 +48,7 @@ const Button = styled.div`
   }
 `;
 const TextBox = styled.div`
-  border: 2px dashed white;
+  border: 1px dashed white;
   padding: 20px 0px;
   width: 50%;
   margin-bottom: 70px;
@@ -57,19 +57,18 @@ const TextBox = styled.div`
   font-size: 18px;
   line-height: 1.74;
   @media (max-width: 430px) {
-    font-size: 13px;
+    font-size: 15px;
     width: 70%;
     margin-bottom: 50px;
   }
 `;
 const Text = styled.div``;
 const Img = styled.img`
-  width: 15%;
-  margin-bottom: 50px;
+  width: 40%;
   @media (max-width: 430px) {
     font-size: 12px;
     padding-top: 30px;
-    margin: 30px 0px;
+    margin: 30px 0px 50px;
   }
 `;
 const LoginRequir = () => {
@@ -79,7 +78,7 @@ const LoginRequir = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Img src={navIcons.profile} />
+      <Img src={horseIcons.horse_4} />
       <TextBox>
         <Text>이 페이지는 회원 전용이므로</Text>
         <Text>로그인 후 이용하여 주십시오.</Text>

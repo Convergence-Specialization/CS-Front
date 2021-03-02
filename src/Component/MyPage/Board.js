@@ -65,7 +65,10 @@ const Board = () => {
       </Container2>
       {!loginFunctions.getUserInfo().isGoogle && (
         <Container1>
-          <Text onClick={() => history.push("/mypage/changepw")}>
+          <Text
+            onClick={() => history.push("/mypage/changepw")}
+            style={{ padding: "3px 10px" }}
+          >
             비밀번호 변경
           </Text>
         </Container1>

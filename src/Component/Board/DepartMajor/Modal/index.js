@@ -30,6 +30,7 @@ const ModalOverlay = styled.div`
 
 const ModalInner = styled.div`
   box-sizing: border-box;
+  outline: none;
   position: relative;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
   background-color: #fff;
@@ -105,7 +106,10 @@ export const SelectSubjectModal = ({ onClose, visible, subjectSelected }) => {
             <TitleImg src={horseIcons.newhorse} alt={"말머리 아이콘"} />
           </TitleWrapper>
           <UpperWrapper onClick={() => setTempChecked("NONE")}>
-            <ContentText>말머리 선택 안 함</ContentText>
+            <ContentText style={{ marginLeft: "10px" }}>
+              {" "}
+              선택 안함 (전체 보기)
+            </ContentText>
             <CheckBox
               readOnly
               type="checkbox"

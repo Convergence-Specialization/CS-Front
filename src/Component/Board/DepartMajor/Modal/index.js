@@ -29,6 +29,7 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalInner = styled.div`
+  outline: none;
   box-sizing: border-box;
   outline: none;
   position: relative;

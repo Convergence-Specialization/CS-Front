@@ -5,7 +5,8 @@ import { convergenceApi } from "../../../../api";
 
 const ModalWrapper = styled.div`
   box-sizing: border-box;
-  display: ${(props) => (props.visible ? "block" : "none")};
+  display: ${(props) => (props.visible ? "flex" : "none")};
+  flex-direction: column-reverse;
   position: fixed;
   top: 0;
   right: 0;
@@ -30,15 +31,13 @@ const ModalOverlay = styled.div`
 
 const ModalInnerTop = styled.div`
   box-sizing: border-box;
-  position: relative;
   border-radius: 10px;
-  width: ${(props) => props.width || "360px"};
-  top: 85%;
+  width: ${(props) => props.width || "90%"};
   outline: none;
   margin: 0 auto;
 `;
 const WhiteArea = styled.div`
-  width: 95%;
+  width: 100%;
   margin: 10px auto;
   border-radius: 20px;
   padding: 12px 0;
@@ -198,8 +197,7 @@ export const ReportOrDelete = ({
               isDeleteState
                 ? actionByTypes[modalType].delete
                 : actionByTypes[modalType].report
-            }
-          >
+            }>
             {isDeleteState ? "삭제" : "신고"}
           </WhiteArea>
           <WhiteArea style={{ fontWeight: "bold" }} onClick={onClose}>

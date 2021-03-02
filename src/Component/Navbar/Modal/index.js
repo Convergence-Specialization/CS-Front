@@ -23,7 +23,6 @@ import {
   NavBotText,
   NavBotTextBox,
   NavTopText,
-
 } from "../../Navbar/NavbarElements";
 import { sideBarIcons, navIcons } from "../../../assets/Resources";
 import message from "antd/lib/message";
@@ -59,6 +58,7 @@ const ModalInner = styled.div`
   box-sizing: border-box;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  outline: none;
   width: ${(props) => props.width || "375px"};
 `;
 
@@ -92,20 +92,18 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
             <NavOpenUpperContainer>
               <NavOpenUpperButtonWrapper>
                 <NavOpenUpperDescWrapper>
-                {!!user
-                    ? (user.displayName || "융슝이").concat(
-                        " 님"
-                      )
+                  {!!user
+                    ? (user.displayName || "융슝이").concat(" 님")
                     : "로그인 후 이용해주세요!"}
                 </NavOpenUpperDescWrapper>
                 {!!user ? (
                   <>
                     <InformationWrapper>
                       <InformationText style={{ marginBottom: "10px" }}>
-                        학번:{!!myInfo ? myInfo.student_id : "학번!"}
+                        학번 : {!!myInfo ? myInfo.student_id : "학번!"}
                       </InformationText>
                       <InformationText>
-                        이메일: {!!myInfo ? myInfo.email : "이메일!"}
+                        이메일 : {!!myInfo ? myInfo.email : "이메일!"}
                       </InformationText>
                     </InformationWrapper>
                   </>
@@ -147,9 +145,10 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
             </NavOpenSingleItemBox>
             <Margin />
             <NavOpenSingleItemBox
-              onClick={() =>{ setAnnounceOpened(!announceOpened)
-                setBoardOpened(false)
-                setReferSiteOpened(false)
+              onClick={() => {
+                setAnnounceOpened(!announceOpened);
+                setBoardOpened(false);
+                setReferSiteOpened(false);
               }}
             >
               <NavOpenItemText>공지사항</NavOpenItemText>
@@ -188,10 +187,12 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                 </NavOpenSingleChildItemBox>
               </>
             )}
-            <NavOpenSingleItemBox onClick={() => {setBoardOpened(!boardOpened)
-            setAnnounceOpened(false)
-            setReferSiteOpened(false)
-          }}
+            <NavOpenSingleItemBox
+              onClick={() => {
+                setBoardOpened(!boardOpened);
+                setAnnounceOpened(false);
+                setReferSiteOpened(false);
+              }}
             >
               <NavOpenItemText>게시판</NavOpenItemText>
               <NavOpenItemArrowButton
@@ -227,12 +228,26 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                     - 전과게시판
                   </NavOpenItemText>
                 </NavOpenSingleChildItemBox>
+                <NavOpenSingleChildItemBox
+                  isChild
+                  onClick={() => history.push("/board/hot")}
+                >
+                  <NavOpenItemMargin />
+                  <NavOpenItemText
+                    onClick={() => history.push("/board/hot")}
+                    style={{ fontSize: "13px" }}
+                  >
+                    - 인기 많은 융슝이들
+                  </NavOpenItemText>
+                </NavOpenSingleChildItemBox>
               </>
             )}
             <NavOpenSingleItemBox
-              onClick={() => {setReferSiteOpened(!referSiteOpened)
-                setBoardOpened(false)
-                setAnnounceOpened(false)}}
+              onClick={() => {
+                setReferSiteOpened(!referSiteOpened);
+                setBoardOpened(false);
+                setAnnounceOpened(false);
+              }}
             >
               <NavOpenItemText>관련 사이트</NavOpenItemText>
               <NavOpenItemArrowButton
@@ -305,7 +320,7 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
               </>
             )}
             <NavBotBox>
-              <Margin/>
+              <Margin />
               <NavBotTextBox>
                 {!!user ? (
                   <NavTopText

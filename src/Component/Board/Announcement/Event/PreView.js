@@ -28,7 +28,7 @@ const BoardText = styled.div`
   white-space: nowrap;
 `;
 const TitleTextBox = styled.div`
-  width: 100%;
+  width: 80%;
   font-size: 10px;
   display: flex;
   margin: 3px 0px;

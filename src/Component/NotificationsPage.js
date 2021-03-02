@@ -133,25 +133,27 @@ const NotificationsPage = () => {
     <Container>
       <ButtonBox style={{ marginTop: "15px" }}>
         <Text>읽지 않은 알림</Text>
-        <Button
-          onClick={async () => {
-            if (unreadNotifications.length === 0) {
-              return;
-            }
-            setUnreadLoading(true);
-            setReadLoading(true);
-            await Promise.all(
-              unreadNotifications.map(async (item) => {
-                await globalApi.checkNotification({
-                  notificationId: item.notificationId,
-                  uid: loginFunctions.getUserInfo().uid,
-                });
-              })
-            );
-            getNotifications();
-          }}>
-          모두 읽기
-        </Button>
+        {!unreadLoading && (
+          <Button
+            onClick={async () => {
+              if (unreadNotifications.length === 0) {
+                return;
+              }
+              setUnreadLoading(true);
+              setReadLoading(true);
+              await Promise.all(
+                unreadNotifications.map(async (item) => {
+                  await globalApi.checkNotification({
+                    notificationId: item.notificationId,
+                    uid: loginFunctions.getUserInfo().uid,
+                  });
+                })
+              );
+              getNotifications();
+            }}>
+            모두 읽기
+          </Button>
+        )}
       </ButtonBox>
       <BoardContainer>
         {unreadLoading ? (
@@ -187,7 +189,7 @@ const NotificationsPage = () => {
                     },
                   });
                 } catch (err) {
-                  if (err instanceof TypeError){
+                  if (err instanceof TypeError) {
                     message.destroy();
                     message.error("삭제된 글입니다.");
                   }
@@ -219,25 +221,26 @@ const NotificationsPage = () => {
       </BoardContainer>
       <ButtonBox>
         <Text>읽은 알림</Text>
-        <Button
-          onClick={async () => {
-            if (readNotifications.length === 0) {
-              return;
-            }
-            setUnreadLoading(true);
-            setReadLoading(true);
-            await Promise.all(
-              readNotifications.map(async (item) => {
-                return await userApi.deleteNotification({
-                  notificationId: item.notificationId,
-                  uid: loginFunctions.getUserInfo().uid,
-                });
-              })
-            );
-            getNotifications();
-          }}>
-          모두 삭제
-        </Button>
+        {!readLoading && (
+          <Button
+            onClick={async () => {
+              if (readNotifications.length === 0) {
+                return;
+              }
+              setReadLoading(true);
+              await Promise.all(
+                readNotifications.map(async (item) => {
+                  return await userApi.deleteNotification({
+                    notificationId: item.notificationId,
+                    uid: loginFunctions.getUserInfo().uid,
+                  });
+                })
+              );
+              getNotifications();
+            }}>
+            모두 삭제
+          </Button>
+        )}
       </ButtonBox>
       <BoardContainer>
         {readLoading ? (
@@ -273,7 +276,7 @@ const NotificationsPage = () => {
                     },
                   });
                 } catch (err) {
-                  if (err instanceof TypeError){
+                  if (err instanceof TypeError) {
                     message.destroy();
                     message.error("삭제된 글입니다.");
                   }

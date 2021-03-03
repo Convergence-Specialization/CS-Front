@@ -140,7 +140,7 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
             <NavOpenSingleItemBox onClick={() => history.push("/notification")}>
               <NavOpenItemText>알림함</NavOpenItemText>
             </NavOpenSingleItemBox>
-            <NavOpenSingleItemBox onClick={() => history.push("/")}>
+            <NavOpenSingleItemBox onClick={() => history.push("/howtouse")}>
               <NavOpenItemText>슝 사용법</NavOpenItemText>
             </NavOpenSingleItemBox>
             <Margin />

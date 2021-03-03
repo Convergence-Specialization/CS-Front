@@ -16,6 +16,7 @@ import Notification from "../Routes/Notification";
 import EventPost from "../Routes/EventPost";
 import NormalCreate from "../Routes/NormalCreate";
 import SignUp from "../Routes/SignUp";
+import HowToUse from "../Routes/HowToUse";
 import MajorIntroduce from "../Routes/MajorIntroduce";
 import DepartMajor from "../Routes/Board/DepartMajor";
 import Hot from "../Routes/Board/Hot";
@@ -56,6 +57,9 @@ const RouterComponent = () => {
       </Route>
       <Route path="/signup" exact>
         <SignUp />
+      </Route>
+      <Route path="/howtouse" exact>
+        <HowToUse />
       </Route>
       <Route path="/notification" exact>
         <Notification />

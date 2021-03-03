@@ -51,6 +51,23 @@ import ssuevent from "../assets/events/ssu.jpg";
 import friday from "../assets/events/friday.jpg";
 import mentor from "../assets/events/mentor.jpg";
 import notificationOn from "../assets/navIcons/notificationOn.png";
+import howtousereadicon1 from "../assets/howToUse/HowToUseRead1.jpg";
+import howtousereadicon2 from "../assets/howToUse/HowToUseRead2.jpg";
+import howtousereadicon3 from "../assets/howToUse/HowToUseRead3.jpg";
+import howtousereadicon4 from "../assets/howToUse/HowToUseRead4.jpg";
+import howtousereadicon5 from "../assets/howToUse/HowToUseRead5.jpg";
+import howtousereadicon6 from "../assets/howToUse/HowToUseRead6.jpg";
+import howtousereadicon7 from "../assets/howToUse/HowToUseRead7.jpg";
+
+export const howtouseiconzip = {
+  howtousereadicon1,
+  howtousereadicon2,
+  howtousereadicon3,
+  howtousereadicon4,
+  howtousereadicon5,
+  howtousereadicon6,
+  howtousereadicon7,
+};
 
 export const events = {
   graduate,

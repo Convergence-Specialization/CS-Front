@@ -102,9 +102,8 @@ export const ReportOrDelete = ({
       save: () => {
         if (uploading) return;
         setUploading(true);
-        message.loading("저장 중", 10);
+        message.loading("글 저장 중..", 10);
         try {
-          //await convergenceApi.report({ docId: docId.docId });
           message.destroy();
           message.success("저장되었습니다.");
           onClose();
@@ -213,17 +212,14 @@ export const ReportOrDelete = ({
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInnerTop tabIndex="0" className="modal-inner">
           {!!saveState && (
-            <WhiteArea onClick={saveState ? actionByTypes[modalType].save : {}}>
-              {!!saveState ? "저장" : {}}
-            </WhiteArea>
+            <WhiteArea onClick={actionByTypes[modalType].save}>저장</WhiteArea>
           )}
           <WhiteArea
             onClick={
               isDeleteState
                 ? actionByTypes[modalType].delete
                 : actionByTypes[modalType].report
-            }
-          >
+            }>
             {isDeleteState ? "삭제" : "신고"}
           </WhiteArea>
           <WhiteArea style={{ fontWeight: "bold" }} onClick={onClose}>

@@ -345,7 +345,9 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   </NavTopText>
                 )}
                 <NavTopText>|</NavTopText>
-                <NavTopText>사용약관</NavTopText>
+                <NavTopText onClick={() => history.push("/termsandconditions")}>
+                  이용약관
+                </NavTopText>
               </NavBotTextBox>
               <NavBotText>SSYUNG</NavBotText>
             </NavBotBox>

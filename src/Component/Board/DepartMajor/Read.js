@@ -240,6 +240,10 @@ const Read = () => {
     reportOrDeleteModalDeleteState,
     setReportOrDeleteModalDeleteState,
   ] = useState(true);
+  const [
+    reportOrDeleteModalSaveState,
+    setReportOrDeleteModalSaveState,
+  ] = useState(false);
 
   const Modal_Type = {
     DOC: "DOC",
@@ -316,6 +320,7 @@ const Read = () => {
         history={history}
         docId={reportOrDeleteModalDocId}
         isDeleteState={reportOrDeleteModalDeleteState}
+        saveState={reportOrDeleteModalSaveState}
         modalType={reportOrDeleteModalType}
         reloadComments={reloadComments}
       />
@@ -346,6 +351,7 @@ const Read = () => {
                   setReportOrDeleteModalVisible(true);
                   setReportOrDeleteModalDocId({ docId: content.docId });
                   setReportOrDeleteModalType(Modal_Type.DOC);
+                  setReportOrDeleteModalSaveState(true);
                   setReportOrDeleteModalDeleteState(
                     myEncryptedUid === content.encryptedUid
                   );
@@ -444,6 +450,7 @@ const Read = () => {
                       docId: content.docId,
                       commentId: item.commentId,
                     });
+                    setReportOrDeleteModalSaveState(false);
                     setReportOrDeleteModalType(Modal_Type.COMMENT);
                     setReportOrDeleteModalDeleteState(
                       myEncryptedUid === item.encryptedUid
@@ -546,6 +553,7 @@ const Read = () => {
                           commentId: item.commentId,
                           subcommentId: subItem.subcommentId,
                         });
+                        setReportOrDeleteModalSaveState(false);
                         setReportOrDeleteModalType(Modal_Type.SUBCOMMENT);
                         setReportOrDeleteModalDeleteState(
                           myEncryptedUid === subItem.encryptedUid

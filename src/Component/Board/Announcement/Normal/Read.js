@@ -56,7 +56,6 @@ const BoardTitle = styled.div`
 
 const WritterAndDate = styled.div`
   font-size: 13px;
-  text-align: center;
   margin-left: 8px;
   padding-top: 10px;
 `;

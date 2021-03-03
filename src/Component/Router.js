@@ -27,7 +27,7 @@ import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";
 import Suggestions from "../Routes/Suggestions";
-
+import TermsAndConditions from "../Routes/TermsAndConditions";
 import NoInformation from "../Routes/Login/NoInformation";
 import LoginRequire from "../Routes/Login/LoginRequire";
 import SignUpGoogle from "../Component/SignUp/signup_google";
@@ -42,6 +42,9 @@ const RouterComponent = () => {
       </Route>
       <Route path="/login" exact>
         <LoginPage />
+      </Route>
+      <Route path="/termsandconditions" exact>
+        <TermsAndConditions />
       </Route>
       <Route path="/login/lostpw">
         <ForgotPassword />
@@ -72,6 +75,9 @@ const RouterComponent = () => {
       </Route>
       <Route path="/board/event/eventpost">
         <EventPost />
+      </Route>
+      <Route path="/TermsAndConditions" exact>
+        <TermsAndConditions />
       </Route>
       <Route path="/board/majorintroduce">
         <MajorIntroduce />

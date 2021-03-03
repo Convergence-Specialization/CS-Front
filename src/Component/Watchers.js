@@ -9,6 +9,7 @@ const NEED_PERMISSION_PATHS = [
   "/board/departmajor",
   "/board/convergence",
   "/board/announcement",
+  "/board/hot",
 ];
 
 export const UseGoogleAnalytics = () => {

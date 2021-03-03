@@ -26,7 +26,7 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalInner = styled.div`
-  font-family: "notosans-Regular", sans-serif;
+  outline: none;
   box-sizing: border-box;
   position: relative;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
@@ -45,15 +45,6 @@ export const PWTitleText = styled.div`
   margin-bottom: 10px;
 `;
 
-export const ConfirmButton = styled.div`
-  margin-top: 30px;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  background-color: #1e56a0;
-  padding: 12px;
-`;
 export const WithdrawContainer = styled.div``;
 export const WithdrawTitle = styled.div`
   text-align: center;
@@ -62,7 +53,7 @@ export const WithdrawTitle = styled.div`
   margin-bottom: 15px;
 `;
 export const WithdrawSubTitle = styled.div`
-  color: #1e56a0;
+  color: #7ab8f3;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;
@@ -74,6 +65,7 @@ export const WithdrawDesc = styled.div`
 export const WithdrawTextarea = styled.textarea`
   padding: 15px;
   width: 100%;
+  outline: none;
   height: 300px;
   margin-bottom: 15px;
 `;
@@ -81,7 +73,7 @@ export const WithdrawConfirmButton = styled.div`
   width: 100%;
   font-weight: bold;
   color: white;
-  background-color: #1e56a0;
+  background-color: #7ab8f3;
   text-align: center;
   padding: 15px 0;
   border-radius: 15px;

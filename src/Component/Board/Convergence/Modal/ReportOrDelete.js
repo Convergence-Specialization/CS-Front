@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import message from "antd/lib/message";
-import { convergenceApi } from "../../../../api";
+import { convergenceApi, userApi } from "../../../../api";
+import { loginFunctions } from "../../../Watchers";
 
 const ModalWrapper = styled.div`
   box-sizing: border-box;
@@ -54,6 +55,7 @@ export const ReportOrDelete = ({
   modalType,
   docId,
   isDeleteState,
+  saveState,
   reloadComments,
 }) => {
   const [uploading, setUploading] = useState();
@@ -97,6 +99,33 @@ export const ReportOrDelete = ({
           }
         }
         setUploading(false);
+      },
+      save: async () => {
+        if (uploading) return;
+        setUploading(true);
+        message.destroy();
+        message.loading("글 저장 중..", 10);
+        try {
+          if (
+            (await userApi.saveDoc({
+              docId: docId.docId,
+              boardName: "CONVERGENCE",
+              uid: loginFunctions.getUserInfo().uid,
+            })) === "ALREADY_SAVED"
+          ) {
+            message.destroy();
+            message.warning("이미 저장된 글입니다");
+          } else {
+            message.destroy();
+            message.success("저장이 완료되었습니다.");
+          }
+          onClose();
+        } catch (err) {
+          message.destroy();
+          message.error(err.message);
+        } finally {
+          setUploading(false);
+        }
       },
     },
     COMMENT: {
@@ -192,6 +221,9 @@ export const ReportOrDelete = ({
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInnerTop tabIndex="0" className="modal-inner">
+          {!!saveState && (
+            <WhiteArea onClick={actionByTypes[modalType].save}>저장</WhiteArea>
+          )}
           <WhiteArea
             onClick={
               isDeleteState

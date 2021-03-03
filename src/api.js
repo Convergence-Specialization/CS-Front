@@ -1,5 +1,5 @@
 import axios from "axios";
-import { db } from "./firebase";
+import { db, firestoreInstance } from "./firebase";
 import ko from "date-fns/locale/ko";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { boardNameDict, NOTIFICATION_TYPES } from "./assets/Dicts";
@@ -148,6 +148,140 @@ export const userApi = {
       .get()
       .then((doc) => doc.data());
   },
+  saveDoc: async (body) => {
+    let { boardName, docId, uid } = body;
+
+    // 만약 이미 저장한 문서라면
+    if (
+      await db
+        .collection("users")
+        .doc(uid)
+        .collection("savedDocs")
+        .where("boardName", "==", boardName)
+        .where("docId", "==", docId)
+        .get()
+        .then((querySnapshot) => querySnapshot.size !== 0)
+    ) {
+      return "ALREADY_SAVED";
+    }
+
+    // 저장 안되어있으면 저장함.
+    await db
+      .collection("users")
+      .doc(uid)
+      .collection("savedDocs")
+      .doc(boardName.concat(docId))
+      .set({
+        docId,
+        boardName,
+        timestamp: firestoreInstance.FieldValue.serverTimestamp(),
+      });
+  },
+  getSavedLists: async (body) => {
+    let { size, startAfterDocId, uid } = body;
+    if (!startAfterDocId) {
+      const querySnapshot = await db
+        .collection("users")
+        .doc(uid)
+        .collection("savedDocs")
+        .orderBy("timestamp", "desc")
+        .limit(size)
+        .get();
+      let docsList = [];
+
+      querySnapshot.forEach((doc) =>
+        docsList.push({ ...doc.data(), savedDocId: doc.id })
+      );
+      await Promise.all(
+        docsList.map(async (item, idx) => {
+          let data = await db
+            .collection(boardNameDict[item.boardName].dbName)
+            .doc(item.docId)
+            .get()
+            .then((doc) => doc.data());
+
+          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+            locale: ko,
+          }).replace("약 ", "");
+          if (distanceText.includes("미만")) {
+            distanceText = "방금";
+          }
+          docsList[idx].docItem = {
+            docId: item.docId,
+            content: data.content,
+            nickname: data.nickname,
+            title: data.title, // not required
+            timestampDistance: distanceText,
+            timestampMillis: data.timestamp.toMillis(),
+            commentCount: data.comments_count,
+            likeCount: data.likes_count,
+            encryptedUid: data.encryptedUid,
+            subject: data.subject, // not required
+          };
+          return;
+        })
+      );
+      return docsList;
+    } else {
+      // 더 보기를 누른 상태이면.
+      const startAfterDoc = await db
+        .collection("users")
+        .doc(uid)
+        .collection("savedDocs")
+        .doc(startAfterDocId)
+        .get();
+
+      const querySnapshot = await db
+        .collection("users")
+        .doc(uid)
+        .collection("savedDocs")
+        .orderBy("timestamp", "desc")
+        .startAfter(startAfterDoc)
+        .limit(size)
+        .get();
+      let docsList = [];
+
+      querySnapshot.forEach((doc) =>
+        docsList.push({ ...doc.data(), savedDocId: doc.id })
+      );
+      await Promise.all(
+        docsList.map(async (item, idx) => {
+          let data = await db
+            .collection(boardNameDict[item.boardName].dbName)
+            .doc(item.docId)
+            .get()
+            .then((doc) => doc.data());
+
+          let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
+            locale: ko,
+          }).replace("약 ", "");
+          if (distanceText.includes("미만")) {
+            distanceText = "방금";
+          }
+          docsList[idx].docItem = {
+            docId: item.docId,
+            content: data.content,
+            nickname: data.nickname,
+            title: data.title, // not required
+            timestampDistance: distanceText,
+            timestampMillis: data.timestamp.toMillis(),
+            commentCount: data.comments_count,
+            likeCount: data.likes_count,
+            encryptedUid: data.encryptedUid,
+            subject: data.subject, // not required
+          };
+          return;
+        })
+      );
+      return docsList;
+    }
+  },
+  withdraw: (body) =>
+    api.post("/user/remove", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
 };
 
 export const announcementApi = {

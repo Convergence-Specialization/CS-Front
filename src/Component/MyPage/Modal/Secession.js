@@ -13,45 +13,27 @@ import {
 } from "./Modal_Styles";
 import message from "antd/lib/message";
 import { userApi } from "../../../api";
+import { loginFunctions } from "../../Watchers";
+import { authService } from "../../../firebase";
 
 export const WithdrawalModal = ({ onClose, visible }) => {
   const history = useHistory();
-  const confirmClicked = () => {
-    message.loading("로딩중입니다.", 10);
-    let causeText = document.getElementById("withdrawalTextarea").value;
-    if (causeText === null || causeText.trim() === "") {
-      message.destroy();
-      message.warning("탈퇴 사유를 입력해주세요.");
-      document.getElementById("withdrawalTextarea").focus();
-      return;
-    }
-    userApi
-      .withdrawal(
-        localStorage.getItem("userId"),
-        { cause: causeText },
-        localStorage.getItem("AccessToken")
-      )
-      .then(() => {
-        message.destroy();
-        message.success("탈퇴가 완료되었습니다.");
-        localStorage.clear();
-        history.push("/");
-      })
-      .catch(({ response: { status } }) => {
-        if (status === 401) {
-          message.destroy();
-          message.error("인증 토큰에 문제가 있습니다. 다시 로그인해주세요.");
-        } else if (status === 404) {
-          message.destroy();
-          message.error("탈퇴할 사용자가 없습니다.");
-        } else if (status === 409) {
-          message.destroy();
-          message.error("이미 탈퇴한 사용자입니다.");
-        } else if (status === 400) {
-          message.destroy();
-          message.error("요청 형식에 문제가 있습니다.");
-        }
+  const confirmClicked = async () => {
+    message.loading("탈퇴 처리중입니다..", 10);
+    try {
+      await userApi.withdraw({
+        reason: document.getElementById("withdrawalTextarea").value,
       });
+      await authService.signOut();
+      history.push("/");
+      message.destroy();
+      message.success("탈퇴가 완료되었습니다.");
+      loginFunctions.onLogout();
+      onClose();
+    } catch (err) {
+      message.destroy();
+      message.error(err.message);
+    }
   };
 
   const onMaskClick = (e) => {
@@ -72,8 +54,8 @@ export const WithdrawalModal = ({ onClose, visible }) => {
             <WithdrawDesc>
               1. 회원 탈퇴 시, 현재 로그인된 아이디는 즉시 탈퇴 처리됩니다.
               <br />
-              2. 회원 탈퇴 시, 슝에 관련된 모든 데이터는 삭제되며, 복구할 수
-              없습니다.
+              2. 회원 탈퇴 시, 슝에 작성한 게시글 및 댓글은 자동 삭제되지
+              않습니다. 삭제를 원하실 경우, 직접 삭제 후 탈퇴를 진행해 주세요.
             </WithdrawDesc>
             <WithdrawTextarea
               id="withdrawalTextarea"

@@ -199,7 +199,9 @@ export const userApi = {
             .doc(item.docId)
             .get()
             .then((doc) => doc.data());
-
+          if (!data) {
+            return;
+          }
           let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
             locale: ko,
           }).replace("약 ", "");
@@ -221,6 +223,13 @@ export const userApi = {
           return;
         })
       );
+
+      // 문서 삭제되어 있으면 빼버리기.
+      docsList.forEach((item, idx) => {
+        if (!item.docItem) {
+          docsList.splice(idx, 1);
+        }
+      });
       return docsList;
     } else {
       // 더 보기를 누른 상태이면.
@@ -251,6 +260,9 @@ export const userApi = {
             .doc(item.docId)
             .get()
             .then((doc) => doc.data());
+          if (!data) {
+            return;
+          }
 
           let distanceText = formatDistanceToNow(data.timestamp.toMillis(), {
             locale: ko,
@@ -273,6 +285,12 @@ export const userApi = {
           return;
         })
       );
+      // 문서 삭제되어 있으면 빼버리기.
+      docsList.forEach((item, idx) => {
+        if (!item.docItem) {
+          docsList.splice(idx, 1);
+        }
+      });
       return docsList;
     }
   },

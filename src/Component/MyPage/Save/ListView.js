@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import { convergenceApi, userApi } from "../../../api";
+import { userApi } from "../../../api";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 import message from "antd/lib/message";
 import { horseIcons, readDoc } from "../../../assets/Resources";

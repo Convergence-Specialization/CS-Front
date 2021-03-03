@@ -83,6 +83,7 @@ const IconTextBox = styled.div`
   margin-left: 3px;
 `;
 
+
 const HotListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);

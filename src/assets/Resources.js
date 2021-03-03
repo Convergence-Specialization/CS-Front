@@ -27,6 +27,7 @@ import hot from "../assets/navbotIcons/hot.png";
 import save from "../assets/navbotIcons/save.png";
 import check from "../assets/navbotIcons/check.png";
 import Home from "../assets/navIcons/Home.png";
+import cancel from "../assets/navIcons/cancel.png";
 import UpArrow from "../assets/etc/UpArrow.png";
 import resetButton from "../assets/etc/resetButton.png";
 import github from "../assets/etc/github.png";
@@ -131,6 +132,7 @@ export const navIcons = {
   myPage,
   suggestions,
   team,
+  cancel,
 };
 export const horseIcons = {
   newhorse,
@@ -138,7 +140,7 @@ export const horseIcons = {
   horse,
   horse_2,
   horse_3,
-  horse_4, 
+  horse_4,
 };
 export const navbotIcons = {
   announce,

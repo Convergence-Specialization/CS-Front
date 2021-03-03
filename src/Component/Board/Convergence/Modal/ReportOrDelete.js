@@ -47,6 +47,21 @@ const WhiteArea = styled.div`
   background-color: white;
   font-size: 17px;
 `;
+const WhiteTopArea = styled.div`
+  width: 95%;
+  padding: 12px 0px;
+  text-align: center;
+  color: #437ecb;
+  font-size: 17px;
+`;
+const WhiteAreaBox = styled.div`
+  background-color: white;
+  border-radius: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+`;
 
 export const ReportOrDelete = ({
   onClose,
@@ -221,17 +236,35 @@ export const ReportOrDelete = ({
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInnerTop tabIndex="0" className="modal-inner">
-          {!!saveState && (
-            <WhiteArea onClick={actionByTypes[modalType].save}>저장</WhiteArea>
+          {!!saveState ? (
+            <WhiteAreaBox>
+              <WhiteTopArea
+                onClick={
+                  isDeleteState
+                    ? actionByTypes[modalType].delete
+                    : actionByTypes[modalType].report
+                }
+              >
+                {isDeleteState ? "삭제" : "신고"}
+              </WhiteTopArea>
+              <WhiteTopArea
+                onClick={actionByTypes[modalType].save}
+                style={{ borderBottom: "1px solid #f1f1f1" }}
+              >
+                저장
+              </WhiteTopArea>
+            </WhiteAreaBox>
+          ) : (
+            <WhiteArea
+              onClick={
+                isDeleteState
+                  ? actionByTypes[modalType].delete
+                  : actionByTypes[modalType].report
+              }
+            >
+              {isDeleteState ? "삭제" : "신고"}
+            </WhiteArea>
           )}
-          <WhiteArea
-            onClick={
-              isDeleteState
-                ? actionByTypes[modalType].delete
-                : actionByTypes[modalType].report
-            }>
-            {isDeleteState ? "삭제" : "신고"}
-          </WhiteArea>
           <WhiteArea style={{ fontWeight: "bold" }} onClick={onClose}>
             취소
           </WhiteArea>

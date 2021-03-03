@@ -54,19 +54,24 @@ export const WithdrawTitle = styled.div`
 `;
 export const WithdrawSubTitle = styled.div`
   color: #7ab8f3;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 15px;
+  word-break: keep-all;
+  line-height: 1.3;
 `;
 export const WithdrawDesc = styled.div`
-  line-height: 1.25;
+  word-break: keep-all;
+  line-height: 1.3;
+  font-size: 14px;
   margin-bottom: 15px;
 `;
 export const WithdrawTextarea = styled.textarea`
   padding: 15px;
   width: 100%;
   outline: none;
-  height: 300px;
+  height: 100px;
+  font-size: 13px;
   margin-bottom: 15px;
 `;
 export const WithdrawConfirmButton = styled.div`

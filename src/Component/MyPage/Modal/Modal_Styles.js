@@ -65,6 +65,7 @@ export const WithdrawDesc = styled.div`
 export const WithdrawTextarea = styled.textarea`
   padding: 15px;
   width: 100%;
+  outline: none;
   height: 300px;
   margin-bottom: 15px;
 `;

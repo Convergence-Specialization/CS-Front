@@ -136,16 +136,16 @@ const EventImage = styled.img`
 `;
 const SlickCustomLeftButton = styled.div`
   position: absolute;
-  top: 35%;
+  top: 32%;
   left: 10px;
-  font-size: 18px;
+  font-size: 25px;
   z-index: 98;
 `;
 const SlickCustomRightButton = styled.div`
   position: absolute;
-  top: 35%;
+  top: 32%;
   right: 10px;
-  font-size: 18px;
+  font-size: 25px;
   z-index: 98;
 `;
 const PreView = () => {

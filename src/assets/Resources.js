@@ -4,6 +4,7 @@ import speech_bubble from "../assets/icons/speech_bubble.png";
 import commentarrow from "../assets/icons/commentarrow.png";
 import three_dots from "../assets/icons/three_dots.png";
 import Background3 from "../assets/Images/Background3.png";
+import Introduce1 from "../assets/Images/Introduce1.png";
 import ICT from "../assets/MajorIntroduce/ICT.png";
 import BIGDATA from "../assets/MajorIntroduce/BIGDATA.png";
 import KOREA from "../assets/MajorIntroduce/KOREA.png";
@@ -88,6 +89,7 @@ export const readDoc = {
 
 export const Images = {
   Background3,
+  Introduce1,
 };
 
 export const major = {

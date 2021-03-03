@@ -9,6 +9,7 @@ const Container = styled.div`
   width: 100%;
   max-width: 768px;
   margin: 0 auto;
+  padding-bottom: 15px;
 `;
 
 const BoardContainer = styled.div`
@@ -60,8 +61,6 @@ const WritterAndDate = styled.div`
   padding-top: 10px;
 `;
 
-
-
 const EventTermContainer = styled.div`
   background: #f1f1f1;
   margin: 0 -10px 8px;
@@ -87,35 +86,25 @@ const BoardImg = styled.img`
   margin: 10px 0;
 `;
 
+const Button = styled.div`
+  text-align: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #d4e6fb;
+  margin-top: -6px;
+  cursor: pointer;
+  float: right;
+`;
+
 const BoardText = styled.div`
   margin: 5px;
   font-size: 14px;
   line-height: 2;
   word-break: keep-all;
   white-space: pre-wrap;
-`;
-
-const BoardButton = styled.div`
-  margin: 20px 10px 0px 290px;
-  padding: 5px;
-  width: 15%;
-  height: 30px;
-  background-color: #d4e6fb;
-  border-radius: 15px;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 1.12;
-  text-align: center;
-  color: #444444;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  @media (max-width: 430px) {
-    font-size: 15px;
-  }
-`;
-
-const BoardButtonText = styled.div`
-  margin: 5px 0px 5px 0px;
-  font-weight: bold;
 `;
 
 const HorseImg = styled.img`
@@ -128,6 +117,19 @@ const TitleAndTime = styled.div`
   display: flex;
   align-items: center;
 `;
+
+const BoardTitleContainer = styled.div`
+  display: flex;
+  font-weight: bold;
+  padding: 10px 0px 0px 0px;
+  width: 90%;
+  margin: 10px 3px 0px 3px;
+  font-size: 18px;
+  position: right;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
 const TitleAndTimeWrapper = styled.div``;
 const Announcement = () => {
   const location = useLocation();
@@ -171,19 +173,20 @@ const Announcement = () => {
             </BoardImgWrapper>
             <BoardText>{docItem.content}</BoardText>
           </BoardWrapper>
-          <BoardButton  onClick={() =>
+          <BoardTitleContainer>
+            <Button
+              onClick={() =>
                 history.push({
                   pathname: `/board/announcement`,
                   state: {
-                    pageName: "listview"
+                    pageName: "listview",
                   },
                 })
-              }>
-            <BoardButtonText
+              }
             >
               목록
-            </BoardButtonText>
-          </BoardButton>
+            </Button>
+          </BoardTitleContainer>
         </BoardContainer>
       )}
     </Container>

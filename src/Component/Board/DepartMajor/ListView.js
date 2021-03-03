@@ -20,7 +20,8 @@ const SubjectSelectArea = styled.div`
   padding: 6px 15px;
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 5px auto;
+  margin-top: 5px;
 `;
 const SubjectSelectImg = styled.img`
   width: 26px;
@@ -33,7 +34,7 @@ const BoardContainer = styled.div`
   width: 93%;
   min-height: 80vh;
   border-radius: 15px;
-  margin: 20px auto;
+  margin: 15px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
 `;
@@ -78,6 +79,7 @@ const BoardChildMetaText = styled.div`
 const MoreButton = styled.div`
   width: 93%;
   margin: 0 auto;
+  margin-bottom: 10px;
   text-align: center;
   font-weight: bold;
   border-radius: 15px;
@@ -134,9 +136,8 @@ const ChangedBoard = () => {
                 />
               )}
               <SubjectSelectText
-                style={
-                  subjectSelected === "NONE" ? { marginLeft: "10px" } : {}
-                }>
+                style={subjectSelected === "NONE" ? { marginLeft: "10px" } : {}}
+              >
                 {subjectDicts[subjectSelected].name}
               </SubjectSelectText>
             </>
@@ -148,7 +149,11 @@ const ChangedBoard = () => {
           ) : (
             posts.map((item, idx) => (
               <BoardChildWrapper
-              style={posts.length-1 === idx ? {}: {borderBottom:'2.5px solid #f1f1f1'}}
+                style={
+                  posts.length - 1 === idx
+                    ? {}
+                    : { borderBottom: "2.5px solid #f1f1f1" }
+                }
                 key={idx}
                 onClick={() =>
                   history.push({
@@ -158,7 +163,8 @@ const ChangedBoard = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitleWrapper>
                   {item.subject !== "NONE" && (
                     <SubjectSelectImg
@@ -188,14 +194,14 @@ const ChangedBoard = () => {
                     alt="하트 아이콘"
                     style={{ width: "13px", marginRight: " 4px" }}
                   />
-                  <div style={{fontSize:'13px'}}>{item.likeCount}</div>
+                  <div style={{ fontSize: "13px" }}>{item.likeCount}</div>
                   <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                   <img
                     src={readDoc.speech_bubble}
                     alt="말풍선 아이콘"
                     style={{ width: "13px", margin: "0px 4px" }}
                   />
-                  <div style={{fontSize:'13px'}}>{item.commentCount}</div>
+                  <div style={{ fontSize: "13px" }}>{item.commentCount}</div>
                 </BoardChildMetaText>
               </BoardChildWrapper>
             ))
@@ -223,7 +229,8 @@ const ChangedBoard = () => {
               } finally {
                 setUploading(false);
               }
-            }}>
+            }}
+          >
             더보기
           </MoreButton>
         )}

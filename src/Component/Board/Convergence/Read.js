@@ -222,8 +222,8 @@ const Read = () => {
     setReportOrDeleteModalDeleteState,
   ] = useState(true);
   const [
-    save,
-    setsave,
+    reportOrDeleteModalSaveState,
+    setReportOrDeleteModalSaveState,
   ] = useState(false);
 
   const [commentBoxDoubleHeight, setCommentBoxDoubleHeight] = useState(false);
@@ -303,7 +303,7 @@ const Read = () => {
         history={history}
         docId={reportOrDeleteModalDocId}
         isDeleteState={reportOrDeleteModalDeleteState}
-        saveState={save}
+        saveState={reportOrDeleteModalSaveState}
         modalType={reportOrDeleteModalType}
         reloadComments={reloadComments}
       />
@@ -328,7 +328,7 @@ const Read = () => {
                   setReportOrDeleteModalVisible(true);
                   setReportOrDeleteModalDocId({ docId: content.docId });
                   setReportOrDeleteModalType(Modal_Type.DOC);
-                  setsave(true);
+                  setReportOrDeleteModalSaveState(true);
                   setReportOrDeleteModalDeleteState(
                     myEncryptedUid === content.encryptedUid
                   );
@@ -428,7 +428,7 @@ const Read = () => {
                       commentId: item.commentId,
                     });
                     setReportOrDeleteModalType(Modal_Type.COMMENT);
-                    setsave(false);
+                    setReportOrDeleteModalSaveState(false);
                     setReportOrDeleteModalDeleteState(
                       myEncryptedUid === item.encryptedUid
                     );
@@ -531,7 +531,7 @@ const Read = () => {
                           subcommentId: subItem.subcommentId,
                         });
                         setReportOrDeleteModalType(Modal_Type.SUBCOMMENT);
-                        setsave(false);
+                        setReportOrDeleteModalSaveState(false);
                         setReportOrDeleteModalDeleteState(
                           myEncryptedUid === subItem.encryptedUid
                         );

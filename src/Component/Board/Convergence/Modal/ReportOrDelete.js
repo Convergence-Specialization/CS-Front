@@ -54,6 +54,7 @@ export const ReportOrDelete = ({
   modalType,
   docId,
   isDeleteState,
+  saveState,
   reloadComments,
 }) => {
   const [uploading, setUploading] = useState();
@@ -92,6 +93,24 @@ export const ReportOrDelete = ({
           message.destroy();
           if (err.response.status === 400) {
             message.error("이미 신고한 글입니다.");
+          } else {
+            message.error(err.message);
+          }
+        }
+        setUploading(false);
+      },
+      save: () => {
+        if (uploading) return;
+        setUploading(true);
+        message.loading("글 저장 중..", 10);
+        try {
+          message.destroy();
+          message.success("저장되었습니다.");
+          onClose();
+        } catch (err) {
+          message.destroy();
+          if (err.response.status === 400) {
+            message.error("이미 저장한 글입니다.");
           } else {
             message.error(err.message);
           }
@@ -192,6 +211,9 @@ export const ReportOrDelete = ({
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInnerTop tabIndex="0" className="modal-inner">
+          {!!saveState && (
+            <WhiteArea onClick={actionByTypes[modalType].save}>저장</WhiteArea>
+          )}
           <WhiteArea
             onClick={
               isDeleteState

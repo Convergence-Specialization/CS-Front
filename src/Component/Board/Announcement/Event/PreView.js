@@ -14,7 +14,7 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   border-radius: 15px;
-  padding:3px auto;
+  padding: 3px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 const Con = styled.div`
@@ -136,16 +136,16 @@ const EventImage = styled.img`
 `;
 const SlickCustomLeftButton = styled.div`
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 10px;
-  font-size: 20px;
+  font-size: 18px;
   z-index: 98;
 `;
 const SlickCustomRightButton = styled.div`
   position: absolute;
-  top: 50%;
+  top: 35%;
   right: 10px;
-  font-size: 20px;
+  font-size: 18px;
   z-index: 98;
 `;
 const PreView = () => {
@@ -186,7 +186,8 @@ const PreView = () => {
               {"<"}
             </SlickCustomLeftButton>
             <SlickCustomRightButton
-              onClick={() => SlickRef.current.slickNext()}>
+              onClick={() => SlickRef.current.slickNext()}
+            >
               {">"}
             </SlickCustomRightButton>
             <SlickBox1>
@@ -221,28 +222,33 @@ const PreView = () => {
         )}
       </Container>
       <BoardTitleContainer>
-          <Text>공지 사항</Text>
-          <Button
-            onClick={() =>
-              history.push({
-                pathname: `/board/announcement`,
-                state: {
-                  pageName: "listview",
-                },
-              })
-            }>
-            더보기
-          </Button>
-        </BoardTitleContainer>
-      <Container >
-        <BoardContainer >
+        <Text>공지 사항</Text>
+        <Button
+          onClick={() =>
+            history.push({
+              pathname: `/board/announcement`,
+              state: {
+                pageName: "listview",
+              },
+            })
+          }
+        >
+          더보기
+        </Button>
+      </BoardTitleContainer>
+      <Container>
+        <BoardContainer>
           {announcementPosts.length === 0 ? (
             <LoadingSmall />
           ) : (
             <>
               {announcementPosts.map((item, idx) => (
                 <BoardChildWrapper
-                style={announcementPosts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
+                  style={
+                    announcementPosts.length - 1 === idx
+                      ? {}
+                      : { borderBottom: "2.5px solid #f1f1f1" }
+                  }
                   key={`${idx}ANNOUNCEMENT_PREVIEW`}
                   onClick={() =>
                     history.push({
@@ -252,7 +258,8 @@ const PreView = () => {
                         docItem: item,
                       },
                     })
-                  }>
+                  }
+                >
                   <TitleTextBox>
                     <BoardChildTitle>{item.title}</BoardChildTitle>
                     <BoardText>{item.content}</BoardText>

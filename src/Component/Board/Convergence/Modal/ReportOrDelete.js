@@ -60,7 +60,7 @@ const WhiteAreaBox = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 1px;
+  padding: 3px;
 `;
 
 export const ReportOrDelete = ({
@@ -249,7 +249,7 @@ export const ReportOrDelete = ({
               </WhiteTopArea>
               <WhiteTopArea
                 onClick={actionByTypes[modalType].save}
-                style={{ borderBottom: "1px solid #f1f1f1" }}
+                style={{ borderTop: "1px solid  #c4c1c1" }}
               >
                 저장
               </WhiteTopArea>

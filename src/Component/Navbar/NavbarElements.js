@@ -99,7 +99,7 @@ export const NavBotBox = styled.div`
   justify-content: space-between;
   font-size: 12px;
   position: fixed;
-  bottom: 10px;
+  bottom: 20px;
   width: 70%;
   background-color: white;
   text-align: center;
@@ -148,6 +148,7 @@ export const InformationWrapper = styled.div`
 `;
 export const InformationText = styled.div`
   font-size: 15px;
+  line-height: 1.5;
 `;
 export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;
@@ -197,6 +198,13 @@ export const NavOpenItemImg = styled.img`
 `;
 export const NavImg = styled.img`
   width: 38px;
+`;
+export const CancelImg = styled.img`
+  width: 15px;
+  position: absolute;
+  top: 15px;
+  right: 140px;
+  z-index: 99;
 `;
 export const NavImgBox = styled.div`
   display: flex;

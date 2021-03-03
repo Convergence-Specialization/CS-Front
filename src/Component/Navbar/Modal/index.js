@@ -23,6 +23,7 @@ import {
   NavBotText,
   NavBotTextBox,
   NavTopText,
+  CancelImg,
 } from "../../Navbar/NavbarElements";
 import { sideBarIcons, navIcons } from "../../../assets/Resources";
 import message from "antd/lib/message";
@@ -88,6 +89,7 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInner tabIndex="0" className="modal-inner">
+          <CancelImg onClick={onMaskClick} src={navIcons.cancel} alt={"엑스"} />
           <NavOpen>
             <NavOpenUpperContainer>
               <NavOpenUpperButtonWrapper>

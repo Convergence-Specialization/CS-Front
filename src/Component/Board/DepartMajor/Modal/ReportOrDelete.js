@@ -236,7 +236,7 @@ export const ReportOrDelete = ({
       <ModalOverlay visible={visible} />
       <ModalWrapper onClick={onMaskClick} tabIndex="-1" visible={visible}>
         <ModalInnerTop tabIndex="0" className="modal-inner">
-        {!!saveState ? (
+          {!!saveState ? (
             <WhiteAreaBox>
               <WhiteTopArea
                 onClick={

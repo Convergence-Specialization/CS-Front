@@ -183,6 +183,10 @@ const MainPage = () => {
   const [convergencePosts, setConvergencePosts] = useState([]);
 
   useEffect(() => {
+    if ( localStorage.getItem("alreadyReadHowToUse") !== "yes") {
+      history.push("/howtouse");
+      return;
+    }
     if (!isMobile) {
       alert("현재 융슝은 모바일이 아닌 환경에서 사용이 어려울 수 있습니다.");
     }
@@ -236,7 +240,8 @@ const MainPage = () => {
                       docItem: item,
                     },
                   })
-                }>
+                }
+              >
                 <BoardChildTitle>{item.title}</BoardChildTitle>
               </BoardChildWrapper>
             ))}
@@ -350,7 +355,8 @@ const MainPage = () => {
                     isHot: true,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.docItem.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -391,7 +397,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -432,7 +439,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img

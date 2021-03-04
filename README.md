@@ -1,5 +1,5 @@
 # 융합특성화 자유전공학부 커뮤니티
-![image](https://user-images.githubusercontent.com/62606632/106995263-d97b0800-67c1-11eb-8a23-6462dc2184dc.png)
+![image](https://user-images.githubusercontent.com/74090200/109977309-075f5800-7d40-11eb-964d-c5fd92ac9888.png)
 ## 개발 환경
  
 * Front:  

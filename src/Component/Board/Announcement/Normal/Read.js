@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { timeConverter } from "../../../../assets/Dicts";
 import { horseIcons } from "../../../../assets/Resources";
 import { useHistory } from "react-router-dom";
+import Linkify from "react-linkify";
 
 const Container = styled.div`
   width: 100%;
@@ -171,7 +172,9 @@ const Announcement = () => {
                 />
               ))}
             </BoardImgWrapper>
-            <BoardText>{docItem.content}</BoardText>
+            <BoardText>
+              <Linkify>{docItem.content}</Linkify>
+            </BoardText>
           </BoardWrapper>
           <BoardTitleContainer>
             <Button

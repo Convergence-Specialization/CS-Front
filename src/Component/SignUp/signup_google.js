@@ -40,7 +40,7 @@ const Button = styled.div`
   top: 90px;
   border: 2px solid white;
   padding: 10px 20px;
-  width: 60%;
+  width: 73%;
   margin: 10px 0;
   text-align: center;
   font-size: 18px;
@@ -63,11 +63,11 @@ const Wrap = styled.div`
   position: absolute;
   font-size: 20px;
   @media (max-width: 430px) {
-    font-size: 11px;
+    font-size: 13px;
   }
 `;
 const Basic = styled.div`
-  width: 60%;
+  width: 73%;
   background-color: rgba(0, 0, 0, 0);
   border-bottom: 2px solid white;
   padding: 10px;
@@ -80,8 +80,8 @@ const Basic = styled.div`
 `;
 const InputBoxAndAlarmWrapper = styled.div`
   position: relative;
-  width: 60%;
-  margin: 20px;
+  width: 73%;
+  margin: 10px 20px 10px;
 `;
 const InputBoxAndAlarmWrapper1 = styled.div`
   position: relative;
@@ -90,11 +90,11 @@ const InputBoxAndAlarmWrapper1 = styled.div`
   margin-bottom: 30px;
   @media (max-width: 430px) {
     top: 40px;
-    width: 60%;
+    width: 73%;
   }
 `;
 const InputBox = styled.input`
-  width: 60%;
+  width: 73%;
   color: white;
   outline: none;
   border: none;
@@ -114,14 +114,15 @@ const CheckBox = styled.input`
   padding: 10px;
   position: absolute;
   color: white;
-  font-size: 15px;
+  zoom: 1.5;
+  font-size: 50px;
   right: 10px;
   top: 20px;
   ::placeholder {
     color: white;
   }
   @media (max-width: 430px) {
-    top: 15px;
+    top: 3px;
   }
 `;
 const Text = styled.div`
@@ -135,15 +136,15 @@ const Text = styled.div`
   position: absolute;
   left: 170px;
   @media (max-width: 430px) {
-    font-size: 10px;
+    font-size: 13px;
     width: 22%;
-    left: 100px;
+    left: 115px;
   }
 `;
 const TextBox = styled.div`
   border: 2px dashed white;
   padding: 25px 10px;
-  width: 60%;
+  width: 73%;
   margin-bottom: 70px;
   text-align: center;
   color: white;
@@ -153,7 +154,6 @@ const TextBox = styled.div`
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 13px;
-    width: 70%;
     padding: 20px 10px;
     margin-bottom: 50px;
   }
@@ -161,14 +161,21 @@ const TextBox = styled.div`
 
 const Title = styled.div`
   color: #ffffff;
-  width: 59%;
+  width: 70%;
   font-size: 25px;
   font-weight: bold;
   margin: 15px;
   @media (max-width: 430px) {
-    font-size: 20px;
+    font-size: 18px;
     margin: 5px;
   }
+`;
+const Box = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
 `;
 const AddInformation = () => {
   const [loading, setLoading] = useState(false);
@@ -177,71 +184,74 @@ const AddInformation = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <TextBox>추가 정보를 입력해주십시오.</TextBox>
-      <Title>기본 정보</Title>
-      <Basic>{authService.currentUser.email}</Basic>
-      <Basic>{authService.currentUser.displayName}</Basic>
-      <Title>추가 정보</Title>
-      <InputBox id={"studentId"} placeholder="학번" />
-      <InputBoxAndAlarmWrapper>
-        <Wrap>융합특성화자유전공학부 학생입니다.(선택)</Wrap>
-        <CheckBox id="isConvergence" type="checkbox" />
-      </InputBoxAndAlarmWrapper>
-      <InputBoxAndAlarmWrapper1>
-        <Wrap>약관에 동의합니다.</Wrap>
-        <Text
-          onClick={() =>
-            window.open(
-              "https://convergence-specialization.github.io/CS-Front/termsandconditions"
-            )
-          }
-        >
-          자세히 보기
-        </Text>
-        <CheckBox id="didAgree" type="checkbox" />
-      </InputBoxAndAlarmWrapper1>
-      <Button
-        onClick={() => {
-          if (loading) return;
-          if (document.getElementById("didAgree").checked === false) {
-            alert("약관에 동의해주세요");
-            return;
-          }
-          if (document.getElementById("studentId").value === "") {
-            alert("학번을 입력해주세요");
-            return;
-          }
-          setLoading(true);
-          message.loading("회원가입 중..", 10);
-          userApi
-            .signUp({
-              method: "GOOGLE",
-              uid: authService.currentUser.uid,
-              email: authService.currentUser.email,
-              name: authService.currentUser.displayName,
-              student_id: document.getElementById("studentId").value,
-              is_convergence: document.getElementById("isConvergence").checked,
-            })
-            .then(async () => {
-              const idToken = await authService.currentUser.getIdToken();
-              localStorage.setItem("idToken", idToken);
-              message.destroy();
-              message.success("구글 회원가입 성공.");
-              localStorage.setItem("firstSignUp", "ok");
-              // localstorage 이용 상태 저장.
-              loginFunctions.onSuccess(authService.currentUser, true);
+      <Box>
+        <TextBox>추가 정보를 입력해주십시오.</TextBox>
+        <Title>[ 기본 정보 ]</Title>
+        <Basic>{authService.currentUser.email}</Basic>
+        <Basic>{authService.currentUser.displayName}</Basic>
+        <Title style={{ marginTop: "30px" }}>[ 추가 정보 ]</Title>
+        <InputBox id={"studentId"} placeholder="학번" />
+        <InputBoxAndAlarmWrapper>
+          <Wrap>융합특성화자유전공학부 학생입니다. (선택)</Wrap>
+          <CheckBox id="isConvergence" type="checkbox" />
+        </InputBoxAndAlarmWrapper>
+        <InputBoxAndAlarmWrapper1>
+          <Wrap>약관에 동의합니다.</Wrap>
+          <Text
+            onClick={() =>
+              window.open(
+                "https://convergence-specialization.github.io/CS-Front/termsandconditions"
+              )
+            }
+          >
+            자세히 보기
+          </Text>
+          <CheckBox id="didAgree" type="checkbox" />
+        </InputBoxAndAlarmWrapper1>
+        <Button
+          onClick={() => {
+            if (loading) return;
+            if (document.getElementById("didAgree").checked === false) {
+              alert("약관에 동의해주세요");
+              return;
+            }
+            if (document.getElementById("studentId").value === "") {
+              alert("학번을 입력해주세요");
+              return;
+            }
+            setLoading(true);
+            message.loading("회원가입 중..", 10);
+            userApi
+              .signUp({
+                method: "GOOGLE",
+                uid: authService.currentUser.uid,
+                email: authService.currentUser.email,
+                name: authService.currentUser.displayName,
+                student_id: document.getElementById("studentId").value,
+                is_convergence: document.getElementById("isConvergence")
+                  .checked,
+              })
+              .then(async () => {
+                const idToken = await authService.currentUser.getIdToken();
+                localStorage.setItem("idToken", idToken);
+                message.destroy();
+                message.success("구글 회원가입 성공.");
+                localStorage.setItem("firstSignUp", "ok");
+                // localstorage 이용 상태 저장.
+                loginFunctions.onSuccess(authService.currentUser, true);
 
-              history.push("/");
-            })
-            .catch((err) => {
-              message.destroy();
-              message.error(err.message);
-              setLoading(false);
-            });
-        }}
-      >
-        회원가입 하기
-      </Button>
+                history.push("/");
+              })
+              .catch((err) => {
+                message.destroy();
+                message.error(err.message);
+                setLoading(false);
+              });
+          }}
+        >
+          회원가입 하기
+        </Button>
+      </Box>
     </Container>
   );
 };

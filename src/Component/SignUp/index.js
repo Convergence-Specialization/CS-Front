@@ -107,7 +107,8 @@ const CheckBox = styled.input`
   color: white;
   font-size: 15px;
   right: 10px;
-  top: 10px;
+  top: 3px;
+  zoom: 1.5;
   ::placeholder {
     color: white;
   }

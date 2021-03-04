@@ -38,8 +38,8 @@ const Button = styled.div`
   top: 90px;
   border: 2px solid white;
   padding: 10px 20px;
-  width: 60%;
-  margin: 10px 0;
+  width: 63%;
+  margin: 30px 0;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
@@ -68,27 +68,29 @@ const CorrectAlarm = styled.div`
   position: absolute;
   width: 30px;
   background-color: rgba(255, 255, 255, 0.67);
-  right: 10px;
+  right: 3px;
   text-align: center;
   padding: 5px 0;
   font-size: 10px;
   color: #eb4b4b;
+  width: 35px;
+  border-radius: 5px;
   top: 10px;
 `;
 const InputBoxAndAlarmWrapper = styled.div`
   position: relative;
-  width: 60%;
+  width: 63%;
 `;
 const InputBoxAndAlarmWrapper1 = styled.div`
   position: relative;
-  width: 60%;
+  width: 63%;
   top: 50px;
   @media (max-width: 430px) {
     top: 40px;
   }
 `;
 const InputBox = styled.input`
-  width: 60%;
+  width: 63%;
   color: white;
   outline: none;
   border: none;
@@ -177,7 +179,9 @@ const SignUp = () => {
       </InputBoxAndAlarmWrapper>
       <InputBoxAndAlarmWrapper1>
         <Wrap>약관에 동의합니다.</Wrap>
-        <Text>자세히 보기</Text>
+        <Text onClick={() => window.open("/termsandconditions")}>
+          자세히 보기
+        </Text>
         <CheckBox id="didAgree" type="checkbox" />
       </InputBoxAndAlarmWrapper1>
       <Button

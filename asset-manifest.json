@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CS-Front/static/css/main.2eb0fdf9.chunk.css",
-    "main.js": "/CS-Front/static/js/main.c6b820c1.chunk.js",
-    "main.js.map": "/CS-Front/static/js/main.c6b820c1.chunk.js.map",
+    "main.js": "/CS-Front/static/js/main.a197755e.chunk.js",
+    "main.js.map": "/CS-Front/static/js/main.a197755e.chunk.js.map",
     "runtime-main.js": "/CS-Front/static/js/runtime-main.c86d2cdf.js",
     "runtime-main.js.map": "/CS-Front/static/js/runtime-main.c86d2cdf.js.map",
     "static/css/2.792e240d.chunk.css": "/CS-Front/static/css/2.792e240d.chunk.css",
@@ -17,6 +17,7 @@
     "static/media/BIGDATA.019a0697.png": "/CS-Front/static/media/BIGDATA.019a0697.png",
     "static/media/Background3.597937c6.png": "/CS-Front/static/media/Background3.597937c6.png",
     "static/media/ENERGY_SCIENCE.3300f0d6.png": "/CS-Front/static/media/ENERGY_SCIENCE.3300f0d6.png",
+    "static/media/Footer.fb84ee33.PNG": "/CS-Front/static/media/Footer.fb84ee33.PNG",
     "static/media/HowToUseRead1.5d61d82d.jpg": "/CS-Front/static/media/HowToUseRead1.5d61d82d.jpg",
     "static/media/HowToUseRead2.43eefa6e.jpg": "/CS-Front/static/media/HowToUseRead2.43eefa6e.jpg",
     "static/media/HowToUseRead3.a346297b.jpg": "/CS-Front/static/media/HowToUseRead3.a346297b.jpg",
@@ -30,6 +31,10 @@
     "static/media/KOREA.d59524ea.png": "/CS-Front/static/media/KOREA.d59524ea.png",
     "static/media/SECURITY.2a5e7f0c.png": "/CS-Front/static/media/SECURITY.2a5e7f0c.png",
     "static/media/SMART_CAR.13ad901d.png": "/CS-Front/static/media/SMART_CAR.13ad901d.png",
+    "static/media/TeamIntroduce1.948912b1.PNG": "/CS-Front/static/media/TeamIntroduce1.948912b1.PNG",
+    "static/media/TeamIntroduce2.c2caee2f.PNG": "/CS-Front/static/media/TeamIntroduce2.c2caee2f.PNG",
+    "static/media/TeamIntroduce3.9d4c9d29.PNG": "/CS-Front/static/media/TeamIntroduce3.9d4c9d29.PNG",
+    "static/media/TeamIntroduce4.32603032.PNG": "/CS-Front/static/media/TeamIntroduce4.32603032.PNG",
     "static/media/book.6aa7bc7c.png": "/CS-Front/static/media/book.6aa7bc7c.png",
     "static/media/esports.182d14b5.png": "/CS-Front/static/media/esports.182d14b5.png",
     "static/media/face.3c0c23c3.png": "/CS-Front/static/media/face.3c0c23c3.png",
@@ -56,6 +61,6 @@
     "static/css/2.792e240d.chunk.css",
     "static/js/2.b2329dba.chunk.js",
     "static/css/main.2eb0fdf9.chunk.css",
-    "static/js/main.c6b820c1.chunk.js"
+    "static/js/main.a197755e.chunk.js"
   ]
 }

@@ -95,8 +95,8 @@ const HowToUsePresenter = () => {
           {slickIndex === 7 ? (
             <SlickCustomRightButton
               onClick={() => {
-                localStorage.setItem("alreadyReadHowToUse", "yes");
                 history.push("/");
+                localStorage.setItem("alreadyReadHowToUse", "yes");
               }}
             >
               {"완료 >"}

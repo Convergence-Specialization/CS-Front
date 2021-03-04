@@ -60,6 +60,7 @@ import howtousereadicon4 from "../assets/howToUse/HowToUseRead4.jpg";
 import howtousereadicon5 from "../assets/howToUse/HowToUseRead5.jpg";
 import howtousereadicon6 from "../assets/howToUse/HowToUseRead6.jpg";
 import howtousereadicon7 from "../assets/howToUse/HowToUseRead7.jpg";
+import howtousereadicon8 from "../assets/howToUse/HowToUseRead8.jpg";
 
 export const howtouseiconzip = {
   howtousereadicon1,
@@ -69,6 +70,7 @@ export const howtouseiconzip = {
   howtousereadicon5,
   howtousereadicon6,
   howtousereadicon7,
+  howtousereadicon8,
 };
 
 export const events = {

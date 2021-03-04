@@ -86,8 +86,7 @@ const InputBotBox = styled.input`
 `;
 const Img = styled.img`
   width: 40%;
-  position: absolute;
-  top: 140px;
+  margin-bottom: 50px;
 `;
 const TextBox = styled.div`
   width: 40%;
@@ -101,7 +100,8 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 100px;
+  position: absolute;
+  top: 170px;
 `;
 const Text = styled.div`
   font-size: 13px;
@@ -120,8 +120,8 @@ const Login = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <Img src={horseIcons.horse} />
       <Box>
+        <Img src={horseIcons.horse} />
         <InputBox
           type="id"
           placeholder="아이디"

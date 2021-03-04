@@ -189,7 +189,15 @@ const AddInformation = () => {
       </InputBoxAndAlarmWrapper>
       <InputBoxAndAlarmWrapper1>
         <Wrap>약관에 동의합니다.</Wrap>
-        <Text>자세히 보기</Text>
+        <Text
+          onClick={() =>
+            window.open(
+              "https://convergence-specialization.github.io/CS-Front/termsandconditions"
+            )
+          }
+        >
+          자세히 보기
+        </Text>
         <CheckBox id="didAgree" type="checkbox" />
       </InputBoxAndAlarmWrapper1>
       <Button

@@ -57,7 +57,7 @@ const Navbar = ({
       <NavContainer>
         <Nav style={isTransparent ? { backgroundColor: "rgba(0,0,0,0)" } : {}}>
           {!Iconleft && <Bars onClick={() => setSubjectModalVisible(true)} />}
-          <NavLink onClick={() => history.push("/")}>
+          <NavLink onClick={isTransparent ? {} : () => history.push("/")}>
             {Navname || "융특 커뮤니티 슝"}
           </NavLink>
           <NavLeftMargin />

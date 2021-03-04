@@ -100,20 +100,6 @@ const HorseImg = styled.img`
   border-radius: 55%;
 `;
 
-const IntroduceImg1 = styled.img`
-  width: 130px;
-  margin: 0 20px;
-  padding: 20px 0;
-  display: flex;
-  align-self: flex-start;
-`;
-
-const IntroduceImg2 = styled.img`
-  width: 220px;
-  margin: 30px auto;
-  padding-bottom: 50px;
-  display: flex;
-`;
 const Line = styled.div`
   width: 30px;
   height: 0;
@@ -145,10 +131,6 @@ const FooterText = styled.div`
 
 const IntroduceAndFooterTextWrapper = styled.div`
   margin: 20px 10px 0 0;
-`;
-
-const Introduce1Wrapper = styled.div`
-  display: flex;
 `;
 
 const IntroduceWrapper = styled.div`

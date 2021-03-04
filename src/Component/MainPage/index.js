@@ -183,7 +183,7 @@ const MainPage = () => {
   const [convergencePosts, setConvergencePosts] = useState([]);
 
   useEffect(() => {
-    if ( localStorage.getItem("alreadyReadHowToUse") !== "yes") {
+    if (localStorage.getItem("alreadyReadHowToUse") === "yes") {
       history.push("/howtouse");
       return;
     }

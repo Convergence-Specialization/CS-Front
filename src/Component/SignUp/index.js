@@ -161,7 +161,8 @@ const SignUp = () => {
           placeholder="비밀번호 확인"
           value={pwCheck}
           onChange={({ target: { value } }) => setPwCheck(value)}
-          style={{ width: "100%" }}></InputBox>
+          style={{ width: "100%" }}
+        ></InputBox>
         <CorrectAlarm>{pw === pwCheck ? "일치" : "불일치"}</CorrectAlarm>
       </InputBoxAndAlarmWrapper>
       <InputBox id="nameField" placeholder="이름" />
@@ -212,6 +213,7 @@ const SignUp = () => {
               message.destroy();
               message.success("회원가입 성공. 로그인 해주세요.");
               history.push("/login");
+              localStorage.setItem("alreadyReadHowToUse", "yes");
             })
             .catch((err) => {
               message.destroy();
@@ -219,7 +221,8 @@ const SignUp = () => {
               setLoading(false);
             });
         }}
-        disabled={pw !== pwCheck}>
+        disabled={pw !== pwCheck}
+      >
         회원가입
       </Button>
     </Container>

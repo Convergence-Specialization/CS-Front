@@ -226,6 +226,12 @@ const SignUp = () => {
             .catch((err) => {
               message.destroy();
               message.error(err.message);
+              if (err.response.status === 406) {
+                message.destroy();
+                message.error(
+                  "회원 탈퇴한 이메일이나 이미 가입한 이메일로는 회원가입이 불가능합니다."
+                );
+              }
               setLoading(false);
             });
         }}

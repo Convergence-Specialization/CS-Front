@@ -53,12 +53,12 @@ const Button = styled.div`
   }
 `;
 const InputBox = styled.input`
-  width: 50%;
-  margin: 15px;
+  width: 70%;
+  margin: 15px 0px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   border-bottom: 2px solid white;
-  padding: 10px;
+  padding: 0px 0px 10px 10px;
   color: white;
   outline: none;
   font-size: 15px;
@@ -67,32 +67,45 @@ const InputBox = styled.input`
   ::placeholder {
     color: white;
   }
-  @media (max-width: 430px) {
-    width: 70%;
+`;
+const InputBotBox = styled.input`
+  width: 70%;
+  margin: 15px 0px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 0px 0px 10px 10px;
+  color: white;
+  outline: none;
+  font-size: 15px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  ::placeholder {
+    color: white;
   }
 `;
 const Img = styled.img`
   width: 40%;
-  margin-bottom: 50px;
-  @media (max-width: 430px) {
-    margin-bottom: 20px;
-  }
+  position: absolute;
+  top: 140px;
 `;
 const TextBox = styled.div`
-  width: 30%;
+  width: 40%;
   display: flex;
   color: white;
   justify-content: space-between;
-  @media (max-width: 430px) {
-    width: 40%;
-  }
+  margin-top: 10px;
+`;
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 100px;
 `;
 const Text = styled.div`
-  font-size: 14px;
+  font-size: 13px;
   cursor: pointer;
-  @media (max-width: 430px) {
-    font-size: 12px;
-  }
 `;
 
 const Login = () => {
@@ -108,86 +121,89 @@ const Login = () => {
       <BackgroundImg />
       <BackgroundFilter />
       <Img src={horseIcons.horse} />
-      <InputBox
-        type="id"
-        placeholder="아이디"
-        value={id}
-        disabled={false}
-        onChange={({ target: { value } }) => setId(value)}
-      />
-      <InputBox
-        type="password"
-        placeholder="비밀번호"
-        value={pw}
-        onChange={({ target: { value } }) => setPw(value)}
-      />
-      <Button
-        onClick={async () => {
-          if (loading) return;
-          try {
-            if (id === "" || pw === "") {
-              message.error("아이디와 비밀번호를 입력해주세요.");
-              return;
-            }
-            message.destroy();
-            message.loading("로그인 중..");
-            setLoading(true);
-            await authService.signInWithEmailAndPassword(id, pw);
-            const idToken = await authService.currentUser.getIdToken();
-            localStorage.setItem("idToken", idToken);
-            message.destroy();
-            message.success("로그인 성공");
-
-            // localstorage 이용 상태 저장.
-            loginFunctions.onSuccess(authService.currentUser);
-
-            history.push("/");
-          } catch (err) {
-            message.destroy();
-            message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
-          }
-          setLoading(false);
-        }}>
-        로그인
-      </Button>
-      <Button
-        onClick={async () => {
-          if (loading) return;
-          try {
-            message.loading("구글 로그인 중..", 20);
-            let provider = new firebaseInstance.auth.GoogleAuthProvider();
-            await authService.signInWithPopup(provider);
-            let { status } = await userApi.checkGoogleSignUped({
-              uid: authService.currentUser.uid,
-            });
-            if (status === 200) {
+      <Box>
+        <InputBox
+          type="id"
+          placeholder="아이디"
+          value={id}
+          disabled={false}
+          onChange={({ target: { value } }) => setId(value)}
+        />
+        <InputBox
+          type="password"
+          placeholder="비밀번호"
+          value={pw}
+          onChange={({ target: { value } }) => setPw(value)}
+        />
+        <Button
+          onClick={async () => {
+            if (loading) return;
+            try {
+              if (id === "" || pw === "") {
+                message.error("아이디와 비밀번호를 입력해주세요.");
+                return;
+              }
               message.destroy();
-              history.push("/signup/google");
-            } else if (status === 201) {
+              message.loading("로그인 중..");
+              setLoading(true);
+              await authService.signInWithEmailAndPassword(id, pw);
               const idToken = await authService.currentUser.getIdToken();
               localStorage.setItem("idToken", idToken);
               message.destroy();
-              message.success("구글 로그인 성공");
+              message.success("로그인 성공");
 
               // localstorage 이용 상태 저장.
-              loginFunctions.onSuccess(authService.currentUser, true);
+              loginFunctions.onSuccess(authService.currentUser);
 
               history.push("/");
+            } catch (err) {
+              message.destroy();
+              message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
             }
-          } catch (error) {
-            message.destroy();
-            message.error(error.message);
-            message.error("로그인 실패");
-          }
-        }}
-        name="google">
-        구글 로그인
-      </Button>
+            setLoading(false);
+          }}
+        >
+          로그인
+        </Button>
+        <Button
+          onClick={async () => {
+            if (loading) return;
+            try {
+              message.loading("구글 로그인 중..", 20);
+              let provider = new firebaseInstance.auth.GoogleAuthProvider();
+              await authService.signInWithPopup(provider);
+              let { status } = await userApi.checkGoogleSignUped({
+                uid: authService.currentUser.uid,
+              });
+              if (status === 200) {
+                message.destroy();
+                history.push("/signup/google");
+              } else if (status === 201) {
+                const idToken = await authService.currentUser.getIdToken();
+                localStorage.setItem("idToken", idToken);
+                message.destroy();
+                message.success("구글 로그인 성공");
 
-      <TextBox>
-        <Text onClick={() => history.push("/signup")}>회원가입</Text>
-        <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>
-      </TextBox>
+                // localstorage 이용 상태 저장.
+                loginFunctions.onSuccess(authService.currentUser, true);
+
+                history.push("/");
+              }
+            } catch (error) {
+              message.destroy();
+              message.error(error.message);
+              message.error("로그인 실패");
+            }
+          }}
+          name="google"
+        >
+          구글 로그인
+        </Button>
+        <TextBox>
+          <Text onClick={() => history.push("/signup")}>회원가입</Text>
+          <Text onClick={() => history.push("/login/lostpw")}>ID/PW찾기</Text>
+        </TextBox>
+      </Box>
     </Container>
   );
 };

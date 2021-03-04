@@ -172,7 +172,13 @@ const SignUp = () => {
         </InputBoxAndAlarmWrapper>
         <InputBoxAndAlarmWrapper1>
           <Wrap>약관에 동의합니다.</Wrap>
-          <Text onClick={() => window.open("/termsandconditions")}>
+          <Text
+            onClick={() =>
+              window.open(
+                "https://convergence-specialization.github.io/CS-Front/termsandconditions"
+              )
+            }
+          >
             자세히 보기
           </Text>
           <CheckBox id="didAgree" type="checkbox" />

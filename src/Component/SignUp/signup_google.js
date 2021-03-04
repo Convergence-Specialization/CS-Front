@@ -219,7 +219,7 @@ const AddInformation = () => {
               localStorage.setItem("idToken", idToken);
               message.destroy();
               message.success("구글 회원가입 성공.");
-              localStorage.setItem("alreadyReadHowToUse", "yes");
+              localStorage.setItem("firstSignUp", "ok");
               // localstorage 이용 상태 저장.
               loginFunctions.onSuccess(authService.currentUser, true);
 

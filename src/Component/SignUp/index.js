@@ -213,7 +213,7 @@ const SignUp = () => {
               message.destroy();
               message.success("회원가입 성공. 로그인 해주세요.");
               history.push("/login");
-              localStorage.setItem("alreadyReadHowToUse", "yes");
+              localStorage.setItem("firstSignUp", "ok");
             })
             .catch((err) => {
               message.destroy();

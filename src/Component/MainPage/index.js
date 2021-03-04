@@ -183,9 +183,11 @@ const MainPage = () => {
   const [convergencePosts, setConvergencePosts] = useState([]);
 
   useEffect(() => {
-    if (localStorage.getItem("alreadyReadHowToUse") === "yes") {
-      history.push("/howtouse");
-      return;
+    if (localStorage.getItem("firstSignUp") === "ok") {
+      if (localStorage.getItem("alreadyReadHowToUse") !== "yes") {
+        history.push("/howtouse");
+        return;
+      }
     }
     if (!isMobile) {
       alert("현재 융슝은 모바일이 아닌 환경에서 사용이 어려울 수 있습니다.");

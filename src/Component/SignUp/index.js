@@ -63,9 +63,9 @@ const CorrectAlarm = styled.div`
   right: 3px;
   text-align: center;
   padding: 5px 0;
-  font-size: 10px;
+  font-size: 13px;
   color: #eb4b4b;
-  width: 35px;
+  width: 50px;
   border-radius: 5px;
   top: 20px;
 `;
@@ -80,7 +80,7 @@ const Box = styled.div`
   align-items: center;
   flex-direction: column;
   position: absolute;
-  top: 170px;
+  top: 200px;
 `;
 const InputBoxAndAlarmWrapper1 = styled.div`
   position: relative;

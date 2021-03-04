@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CS-Front/static/css/main.2eb0fdf9.chunk.css",
-    "main.js": "/CS-Front/static/js/main.2981d038.chunk.js",
-    "main.js.map": "/CS-Front/static/js/main.2981d038.chunk.js.map",
+    "main.js": "/CS-Front/static/js/main.07bccd05.chunk.js",
+    "main.js.map": "/CS-Front/static/js/main.07bccd05.chunk.js.map",
     "runtime-main.js": "/CS-Front/static/js/runtime-main.c86d2cdf.js",
     "runtime-main.js.map": "/CS-Front/static/js/runtime-main.c86d2cdf.js.map",
     "static/css/2.792e240d.chunk.css": "/CS-Front/static/css/2.792e240d.chunk.css",
@@ -20,7 +20,7 @@
     "static/media/Footer.fb84ee33.PNG": "/CS-Front/static/media/Footer.fb84ee33.PNG",
     "static/media/HowToUseRead1.5d61d82d.jpg": "/CS-Front/static/media/HowToUseRead1.5d61d82d.jpg",
     "static/media/HowToUseRead2.43eefa6e.jpg": "/CS-Front/static/media/HowToUseRead2.43eefa6e.jpg",
-    "static/media/HowToUseRead3.a346297b.jpg": "/CS-Front/static/media/HowToUseRead3.a346297b.jpg",
+    "static/media/HowToUseRead3.622a7711.jpg": "/CS-Front/static/media/HowToUseRead3.622a7711.jpg",
     "static/media/HowToUseRead4.6d66879a.jpg": "/CS-Front/static/media/HowToUseRead4.6d66879a.jpg",
     "static/media/HowToUseRead5.6e7dbdf2.jpg": "/CS-Front/static/media/HowToUseRead5.6e7dbdf2.jpg",
     "static/media/HowToUseRead6.caf5dd51.jpg": "/CS-Front/static/media/HowToUseRead6.caf5dd51.jpg",
@@ -61,6 +61,6 @@
     "static/css/2.792e240d.chunk.css",
     "static/js/2.b2329dba.chunk.js",
     "static/css/main.2eb0fdf9.chunk.css",
-    "static/js/main.2981d038.chunk.js"
+    "static/js/main.07bccd05.chunk.js"
   ]
 }

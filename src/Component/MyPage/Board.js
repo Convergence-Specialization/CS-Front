@@ -80,7 +80,9 @@ const Board = () => {
         </Container1>
       )}
       <Container2>
-        <Text1>서비스 이용약관</Text1>
+        <Text1 onClick={() => history.push("/termsandconditions")}>
+          서비스 이용약관
+        </Text1>
         <Text1 onClick={() => setModalVisible(true)}>회원 탈퇴</Text1>
         <Text
           onClick={() => {

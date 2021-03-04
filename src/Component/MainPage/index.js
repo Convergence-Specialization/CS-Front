@@ -212,7 +212,7 @@ const MainPage = () => {
       .getLists({ size: 5 })
       .then((docsArray) => setDepartmajorPosts(docsArray))
       .catch((error) => console.log(error.message));
-  }, []);
+  }, [history]);
 
   const SlickRef = React.createRef();
 

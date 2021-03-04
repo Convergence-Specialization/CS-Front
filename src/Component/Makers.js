@@ -10,8 +10,8 @@ import {
 import Navbar from "../Component/Navbar";
 import NavBot from "../Component/SmallComponents/NavBot";
 
-const GithubAndHelperContainer = styled.div`
-  background-color: white;
+const GithubContainer = styled.div`
+  background-color: #f1f1f1;
   /* align-items: center; */
   padding: 30px 0;
 `;
@@ -89,7 +89,7 @@ const MakersWrapper = styled.div`
   @media (max-width: 430px) {
   }
 `;
-const GithubAndMakersTotalWrapper = styled.div`
+const GithubTotalWrapper = styled.div`
   margin: 30px auto;
   text-align: center;
   display: flex;
@@ -141,6 +141,10 @@ const IntroduceImg = styled.img`
   margin: 30px auto;
   width: 100%;
 `;
+
+const TeamIntroduceImg = styled.img`
+  width: 100%;
+`;
 const Makers = () => {
   return (
     <>
@@ -149,100 +153,9 @@ const Makers = () => {
       <IntroduceWrapper>
         <IntroduceImg src={Images.Introduce1} />
       </IntroduceWrapper>
-      <TeamContainer>
-        <Title>팀 소개</Title>
-        <GithubAndMakersTotalWrapper>
-          <MakersWrapper>
-            <HorseImg src={horseIcons.face} />
-            <MakersTitle>조영현</MakersTitle>
-            <Text>
-              LEADER
-              <br />
-              BACK-END
-            </Text>
-            <Line />
-            <Text2>
-              내가 대장임
-              <br /> 코딩짱짱맨
-            </Text2>
-          </MakersWrapper>
-          <MakersWrapper>
-            <HorseImg src={horseIcons.face} />
-            <MakersTitle>안은소</MakersTitle>
-            <Text>
-              FRONT-END
-              <br />
-              DESIGNER
-            </Text>
-            <Line />
-            <Text2>
-              웹 기획
-              <br />
-              웹페이지 개발
-            </Text2>
-          </MakersWrapper>
-          <MakersWrapper>
-            <HorseImg src={horseIcons.face} />
-            <MakersTitle>지연우</MakersTitle>
-            <Text>
-              FRONT-END
-              <br />
-              DESIGNER
-            </Text>
-            <Line />
-            <Text2>
-              웹 기획
-              <br />
-              웹페이지 개발
-            </Text2>
-          </MakersWrapper>
-        </GithubAndMakersTotalWrapper>
-        <GithubAndMakersTotalWrapper>
-          <MakersWrapper>
-            <HorseImg src={horseIcons.face} />
-            <MakersTitle>김의정</MakersTitle>
-            <Text>FRONT-END</Text>
-            <Line />
-            <Text2>웹페이지 개발</Text2>
-          </MakersWrapper>
-          <MakersWrapper>
-            <HorseImg src={horseIcons.face} />
-            <MakersTitle>김준하</MakersTitle>
-            <Text>FRONT-END</Text>
-            <Line />
-            <Text2>
-              프론트엔드 장인
-              <br />
-              웹개발 나한테 줘!
-            </Text2>
-          </MakersWrapper>
-          <MakersWrapper>
-            <HorseImg src={horseIcons.face} />
-            <MakersTitle>이우혁</MakersTitle>
-            <Text>BACK-END</Text>
-            <Line />
-            <Text2>백엔드 장인</Text2>
-          </MakersWrapper>
-        </GithubAndMakersTotalWrapper>
-      </TeamContainer>
-      <GithubAndHelperContainer>
-        <Title>도움주신 분</Title>
-        <HelperWrapper>
-          <MakersWrapper>
-            <HorseImg src={horseIcons.face} />
-            <MakersTitle>이수정</MakersTitle>
-            <Text>DESIGNER</Text>
-            <Line />
-            <Text2>
-              융슝이 캐릭터
-              <br /> 디자인
-            </Text2>
-          </MakersWrapper>
-        </HelperWrapper>
-      </GithubAndHelperContainer>
-      <GithubAndHelperContainer>
+      <GithubContainer>
         <Title>github(깃허브)</Title>
-        <GithubAndMakersTotalWrapper>
+        <GithubTotalWrapper>
           <GithubWrapper>
             <GithubImage
               src={etc.github}
@@ -266,25 +179,15 @@ const Makers = () => {
             />
             <GithubText>CS-Backend</GithubText>
           </GithubWrapper>
-        </GithubAndMakersTotalWrapper>
-      </GithubAndHelperContainer>
-      <FooterContainer>
-        <GithubWrapper>
-          <SoongsilImg src={etc.ssu} />
-        </GithubWrapper>
-        <IntroduceAndFooterTextWrapper>
-          <FooterText style={{ fontSize: "17px" }}>
-            융합특성화자유전공학부
-          </FooterText>
-          <FooterText>
-            서울특별시 동작구 상도로 309 숭실대학교 문화관 302호
-            <br />
-            융합특성화자유전공학부, 서울특별시 16978
-            <br />
-            TEL) 02-829-8220
-          </FooterText>
-        </IntroduceAndFooterTextWrapper>
-      </FooterContainer>
+        </GithubTotalWrapper>
+      </GithubContainer>
+      <IntroduceWrapper>
+        <TeamIntroduceImg src={Images.TeamIntroduce1} />
+        <TeamIntroduceImg src={Images.TeamIntroduce2} />
+        <TeamIntroduceImg src={Images.TeamIntroduce3} />
+        <TeamIntroduceImg src={Images.TeamIntroduce4} />
+      </IntroduceWrapper>
+      <TeamIntroduceImg src={Images.Footer} />
     </>
   );
 };

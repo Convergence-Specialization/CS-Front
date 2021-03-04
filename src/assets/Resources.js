@@ -5,6 +5,11 @@ import commentarrow from "../assets/icons/commentarrow.png";
 import three_dots from "../assets/icons/three_dots.png";
 import Background3 from "../assets/Images/Background3.png";
 import Introduce1 from "../assets/Images/Introduce1.png";
+import TeamIntroduce1 from "../assets/Images/TeamIntroduce1.PNG";
+import TeamIntroduce2 from "../assets/Images/TeamIntroduce2.PNG";
+import TeamIntroduce3 from "../assets/Images/TeamIntroduce3.PNG";
+import TeamIntroduce4 from "../assets/Images/TeamIntroduce4.PNG";
+import Footer from "../assets/Images/Footer.PNG";
 import ICT from "../assets/MajorIntroduce/ICT.png";
 import BIGDATA from "../assets/MajorIntroduce/BIGDATA.png";
 import KOREA from "../assets/MajorIntroduce/KOREA.png";
@@ -90,6 +95,11 @@ export const readDoc = {
 export const Images = {
   Background3,
   Introduce1,
+  TeamIntroduce1,
+  TeamIntroduce2,
+  TeamIntroduce3,
+  TeamIntroduce4,
+  Footer,
 };
 
 export const major = {

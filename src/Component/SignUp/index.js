@@ -163,7 +163,11 @@ const SignUp = () => {
           onChange={({ target: { value } }) => setPwCheck(value)}
           style={{ width: "100%" }}
         ></InputBox>
-        <CorrectAlarm>{pw === pwCheck ? "일치" : "불일치"}</CorrectAlarm>
+        <CorrectAlarm
+          style={pw === pwCheck ? { color: "green" } : { color: "#eb4b4b" }}
+        >
+          {pw === pwCheck ? "일치" : "불일치"}
+        </CorrectAlarm>
       </InputBoxAndAlarmWrapper>
       <InputBox id="nameField" placeholder="이름" />
       <InputBox id="studentNumber" placeholder="학번" />

@@ -88,9 +88,9 @@ const BoardImg = styled.img`
 
 const Button = styled.div`
   text-align: center;
-  padding: 6px 14px;
+  padding: 8px 15px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #d4e6fb;

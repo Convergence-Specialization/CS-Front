@@ -83,6 +83,9 @@ const HowToUsePresenter = () => {
           <SlickBox>
             <IntroduceImage src={howtouseiconzip.howtousereadicon7} />
           </SlickBox>
+          <SlickBox>
+            <IntroduceImage src={howtouseiconzip.howtousereadicon8} />
+          </SlickBox>
         </Slider>
         <SlickButtonWrapper>
           {slickIndex === 1 ? (
@@ -92,7 +95,7 @@ const HowToUsePresenter = () => {
               {"< 이전"}
             </SlickCustomLeftButton>
           )}
-          {slickIndex === 7 ? (
+          {slickIndex === 8 ? (
             <SlickCustomRightButton
               onClick={() => {
                 history.push("/");

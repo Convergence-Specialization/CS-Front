@@ -34,23 +34,16 @@ const BackgroundFilter = styled.div`
   z-index: -1;
 `;
 const Button = styled.div`
-  position: relative;
-  top: 90px;
   border: 2px solid white;
-  padding: 10px 20px;
-  width: 63%;
-  margin: 30px 0;
+  padding: 10px 30px;
+  width: 73%;
+  margin: 60px 0px 0px;
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   line-height: 1.15;
   cursor: pointer;
   color: #ffffff;
-  @media (max-width: 430px) {
-    font-size: 14px;
-    padding: 10px 30px;
-    top: 70px;
-  }
 `;
 const Wrap = styled.div`
   width: 100%;
@@ -61,12 +54,11 @@ const Wrap = styled.div`
   position: absolute;
   font-size: 20px;
   @media (max-width: 430px) {
-    font-size: 11px;
+    font-size: 13px;
   }
 `;
 const CorrectAlarm = styled.div`
   position: absolute;
-  width: 30px;
   background-color: rgba(255, 255, 255, 0.67);
   right: 3px;
   text-align: center;
@@ -75,35 +67,38 @@ const CorrectAlarm = styled.div`
   color: #eb4b4b;
   width: 35px;
   border-radius: 5px;
-  top: 10px;
+  top: 20px;
 `;
 const InputBoxAndAlarmWrapper = styled.div`
   position: relative;
-  width: 63%;
+  width: 73%;
+  margin-top: 10px;
+`;
+const Box = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 170px;
 `;
 const InputBoxAndAlarmWrapper1 = styled.div`
   position: relative;
-  width: 63%;
-  top: 50px;
-  @media (max-width: 430px) {
-    top: 40px;
-  }
+  width: 73%;
+  margin-top: 45px;
 `;
 const InputBox = styled.input`
-  width: 63%;
+  width: 73%;
   color: white;
   outline: none;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   border-bottom: 2px solid white;
-  padding: 10px;
-  font-size: 20px;
+  padding: 25px 10px 6px;
+  font-size: 15px;
   -webkit-border-radius: 0;
   ::placeholder {
     color: #a1a1a1;
-  }
-  @media (max-width: 430px) {
-    font-size: 15px;
   }
 `;
 const CheckBox = styled.input`
@@ -112,12 +107,9 @@ const CheckBox = styled.input`
   color: white;
   font-size: 15px;
   right: 10px;
-  top: 20px;
+  top: 10px;
   ::placeholder {
     color: white;
-  }
-  @media (max-width: 430px) {
-    top: 15px;
   }
 `;
 const Text = styled.div`
@@ -131,9 +123,9 @@ const Text = styled.div`
   position: absolute;
   left: 170px;
   @media (max-width: 430px) {
-    font-size: 10px;
+    font-size: 13px;
     width: 22%;
-    left: 100px;
+    left: 115px;
   }
 `;
 const SignUp = () => {
@@ -146,105 +138,102 @@ const SignUp = () => {
     <Container>
       <BackgroundImg />
       <BackgroundFilter />
-      <InputBox
-        placeholder="이메일"
-        value={email}
-        onChange={({ target: { value } }) => setEmail(value)}
-      />
-      <InputBox
-        type="password"
-        placeholder="비밀번호"
-        value={pw}
-        onChange={({ target: { value } }) => setPw(value)}
-      />
-      <InputBoxAndAlarmWrapper>
+      <Box>
+        <InputBox
+          placeholder="이메일"
+          value={email}
+          onChange={({ target: { value } }) => setEmail(value)}
+        />
         <InputBox
           type="password"
-          placeholder="비밀번호 확인"
-          value={pwCheck}
-          onChange={({ target: { value } }) => setPwCheck(value)}
-          style={{ width: "100%" }}
-        ></InputBox>
-        <CorrectAlarm
-          style={pw === pwCheck ? { color: "green" } : { color: "#eb4b4b" }}
-        >
-          {pw === pwCheck ? "일치" : "불일치"}
-        </CorrectAlarm>
-      </InputBoxAndAlarmWrapper>
-      <InputBox id="nameField" placeholder="이름" />
-      <InputBox id="studentNumber" placeholder="학번" />
-      <InputBoxAndAlarmWrapper>
-        <Wrap>융합특성화자유전공학부 학생입니다.(선택)</Wrap>
-        <CheckBox id="isConvergence" type="checkbox" />
-      </InputBoxAndAlarmWrapper>
-      <InputBoxAndAlarmWrapper1>
-        <Wrap>약관에 동의합니다.</Wrap>
-        <Text
-          onClick={() =>
-            window.open(
-              "https://convergence-specialization.github.io/CS-Front/termsandconditions"
-            )
-          }
-        >
-          자세히 보기
-        </Text>
-        <CheckBox id="didAgree" type="checkbox" />
-      </InputBoxAndAlarmWrapper1>
-      <Button
-        onClick={() => {
-          if (loading) return;
-          if (document.getElementById("didAgree").checked === false) {
-            alert("약관에 동의해주세요");
-            return;
-          }
-          if (email === "") {
-            alert("이메일을 입력해주세요");
-            return;
-          }
-          if (
-            document.getElementById("nameField").value === "" ||
-            document.getElementById("studentNumber").value === ""
-          ) {
-            alert("이름과 학번을 입력해주세요");
-            return;
-          }
-          if (pw !== pwCheck) {
-            alert("비밀번호가 일치하지 않습니다.");
-            return;
-          }
-          setLoading(true);
-          message.loading("회원가입 중..", 10);
-          userApi
-            .signUp({
-              method: "EMAIL",
-              name: document.getElementById("nameField").value,
-              email: email,
-              student_id: document.getElementById("studentNumber").value,
-              is_convergence: document.getElementById("isConvergence").checked,
-              password: pw,
-            })
-            .then(() => {
-              message.destroy();
-              message.success("회원가입 성공. 로그인 해주세요.");
-              history.push("/login");
-              localStorage.setItem("firstSignUp", "ok");
-            })
-            .catch((err) => {
-              message.destroy();
-              message.error(err.message);
-              if (err.response.status === 406) {
+          placeholder="비밀번호"
+          value={pw}
+          onChange={({ target: { value } }) => setPw(value)}
+        />
+        <InputBoxAndAlarmWrapper>
+          <InputBox
+            type="password"
+            placeholder="비밀번호 확인"
+            value={pwCheck}
+            onChange={({ target: { value } }) => setPwCheck(value)}
+            style={{ width: "100%" }}
+          ></InputBox>
+          <CorrectAlarm
+            style={pw === pwCheck ? { color: "green" } : { color: "#eb4b4b" }}
+          >
+            {pw === pwCheck ? "일치" : "불일치"}
+          </CorrectAlarm>
+        </InputBoxAndAlarmWrapper>
+        <InputBox id="nameField" placeholder="이름" />
+        <InputBox id="studentNumber" placeholder="학번" />
+        <InputBoxAndAlarmWrapper>
+          <Wrap>융합특성화자유전공학부 학생입니다. (선택)</Wrap>
+          <CheckBox id="isConvergence" type="checkbox" />
+        </InputBoxAndAlarmWrapper>
+        <InputBoxAndAlarmWrapper1>
+          <Wrap>약관에 동의합니다.</Wrap>
+          <Text onClick={() => window.open("/termsandconditions")}>
+            자세히 보기
+          </Text>
+          <CheckBox id="didAgree" type="checkbox" />
+        </InputBoxAndAlarmWrapper1>
+        <Button
+          onClick={() => {
+            if (loading) return;
+            if (document.getElementById("didAgree").checked === false) {
+              alert("약관에 동의해주세요");
+              return;
+            }
+            if (email === "") {
+              alert("이메일을 입력해주세요");
+              return;
+            }
+            if (
+              document.getElementById("nameField").value === "" ||
+              document.getElementById("studentNumber").value === ""
+            ) {
+              alert("이름과 학번을 입력해주세요");
+              return;
+            }
+            if (pw !== pwCheck) {
+              alert("비밀번호가 일치하지 않습니다.");
+              return;
+            }
+            setLoading(true);
+            message.loading("회원가입 중..", 10);
+            userApi
+              .signUp({
+                method: "EMAIL",
+                name: document.getElementById("nameField").value,
+                email: email,
+                student_id: document.getElementById("studentNumber").value,
+                is_convergence: document.getElementById("isConvergence")
+                  .checked,
+                password: pw,
+              })
+              .then(() => {
                 message.destroy();
-                message.error(
-                  "회원 탈퇴한 이메일이나 이미 가입한 이메일로는 회원가입이 불가능합니다."
-                );
-              }
-              setLoading(false);
-            });
-        }}
-        disabled={pw !== pwCheck}
-      >
-        회원가입
-      </Button>
+                message.success("회원가입 성공. 로그인 해주세요.");
+                history.push("/login");
+                localStorage.setItem("firstSignUp", "ok");
+              })
+              .catch((err) => {
+                message.destroy();
+                message.error(err.message);
+                if (err.response.status === 406) {
+                  message.destroy();
+                  message.error(
+                    "회원 탈퇴한 이메일이나 이미 가입한 이메일로는 회원가입이 불가능합니다."
+                  );
+                }
+                setLoading(false);
+              });
+          }}
+          disabled={pw !== pwCheck}
+        >
+          회원가입
+        </Button>
+      </Box>
     </Container>
   );
 };

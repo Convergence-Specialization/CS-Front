@@ -8,6 +8,7 @@ import {
   NavOpenUpperDescWrapper,
   NavOpenSingleItemBox,
   NavOpenItemText,
+  NavInItemText,
   NavOpenItemMargin,
   NavOpenItemArrowButton,
   InformationWrapper,
@@ -170,22 +171,18 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   onClick={() => history.push("/board/announcement")}
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
-                    style={{ fontSize: "13px" }}
+                  <NavInItemText
                     onClick={() => history.push("/board/announcement")}
                   >
                     - 진행 중인 행사
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
                   onClick={() => history.push("/board/event")}
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText style={{ fontSize: "13px" }}>
-                    {" "}
-                    - 공지사항
-                  </NavOpenItemText>
+                  <NavInItemText> - 공지사항</NavInItemText>
                 </NavOpenSingleChildItemBox>
               </>
             )}
@@ -211,36 +208,31 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   onClick={() => history.push("/board/convergence")}
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
+                  <NavInItemText
                     onClick={() => history.push("/board/convergence")}
-                    style={{ fontSize: "13px" }}
                   >
                     - 융특게시판
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
                   onClick={() => history.push("/board/departmajor")}
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
+                  <NavInItemText
                     onClick={() => history.push("/board/departmajor")}
-                    style={{ fontSize: "13px" }}
                   >
                     - 전과게시판
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
                   onClick={() => history.push("/board/hot")}
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
-                    onClick={() => history.push("/board/hot")}
-                    style={{ fontSize: "13px" }}
-                  >
+                  <NavInItemText onClick={() => history.push("/board/hot")}>
                     - 인기 많은 융슝이들
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
               </>
             )}
@@ -268,12 +260,11 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   onClick={() => window.open("https://ssu.ac.kr/")}
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
+                  <NavInItemText
                     onClick={() => window.open("https://ssu.ac.kr/")}
-                    style={{ fontSize: "13px" }}
                   >
                     - 숭실대학교 홈페이지
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
@@ -282,26 +273,24 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   }
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
+                  <NavInItemText
                     onClick={() =>
                       window.open("https://saint.ssu.ac.kr/irj/portal")
                     }
-                    style={{ fontSize: "13px" }}
                   >
                     - 유세인트
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
                   onClick={() => window.open("http://myclass.ssu.ac.kr/")}
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
+                  <NavInItemText
                     onClick={() => window.open("http://myclass.ssu.ac.kr/")}
-                    style={{ fontSize: "13px" }}
                   >
                     - 스마트캠퍼스
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
@@ -310,14 +299,13 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   }
                 >
                   <NavOpenItemMargin />
-                  <NavOpenItemText
+                  <NavInItemText
                     onClick={() =>
                       window.open("http://pre.ssu.ac.kr/web/convergence")
                     }
-                    style={{ fontSize: "13px" }}
                   >
                     - 융특 홈페이지
-                  </NavOpenItemText>
+                  </NavInItemText>
                 </NavOpenSingleChildItemBox>
               </>
             )}

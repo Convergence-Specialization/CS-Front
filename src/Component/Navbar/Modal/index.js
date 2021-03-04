@@ -53,7 +53,7 @@ const ModalOverlay = styled.div`
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 999;
+  z-index: 1000;
 `;
 const ModalInner = styled.div`
   box-sizing: border-box;
@@ -61,6 +61,7 @@ const ModalInner = styled.div`
   border-radius: 10px;
   outline: none;
   width: ${(props) => props.width || "375px"};
+  z-index: 999;
 `;
 
 export const NavModal = ({ onClose, visible, navClicked }) => {

@@ -32,9 +32,12 @@ const Container2 = styled.div`
 const Text = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 15px;
+  font-size: 18px;
   padding: 18px 10px;
   cursor: pointer;
+  @media (max-width: 430px) {
+    font-size: 15px;
+  }
 `;
 
 const Text1 = styled.div`
@@ -70,7 +73,8 @@ const Board = () => {
         <Container1>
           <Text
             onClick={() => history.push("/mypage/changepw")}
-            style={{ padding: "3px 10px" }}>
+            style={{ padding: "3px 10px" }}
+          >
             비밀번호 변경
           </Text>
         </Container1>
@@ -85,7 +89,8 @@ const Board = () => {
               message.success("로그아웃 완료");
               history.push("/");
             });
-          }}>
+          }}
+        >
           로그아웃
         </Text>
       </Container2>

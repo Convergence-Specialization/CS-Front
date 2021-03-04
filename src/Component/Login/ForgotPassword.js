@@ -88,7 +88,8 @@ const ForgotPassword = () => {
       <Title>이메일 주소로 계정 찾기</Title>
       <Text>
         비밀번호는 가입 시 등록한 메일 주소로 알려드립니다. 가입할 때 등록한
-        메일주소를 입력하고 *PW 찾기* 버튼을 클릭해주세요
+        메일주소를 입력하고
+        <br /> *PW 찾기* 버튼을 클릭해주세요
       </Text>
       <InputBox
         id="emailInputBox"
@@ -118,7 +119,8 @@ const ForgotPassword = () => {
               message.destroy();
               message.error(error.message);
             });
-        }}>
+        }}
+      >
         PW 찾기
       </Button>
     </Container>

@@ -22,6 +22,7 @@ const Con = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 20px;
 `;
 const BoardText = styled.div`
   font-size: 15px;

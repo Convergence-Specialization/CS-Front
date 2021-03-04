@@ -228,6 +228,11 @@ export const NavOpenItemText = styled.div`
   font-size: 15px;
   margin-left: 10px;
 `;
+
+export const NavInItemText = styled.div`
+  font-size: 14px;
+  margin-left: 10px;
+`;
 export const NavOpenchildItemText = styled.div`
   font-size: 13px;
   margin-left: 10px;

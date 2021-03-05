@@ -5,7 +5,8 @@ import { timeConverter } from "../../../../assets/Dicts";
 import { horseIcons } from "../../../../assets/Resources";
 import { useHistory } from "react-router-dom";
 import Linkify from "react-linkify";
-
+import { announcementApi } from "../../../../api";
+import message from "antd/lib/message";
 const Container = styled.div`
   width: 100%;
   max-width: 768px;
@@ -135,7 +136,10 @@ const BoardTitleContainer = styled.div`
 const TitleAndTimeWrapper = styled.div``;
 const Announcement = () => {
   const location = useLocation();
+
   const [docItem, setDocItem] = useState();
+  const [secretObject, setSecretObject] = useState({ deleteCount: 0 });
+
   const history = useHistory();
 
   useEffect(() => {
@@ -153,7 +157,32 @@ const Announcement = () => {
                 <BoardWritterWrapper>
                   <HorseImg src={horseIcons.horse} alt="말머리" />
                   <TitleAndTimeWrapper>
-                    <BoardTitle>{docItem.title}</BoardTitle>
+                    <BoardTitle
+                      onClick={async () => {
+                        setSecretObject({
+                          deleteCount: secretObject.deleteCount + 1,
+                        });
+                        if (
+                          secretObject.deleteCount === 6 &&
+                          window.confirm("이 공지를 삭제하시겠습니까?")
+                        ) {
+                          try {
+                            message.destroy();
+                            message.loading("공지를 삭제하는 중입니다..");
+                            await announcementApi.requestDeleteDoc({
+                              docId: docItem.docId,
+                            });
+                            message.destroy();
+                            message.success("공지가 삭제되었습니다.");
+                            history.push("/board/announcement");
+                          } catch (err) {
+                            message.destroy();
+                            message.error(err.message);
+                          }
+                        }
+                      }}>
+                      {docItem.title}
+                    </BoardTitle>
                     <WritterAndDate>
                       작성일: {timeConverter(docItem.timestampMillis)}
                     </WritterAndDate>

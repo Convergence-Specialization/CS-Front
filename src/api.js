@@ -330,6 +330,12 @@ export const announcementApi = {
     });
     return docsArray;
   },
+  requestDeleteDoc: (body) =>
+    api.post("board/announcement/delete", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
 };
 
 export const hotApi = {

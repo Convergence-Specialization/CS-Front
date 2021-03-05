@@ -95,7 +95,7 @@ const ListView = () => {
       <button
         onClick={() =>
           history.push({
-            pathname: `/board/marketing`,
+            pathname: `/board/promotion`,
             state: {
               pageName: "create",
             },
@@ -120,7 +120,7 @@ const ListView = () => {
                   key={`${idx}ANNOUNCEMENT_PREVIEW`}
                   onClick={() =>
                     history.push({
-                      pathname: `/board/marketing`,
+                      pathname: `/board/promotion`,
                       state: {
                         pageName: "read",
                         docItem: item,

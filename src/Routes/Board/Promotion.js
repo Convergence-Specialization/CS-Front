@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Read from "../../Component/Board/Marketing/Read";
-import Create from "../../Component/Board/Marketing/Create";
-import ListView from "../../Component/Board/Marketing/ListView";
+import Read from "../../Component/Board/Promotion/Read";
+import Create from "../../Component/Board/Promotion/Create";
+import ListView from "../../Component/Board/Promotion/ListView";
 
 // import EventPost from "../../Component/Board/Announcement/Event/EventPost";
 import { navbotIcons, navIcons } from "../../assets/Resources";

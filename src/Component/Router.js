@@ -22,7 +22,7 @@ import Hot from "../Routes/Board/Hot";
 import Save from "../Routes/MyPage/Save";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Board/Announcement";
-import Marketing from "../Routes/Board/Marketing";
+import Promotion from "../Routes/Board/Promotion";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";
@@ -91,8 +91,8 @@ const RouterComponent = () => {
       <Route path="/board/announcement" exact>
         <Announcement />
       </Route>
-      <Route path="/board/marketing" exact>
-        <Marketing />
+      <Route path="/board/promotion" exact>
+        <Promotion />
       </Route>
       <Route path="/mypage" exact>
         <MyPage />

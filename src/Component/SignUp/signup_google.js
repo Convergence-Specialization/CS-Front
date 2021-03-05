@@ -219,6 +219,10 @@ const AddInformation = () => {
               alert("학번을 입력해주세요");
               return;
             }
+            if (document.getElementById("studentId").value.length !== 8) {
+              alert("학번을 정확히 입력해주세요.");
+              return;
+            }
             setLoading(true);
             message.loading("회원가입 중..", 10);
             userApi

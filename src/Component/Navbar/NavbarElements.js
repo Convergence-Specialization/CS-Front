@@ -93,6 +93,7 @@ export const NavOpenUpperButton = styled.div`
   padding: 15px 0px;
   border-radius: 10px;
   background-color: white;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 export const NavBotBox = styled.div`
   display: flex;
@@ -145,6 +146,7 @@ export const InformationWrapper = styled.div`
   padding: 15px 20px;
   width: 100%;
   background-color: white;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 export const InformationText = styled.div`
   font-size: 15px;
@@ -197,7 +199,7 @@ export const NavOpenItemImg = styled.img`
   margin-right: 6px;
 `;
 export const NavImg = styled.img`
-  width: 38px;
+  width: 36px;
 `;
 export const CancelImg = styled.img`
   width: 15px;

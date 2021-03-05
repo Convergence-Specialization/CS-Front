@@ -62,7 +62,7 @@ export const WithdrawSubTitle = styled.div`
 `;
 export const WithdrawDesc = styled.div`
   word-break: keep-all;
-  line-height: 1.3;
+  line-height: 1.5;
   font-size: 14px;
   margin-bottom: 15px;
 `;

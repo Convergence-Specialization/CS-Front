@@ -194,8 +194,7 @@ const Create = () => {
             if (uploading) return;
             if (
               document.getElementById("titleInput").value === "" ||
-              document.getElementById("contentTextarea").value === "" ||
-              document.getElementById("periodInput").value === ""
+              document.getElementById("contentTextarea").value === ""
             ) {
               message.destroy();
               message.error("제목 또는 글 내용을 작성해주세요.");

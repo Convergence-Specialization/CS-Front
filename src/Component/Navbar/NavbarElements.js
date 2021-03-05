@@ -55,7 +55,7 @@ export const NavOpen = styled.div`
   width: 70%;
   height: 100vh;
   position: absolute;
-  border-right: 1px solid #dedede;
+  border-right: 1px solid #dcdcdc;
   background: white;
   z-index: 1;
   opacity: 1;
@@ -63,7 +63,7 @@ export const NavOpen = styled.div`
 `;
 export const NavLinkOpen = styled(Link)`
   color: black;
-  border-bottom: 1px solid #7ab8f3;
+  border-bottom: 1px solid #dcdcdc;
   font-size: 25px;
   text-align: center;
   margin: 20px 0;
@@ -154,7 +154,7 @@ export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;
   padding: 15px 10px;
   cursor: pointer;
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #dcdcdc;
   display: flex;
   align-items: center;
   position: relative;
@@ -178,7 +178,7 @@ export const NavSingleBottomItemBox = styled.div`
   align-self: stretch;
   padding: 10px;
   cursor: pointer;
-  border-top: 1px solid grey;
+  border-top: 1px solid #dcdcdc;
   display: flex;
   align-items: center;
   position: relative;

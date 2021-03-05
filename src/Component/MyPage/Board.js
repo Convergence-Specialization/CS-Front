@@ -46,7 +46,7 @@ const Text1 = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-  border: solid #c4c1c1;
+  border: solid #dcdcdc;
   border-width: 0px 0px 1px 0px;
   @media (max-width: 430px) {
     font-size: 15px;

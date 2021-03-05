@@ -75,7 +75,7 @@ const Img = styled.img`
   width: 30%;
   margin-bottom: 50px;
   @media (max-width: 430px) {
-    width: 40%;
+    width: 37%;
   }
 `;
 const TextBox = styled.div`
@@ -90,7 +90,6 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 20px;
 `;
 const Text = styled.div`
   font-size: 13px;

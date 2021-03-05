@@ -23,8 +23,8 @@ const BoardContainer = styled.div`
   background-color: white;
 `;
 const BoardChildWrapper = styled.div`
-  padding: 12px 0px;
-  width: 90%;
+  padding: 15px 0px 10px 18px;
+  width: 100%;
   font-size: 15px;
   margin: 0 auto;
   position: relative;
@@ -150,7 +150,8 @@ const NotificationsPage = () => {
                 })
               );
               getNotifications();
-            }}>
+            }}
+          >
             모두 읽기
           </Button>
         )}
@@ -199,7 +200,8 @@ const NotificationsPage = () => {
                   uid: loginFunctions.getUserInfo().uid,
                 });
                 setDocLoading(false);
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}
@@ -237,7 +239,8 @@ const NotificationsPage = () => {
                 })
               );
               getNotifications();
-            }}>
+            }}
+          >
             모두 삭제
           </Button>
         )}
@@ -282,7 +285,8 @@ const NotificationsPage = () => {
                   }
                 }
                 setDocLoading(false);
-              }}>
+              }}
+            >
               <BoardChildTitleWrapper>
                 <SubjectSelectImg
                   style={{ width: "23px", marginTop: "-5px" }}

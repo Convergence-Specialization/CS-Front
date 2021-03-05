@@ -12,6 +12,10 @@ const Container = styled.div`
 `;
 const SlickBoxWrapper = styled.div`
   background-color: #f1f1f1;
+  padding-bottom: 100px;
+  @media (max-width: 430px) {
+    padding-bottom: 50px;
+  }
 `;
 const SlickBox = styled.div`
   background-color: #f1f1f1;
@@ -21,17 +25,23 @@ const SlickBox = styled.div`
 `;
 const SlickCustomLeftButton = styled.div`
   position: relative;
-  font-size: 21px;
+  font-size: 30px;
   font-weight: bold;
   color: #7ab8f3;
   z-index: 98;
+  @media (max-width: 430px) {
+    font-size: 21px;
+  }
 `;
 const SlickCustomRightButton = styled.div`
   position: relative;
-  font-size: 21px;
+  font-size: 30px;
   font-weight: bold;
   color: #7ab8f3;
   z-index: 98;
+  @media (max-width: 430px) {
+    font-size: 21px;
+  }
 `;
 const SlickButtonWrapper = styled.div`
   display: flex;

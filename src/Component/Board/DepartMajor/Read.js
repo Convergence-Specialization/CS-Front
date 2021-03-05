@@ -37,6 +37,7 @@ const ContentText = styled.div`
   line-height: 1.5;
   min-height: 90px;
   white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 const LikeCountText = styled.div`
   color: #545454;
@@ -106,6 +107,7 @@ const CommentChildText = styled.div`
   line-height: 1.5;
   font-size: 14px;
   white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 const CommentButtonWrapper = styled.div`
   position: relative;

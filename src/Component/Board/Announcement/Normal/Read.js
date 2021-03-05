@@ -106,6 +106,7 @@ const BoardText = styled.div`
   line-height: 2;
   word-break: keep-all;
   white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 
 const HorseImg = styled.img`

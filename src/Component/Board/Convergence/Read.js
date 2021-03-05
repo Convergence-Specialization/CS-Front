@@ -39,6 +39,7 @@ const ContentText = styled.div`
   min-height: 90px;
   margin-top: 7px;
   white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 const LikeCountText = styled.div`
   color: #545454;
@@ -107,6 +108,7 @@ const CommentChildText = styled.div`
   line-height: 1.5;
   font-size: 14px;
   white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 const CommentButtonWrapper = styled.div`
   display: flex;
@@ -320,10 +322,9 @@ const Read = () => {
               <Title> {content.nickname} </Title>
               <SubText>{`${content.timestampDistance} 전`}</SubText>
             </TitleBox>
-            <ContentText>
-              <Linkify>{content.content}</Linkify>
-            </ContentText>
-
+            <Linkify>
+              <ContentText>{content.content}</ContentText>
+            </Linkify>
             {myEncryptedUid !== "" && (
               <DocDeleteButton
                 src={readDoc.three_dots}
@@ -378,8 +379,7 @@ const Read = () => {
                       .finally(() => {
                         setUploading(false);
                       });
-                  }}
-                >
+                  }}>
                   <CommentImg
                     src={
                       didILikedThisDoc
@@ -421,8 +421,7 @@ const Read = () => {
                   subCommentFocusedId === item.commentId
                     ? { backgroundColor: "#f6fafe" }
                     : {}
-                }
-              >
+                }>
                 <CommentDeleteButton
                   src={readDoc.three_dots}
                   alt="더 보기"
@@ -444,8 +443,7 @@ const Read = () => {
                     content.encryptedUid === item.encryptedUid
                       ? { color: "#5ac6b9" }
                       : {}
-                  }
-                >
+                  }>
                   {content.encryptedUid === item.encryptedUid
                     ? content.nickname
                     : `익명의 융슝이 ${item.uidIndex}`}
@@ -465,8 +463,7 @@ const Read = () => {
                       } else {
                         setSubCommentFocusedId("");
                       }
-                    }}
-                  >
+                    }}>
                     <CommentChildNewSubButton
                       src={readDoc.speech_bubble}
                       alt="말풍선 아이콘"
@@ -499,8 +496,7 @@ const Read = () => {
                         .finally(() => {
                           setUploading(false);
                         });
-                    }}
-                  >
+                    }}>
                     <CommentChildLikeImg
                       src={
                         item.didILiked
@@ -527,8 +523,7 @@ const Read = () => {
                       padding: "7px ",
                       marginTT: "5px",
                       width: "95%",
-                    }}
-                  >
+                    }}>
                     <CommentDeleteButton
                       src={readDoc.three_dots}
                       alt="더 보기"
@@ -551,8 +546,7 @@ const Read = () => {
                         content.encryptedUid === subItem.encryptedUid
                           ? { color: "#5ac6b9" }
                           : {}
-                      }
-                    >
+                      }>
                       {content.encryptedUid === subItem.encryptedUid
                         ? content.nickname
                         : `익명의 융슝이 ${subItem.uidIndex}`}
@@ -595,8 +589,7 @@ const Read = () => {
                             .finally(() => {
                               setUploading(false);
                             });
-                        }}
-                      >
+                        }}>
                         <CommentChildLikeImg
                           src={
                             subItem.didILiked
@@ -686,8 +679,7 @@ const Read = () => {
                 })
                 .finally(() => setUploading(false));
             }
-          }}
-        >
+          }}>
           작성하기
         </CommentInputSubmitButton>
       </CommentInputContainer>

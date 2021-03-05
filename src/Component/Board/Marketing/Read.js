@@ -104,8 +104,8 @@ const BoardText = styled.div`
   margin: 5px;
   font-size: 14px;
   line-height: 2;
-  word-break: keep-all;
   white-space: pre-wrap;
+  word-wrap: break-word;
 `;
 
 const HorseImg = styled.img`
@@ -185,8 +185,7 @@ const Announcement = () => {
                     pageName: "listview",
                   },
                 })
-              }
-            >
+              }>
               목록
             </Button>
           </BoardTitleContainer>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import message from "antd/lib/message";
 import { departMajorApi, userApi } from "../../../../api";
 import { loginFunctions } from "../../../Watchers";
+import { useLocation } from "react-router";
 
 const ModalWrapper = styled.div`
   box-sizing: border-box;
@@ -73,6 +74,7 @@ export const ReportOrDelete = ({
   saveState,
   reloadComments,
 }) => {
+  const location = useLocation();
   const [uploading, setUploading] = useState();
 
   const onMaskClick = (e) => {
@@ -89,7 +91,13 @@ export const ReportOrDelete = ({
         try {
           await departMajorApi.delete({ docId: docId.docId });
           message.destroy();
-          history.push("/board/departmajor");
+          if (!!location.state && location.state.isHot) {
+            history.push("/board/hot");
+          } else if (!!location.state && location.state.isSave) {
+            history.push("/mypage/save");
+          } else {
+            history.push("/board/departmajor");
+          }
         } catch (err) {
           message.destroy();
           message.error(err.message);
@@ -243,14 +251,12 @@ export const ReportOrDelete = ({
                   isDeleteState
                     ? actionByTypes[modalType].delete
                     : actionByTypes[modalType].report
-                }
-              >
+                }>
                 {isDeleteState ? "삭제" : "신고"}
               </WhiteTopArea>
               <WhiteTopArea
                 onClick={actionByTypes[modalType].save}
-                style={{ borderBottom: "1px solid #f1f1f1" }}
-              >
+                style={{ borderBottom: "1px solid #f1f1f1" }}>
                 저장
               </WhiteTopArea>
             </WhiteAreaBox>
@@ -260,8 +266,7 @@ export const ReportOrDelete = ({
                 isDeleteState
                   ? actionByTypes[modalType].delete
                   : actionByTypes[modalType].report
-              }
-            >
+              }>
               {isDeleteState ? "삭제" : "신고"}
             </WhiteArea>
           )}

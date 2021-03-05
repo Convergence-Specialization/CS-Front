@@ -3,6 +3,7 @@ import styled from "styled-components";
 import message from "antd/lib/message";
 import { convergenceApi, userApi } from "../../../../api";
 import { loginFunctions } from "../../../Watchers";
+import { useLocation } from "react-router";
 
 const ModalWrapper = styled.div`
   box-sizing: border-box;
@@ -74,6 +75,7 @@ export const ReportOrDelete = ({
   reloadComments,
 }) => {
   const [uploading, setUploading] = useState();
+  const location = useLocation();
 
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -89,7 +91,13 @@ export const ReportOrDelete = ({
         try {
           await convergenceApi.delete({ docId: docId.docId });
           message.destroy();
-          history.push("/board/convergence");
+          if (!!location.state && location.state.isHot) {
+            history.push("/board/hot");
+          } else if (!!location.state && location.state.isSave) {
+            history.push("/mypage/save");
+          } else {
+            history.push("/board/convergence");
+          }
         } catch (err) {
           message.destroy();
           message.error(err.message);
@@ -243,14 +251,12 @@ export const ReportOrDelete = ({
                   isDeleteState
                     ? actionByTypes[modalType].delete
                     : actionByTypes[modalType].report
-                }
-              >
+                }>
                 {isDeleteState ? "삭제" : "신고"}
               </WhiteTopArea>
               <WhiteTopArea
                 onClick={actionByTypes[modalType].save}
-                style={{ borderTop: "1px solid  #c4c1c1" }}
-              >
+                style={{ borderTop: "1px solid  #c4c1c1" }}>
                 저장
               </WhiteTopArea>
             </WhiteAreaBox>
@@ -260,8 +266,7 @@ export const ReportOrDelete = ({
                 isDeleteState
                   ? actionByTypes[modalType].delete
                   : actionByTypes[modalType].report
-              }
-            >
+              }>
               {isDeleteState ? "삭제" : "신고"}
             </WhiteArea>
           )}

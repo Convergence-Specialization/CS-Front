@@ -194,10 +194,6 @@ const SignUp = () => {
               alert("이메일을 입력해주세요");
               return;
             }
-            if (document.getElementById("studentNumber").value.length !== 8) {
-              alert("학번을 정확히 입력해주십쇼");
-              return;
-            }
             if (
               document.getElementById("nameField").value === "" ||
               document.getElementById("studentNumber").value === ""
@@ -205,7 +201,10 @@ const SignUp = () => {
               alert("이름과 학번을 입력해주세요");
               return;
             }
-
+            if (document.getElementById("studentNumber").value.length !== 8) {
+              alert("학번을 정확히 입력해주세요.");
+              return;
+            }
             if (pw !== pwCheck) {
               alert("비밀번호가 일치하지 않습니다.");
               return;

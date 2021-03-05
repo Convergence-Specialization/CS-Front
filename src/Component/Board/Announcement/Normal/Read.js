@@ -160,9 +160,15 @@ const Announcement = () => {
                 </BoardWritterWrapper>
               </TitleAndTime>
             </BoardTitleWrapper>
-            <EventTermContainer>
-              이벤트 기간 : {docItem.eventPeriod}
-            </EventTermContainer>
+            {docItem.eventPeriod ? (
+              <EventTermContainer>
+                이벤트 기간 : {docItem.eventPeriod}
+              </EventTermContainer>
+            ) : (
+              <EventTermContainer
+                style={{ padding: "4px 20px" }}
+              ></EventTermContainer>
+            )}
             <BoardImgWrapper>
               {docItem.imgArray.map((item, idx) => (
                 <BoardImg

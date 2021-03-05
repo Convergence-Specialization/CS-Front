@@ -28,7 +28,7 @@ const AnnouncePresenter = () => {
   return (
     <>
       <Navbar isRight1Disabled History IconRight2={navIcons.Home} />
-      <NavBot Icon={navbotIcons.announce} Name="공지 사항" />
+      <NavBot Icon={navbotIcons.airplane} Name="홍보 게시판" />
       {renderElement}
     </>
   );

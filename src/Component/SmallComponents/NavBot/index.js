@@ -66,6 +66,8 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
       history.push("/board/convergence");
     } else if (Name === "공지 사항") {
       history.push("/board/announcement");
+    } else if (Name === "홍보 게시판") {
+      history.push("/board/marketing");
     }
   };
 
@@ -93,7 +95,8 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
                 pathname: `/board/${postButtonRef}`,
                 state: { pageName: "create" },
               });
-            }}>
+            }}
+          >
             글 작성
           </PostButton>
         )}

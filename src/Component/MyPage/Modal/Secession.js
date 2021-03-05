@@ -56,6 +56,9 @@ export const WithdrawalModal = ({ onClose, visible }) => {
               <br />
               2. 회원 탈퇴 시, 슝에 작성한 게시글 및 댓글은 자동 삭제되지
               않습니다. 삭제를 원하실 경우, 직접 삭제 후 탈퇴를 진행해 주세요.
+              <br />
+              3.구글 이메일을 제외한 다른 이메일들은 탈퇴 후 재가입이 되지
+              않으니 이 점 유의해주시기 바랍니다.
             </WithdrawDesc>
             <WithdrawTextarea
               id="withdrawalTextarea"

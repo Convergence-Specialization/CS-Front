@@ -89,6 +89,8 @@ const Unification = () => {
             정치외교학과, 사회복지학부, 행정학부, 정보사회학과, 언론홍보학과,
             평생교육학과
           </BoardText>
+          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardText>1. 경계 없는 미래</BoardText>
           <ImageWrapper>
             <Image src={majorIntroduce.KOREA}></Image>
           </ImageWrapper>

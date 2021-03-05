@@ -89,6 +89,11 @@ const ICT = () => {
             경영학부, 벤처중소기업학과, 컴퓨터학부,
             산업∙정보시스템공학과,전자정보공학부
           </BoardText>
+          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardText>
+            1. 빅데이터 프로그래밍 언어<br />
+            2. IT기반의 유통물류경영
+          </BoardText>
           <ImageWrapper>
             <Image src={majorIntroduce.ICT}></Image>
           </ImageWrapper>

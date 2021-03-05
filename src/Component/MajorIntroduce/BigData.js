@@ -85,6 +85,11 @@ const BigData = () => {
           <BoardText>
             소프트웨어학과, 정보통계∙보험수리학과, 스마트시스템소프트웨어학과
           </BoardText>
+          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardText>
+            1. 프로그래밍 및 실습 <br />
+            2. 빅데이터 프로그래밍 언어
+          </BoardText>
           <ImageWrapper>
             <Image src={majorIntroduce.BIGDATA}></Image>
           </ImageWrapper>

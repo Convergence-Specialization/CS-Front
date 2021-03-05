@@ -58,14 +58,6 @@ import ssuevent from "../assets/events/ssu.jpg";
 import friday from "../assets/events/friday.jpg";
 import mentor from "../assets/events/mentor.jpg";
 import notificationOn from "../assets/navIcons/notificationOn.png";
-import howtousereadicon1 from "../assets/howToUse/HowToUseRead1.jpg";
-import howtousereadicon2 from "../assets/howToUse/HowToUseRead2.jpg";
-import howtousereadicon3 from "../assets/howToUse/HowToUseRead3.jpg";
-import howtousereadicon4 from "../assets/howToUse/HowToUseRead4.jpg";
-import howtousereadicon5 from "../assets/howToUse/HowToUseRead5.jpg";
-import howtousereadicon6 from "../assets/howToUse/HowToUseRead6.jpg";
-import howtousereadicon7 from "../assets/howToUse/HowToUseRead7.jpg";
-import howtousereadicon8 from "../assets/howToUse/HowToUseRead8.jpg";
 import htu1 from "../assets/howToUse/HTU1.png";
 import htu2 from "../assets/howToUse/HTU2.png";
 import htu3 from "../assets/howToUse/HTU3.png";
@@ -84,14 +76,6 @@ export const howtouseiconzip = {
   htu6,
   htu7,
   htu8,
-  howtousereadicon1,
-  howtousereadicon2,
-  howtousereadicon3,
-  howtousereadicon4,
-  howtousereadicon5,
-  howtousereadicon6,
-  howtousereadicon7,
-  howtousereadicon8,
 };
 
 export const events = {

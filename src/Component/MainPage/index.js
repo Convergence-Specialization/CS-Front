@@ -464,9 +464,7 @@ const MainPage = () => {
       </BoardContainer>
       <TitleAndButtonWrapper>
         <TitleElement src={navbotIcons.airplane} name={"홍보 게시판"} />
-        <Button onClick={() => history.push("/board/announcement")}>
-          더보기
-        </Button>
+        <Button onClick={() => history.push("/board/marketing")}>더보기</Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
         {announcementPosts.length === 0 ? (
@@ -478,7 +476,7 @@ const MainPage = () => {
                 key={`${idx}ANNOUNCEMENT_PREVIEW`}
                 onClick={() =>
                   history.push({
-                    pathname: `/board/announcement`,
+                    pathname: `/board/marketing`,
                     state: {
                       pageName: "read",
                       docItem: item,

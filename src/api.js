@@ -326,12 +326,19 @@ export const announcementApi = {
         timestampMillis: data.timestamp.toMillis(),
         eventPeriod: data.eventPeriod,
         imgArray: data.imgArray,
+        ongoing: data.ongoing,
       });
     });
     return docsArray;
   },
   requestDeleteDoc: (body) =>
     api.post("board/announcement/delete", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
+  changeOngoing: (body) =>
+    api.post("board/announcement/changeongoing", body, {
       headers: {
         Authorization: getBearer(),
       },

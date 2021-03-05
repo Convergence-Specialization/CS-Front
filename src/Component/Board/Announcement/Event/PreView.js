@@ -170,7 +170,6 @@ const PreView = () => {
       .catch((error) => console.log(error.message))
       .finally(() => setLoading(false));
   }, []);
-
   return (
     <Con>
       <BoardTitleContainer>
@@ -187,15 +186,14 @@ const PreView = () => {
               {"<"}
             </SlickCustomLeftButton>
             <SlickCustomRightButton
-              onClick={() => SlickRef.current.slickNext()}
-            >
+              onClick={() => SlickRef.current.slickNext()}>
               {">"}
             </SlickCustomRightButton>
             <SlickBox1>
               <Slider {...settings} ref={SlickRef}>
                 {announcementPosts.map(
                   (item, idx) =>
-                    item.imgArray[0] && (
+                    item.ongoing && (
                       <SlickBox key={idx}>
                         <EventImage
                           src={item.imgArray[0]}
@@ -230,8 +228,7 @@ const PreView = () => {
                 pageName: "listview",
               },
             })
-          }
-        >
+          }>
           더보기
         </Button>
       </BoardTitleContainer>
@@ -257,8 +254,7 @@ const PreView = () => {
                         docItem: item,
                       },
                     })
-                  }
-                >
+                  }>
                   <TitleTextBox>
                     <BoardChildTitle>{item.title}</BoardChildTitle>
                     <BoardText>{item.content}</BoardText>

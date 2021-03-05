@@ -138,7 +138,10 @@ const Announcement = () => {
   const location = useLocation();
 
   const [docItem, setDocItem] = useState();
-  const [secretObject, setSecretObject] = useState({ deleteCount: 0 });
+  const [secretObject, setSecretObject] = useState({
+    deleteCount: 0,
+    changeOngoingCount: 0,
+  });
 
   const history = useHistory();
 
@@ -155,11 +158,46 @@ const Announcement = () => {
             <BoardTitleWrapper>
               <TitleAndTime>
                 <BoardWritterWrapper>
-                  <HorseImg src={horseIcons.horse} alt="말머리" />
+                  <HorseImg
+                    src={horseIcons.horse}
+                    alt="말머리"
+                    onClick={async () => {
+                      setSecretObject({
+                        ...secretObject,
+                        changeOngoingCount: secretObject.changeOngoingCount + 1,
+                      });
+                      if (
+                        secretObject.changeOngoingCount === 6 &&
+                        window.confirm(
+                          "이 게시글의 현재 진행 중 여부를 변경하시겠습니까?"
+                        )
+                      ) {
+                        try {
+                          message.destroy();
+                          message.loading(
+                            "공지의 진행 중 여부를 변경하는 중입니다.."
+                          );
+                          await announcementApi.changeOngoing({
+                            docId: docItem.docId,
+                            ongoing: window.confirm(
+                              "확인하면 진행 중, 취소하면 진행하지 않는 공지로 바뀝니다."
+                            ),
+                          });
+                          message.destroy();
+                          message.success("공지의 진행상태가 변경되었습니다..");
+                          history.push("/board/announcement");
+                        } catch (err) {
+                          message.destroy();
+                          message.error(err.message);
+                        }
+                      }
+                    }}
+                  />
                   <TitleAndTimeWrapper>
                     <BoardTitle
                       onClick={async () => {
                         setSecretObject({
+                          ...secretObject,
                           deleteCount: secretObject.deleteCount + 1,
                         });
                         if (

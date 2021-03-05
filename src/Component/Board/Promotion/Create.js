@@ -20,7 +20,7 @@ const InputTitle = styled.input`
   width: 95%;
   padding: 15px 15px;
   border-radius: 20px;
-  outline: none; 
+  outline: none;
   border: none;
   font-size: 20px;
   margin-bottom: 15px;
@@ -194,8 +194,7 @@ const Create = () => {
             if (uploading) return;
             if (
               document.getElementById("titleInput").value === "" ||
-              document.getElementById("contentTextarea").value === "" ||
-              document.getElementById("periodInput").value === ""
+              document.getElementById("contentTextarea").value === ""
             ) {
               message.destroy();
               message.error("제목 또는 글 내용을 작성해주세요.");

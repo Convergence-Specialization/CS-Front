@@ -211,9 +211,7 @@ const PreView = () => {
                           }
                         />
                         <SlickText>{item.title}</SlickText>
-                        <SlickDate>
-                          {timeConverter(item.timestampMillis)}
-                        </SlickDate>
+                        <SlickDate>{item.eventPeriod}</SlickDate>
                       </SlickBox>
                     )
                 )}

@@ -167,8 +167,7 @@ const Announcement = () => {
               </EventTermContainer>
             ) : (
               <EventTermContainer
-                style={{ padding: "4px 20px" }}
-              ></EventTermContainer>
+                style={{ padding: "4px 20px" }}></EventTermContainer>
             )}
             <BoardImgWrapper>
               {docItem.imgArray.map((item, idx) => (
@@ -192,8 +191,7 @@ const Announcement = () => {
                     pageName: "listview",
                   },
                 })
-              }
-            >
+              }>
               목록
             </Button>
           </BoardTitleContainer>

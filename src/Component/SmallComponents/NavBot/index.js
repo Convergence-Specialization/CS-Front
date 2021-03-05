@@ -67,7 +67,7 @@ const NavBot = ({ Name, Icon, postButtonRef }) => {
     } else if (Name === "공지 사항") {
       history.push("/board/announcement");
     } else if (Name === "홍보 게시판") {
-      history.push("/board/marketing");
+      history.push("/board/promotion");
     }
   };
 

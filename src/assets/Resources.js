@@ -66,8 +66,24 @@ import howtousereadicon5 from "../assets/howToUse/HowToUseRead5.jpg";
 import howtousereadicon6 from "../assets/howToUse/HowToUseRead6.jpg";
 import howtousereadicon7 from "../assets/howToUse/HowToUseRead7.jpg";
 import howtousereadicon8 from "../assets/howToUse/HowToUseRead8.jpg";
+import htu1 from "../assets/howToUse/HTU1.png";
+import htu2 from "../assets/howToUse/HTU2.png";
+import htu3 from "../assets/howToUse/HTU3.png";
+import htu4 from "../assets/howToUse/HTU4.png";
+import htu5 from "../assets/howToUse/HTU5.png";
+import htu6 from "../assets/howToUse/HTU6.png";
+import htu7 from "../assets/howToUse/HTU7.png";
+import htu8 from "../assets/howToUse/HTU8.png";
 
 export const howtouseiconzip = {
+  htu1,
+  htu2,
+  htu3,
+  htu4,
+  htu5,
+  htu6,
+  htu7,
+  htu8,
   howtousereadicon1,
   howtousereadicon2,
   howtousereadicon3,

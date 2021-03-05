@@ -13,7 +13,6 @@ import MyPosts from "../Routes/MyPage/MyPostsListView";
 import ChangePW from "../Routes/MyPage/ChangePW";
 import Event from "../Routes/Event";
 import Notification from "../Routes/Notification";
-import EventPost from "../Routes/EventPost";
 import NormalCreate from "../Routes/NormalCreate";
 import SignUp from "../Routes/SignUp";
 import HowToUse from "../Routes/HowToUse";
@@ -23,6 +22,7 @@ import Hot from "../Routes/Board/Hot";
 import Save from "../Routes/MyPage/Save";
 import Convergence from "../Routes/Board/Convergence";
 import Announcement from "../Routes/Board/Announcement";
+import Marketing from "../Routes/Board/Marketing";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";
@@ -73,9 +73,6 @@ const RouterComponent = () => {
       <Route path="/board/hot">
         <Hot />
       </Route>
-      <Route path="/board/event/eventpost">
-        <EventPost />
-      </Route>
       <Route path="/TermsAndConditions" exact>
         <TermsAndConditions />
       </Route>
@@ -93,6 +90,9 @@ const RouterComponent = () => {
       </Route>
       <Route path="/board/announcement" exact>
         <Announcement />
+      </Route>
+      <Route path="/board/marketing" exact>
+        <Marketing />
       </Route>
       <Route path="/mypage" exact>
         <MyPage />

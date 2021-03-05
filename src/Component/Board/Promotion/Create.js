@@ -20,7 +20,7 @@ const InputTitle = styled.input`
   width: 95%;
   padding: 15px 15px;
   border-radius: 20px;
-  outline: none;
+  outline: none; 
   border: none;
   font-size: 20px;
   margin-bottom: 15px;

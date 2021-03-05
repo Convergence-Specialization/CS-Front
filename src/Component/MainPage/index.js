@@ -197,7 +197,7 @@ const MainPage = () => {
         "구글 정책상 카카오톡 모바일 브라우저로는 구글 로그인이 불가능합니다."
       );
     }
-    //TODO : marketingApi들어오면 siz:3 으로 설정해주시길 바랍니다.
+    //TODO : promotionApi들어오면 siz:3 으로 설정해주시길 바랍니다.
     announcementApi
       .getLists({ size: 2 })
       .then((docsArray) => setAnnouncementPosts(docsArray))
@@ -464,7 +464,7 @@ const MainPage = () => {
       </BoardContainer>
       <TitleAndButtonWrapper>
         <TitleElement src={navbotIcons.airplane} name={"홍보 게시판"} />
-        <Button onClick={() => history.push("/board/marketing")}>더보기</Button>
+        <Button onClick={() => history.push("/board/promotion")}>더보기</Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
         {announcementPosts.length === 0 ? (
@@ -476,7 +476,7 @@ const MainPage = () => {
                 key={`${idx}ANNOUNCEMENT_PREVIEW`}
                 onClick={() =>
                   history.push({
-                    pathname: `/board/marketing`,
+                    pathname: `/board/promotion`,
                     state: {
                       pageName: "read",
                       docItem: item,

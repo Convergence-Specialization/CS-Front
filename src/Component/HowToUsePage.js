@@ -73,28 +73,28 @@ const HowToUsePresenter = () => {
       <SlickBoxWrapper>
         <Slider {...settings} ref={SlickRef}>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon1} />
+            <IntroduceImage src={howtouseiconzip.htu1} />
           </SlickBox>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon2} />
+            <IntroduceImage src={howtouseiconzip.htu2} />
           </SlickBox>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon3} />
+            <IntroduceImage src={howtouseiconzip.htu3} />
           </SlickBox>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon4} />
+            <IntroduceImage src={howtouseiconzip.htu4} />
           </SlickBox>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon5} />
+            <IntroduceImage src={howtouseiconzip.htu5} />
           </SlickBox>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon6} />
+            <IntroduceImage src={howtouseiconzip.htu6} />
           </SlickBox>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon7} />
+            <IntroduceImage src={howtouseiconzip.htu7} />
           </SlickBox>
           <SlickBox>
-            <IntroduceImage src={howtouseiconzip.howtousereadicon8} />
+            <IntroduceImage src={howtouseiconzip.htu8} />
           </SlickBox>
         </Slider>
         <SlickButtonWrapper>

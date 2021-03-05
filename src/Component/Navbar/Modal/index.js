@@ -235,6 +235,17 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                     - 인기 많은 융슝이들
                   </NavInItemText>
                 </NavOpenSingleChildItemBox>
+                <NavOpenSingleChildItemBox
+                  isChild
+                  onClick={() => history.push("/board/departmajor")}
+                >
+                  <NavOpenItemMargin />
+                  <NavInItemText
+                    onClick={() => history.push("/board/departmajor")}
+                  >
+                    - 홍보게시판
+                  </NavInItemText>
+                </NavOpenSingleChildItemBox>
               </>
             )}
             <NavOpenSingleItemBox

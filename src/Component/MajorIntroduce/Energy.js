@@ -87,6 +87,11 @@ const Energy = () => {
             화학공학과, 유기신소재∙파이버공학과, 전기공학부, 기계공학과,
             건축학부
           </BoardText>
+          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardText>
+            1. 융합전공을 위한 심화수학 <br />
+            2. 물리학 기초 및 융합
+          </BoardText>
           <ImageWrapper>
             <Image src={majorIntroduce.ENERGY_SCIENCE}></Image>
           </ImageWrapper>

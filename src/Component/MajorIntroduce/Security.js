@@ -83,6 +83,11 @@ const Security = () => {
           </BoardText>
           <BoardTitle>- 참여 학과</BoardTitle>
           <BoardText>소프트웨어학부, 수학과, 전자정보공학부</BoardText>
+          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardText>
+            1. 프로그래밍 및 실습 <br />
+            2. 빅데이터 프로그래밍 언어
+          </BoardText>
           <ImageWrapper>
             <Image src={majorIntroduce.SECURITY}></Image>
           </ImageWrapper>

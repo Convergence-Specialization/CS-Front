@@ -8,21 +8,6 @@ import { subjectDicts } from "../../../assets/Dicts";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 import { loginFunctions } from "../../Watchers";
 
-const Box = styled.div`
-  border-bottom: 2px solid #aca9a9;
-  display: flex;
-  padding: 15px 0px;
-  width: 95%;
-  margin: 0 auto;
-  font-size: 15px;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  @media (max-width: 430px) {
-    padding: 10px 0px;
-    width: 93%;
-  }
-`;
 const Text = styled.div`
   font-weight: bold;
   font-size: 18px;

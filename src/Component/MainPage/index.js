@@ -247,8 +247,11 @@ const MainPage = () => {
                       docItem: item,
                     },
                   })
-                }>
-                <BoardChildTitle>{item.title}</BoardChildTitle>
+                }
+              >
+                <BoardChildTitle style={{ width: "300px" }}>
+                  {item.title}
+                </BoardChildTitle>
               </BoardChildWrapper>
             ))}
           </>
@@ -373,7 +376,8 @@ const MainPage = () => {
                     isHot: true,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.docItem.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -414,7 +418,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -455,7 +460,8 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -489,7 +495,8 @@ const MainPage = () => {
               },
             });
           }
-        }}>
+        }}
+      >
         <TitleElement src={navbotIcons.airplane} name={"홍보 게시판"} />
         <Button onClick={() => history.push("/board/promotion")}>더보기</Button>
       </TitleAndButtonWrapper>
@@ -509,8 +516,11 @@ const MainPage = () => {
                       docItem: item,
                     },
                   })
-                }>
-                <BoardChildTitle>{item.title}</BoardChildTitle>
+                }
+              >
+                <BoardChildTitle style={{ width: "300px" }}>
+                  {item.title}
+                </BoardChildTitle>
               </BoardChildWrapper>
             ))}
           </>

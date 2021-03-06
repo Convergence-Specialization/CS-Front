@@ -159,6 +159,11 @@ const PreView = () => {
   };
   const SlickRef = React.createRef();
   const [announcementPosts, setAnnouncementPosts] = useState([]);
+  const [
+    announcementOngoingPostExist,
+    setAnnouncementOngoingPostExist,
+  ] = useState(false);
+
   const [loading, setLoading] = useState(true);
   const [secretObject, setSecretObject] = useState({
     upperCount: 0,
@@ -168,7 +173,14 @@ const PreView = () => {
   useEffect(() => {
     announcementApi
       .getLists({ size: 4 })
-      .then((docsArray) => setAnnouncementPosts(docsArray))
+      .then((docsArray) => {
+        setAnnouncementPosts(docsArray);
+        docsArray.forEach((item) => {
+          if (item.ongoing) {
+            setAnnouncementOngoingPostExist(true);
+          }
+        });
+      })
       .catch((error) => console.log(error.message))
       .finally(() => setLoading(false));
   }, []);
@@ -202,7 +214,7 @@ const PreView = () => {
       <Container>
         {loading ? (
           <LoadingSmall />
-        ) : announcementPosts.length === 0 ? (
+        ) : !announcementOngoingPostExist ? (
           <BlankPost>※ 진행 중인 행사가 없습니다 ※</BlankPost>
         ) : (
           <>

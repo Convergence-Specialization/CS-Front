@@ -65,7 +65,7 @@ const Navbar = ({
                 : () => history.push("/")
             }
           >
-            {Navname || "융특 커뮤니티 슝"}
+            {Navname || "SSYUNG"}
           </NavLink>
           <NavLeftMargin />
           {!isRight1Disabled && (

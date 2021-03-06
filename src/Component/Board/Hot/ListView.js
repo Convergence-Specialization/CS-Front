@@ -15,7 +15,7 @@ const BoardContainer = styled.div`
   width: 93%;
   min-height: 80vh;
   border-radius: 15px;
-  margin: 20px auto;
+  margin: 15px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
 `;
@@ -83,7 +83,6 @@ const IconTextBox = styled.div`
   margin-left: 3px;
 `;
 
-
 const HotListView = () => {
   const history = useHistory();
   const [posts, setPosts] = useState([]);
@@ -128,12 +127,14 @@ const HotListView = () => {
                         isHot: true,
                       },
                     })
-                  }>
+                  }
+                >
                   <BoardChildTitle style={{ width: "80%" }}>
                     <img
                       src={horseIcons.newhorse}
                       alt="융슝이"
-                      style={{ width: "25px", marginRight: "5px" }}></img>
+                      style={{ width: "25px", marginRight: "5px" }}
+                    ></img>
                     {item.docItem.nickname}
                   </BoardChildTitle>
                   <BoardChildContent>{item.docItem.content}</BoardChildContent>
@@ -182,12 +183,14 @@ const HotListView = () => {
                         isHot: true,
                       },
                     })
-                  }>
+                  }
+                >
                   <BoardChildTitle style={{ width: "80%" }}>
                     <img
                       src={horseIcons.newhorse}
                       alt="융슝이"
-                      style={{ width: "25px", marginRight: "5px" }}></img>
+                      style={{ width: "25px", marginRight: "5px" }}
+                    ></img>
                     {item.docItem.nickname}
                   </BoardChildTitle>
                   <Title>{item.docItem.title}</Title>
@@ -243,7 +246,8 @@ const HotListView = () => {
               } finally {
                 setUploading(false);
               }
-            }}>
+            }}
+          >
             더보기
           </MoreButton>
         )}

@@ -25,7 +25,6 @@ import horse_2 from "../assets/horseIcons/horse_2.png";
 import horse_4 from "../assets/horseIcons/horse_4.png";
 import horse from "../assets/horseIcons/horse.png";
 import horse_3 from "../assets/horseIcons/horse_3.jpg";
-import face from "../assets/horseIcons/face.png";
 import announce from "../assets/navbotIcons/announce.png";
 import airplane from "../assets/navbotIcons/airplane.png";
 import book from "../assets/navbotIcons/book.png";
@@ -152,7 +151,6 @@ export const navIcons = {
 };
 export const horseIcons = {
   newhorse,
-  face,
   horse,
   horse_2,
   horse_3,

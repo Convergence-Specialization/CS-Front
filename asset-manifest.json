@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.2eb0fdf9.chunk.css",
-    "main.js": "/static/js/main.66b0b6ef.chunk.js",
-    "main.js.map": "/static/js/main.66b0b6ef.chunk.js.map",
+    "main.js": "/static/js/main.23b08755.chunk.js",
+    "main.js.map": "/static/js/main.23b08755.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.acb959eb.js",
     "runtime-main.js.map": "/static/js/runtime-main.acb959eb.js.map",
     "static/css/2.7729998a.chunk.css": "/static/css/2.7729998a.chunk.css",
@@ -37,12 +37,10 @@
     "static/media/TeamIntroduce4.32603032.PNG": "/static/media/TeamIntroduce4.32603032.PNG",
     "static/media/book.6aa7bc7c.png": "/static/media/book.6aa7bc7c.png",
     "static/media/esports.182d14b5.png": "/static/media/esports.182d14b5.png",
-    "static/media/face.3c0c23c3.png": "/static/media/face.3c0c23c3.png",
     "static/media/friday.f434b5c3.jpg": "/static/media/friday.f434b5c3.jpg",
     "static/media/graduate.69e447e0.jpg": "/static/media/graduate.69e447e0.jpg",
     "static/media/horse.e9f651f1.png": "/static/media/horse.e9f651f1.png",
     "static/media/horse_2.7ba882ed.png": "/static/media/horse_2.7ba882ed.png",
-    "static/media/horse_3.e63d5f42.jpg": "/static/media/horse_3.e63d5f42.jpg",
     "static/media/horse_4.1077f0fe.png": "/static/media/horse_4.1077f0fe.png",
     "static/media/hot.9537d73d.png": "/static/media/hot.9537d73d.png",
     "static/media/introduce1.57690cf2.png": "/static/media/introduce1.57690cf2.png",
@@ -61,6 +59,6 @@
     "static/css/2.7729998a.chunk.css",
     "static/js/2.22663d7b.chunk.js",
     "static/css/main.2eb0fdf9.chunk.css",
-    "static/js/main.66b0b6ef.chunk.js"
+    "static/js/main.23b08755.chunk.js"
   ]
 }

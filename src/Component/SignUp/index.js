@@ -194,11 +194,12 @@ const SignUp = () => {
               alert("이메일을 입력해주세요");
               return;
             }
-            if (
-              document.getElementById("nameField").value === "" ||
-              document.getElementById("studentNumber").value === ""
-            ) {
-              alert("이름과 학번을 입력해주세요");
+            if (document.getElementById("nameField").value === "") {
+              alert("이름을 입력해주세요");
+              return;
+            }
+            if (document.getElementById("studentNumber").value === "") {
+              alert("학번을 입력해주세요");
               return;
             }
             if (document.getElementById("studentNumber").value.length !== 8) {

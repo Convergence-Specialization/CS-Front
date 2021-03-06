@@ -93,18 +93,6 @@ const ListView = () => {
 
   return (
     <Con>
-      <button
-        onClick={() =>
-          history.push({
-            pathname: `/board/announcement`,
-            state: {
-              pageName: "create",
-            },
-          })
-        }
-      >
-        글 작성
-      </button>
       <Container>
         <BoardContainer>
           {announcementPosts.length === 0 ? (

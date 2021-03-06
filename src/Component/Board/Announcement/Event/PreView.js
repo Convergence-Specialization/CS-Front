@@ -162,6 +162,10 @@ const PreView = () => {
   const SlickRef = React.createRef();
   const [announcementPosts, setAnnouncementPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [secretObject, setSecretObject] = useState({
+    upperCount: 0,
+    lowerCount: 0,
+  });
 
   useEffect(() => {
     announcementApi
@@ -170,10 +174,32 @@ const PreView = () => {
       .catch((error) => console.log(error.message))
       .finally(() => setLoading(false));
   }, []);
+  useEffect(() => {
+    if (
+      secretObject.upperCount >= 4 &&
+      secretObject.lowerCount >= 4 &&
+      window.confirm("공지사항을 작성하시겠습니까?")
+    ) {
+      history.push({
+        pathname: `/board/announcement`,
+        state: {
+          pageName: "create",
+        },
+      });
+    }
+  }, [secretObject, history]);
   return (
     <Con>
       <BoardTitleContainer>
-        <Text>진행 중인 행사</Text>
+        <Text
+          onClick={async () =>
+            setSecretObject({
+              ...secretObject,
+              upperCount: secretObject.upperCount + 1,
+            })
+          }>
+          진행 중인 행사
+        </Text>
       </BoardTitleContainer>
       <Container>
         {loading ? (
@@ -219,7 +245,15 @@ const PreView = () => {
         )}
       </Container>
       <BoardTitleContainer>
-        <Text>공지 사항</Text>
+        <Text
+          onClick={async () =>
+            setSecretObject({
+              ...secretObject,
+              lowerCount: secretObject.lowerCount + 1,
+            })
+          }>
+          공지 사항
+        </Text>
         <Button
           onClick={() =>
             history.push({

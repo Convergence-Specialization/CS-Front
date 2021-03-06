@@ -6,8 +6,12 @@ import { navIcons } from "../assets/Resources";
 const NotificationPresenter = () => {
   return (
     <>
-         <Navbar Navname="알림페이지" 
-      isRight1Disabled History IconRight2= {navIcons.Home}/>
+      <Navbar
+        Navname="알림함"
+        isRight1Disabled
+        History
+        IconRight2={navIcons.Home}
+      />
       <NotificationsPage />
     </>
   );

@@ -199,11 +199,8 @@ const AddInformation = () => {
           <Wrap>약관에 동의합니다.</Wrap>
           <Text
             onClick={() =>
-              window.open(
-                "https://convergence-specialization.github.io/CS-Front/termsandconditions"
-              )
-            }
-          >
+              window.open("https://www.convergencessu.com/termsandconditions")
+            }>
             자세히 보기
           </Text>
           <CheckBox id="didAgree" type="checkbox" />
@@ -251,8 +248,7 @@ const AddInformation = () => {
                 message.error(err.message);
                 setLoading(false);
               });
-          }}
-        >
+          }}>
           회원가입 하기
         </Button>
       </Box>

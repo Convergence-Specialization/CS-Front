@@ -11,7 +11,7 @@ import {
   promotionApi,
 } from "../../api";
 import LoadingSmall from "../SmallComponents/LoadingSmall";
-import { getUA, isMobile } from "react-device-detect";
+import { isMobile } from "react-device-detect";
 import { boardNameDict } from "../../assets/Dicts";
 
 const Container = styled.div`
@@ -194,14 +194,11 @@ const MainPage = () => {
       }
     }
     if (!isMobile) {
-      alert("현재 융슝은 모바일이 아닌 환경에서 사용이 어려울 수 있습니다.");
-    }
-    if (getUA.includes("KAKAOTALK")) {
       alert(
-        "구글 정책상 카카오톡 모바일 브라우저로는 구글 로그인이 불가능합니다."
+        "현재 커뮤니티 슝은 모바일에 최적화 되어있습니다. 빠른 시일 내에 데스크탑 버전을 출시할 예정입니다."
       );
     }
-    //TODO : promotionApi들어오면 siz:3 으로 설정해주시길 바랍니다.
+
     announcementApi
       .getLists({ size: 2 })
       .then((docsArray) => setAnnouncementPosts(docsArray))

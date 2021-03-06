@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 15px;
   background-color: #f1f1f1;
 `;
 const ContentTextArea = styled.textarea`
@@ -47,7 +47,7 @@ const Create = () => {
   return (
     <>
       <Container>
-      <ContentTextArea
+        <ContentTextArea
           placeholder={`여기를 눌러서 글을 작성하실 수 있습니다.                                       
           ㅤ                                                                                           
 게시물 작성 전에 커뮤니티 이용 규칙 전문을 반드시 확인하시기 바랍니다. 이용규칙을 위반한 경우 작성한 게시글이 삭제되거나, 글쓰기 제한 등의 제재가 가해질 수 있습니다.

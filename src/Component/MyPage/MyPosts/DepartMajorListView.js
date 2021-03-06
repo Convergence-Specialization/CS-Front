@@ -71,7 +71,7 @@ const BlankPost = styled.div`
   color: #848484;
 `;
 const MoreButton = styled.div`
-  width: 95%;
+  width: 93%;
   margin: 0 auto;
   text-align: center;
   font-weight: bold;

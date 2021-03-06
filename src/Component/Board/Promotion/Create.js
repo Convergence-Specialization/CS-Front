@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 const InputTitle = styled.input`
   display: flex;
-  width: 95%;
+  width: 93%;
   padding: 15px 15px;
   border-radius: 20px;
   outline: none;
@@ -32,7 +32,7 @@ const InputTitle = styled.input`
   }
 `;
 const InputImg = styled.div`
-  width: 95%;
+  width: 93%;
   padding: 13px 15px;
   border-radius: 20px;
   background-color: white;
@@ -46,7 +46,7 @@ const InputImg = styled.div`
 `;
 const ContentTextArea = styled.textarea`
   padding: 10px 15px;
-  width: 95%;
+  width: 93%;
   min-height: 60vh;
   border: none;
   font-size: 17px;

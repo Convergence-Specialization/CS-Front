@@ -151,7 +151,7 @@ const PreView = () => {
   const history = useHistory();
   const settings = {
     className: "center",
-    infinite: true,
+    infinite: false,
     centerPadding: "60px",
     slidesToShow: 2,
     swipeToSlide: true,

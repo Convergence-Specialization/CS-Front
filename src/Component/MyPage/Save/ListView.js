@@ -10,18 +10,18 @@ import { boardNameDict } from "../../../assets/Dicts";
 
 const Container = styled.div`
   width: 100%;
-  padding-bottom: 25px;
+  padding-bottom: 30px;
 `;
 const BoardContainer = styled.div`
   width: 93%;
-  min-height: 80vh;
+  //min-height: 80vh;
   border-radius: 15px;
   margin: 20px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
 `;
 const BoardChildWrapper = styled.div`
-  padding: 8px 12px;
+  padding: 10px 12px;
   font-size: 15px;
   position: relative;
 `;
@@ -84,7 +84,7 @@ const IconTextBox = styled.div`
   margin-left: 3px;
 `;
 const BlankPost = styled.div`
-  padding: 60px 10px;
+  padding: 80px 10px;
   margin: 10px auto;
   font-weight: 300;
   font-size: 14px;

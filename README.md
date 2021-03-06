@@ -19,4 +19,5 @@ React JS
 지연우 : 기획이면 기획 개발이면 개발 공부면 공부 못하는 게 없다.<br/>
 조영현 : 팀의 대장이다.  
   
+https://www.convergencessu.com/
 https://convergence-specialization.github.io/CS-Front/

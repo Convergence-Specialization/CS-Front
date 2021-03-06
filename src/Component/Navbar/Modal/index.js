@@ -104,10 +104,16 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   <>
                     <InformationWrapper>
                       <InformationText style={{ marginBottom: "10px" }}>
-                        학번 : {!!myInfo ? myInfo.student_id : "학번을 불러오는 중입니다."}
+                        학번 :{" "}
+                        {!!myInfo
+                          ? myInfo.student_id
+                          : "학번을 불러오는 중입니다."}
                       </InformationText>
                       <InformationText>
-                        이메일 : {!!myInfo ? myInfo.email : "이메일을 불러오는 중입니다."}
+                        이메일 :{" "}
+                        {!!myInfo
+                          ? myInfo.email
+                          : "이메일을 불러오는 중입니다."}
                       </InformationText>
                     </InformationWrapper>
                   </>
@@ -153,7 +159,8 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                 setAnnounceOpened(!announceOpened);
                 setBoardOpened(false);
                 setReferSiteOpened(false);
-              }}>
+              }}
+            >
               <NavOpenItemText>공지사항</NavOpenItemText>
               <NavOpenItemArrowButton
                 src={
@@ -168,16 +175,19 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
               <>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => history.push("/board/announcement")}>
+                  onClick={() => history.push("/board/announcement")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText
-                    onClick={() => history.push("/board/announcement")}>
+                    onClick={() => history.push("/board/announcement")}
+                  >
                     - 진행 중인 행사
                   </NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => history.push("/board/event")}>
+                  onClick={() => history.push("/board/event")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText> - 공지사항</NavInItemText>
                 </NavOpenSingleChildItemBox>
@@ -188,7 +198,8 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                 setBoardOpened(!boardOpened);
                 setAnnounceOpened(false);
                 setReferSiteOpened(false);
-              }}>
+              }}
+            >
               <NavOpenItemText>게시판</NavOpenItemText>
               <NavOpenItemArrowButton
                 src={
@@ -201,25 +212,29 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
               <>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => history.push("/board/convergence")}>
+                  onClick={() => history.push("/board/convergence")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 융특게시판</NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => history.push("/board/departmajor")}>
+                  onClick={() => history.push("/board/departmajor")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 전과게시판</NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => history.push("/board/hot")}>
+                  onClick={() => history.push("/board/hot")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 인기 많은 융슝이들</NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => history.push("/board/promotion")}>
+                  onClick={() => history.push("/board/promotion")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 홍보게시판</NavInItemText>
                 </NavOpenSingleChildItemBox>
@@ -230,7 +245,8 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                 setReferSiteOpened(!referSiteOpened);
                 setBoardOpened(false);
                 setAnnounceOpened(false);
-              }}>
+              }}
+            >
               <NavOpenItemText>관련 사이트</NavOpenItemText>
               <NavOpenItemArrowButton
                 src={
@@ -245,7 +261,8 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
               <>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => window.open("https://ssu.ac.kr/")}>
+                  onClick={() => window.open("https://ssu.ac.kr/")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 숭실대학교 홈페이지</NavInItemText>
                 </NavOpenSingleChildItemBox>
@@ -253,13 +270,15 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   isChild
                   onClick={() =>
                     window.open("https://saint.ssu.ac.kr/irj/portal")
-                  }>
+                  }
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 유세인트</NavInItemText>
                 </NavOpenSingleChildItemBox>
                 <NavOpenSingleChildItemBox
                   isChild
-                  onClick={() => window.open("http://myclass.ssu.ac.kr/")}>
+                  onClick={() => window.open("http://myclass.ssu.ac.kr/")}
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 스마트캠퍼스</NavInItemText>
                 </NavOpenSingleChildItemBox>
@@ -267,7 +286,8 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                   isChild
                   onClick={() =>
                     window.open("http://pre.ssu.ac.kr/web/convergence")
-                  }>
+                  }
+                >
                   <NavOpenItemMargin />
                   <NavInItemText>- 융특 홈페이지</NavInItemText>
                 </NavOpenSingleChildItemBox>
@@ -278,6 +298,7 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
               <NavBotTextBox>
                 {!!user ? (
                   <NavTopText
+                    style={{ marginRight: "3px" }}
                     onClick={() => {
                       authService
                         .signOut()
@@ -289,17 +310,24 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                         .catch((error) => {
                           message.error(error.message);
                         });
-                    }}>
+                    }}
+                  >
                     로그아웃
                   </NavTopText>
                 ) : (
-                  <NavTopText onClick={() => history.push("/login")}>
+                  <NavTopText
+                    onClick={() => history.push("/login")}
+                    style={{ marginRight: "3px" }}
+                  >
                     로그인
                   </NavTopText>
                 )}
-                <NavTopText>|</NavTopText>
-                <NavTopText onClick={() => history.push("/termsandconditions")}>
-                  이용약관
+                <NavTopText> | </NavTopText>
+                <NavTopText
+                  style={{ marginLeft: "3px" }}
+                  onClick={() => history.push("/termsandconditions")}
+                >
+                  이용약관 및 출처
                 </NavTopText>
               </NavBotTextBox>
               <NavBotText>SSYUNG</NavBotText>

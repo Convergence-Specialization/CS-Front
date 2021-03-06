@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { navIcons, navbotIcons } from "../assets/Resources";
 import Navbar from "../Component/Navbar";
 import NavBot from "../Component/SmallComponents/NavBot";
+import { useHistory } from "react-router-dom";
 
 const IntroduceAndFooterTextWrapper = styled.div`
   margin: 8px 10px 0 0;
@@ -16,7 +17,7 @@ const Introduce1Wrapper = styled.div`
 `;
 
 const IntroduceText = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   word-break: keep-all;
   text-align: center;
   line-height: 1.3;
@@ -35,10 +36,11 @@ const BoardContainer = styled.div`
 `;
 
 const TermsAndConditions = () => {
+  const history = useHistory();
   return (
     <>
       <Navbar isRight1Disabled History IconRight2={navIcons.Home} />
-      <NavBot Name="SSYUNG 이용약관" Icon={navbotIcons.check} />
+      <NavBot Name="SSYUNG 이용약관 및 디자인 공지" Icon={navbotIcons.check} />
       <TotalContainer>
         <BoardContainer>
           <Introduce1Wrapper>
@@ -339,6 +341,12 @@ const TermsAndConditions = () => {
                 모든 약관의 내용에 우선하여 적용됩니다. <br />
                 <br />
                 관련문의: ssuconvergence@gmail.com
+              </IntroduceText>
+              <IntroduceText
+                style={{ marginTop: "10px", color: "blue" }}
+                onClick={() => history.push("/IconsSource")}
+              >
+                융특 커뮤니티 슝 디자인 저작권 공지
               </IntroduceText>
             </IntroduceAndFooterTextWrapper>
           </Introduce1Wrapper>

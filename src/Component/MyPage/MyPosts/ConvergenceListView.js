@@ -7,21 +7,6 @@ import { userApi } from "../../../api";
 import { loginFunctions } from "../../Watchers";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 
-const Box = styled.div`
-  border-bottom: 2px solid #aca9a9;
-  display: flex;
-  padding: 15px 0px;
-  width: 95%;
-  margin: 0 auto;
-  font-size: 15px;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  @media (max-width: 430px) {
-    padding: 10px 0px;
-    width: 93%;
-  }
-`;
 const Text = styled.div`
   font-weight: bold;
   font-size: 18px;
@@ -63,13 +48,12 @@ const BoardChildMetaText = styled.div`
 const BlankPost = styled.div`
   padding: 110px 10px 10px 10px;
   margin: 10px auto;
-  font-weight: 600;
   font-size: 15px;
   text-align: center;
-  color: #c8c8c8;
+  color: #848484;
 `;
 const MoreButton = styled.div`
-  width: 95%;
+  width: 93%;
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
@@ -111,7 +95,7 @@ const ConvergenceListView = () => {
           <Text>융특 게시판</Text>
           <BoardContainer>
             {posts.length === 0 ? (
-              <BlankPost>※ 작성한 내용이 없습니다 ※</BlankPost>
+              <BlankPost>※ 작성한 글이 없습니다 ※</BlankPost>
             ) : (
               posts.map((item, idx) => (
                 <BoardChildWrapper

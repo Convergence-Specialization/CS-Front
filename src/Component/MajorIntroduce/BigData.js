@@ -81,11 +81,11 @@ const BigData = () => {
             시장 규모가 폭발적으로 성장하는 가운데 빅데이터 융합전공은 주목을
             받고 있음.
           </BoardText>
-          <BoardTitle>- 참여 학과</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 참여 학과</BoardTitle>
           <BoardText>
             소프트웨어학과, 정보통계∙보험수리학과, 스마트시스템소프트웨어학과
           </BoardText>
-          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 필수 교과목</BoardTitle>
           <BoardText>
             1. 프로그래밍 및 실습 <br />
             2. 빅데이터 프로그래밍 언어

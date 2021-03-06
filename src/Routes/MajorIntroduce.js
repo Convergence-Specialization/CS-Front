@@ -4,6 +4,7 @@ import BigData from "../Component/MajorIntroduce/BigData";
 import Energy from "../Component/MajorIntroduce/Energy";
 import Security from "../Component/MajorIntroduce/Security";
 import ICT from "../Component/MajorIntroduce/ICT";
+import TotalSubject from "../Component/MajorIntroduce/TotalSubject";
 import Unification from "../Component/MajorIntroduce/Unification";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
@@ -19,6 +20,9 @@ const MajorIntroduce = () => {
       });
     };
     switch (!!location.state && location.state.whichClicked) {
+      case "TOTAL_SUBJECT":
+        scrollToFunction("TOTAL_SUBJECT_DIV");
+        break;
       case "SMART_CAR":
         scrollToFunction("SMART_CAR_DIV");
         break;
@@ -44,6 +48,7 @@ const MajorIntroduce = () => {
   return (
     <>
       <Navbar />
+      <TotalSubject />
       <Car />
       <Energy />
       <Security />

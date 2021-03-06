@@ -84,12 +84,12 @@ const Unification = () => {
             통일과 개발협력을 융합함에 따라 다양한 미래 영역에서 주도성을 발휘할
             수 있는 인재를 양성하기 위한 전공
           </BoardText>
-          <BoardTitle>- 참여 학과</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 참여 학과</BoardTitle>
           <BoardText>
             정치외교학과, 사회복지학부, 행정학부, 정보사회학과, 언론홍보학과,
             평생교육학과
           </BoardText>
-          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 필수 교과목</BoardTitle>
           <BoardText>1. 경계 없는 미래</BoardText>
           <ImageWrapper>
             <Image src={majorIntroduce.KOREA}></Image>

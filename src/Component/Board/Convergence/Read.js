@@ -17,7 +17,7 @@ const TitleBox = styled.div`
 const WhiteContainer = styled.div`
   width: 93%;
   padding: 12px 15px;
-  margin: 10px auto;
+  margin: 15px auto;
   border-radius: 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
@@ -379,7 +379,8 @@ const Read = () => {
                       .finally(() => {
                         setUploading(false);
                       });
-                  }}>
+                  }}
+                >
                   <CommentImg
                     src={
                       didILikedThisDoc
@@ -421,7 +422,8 @@ const Read = () => {
                   subCommentFocusedId === item.commentId
                     ? { backgroundColor: "#f6fafe" }
                     : {}
-                }>
+                }
+              >
                 <CommentDeleteButton
                   src={readDoc.three_dots}
                   alt="더 보기"
@@ -443,7 +445,8 @@ const Read = () => {
                     content.encryptedUid === item.encryptedUid
                       ? { color: "#5ac6b9" }
                       : {}
-                  }>
+                  }
+                >
                   {content.encryptedUid === item.encryptedUid
                     ? content.nickname
                     : `익명의 융슝이 ${item.uidIndex}`}
@@ -463,7 +466,8 @@ const Read = () => {
                       } else {
                         setSubCommentFocusedId("");
                       }
-                    }}>
+                    }}
+                  >
                     <CommentChildNewSubButton
                       src={readDoc.speech_bubble}
                       alt="말풍선 아이콘"
@@ -496,7 +500,8 @@ const Read = () => {
                         .finally(() => {
                           setUploading(false);
                         });
-                    }}>
+                    }}
+                  >
                     <CommentChildLikeImg
                       src={
                         item.didILiked
@@ -523,7 +528,8 @@ const Read = () => {
                       padding: "7px ",
                       marginTT: "5px",
                       width: "95%",
-                    }}>
+                    }}
+                  >
                     <CommentDeleteButton
                       src={readDoc.three_dots}
                       alt="더 보기"
@@ -546,7 +552,8 @@ const Read = () => {
                         content.encryptedUid === subItem.encryptedUid
                           ? { color: "#5ac6b9" }
                           : {}
-                      }>
+                      }
+                    >
                       {content.encryptedUid === subItem.encryptedUid
                         ? content.nickname
                         : `익명의 융슝이 ${subItem.uidIndex}`}
@@ -589,7 +596,8 @@ const Read = () => {
                             .finally(() => {
                               setUploading(false);
                             });
-                        }}>
+                        }}
+                      >
                         <CommentChildLikeImg
                           src={
                             subItem.didILiked
@@ -679,7 +687,8 @@ const Read = () => {
                 })
                 .finally(() => setUploading(false));
             }
-          }}>
+          }}
+        >
           작성하기
         </CommentInputSubmitButton>
       </CommentInputContainer>

@@ -81,9 +81,9 @@ const Security = () => {
             인력이 부족함에 따라 정보보호 융합전공의 사회적 가치는 더욱 증가하고
             있음.
           </BoardText>
-          <BoardTitle>- 참여 학과</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 참여 학과</BoardTitle>
           <BoardText>소프트웨어학부, 수학과, 전자정보공학부</BoardText>
-          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 필수 교과목</BoardTitle>
           <BoardText>
             1. 프로그래밍 및 실습 <br />
             2. 빅데이터 프로그래밍 언어

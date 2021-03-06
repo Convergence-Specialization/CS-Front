@@ -84,14 +84,15 @@ const ICT = () => {
             IoT, 클라우드, 정보보안, 스마트 디바이스 및 디지털 콘텐츠 산업 등과
             밀접한 관계가 있음
           </BoardText>
-          <BoardTitle>- 참여 학과</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 참여 학과</BoardTitle>
           <BoardText>
             경영학부, 벤처중소기업학과, 컴퓨터학부,
             산업∙정보시스템공학과,전자정보공학부
           </BoardText>
-          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 필수 교과목</BoardTitle>
           <BoardText>
-            1. 빅데이터 프로그래밍 언어<br />
+            1. 빅데이터 프로그래밍 언어
+            <br />
             2. IT기반의 유통물류경영
           </BoardText>
           <ImageWrapper>

@@ -52,6 +52,7 @@ import Security from "../assets/major/Security.png";
 import Unification from "../assets/major/Unification.png";
 import Ict from "../assets/major/Ict.png";
 import Energy from "../assets/major/Energy.png";
+import Books from "../assets/major/Books.png";
 import esports from "../assets/events/esports.png";
 import graduate from "../assets/events/graduate.jpg";
 import ssuevent from "../assets/events/ssu.jpg";
@@ -111,6 +112,7 @@ export const major = {
   Unification,
   Energy,
   Ict,
+  Books,
 };
 
 export const etc = {

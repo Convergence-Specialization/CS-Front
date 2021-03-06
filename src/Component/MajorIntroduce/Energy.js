@@ -82,12 +82,12 @@ const Energy = () => {
             신산업 도입 등에 따른 다양한 민간 분야에서 에너지 융합 분야 투자가
             증가함으로써 에너지 공학 전공의 가치가 더욱 커지고 있음.
           </BoardText>
-          <BoardTitle>- 참여 학과</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 참여 학과</BoardTitle>
           <BoardText>
             화학공학과, 유기신소재∙파이버공학과, 전기공학부, 기계공학과,
             건축학부
           </BoardText>
-          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 필수 교과목</BoardTitle>
           <BoardText>
             1. 융합전공을 위한 심화수학 <br />
             2. 물리학 기초 및 융합

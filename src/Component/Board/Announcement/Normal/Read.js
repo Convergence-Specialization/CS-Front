@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import Linkify from "react-linkify";
 import { announcementApi } from "../../../../api";
 import message from "antd/lib/message";
+
 const Container = styled.div`
   width: 100%;
   max-width: 768px;

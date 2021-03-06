@@ -4,7 +4,7 @@ import Navbar from "../../Component/Navbar";
 
 const LoginPresenter = () => (
   <>
-     <Navbar isTransparent Iconleft isRight2Disabled isRight1Disabled />
+    <Navbar isTransparent Iconleft isRight2Disabled isRight1Disabled isPage />
     <Login />
   </>
 );

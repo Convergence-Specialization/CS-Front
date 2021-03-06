@@ -120,7 +120,8 @@ const RouterComponent = () => {
   );
 };
 const RouterExporter = () => (
-  <Router basename="/CS-Front">
+  <Router>
+  {/* <Router basename="/CS-Front"> */}
     <RouterComponent />
   </Router>
 );

@@ -24,12 +24,14 @@ const Box = styled.div`
 `;
 const Text = styled.div`
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
+  padding-left: 25px;
+  padding-top: 20px;
 `;
 const BoardContainer = styled.div`
-  width: 95%;
+  width: 93%;
   border-radius: 15px;
-  margin: 20px auto;
+  margin: 10px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
   min-height: 30vh;
@@ -37,7 +39,6 @@ const BoardContainer = styled.div`
 const BoardChildWrapper = styled.div`
   padding: 12px 12px;
   font-size: 15px;
-  border-bottom: 2.5px solid #f1f1f1;
   position: relative;
 `;
 
@@ -60,10 +61,10 @@ const BoardChildMetaText = styled.div`
   align-items: center;
 `;
 const BlankPost = styled.div`
-  padding: 70px 10px 10px 10px;
+  padding: 110px 10px 10px 10px;
   margin: 10px auto;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
   color: #c8c8c8;
 `;
@@ -107,15 +108,18 @@ const ConvergenceListView = () => {
         <LoadingSmall />
       ) : (
         <>
+          <Text>융특 게시판</Text>
           <BoardContainer>
-            <Box>
-              <Text>융특 게시판</Text>
-            </Box>
             {posts.length === 0 ? (
-              <BlankPost>⁕작성한 내용이 없습니다⁕</BlankPost>
+              <BlankPost>※ 작성한 내용이 없습니다 ※</BlankPost>
             ) : (
               posts.map((item, idx) => (
                 <BoardChildWrapper
+                  style={
+                    posts.length - 1 === idx
+                      ? {}
+                      : { borderBottom: "2.5px solid #f1f1f1" }
+                  }
                   key={idx}
                   onClick={() =>
                     history.push({
@@ -125,7 +129,8 @@ const ConvergenceListView = () => {
                         docItem: item,
                       },
                     })
-                  }>
+                  }
+                >
                   <BoardChildContent>{item.content}</BoardChildContent>
                   <BoardChildTimeText>
                     {item.timestampDistance} 전

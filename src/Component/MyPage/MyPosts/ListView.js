@@ -17,7 +17,7 @@ const Box = styled.div`
   position: relative;
   align-items: center;
   justify-content: space-between;
-  margin-top:10px;
+  margin-top: 10px;
   @media (max-width: 430px) {
     padding: 10px 0px 5px 0px;
     width: 90%;
@@ -26,7 +26,7 @@ const Box = styled.div`
 const Text = styled.div`
   font-weight: bold;
   font-size: 18px;
-  padding-left:10px;
+  padding-left: 10px;
 `;
 const Button = styled.div`
   text-align: center;
@@ -35,7 +35,7 @@ const Button = styled.div`
   font-size: 13px;
   font-weight: bold;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.13);
-  background-color: #D4E6FB;
+  background-color: #d4e6fb;
   cursor: pointer;
   @media (max-width: 430px) {
     font-size: 12px;
@@ -51,10 +51,10 @@ const BoardContainer = styled.div`
   margin: 5px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
-  min-height: 20vh;
+  min-height: 15vh;
 `;
 const BoardChildWrapper = styled.div`
-  padding: 12px 12px;
+  padding: 15px 12px 10px 12px;
   font-size: 15px;
   position: relative;
 `;
@@ -73,11 +73,12 @@ const BoardChildTitle = styled.div`
   margin-bottom: 10px;
 `;
 const BoardChildContent = styled.div`
+  position: absolute;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 15px;
-  width: 93%;
+  width: 80%;
   margin-bottom: 8px;
 `;
 const BoardChildTimeText = styled.div`
@@ -89,6 +90,7 @@ const BoardChildMetaText = styled.div`
   justify-content: flex-end;
   display: flex;
   align-items: center;
+  padding-top: 23px;
 `;
 const BlankPost = styled.div`
   padding: 60px 10px;
@@ -134,11 +136,12 @@ const MyPost = () => {
         <Text>융특 게시판</Text>
         <Button
           onClick={() => {
-              history.push({
+            history.push({
               pathname: `myposts`,
               state: { pageName: "convergencelistview" },
-             });
-          }}>
+            });
+          }}
+        >
           더보기
         </Button>
       </Box>
@@ -150,7 +153,11 @@ const MyPost = () => {
         ) : (
           convergencePosts.map((item, idx) => (
             <BoardChildWrapper
-              style={ convergencePosts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
+              style={
+                convergencePosts.length - 1 === idx
+                  ? {}
+                  : { borderBottom: "2.5px solid #f1f1f1" }
+              }
               key={idx}
               onClick={() =>
                 history.push({
@@ -160,7 +167,8 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildContent>{item.content}</BoardChildContent>
               <BoardChildTimeText>
                 {item.timestampDistance} 전
@@ -184,15 +192,16 @@ const MyPost = () => {
           ))
         )}
       </BoardContainer>
-      <Box style={{ marginTop: "10px", paddingTop : "18px" }}>
+      <Box style={{ marginTop: "10px", paddingTop: "18px" }}>
         <Text>전과 게시판</Text>
         <Button
-            onClick={() => {
-              history.push({
+          onClick={() => {
+            history.push({
               pathname: `myposts`,
               state: { pageName: "departmajorlistview" },
             });
-          }}>
+          }}
+        >
           더보기
         </Button>
       </Box>
@@ -204,7 +213,11 @@ const MyPost = () => {
         ) : (
           departmajorPosts.map((item, idx) => (
             <BoardChildWrapper
-              style={ departmajorPosts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
+              style={
+                departmajorPosts.length - 1 === idx
+                  ? {}
+                  : { borderBottom: "2.5px solid #f1f1f1" }
+              }
               key={idx}
               onClick={() =>
                 history.push({
@@ -214,7 +227,8 @@ const MyPost = () => {
                     docItem: item,
                   },
                 })
-              }>
+              }
+            >
               <BoardChildTitleWrapper>
                 {item.subject !== "NONE" && (
                   <SubjectSelectImg
@@ -257,7 +271,7 @@ const MyPost = () => {
           ))
         )}
       </BoardContainer>
-      <Box/>
+      <Box />
     </>
   );
 };

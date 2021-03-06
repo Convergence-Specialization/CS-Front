@@ -298,6 +298,7 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
               <NavBotTextBox>
                 {!!user ? (
                   <NavTopText
+                    style={{ marginRight: "3px" }}
                     onClick={() => {
                       authService
                         .signOut()
@@ -314,12 +315,18 @@ export const NavModal = ({ onClose, visible, navClicked }) => {
                     로그아웃
                   </NavTopText>
                 ) : (
-                  <NavTopText onClick={() => history.push("/login")}>
+                  <NavTopText
+                    onClick={() => history.push("/login")}
+                    style={{ marginRight: "3px" }}
+                  >
                     로그인
                   </NavTopText>
                 )}
                 <NavTopText> | </NavTopText>
-                <NavTopText onClick={() => history.push("/termsandconditions")}>
+                <NavTopText
+                  style={{ marginLeft: "3px" }}
+                  onClick={() => history.push("/termsandconditions")}
+                >
                   이용약관 및 출처
                 </NavTopText>
               </NavBotTextBox>

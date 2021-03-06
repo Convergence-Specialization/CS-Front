@@ -20,4 +20,3 @@ React JS
 조영현 : 팀의 대장이다.  
   
 https://www.convergencessu.com/
-https://convergence-specialization.github.io/CS-Front/

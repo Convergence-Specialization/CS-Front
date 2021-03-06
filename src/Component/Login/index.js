@@ -112,7 +112,7 @@ const Login = () => {
         <Img src={horseIcons.horse} />
         <InputBox
           type="id"
-          placeholder="아이디"
+          placeholder="이메일"
           value={id}
           disabled={false}
           onChange={({ target: { value } }) => setId(value)}

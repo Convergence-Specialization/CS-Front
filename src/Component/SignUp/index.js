@@ -156,11 +156,9 @@ const SignUp = () => {
             placeholder="비밀번호 확인"
             value={pwCheck}
             onChange={({ target: { value } }) => setPwCheck(value)}
-            style={{ width: "100%" }}
-          ></InputBox>
+            style={{ width: "100%" }}></InputBox>
           <CorrectAlarm
-            style={pw === pwCheck ? { color: "green" } : { color: "#eb4b4b" }}
-          >
+            style={pw === pwCheck ? { color: "green" } : { color: "#eb4b4b" }}>
             {pw === pwCheck ? "일치" : "불일치"}
           </CorrectAlarm>
         </InputBoxAndAlarmWrapper>
@@ -174,11 +172,8 @@ const SignUp = () => {
           <Wrap>약관에 동의합니다.</Wrap>
           <Text
             onClick={() =>
-              window.open(
-                "https://convergence-specialization.github.io/CS-Front/termsandconditions"
-              )
-            }
-          >
+              window.open("https://www.convergencessu.com/termsandconditions")
+            }>
             자세히 보기
           </Text>
           <CheckBox id="didAgree" type="checkbox" />
@@ -245,8 +240,7 @@ const SignUp = () => {
                 setLoading(false);
               });
           }}
-          disabled={pw !== pwCheck}
-        >
+          disabled={pw !== pwCheck}>
           회원가입
         </Button>
       </Box>

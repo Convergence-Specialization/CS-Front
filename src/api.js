@@ -345,6 +345,42 @@ export const announcementApi = {
     }),
 };
 
+export const promotionApi = {
+  create: (body) =>
+    api.post("board/promotion/create", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
+  getLists: async (body) => {
+    let { size } = body;
+    const querySnapshot = await db
+      .collection("promotion")
+      .orderBy("timestamp", "desc")
+      .limit(size)
+      .get();
+    let docsArray = [];
+    querySnapshot.forEach((doc) => {
+      let data = doc.data();
+      docsArray.push({
+        docId: doc.id,
+        title: data.title,
+        content: data.content,
+        timestampMillis: data.timestamp.toMillis(),
+        eventPeriod: data.eventPeriod,
+        imgArray: data.imgArray,
+      });
+    });
+    return docsArray;
+  },
+  requestDeleteDoc: (body) =>
+    api.post("board/promotion/delete", body, {
+      headers: {
+        Authorization: getBearer(),
+      },
+    }),
+};
+
 export const hotApi = {
   getLists: async (body) => {
     let { size, startAfterDocId } = body;

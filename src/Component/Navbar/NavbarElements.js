@@ -150,7 +150,7 @@ export const InformationWrapper = styled.div`
 `;
 export const InformationText = styled.div`
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.4;
 `;
 export const NavOpenSingleItemBox = styled.div`
   align-self: stretch;

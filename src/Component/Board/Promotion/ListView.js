@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { announcementApi } from "../../../api";
+import { promotionApi } from "../../../api";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
 import { timeConverter } from "../../../assets/Dicts";
 import message from "antd/lib/message";
@@ -72,48 +72,36 @@ const BoardImg = styled.img`
 
 const ListView = () => {
   const history = useHistory();
-  const [announcementPosts, setAnnouncementPosts] = useState([]);
+  const [promotionPosts, setPromotionPosts] = useState([]);
   const [showMoreButtonVisible, setShowMoreButtonVisible] = useState(true);
   const [numToGetList, setNumToGetList] = useState(10);
 
   useEffect(() => {
     const userInfo = loginFunctions.getUserInfo();
     if (!userInfo) return;
-    announcementApi
+    promotionApi
       .getLists({ size: numToGetList })
       .then((docsArray) => {
         if (docsArray.length < numToGetList) {
           setShowMoreButtonVisible(false);
         }
-        setAnnouncementPosts(docsArray);
+        setPromotionPosts(docsArray);
       })
       .catch((error) => message.error(error.message));
   }, [numToGetList]);
 
   return (
     <Con>
-      <button
-        onClick={() =>
-          history.push({
-            pathname: `/board/promotion`,
-            state: {
-              pageName: "create",
-            },
-          })
-        }
-      >
-        글 작성
-      </button>
       <Container>
         <BoardContainer>
-          {announcementPosts.length === 0 ? (
+          {promotionPosts.length === 0 ? (
             <LoadingSmall />
           ) : (
             <>
-              {announcementPosts.map((item, idx) => (
+              {promotionPosts.map((item, idx) => (
                 <BoardChildWrapper
                   style={
-                    announcementPosts.length - 1 === idx
+                    promotionPosts.length - 1 === idx
                       ? {}
                       : { borderBottom: "2.5px solid #f1f1f1" }
                   }
@@ -126,8 +114,7 @@ const ListView = () => {
                         docItem: item,
                       },
                     })
-                  }
-                >
+                  }>
                   <TitleTextBox>
                     <BoardChildTitle>{item.title}</BoardChildTitle>
                     <BoardText>{item.content}</BoardText>

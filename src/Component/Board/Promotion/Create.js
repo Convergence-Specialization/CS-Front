@@ -6,7 +6,7 @@ import { storageService } from "../../../firebase";
 import uuid from "uuid-random";
 import { loginFunctions } from "../../Watchers";
 import LoadingSmall from "../../SmallComponents/LoadingSmall";
-import { announcementApi } from "../../../api";
+import { promotionApi } from "../../../api";
 
 const Container = styled.div`
   padding: 15px 0 20px;
@@ -234,15 +234,15 @@ const Create = () => {
                 }
               })
             );
-            setUploadingStatus("공지사항을 등록하는 중..");
+            setUploadingStatus("홍보게시글을 등록하는 중..");
             reqBody.imgArray = targetImgUrlArray;
             try {
-              await announcementApi.create(reqBody);
-              message.success("공지가 등록되었습니다");
+              await promotionApi.create(reqBody);
+              message.success("홍보게시글이 등록되었습니다");
               history.goBack();
             } catch (err) {
               setUploadingStatus(
-                `공지사항을 등록하는 중에 오류가 났습니다.\n${err.message}`
+                `홍보게시글을 등록하는 중에 오류가 났습니다.\n${err.message}`
               );
             }
           }}

@@ -8,6 +8,7 @@ import {
   convergenceApi,
   departMajorApi,
   hotApi,
+  promotionApi,
 } from "../../api";
 import LoadingSmall from "../SmallComponents/LoadingSmall";
 import { getUA, isMobile } from "react-device-detect";
@@ -178,9 +179,12 @@ const MainPage = () => {
   };
 
   const [announcementPosts, setAnnouncementPosts] = useState([]);
+  const [promotionPosts, setPromotionPosts] = useState([]);
   const [hotPosts, setHotPosts] = useState([]);
   const [departmajorPosts, setDepartmajorPosts] = useState([]);
   const [convergencePosts, setConvergencePosts] = useState([]);
+
+  const [secretPromotionCount, setSecretPromotionCount] = useState(0);
 
   useEffect(() => {
     if (localStorage.getItem("firstSignUp") === "ok") {
@@ -214,6 +218,10 @@ const MainPage = () => {
       .getLists({ size: 5 })
       .then((docsArray) => setDepartmajorPosts(docsArray))
       .catch((error) => console.log(error.message));
+    promotionApi
+      .getLists({ size: 3 })
+      .then((docsArray) => setPromotionPosts(docsArray))
+      .catch((error) => console.log(error.message));
   }, [history]);
 
   const SlickRef = React.createRef();
@@ -242,8 +250,7 @@ const MainPage = () => {
                       docItem: item,
                     },
                   })
-                }
-              >
+                }>
                 <BoardChildTitle>{item.title}</BoardChildTitle>
               </BoardChildWrapper>
             ))}
@@ -357,8 +364,7 @@ const MainPage = () => {
                     isHot: true,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.docItem.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -399,8 +405,7 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.content}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -441,8 +446,7 @@ const MainPage = () => {
                     docItem: item,
                   },
                 })
-              }
-            >
+              }>
               <BoardChildTitle>{item.title}</BoardChildTitle>
               <DepartmentSubWrapper>
                 <img
@@ -462,18 +466,32 @@ const MainPage = () => {
           ))
         )}
       </BoardContainer>
-      <TitleAndButtonWrapper>
+      <TitleAndButtonWrapper
+        onClick={() => {
+          setSecretPromotionCount((i) => i + 1);
+          if (
+            secretPromotionCount === 6 &&
+            window.confirm("홍보 게시글을 작성하시겠습니까?")
+          ) {
+            history.push({
+              pathname: `/board/promotion`,
+              state: {
+                pageName: "create",
+              },
+            });
+          }
+        }}>
         <TitleElement src={navbotIcons.airplane} name={"홍보 게시판"} />
         <Button onClick={() => history.push("/board/promotion")}>더보기</Button>
       </TitleAndButtonWrapper>
       <BoardContainer>
-        {announcementPosts.length === 0 ? (
+        {promotionPosts.length === 0 ? (
           <LoadingSmall />
         ) : (
           <>
-            {announcementPosts.map((item, idx) => (
+            {promotionPosts.map((item, idx) => (
               <BoardChildWrapper
-                key={`${idx}ANNOUNCEMENT_PREVIEW`}
+                key={`${idx}PROMOTION_PREVIEW`}
                 onClick={() =>
                   history.push({
                     pathname: `/board/promotion`,
@@ -482,8 +500,7 @@ const MainPage = () => {
                       docItem: item,
                     },
                   })
-                }
-              >
+                }>
                 <BoardChildTitle>{item.title}</BoardChildTitle>
               </BoardChildWrapper>
             ))}

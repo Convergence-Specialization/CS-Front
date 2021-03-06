@@ -251,12 +251,14 @@ export const ReportOrDelete = ({
                   isDeleteState
                     ? actionByTypes[modalType].delete
                     : actionByTypes[modalType].report
-                }>
+                }
+              >
                 {isDeleteState ? "삭제" : "신고"}
               </WhiteTopArea>
               <WhiteTopArea
                 onClick={actionByTypes[modalType].save}
-                style={{ borderBottom: "1px solid #f1f1f1" }}>
+                style={{ borderTop: "1px solid #c4c1c1" }}
+              >
                 저장
               </WhiteTopArea>
             </WhiteAreaBox>
@@ -266,7 +268,8 @@ export const ReportOrDelete = ({
                 isDeleteState
                   ? actionByTypes[modalType].delete
                   : actionByTypes[modalType].report
-              }>
+              }
+            >
               {isDeleteState ? "삭제" : "신고"}
             </WhiteArea>
           )}

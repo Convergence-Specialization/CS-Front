@@ -6,6 +6,7 @@ import message from "antd/lib/message";
 import { authService, firebaseInstance } from "../../firebase";
 import { userApi } from "../../api";
 import { loginFunctions } from "../Watchers";
+import { getUA } from "react-device-detect";
 
 const Container = styled.div`
   width: 100%;
@@ -149,12 +150,17 @@ const Login = () => {
               message.error("아이디 혹은 비밀번호가 일치하지 않습니다.");
             }
             setLoading(false);
-          }}
-        >
+          }}>
           로그인
         </Button>
         <Button
           onClick={async () => {
+            if (getUA.includes("KAKAOTALK")) {
+              alert(
+                "구글 정책상 카카오톡 모바일 브라우저로는 구글 로그인이 불가능합니다. 크롬, 네이버등의 브라우저를 사용해주세요."
+              );
+              return;
+            }
             if (loading) return;
             try {
               message.loading("구글 로그인 중..", 20);
@@ -183,8 +189,7 @@ const Login = () => {
               message.error("로그인 실패");
             }
           }}
-          name="google"
-        >
+          name="google">
           구글 로그인
         </Button>
         <TextBox>

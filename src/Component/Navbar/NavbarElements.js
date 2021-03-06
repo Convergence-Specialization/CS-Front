@@ -111,7 +111,7 @@ export const NavBotTextBox = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  width: 45%;
+  width: 50%;
 `;
 export const NavBotText = styled.div`
   font-size: 12px;

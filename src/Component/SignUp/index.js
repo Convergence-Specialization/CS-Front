@@ -180,7 +180,8 @@ const SignUp = () => {
         </InputBoxAndAlarmWrapper1>
         <InputBoxAndAlarmWrapper1>
           <Wrap>개인정보 처리방침에 동의</Wrap>
-          <Text left="160px"
+          <Text
+            left="160px"
             onClick={() =>
               window.open("https://www.convergencessu.com/privacy")
             }>

@@ -138,7 +138,7 @@ const Text = styled.div`
   @media (max-width: 430px) {
     font-size: 13px;
     width: 22%;
-    left: 115px;
+    left: ${(props) => props.left || "115px"};
   }
 `;
 const TextBox = styled.div`
@@ -205,11 +205,26 @@ const AddInformation = () => {
           </Text>
           <CheckBox id="didAgree" type="checkbox" />
         </InputBoxAndAlarmWrapper1>
+        <InputBoxAndAlarmWrapper1>
+          <Wrap>개인정보 처리방침에 동의</Wrap>
+          <Text
+            left="160px"
+            onClick={() =>
+              window.open("https://www.convergencessu.com/privacy")
+            }>
+            자세히 보기
+          </Text>
+          <CheckBox id="didAgree2" type="checkbox" />
+        </InputBoxAndAlarmWrapper1>
         <Button
           onClick={() => {
             if (loading) return;
             if (document.getElementById("didAgree").checked === false) {
               alert("약관에 동의해주세요");
+              return;
+            }
+            if (document.getElementById("didAgree2").checked === false) {
+              alert("개인정보 처리방침에 동의해주세요");
               return;
             }
             if (document.getElementById("studentId").value === "") {

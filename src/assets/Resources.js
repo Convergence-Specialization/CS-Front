@@ -57,14 +57,14 @@ import ssuevent from "../assets/events/ssu.jpg";
 import friday from "../assets/events/friday.jpg";
 import mentor from "../assets/events/mentor.jpg";
 import notificationOn from "../assets/navIcons/notificationOn.png";
-import htu1 from "../assets/howToUse/HTU1.png";
-import htu2 from "../assets/howToUse/HTU2.png";
-import htu3 from "../assets/howToUse/HTU3.png";
-import htu4 from "../assets/howToUse/HTU4.png";
-import htu5 from "../assets/howToUse/HTU5.png";
-import htu6 from "../assets/howToUse/HTU6.png";
-import htu7 from "../assets/howToUse/HTU7.png";
-import htu8 from "../assets/howToUse/HTU8.png";
+import htu1 from "../assets/howToUse/HTU1.jpg";
+import htu2 from "../assets/howToUse/HTU2.jpg";
+import htu3 from "../assets/howToUse/HTU3.jpg";
+import htu4 from "../assets/howToUse/HTU4.jpg";
+import htu5 from "../assets/howToUse/HTU5.jpg";
+import htu6 from "../assets/howToUse/HTU6.jpg";
+import htu7 from "../assets/howToUse/HTU7.jpg";
+import htu8 from "../assets/howToUse/HTU8.jpg";
 
 export const howtouseiconzip = {
   htu1,

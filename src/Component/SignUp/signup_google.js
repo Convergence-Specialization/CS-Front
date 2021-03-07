@@ -195,7 +195,7 @@ const AddInformation = () => {
           <Wrap>융합특성화자유전공학부 학생입니다. (선택)</Wrap>
           <CheckBox id="isConvergence" type="checkbox" />
         </InputBoxAndAlarmWrapper>
-        <InputBoxAndAlarmWrapper1>
+        <InputBoxAndAlarmWrapper1 style={{ marginBottom: "50px" }}>
           <Wrap>약관에 동의합니다.</Wrap>
           <Text
             onClick={() =>

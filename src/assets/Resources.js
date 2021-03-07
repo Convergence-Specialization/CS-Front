@@ -7,7 +7,7 @@ import Background3 from "../assets/Images/Background3.png";
 import Introduce1 from "../assets/Images/Introduce1.png";
 import TeamIntroduce1 from "../assets/Images/TeamIntroduce1.PNG";
 import TeamIntroduce2 from "../assets/Images/TeamIntroduce2.PNG";
-import TeamIntroduce3 from "../assets/Images/TeamIntroduce3.PNG";
+import TeamIntroduce3 from "../assets/Images/TeamIntroduce3.png";
 import TeamIntroduce4 from "../assets/Images/TeamIntroduce4.PNG";
 import Footer from "../assets/Images/Footer.PNG";
 import ICT from "../assets/MajorIntroduce/ICT.png";

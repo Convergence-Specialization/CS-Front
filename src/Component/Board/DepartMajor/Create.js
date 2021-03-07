@@ -8,7 +8,7 @@ import { horseIcons } from "../../../assets/Resources";
 import SelectSubjectModal from "./Modal";
 
 const Container = styled.div`
-  padding-top: 20px;
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;

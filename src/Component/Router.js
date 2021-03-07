@@ -26,6 +26,7 @@ import Promotion from "../Routes/Board/Promotion";
 import ForgotPassword from "../Routes/Login/LostPw";
 import IconsSource from "./IconsSource";
 import Makers from "./Makers";
+import Privacy from "./Privacy";
 import Suggestions from "../Routes/Suggestions";
 import TermsAndConditions from "../Routes/TermsAndConditions";
 import NoInformation from "../Routes/Login/NoInformation";
@@ -57,6 +58,9 @@ const RouterComponent = () => {
       </Route>
       <Route path="/signup" exact>
         <SignUp />
+      </Route>
+      <Route path="/privacy" exact>
+        <Privacy />
       </Route>
       <Route path="/howtouse" exact>
         <HowToUse />
@@ -121,7 +125,7 @@ const RouterComponent = () => {
 };
 const RouterExporter = () => (
   <Router>
-  {/* <Router basename="/CS-Front"> */}
+    {/* <Router basename="/CS-Front"> */}
     <RouterComponent />
   </Router>
 );

@@ -83,6 +83,9 @@ const Board = () => {
         <Text1 onClick={() => history.push("/termsandconditions")}>
           서비스 이용약관
         </Text1>
+        <Text1 onClick={() => history.push("/privacy")}>
+          개인정보 처리방침
+        </Text1>
         <Text1 onClick={() => setModalVisible(true)}>회원 탈퇴</Text1>
         <Text
           onClick={() => {

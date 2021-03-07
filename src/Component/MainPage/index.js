@@ -266,6 +266,18 @@ const MainPage = () => {
           <Slider {...settings} ref={SlickRef}>
             <SlickBox>
               <IntroduceImage
+                src={major.Books}
+                onClick={() =>
+                  history.push({
+                    pathname: "/board/majorintroduce",
+                    state: { whichClicked: "TOTAL_SUBJECT" },
+                  })
+                }
+              />
+              <SlickText>융전 소개</SlickText>
+            </SlickBox>
+            <SlickBox>
+              <IntroduceImage
                 src={major.Car}
                 onClick={() =>
                   history.push({

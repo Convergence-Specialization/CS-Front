@@ -98,19 +98,16 @@ const BlankPost = styled.div`
 `;
 const SlickBox = styled.div`
   background-color: white;
-  display: flex;
   flex-direction: column;
+  display: flex;
   align-items: center;
-  @media (max-width: 430px) {
-  }
+  justify-content: center;
 `;
 
 const SlickBox1 = styled.div`
   padding: 20px 10px;
   background-color: white;
   border-radius: 10px;
-  @media (max-width: 430px) {
-  }
 `;
 
 const SlickText = styled.div`
@@ -118,8 +115,9 @@ const SlickText = styled.div`
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
-  @media (max-width: 430px) {
-  }
+  width: 50%;
+  line-height: 1.3;
+  margin: 10px auto;
 `;
 
 const SlickDate = styled.div`
@@ -224,7 +222,8 @@ const PreView = () => {
               {"<"}
             </SlickCustomLeftButton>
             <SlickCustomRightButton
-              onClick={() => SlickRef.current.slickNext()}>
+              onClick={() => SlickRef.current.slickNext()}
+            >
               {">"}
             </SlickCustomRightButton>
             <SlickBox1>
@@ -274,7 +273,8 @@ const PreView = () => {
                 pageName: "listview",
               },
             })
-          }>
+          }
+        >
           더보기
         </Button>
       </BoardTitleContainer>
@@ -300,7 +300,8 @@ const PreView = () => {
                         docItem: item,
                       },
                     })
-                  }>
+                  }
+                >
                   <TitleTextBox>
                     <BoardChildTitle>{item.title}</BoardChildTitle>
                     <BoardText>{item.content}</BoardText>

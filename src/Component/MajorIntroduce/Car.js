@@ -80,12 +80,12 @@ const Car = () => {
             기계 장치, hw, 센서, 반도체, 통신, 전기전자장비, sw 등의 통합 시습의
             교육을 통한 다양한 분야에 활용 가능한 능력을 함양하기 위한 융합전공
           </BoardText>
-          <BoardTitle>- 참여 학과</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 참여 학과</BoardTitle>
           <BoardText>
             기계공학과, 유기신소재∙파이버공학과, 전자정보공학부,
             스마트시스템소프트웨어학과
           </BoardText>
-          <BoardTitle>- 필수 교과목</BoardTitle>
+          <BoardTitle style={{ marginTop: "20px" }}>- 필수 교과목</BoardTitle>
           <BoardText>
             1. 융합전공을 위한 심화수학 <br />
             2. 물리학 기초 및 융합

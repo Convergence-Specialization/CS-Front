@@ -16,6 +16,7 @@ import { userApi } from "../../api";
 const Navbar = ({
   Navname,
   isTransparent,
+  isPage,
   isRight1Disabled,
   isRight2Disabled,
   IconRight1,
@@ -60,11 +61,11 @@ const Navbar = ({
           <NavLink
             onClick={
               isTransparent
-                ? () => history.push("/login")
+                ? () => (isPage ? history.push("/") : history.push("/login"))
                 : () => history.push("/")
             }
           >
-            {Navname || "융특 커뮤니티 슝"}
+            {Navname || "SSYUNG"}
           </NavLink>
           <NavLeftMargin />
           {!isRight1Disabled && (

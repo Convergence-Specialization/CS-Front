@@ -14,7 +14,7 @@ import Linkify from "react-linkify";
 const WhiteContainer = styled.div`
   width: 93%;
   padding: 12px 15px;
-  margin: 10px auto;
+  margin: 15px auto;
   border-radius: 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
@@ -209,7 +209,7 @@ const SubjectSelectArea = styled.div`
   display: flex;
   align-items: center;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 15px;
 `;
 const SubjectSelectImg = styled.img`
   width: 26px;

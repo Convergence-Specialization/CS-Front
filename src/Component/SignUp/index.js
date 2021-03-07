@@ -189,11 +189,12 @@ const SignUp = () => {
               alert("이메일을 입력해주세요");
               return;
             }
-            if (
-              document.getElementById("nameField").value === "" ||
-              document.getElementById("studentNumber").value === ""
-            ) {
-              alert("이름과 학번을 입력해주세요");
+            if (document.getElementById("nameField").value === "") {
+              alert("이름을 입력해주세요");
+              return;
+            }
+            if (document.getElementById("studentNumber").value === "") {
+              alert("학번을 입력해주세요");
               return;
             }
             if (document.getElementById("studentNumber").value.length !== 8) {
@@ -231,6 +232,11 @@ const SignUp = () => {
                     "회원 탈퇴한 이메일이나 이미 가입한 이메일로는 회원가입이 불가능합니다."
                   );
                 }
+                if (err.response.status === 400) {
+                  message.destroy();
+                  message.error("비밀번호를 6자리 이상으로 만들어주세요.");
+                }
+
                 setLoading(false);
               });
           }}

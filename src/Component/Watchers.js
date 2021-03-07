@@ -11,7 +11,7 @@ const NEED_PERMISSION_PATHS = [
   "/board/announcement",
   "/board/event",
   "/board/hot",
-  // "/mypage",
+  "/promotion",
   "/howtouse",
   "/notification",
 ];

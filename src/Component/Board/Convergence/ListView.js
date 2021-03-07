@@ -14,7 +14,7 @@ const BoardContainer = styled.div`
   width: 93%;
   min-height: 80vh;
   border-radius: 15px;
-  margin: 20px auto;
+  margin: 15px auto;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: white;
 `;
@@ -90,7 +90,11 @@ const ConvergenceListView = () => {
           ) : (
             posts.map((item, idx) => (
               <BoardChildWrapper
-                style={posts.length-1 === idx ? {} : {borderBottom:'2.5px solid #f1f1f1'}}
+                style={
+                  posts.length - 1 === idx
+                    ? {}
+                    : { borderBottom: "2.5px solid #f1f1f1" }
+                }
                 key={idx}
                 onClick={() =>
                   history.push({
@@ -100,13 +104,14 @@ const ConvergenceListView = () => {
                       docItem: item,
                     },
                   })
-                }>
-              
+                }
+              >
                 <BoardChildTitle style={{ width: "80%" }}>
                   <img
                     src={horseIcons.newhorse}
                     alt="융슝이"
-                    style={{ width: "25px", marginRight: "5px" }}></img>
+                    style={{ width: "25px", marginRight: "5px" }}
+                  ></img>
                   {item.nickname}
                 </BoardChildTitle>
                 <BoardChildContent>{item.content}</BoardChildContent>
@@ -119,14 +124,14 @@ const ConvergenceListView = () => {
                     alt="하트 아이콘"
                     style={{ width: "13px", marginRight: " 4px" }}
                   />
-                  <div style={{fontSize:'13px'}}>{item.likeCount}</div>
+                  <div style={{ fontSize: "13px" }}>{item.likeCount}</div>
                   <div style={{ margin: " 0px 2px 0px 4px" }}>|</div>
                   <img
                     src={readDoc.speech_bubble}
                     alt="말풍선 아이콘"
                     style={{ width: "13px", margin: "0px 4px" }}
                   />
-                  <div style={{fontSize:'13px'}}>{item.commentCount}</div>
+                  <div style={{ fontSize: "13px" }}>{item.commentCount}</div>
                 </BoardChildMetaText>
               </BoardChildWrapper>
             ))
@@ -153,7 +158,8 @@ const ConvergenceListView = () => {
               } finally {
                 setUploading(false);
               }
-            }}>
+            }}
+          >
             더보기
           </MoreButton>
         )}

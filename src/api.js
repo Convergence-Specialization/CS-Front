@@ -5,7 +5,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { boardNameDict, NOTIFICATION_TYPES } from "./assets/Dicts";
 
 const api = axios.create({
-  baseURL: "https://convergence-ssu.herokuapp.com/",
+  baseURL: "https://specialconvergence.herokuapp.com/",
   // baseURL: "http://localhost:5000",
 });
 

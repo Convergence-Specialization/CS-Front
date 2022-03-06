@@ -172,7 +172,7 @@ const SignUp = () => {
           <Wrap>약관에 동의합니다.</Wrap>
           <Text
             onClick={() =>
-              window.open("https://www.convergencessu.com/termsandconditions")
+              window.open("https://convergence-specialization.github.io/CS-Front/termsandconditions")
             }>
             자세히 보기
           </Text>
@@ -183,7 +183,7 @@ const SignUp = () => {
           <Text
             left="160px"
             onClick={() =>
-              window.open("https://www.convergencessu.com/privacy")
+              window.open("https://convergence-specialization.github.io/CS-Front/privacy")
             }>
             자세히 보기
           </Text>

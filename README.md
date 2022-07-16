@@ -1,7 +1,8 @@
+> 관리 불가로 사이트를 내립니다. `gh-pages` 브랜치가 github pages 서비스가 되는 공간이었는데 이 브랜치를 내리고 `master` 브랜치의 root에 7z로 압축해놓았습니다.
+> 추후 복원 시 해당 압축 파일을 사용하면 됩니다.
 # 융합특성화 자유전공학부 커뮤니티
 ![image](https://user-images.githubusercontent.com/74090200/109977309-075f5800-7d40-11eb-964d-c5fd92ac9888.png)
 ## 개발 환경
- 
 * Front:  
 React JS  
   
